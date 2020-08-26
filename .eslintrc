@@ -1,0 +1,3 @@
+{
+  "extends": ["@pacote/eslint-config", "@pacote/eslint-config-react", "@pacote/eslint-config-jest"]
+}
