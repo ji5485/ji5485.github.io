@@ -62,6 +62,11 @@
     "@pacote/eslint-config": "^2.0.0",
     "@pacote/eslint-config-jest": "^1.0.0",
     "@pacote/eslint-config-react": "^1.0.0",
+    "@storybook/addon-actions": "^6.0.20",
+    "@storybook/addon-essentials": "^6.0.20",
+    "@storybook/addon-knobs": "^6.0.20",
+    "@storybook/addon-links": "^6.0.20",
+    "@storybook/react": "^6.0.20",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.0.2",
     "@types/compass-vertical-rhythm": "^1.4.0",
@@ -77,6 +82,7 @@
     "@types/typography-breakpoint-constants": "^0.16.0",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
+    "babel-loader": "^8.1.0",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-standard": "^14.0.0",
@@ -93,6 +99,7 @@
     "jest": "^25.1.0",
     "lint-staged": "^10.0.7",
     "prettier": "^2.0.1",
+    "react-is": "^16.13.1",
     "ts-jest": "^25.2.0",
     "typescript": "^3.0.3",
     "webpack": "^4.19.1"
@@ -108,7 +115,9 @@
     "develop": "gatsby develop",
     "format": "prettier --write '{__mocks__,src,test}/**/*.{ts,tsx}' '*.js'",
     "lint": "eslint '{__mocks__,src,test}/**/*.{js,ts,tsx}'",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
