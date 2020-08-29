@@ -6,7 +6,7 @@ type ProfileImageStyleProps = {
   height: number;
 };
 
-interface ProfileImageProps extends ProfileImageStyleProps {
+export interface ProfileImageProps extends ProfileImageStyleProps {
   src: string;
   alt: string;
 }
@@ -25,7 +25,7 @@ const ProfileImageComponent = styled.div<ProfileImageStyleProps>`
 
 const ProfileImage: StatelessComponent<ProfileImageProps> = function ({ src, alt, ...style }) {
   return (
-    <ProfileImageComponent style={style}>
+    <ProfileImageComponent {...style}>
       <img src={src} alt={alt} />
     </ProfileImageComponent>
   );
