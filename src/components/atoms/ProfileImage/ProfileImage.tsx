@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 type ProfileImageStyleProps = {
@@ -12,8 +12,8 @@ export interface ProfileImageProps extends ProfileImageStyleProps {
 }
 
 const ProfileImageComponent = styled.div<ProfileImageStyleProps>`
-  width: ${({ width }) => width + 'px'},
-  height: ${({ height }) => height + 'px'},
+  width: ${({ width }) => width + 'px'};
+  height: ${({ height }) => height + 'px'};
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   display: flex;
@@ -21,9 +21,15 @@ const ProfileImageComponent = styled.div<ProfileImageStyleProps>`
   align-items: center;
   overflow: hidden;
   cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
-const ProfileImage: StatelessComponent<ProfileImageProps> = function ({ src, alt, ...style }) {
+const ProfileImage: FunctionComponent<ProfileImageProps> = function ({ src, alt, ...style }) {
   return (
     <ProfileImageComponent {...style}>
       <img src={src} alt={alt} />

@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 type IconStyleProps = {
@@ -23,7 +23,7 @@ const IconComponent = styled.svg<IconStyleProps>`
   transform: scale(${({scale}) => scale});
 `;
 
-const Icon: StatelessComponent<IconProps> = function ({ type, ...style }) {
+const Icon: FunctionComponent<IconProps> = function ({ type, ...style }) {
   return (
     <IconComponent {...style}>
       <path d={ICON_TYPE[type]}/>
