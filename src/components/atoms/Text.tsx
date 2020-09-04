@@ -5,15 +5,15 @@ type TextStyleProps = {
   size: number;
   weight: number;
   color: string;
-  responsive?: object;
+  nestedStyle?: object;
 };
 
 export interface TextProps extends TextStyleProps {
   children: string;
 }
 
-const TextComponent = styled.div<TextStyleProps>(
-  ({ size, weight, color, responsive }) => responsive ? responsive : ({
+export const TextComponent = styled.div<TextStyleProps>(
+  ({ size, weight, color, nestedStyle }) => nestedStyle ? nestedStyle : ({
     fontSize: size + 'px',
     fontWeight: weight,
     color,
@@ -25,7 +25,7 @@ const Text: FunctionComponent<TextProps> = function ({ children, ...style }) {
 };
 
 Text.defaultProps = {
-  responsive: {}
+  nestedStyle: {}
 }
 
 export default Text;

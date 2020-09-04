@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import Text from 'components/atoms/Text';
-import {css} from "@emotion/core";
+import { css } from "@emotion/core";
 
-const MainTextResponsiveStyle = css`
+const MainTextStyle = css`
   font-size: 50px;
   font-weight: 500;
   color: 1E1F21;
@@ -16,7 +16,7 @@ const MainTextResponsiveStyle = css`
   }
 `;
 
-const SubTextResponsiveStyle = css`
+const SubTextStyle = css`
   font-size: 30px;
   font-weight: 300;
   color: 1E1F21;
@@ -33,9 +33,9 @@ const SubTextResponsiveStyle = css`
 const IntroductionText: FunctionComponent<{}> = function ({}) {
   return (
     <div>
-      <Text responsive={MainTextResponsiveStyle}>Hello, I am Ju Hyeon Do</Text>
-      <Text responsive={SubTextResponsiveStyle}>I am a Junior Full-Stack Developer,</Text>
-      <Text responsive={SubTextResponsiveStyle}>hoping to become Professional Developer</Text>
+      <Text nestedStyle={MainTextStyle}>Hello, I am Ju Hyeon Do</Text>
+      <Text nestedStyle={SubTextStyle}>I am a Junior Full-Stack Developer,</Text>
+      <Text nestedStyle={SubTextStyle}>hoping to become Professional Developer</Text>
     </div>
   );
 };

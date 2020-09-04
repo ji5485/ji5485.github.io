@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import Link from 'components/atoms/Link';
-import Text from 'components/atoms/Text';
+import Link, { LinkComponent } from 'components/atoms/Link';
+import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
 
 export interface SideMenuProps {}
@@ -13,6 +13,11 @@ const SideMenuComponent = styled.div`
   flex-direction: row;
   justify-content: center;
   writing-mode: vertical-rl;
+
+  ${LinkComponent} + ${TextComponent},
+  ${LinkComponent} + ${LinkComponent} {
+    margin-top: 10px;
+  }
 `;
 
 const SideMenu: FunctionComponent<SideMenuProps> = function ({}) {

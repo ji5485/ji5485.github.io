@@ -11,7 +11,7 @@ export interface ProfileImageProps extends ProfileImageStyleProps {
   alt: string;
 }
 
-const ProfileImageComponent = styled.div<ProfileImageStyleProps>`
+export const ProfileImageComponent = styled.div<ProfileImageStyleProps>`
   width: ${({ width }) => width + 'px'};
   height: ${({ height }) => height + 'px'};
   border: 1px solid rgba(0, 0, 0, 0.1);
