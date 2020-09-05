@@ -3,16 +3,12 @@ import Link, { LinkComponent } from 'components/atoms/Link';
 import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
 
-export interface SideMenuProps {}
+export interface HeaderMenuProps {}
 
-const SideMenuComponent = styled.div`
+export const HeaderMenuComponent = styled.div`
   display: flex;
-  width: 15px;
+  justify-content: flex-end;
   font-weight: 300;
-  margin-left: auto;
-  flex-direction: row;
-  justify-content: center;
-  writing-mode: vertical-rl;
 
   ${TextComponent} {
     cursor: pointer;
@@ -20,13 +16,13 @@ const SideMenuComponent = styled.div`
 
   ${LinkComponent} + ${TextComponent},
   ${LinkComponent} + ${LinkComponent} {
-    margin-top: 30px;
+    margin-left: 30px;
   }
 `;
 
-const SideMenu: FunctionComponent<SideMenuProps> = function ({}) {
+const HeaderMenu: FunctionComponent<HeaderMenuProps> = function ({}) {
   return (
-    <SideMenuComponent>
+    <HeaderMenuComponent>
       <Link to="/">
         <Text>Main</Text>
       </Link>
@@ -40,8 +36,8 @@ const SideMenu: FunctionComponent<SideMenuProps> = function ({}) {
         <Text>Blog</Text>
       </Link>
       <Text extra={{marginTop: '40px', cursor: 'pointer'}}>To Dark Mode</Text>
-    </SideMenuComponent>
+    </HeaderMenuComponent>
   );
 };
 
-export default SideMenu;
+export default HeaderMenu;

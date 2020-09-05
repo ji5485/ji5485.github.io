@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 
 export interface LinkProps {
   to: string;
+  target?: string;
   nestedStyle?: object;
   children: ReactNode;
 }
@@ -16,11 +17,12 @@ export const LinkComponent = styled(GatsbyLink)`
   }
 `;
 
-const Link: FunctionComponent<LinkProps> = function({ to, nestedStyle, children }) {
-  return <LinkComponent to={to} activeClassName="active" style={nestedStyle}>{children}</LinkComponent>
+const Link: FunctionComponent<LinkProps> = function({ to, target, nestedStyle, children }) {
+  return <LinkComponent to={to} target={target} activeClassName="active" style={nestedStyle}>{children}</LinkComponent>
 }
 
 Link.defaultProps = {
+  target: "_self",
   nestedStyle: {}
 };
 

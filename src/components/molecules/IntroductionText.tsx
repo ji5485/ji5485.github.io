@@ -6,6 +6,7 @@ const MainTextStyle = css`
   font-size: 50px;
   font-weight: 500;
   color: 1E1F21;
+  margin-bottom: 10px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
     font-size: 40px;
