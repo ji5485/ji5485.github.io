@@ -9,7 +9,7 @@ const MainTextStyle = css`
   margin-bottom: 10px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    font-size: 40px;
+    font-size: 35px;
   }
 
   @media (max-width: 767px) {
@@ -23,7 +23,7 @@ const SubTextStyle = css`
   color: 1E1F21;
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   @media (max-width: 767px) {

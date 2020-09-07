@@ -14,9 +14,16 @@ export const HeaderMenuComponent = styled.div`
     cursor: pointer;
   }
 
-  ${LinkComponent} + ${TextComponent},
-  ${LinkComponent} + ${LinkComponent} {
-    margin-left: 30px;
+  @media (min-width: 768px) {
+    ${LinkComponent} + ${TextComponent},
+    ${LinkComponent} + ${LinkComponent} {
+      margin-left: 30px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    justify-content: space-between;
   }
 `;
 

@@ -11,8 +11,8 @@ interface TagsPageProps {
 
 const TagsPage = ({ data }: TagsPageProps) => {
   return (
-    <Layout>
-      <Helmet title="Tags" />
+    <div>
+      {/* <Helmet title="Tags" />
       <div>
         <h2>Tags</h2>
         <ul>
@@ -22,8 +22,8 @@ const TagsPage = ({ data }: TagsPageProps) => {
             </li>
           ))}
         </ul>
-      </div>
-    </Layout>
+      </div> */}
+    </div>
   )
 }
 

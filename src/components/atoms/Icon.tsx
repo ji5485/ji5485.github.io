@@ -17,6 +17,8 @@ const ICON_TYPE = {
 }
 
 export const IconComponent = styled.svg<IconStyleProps>`
+  display: flex;
+  align-items: flex-end;
   width: 30px;
   height: 30px;
   fill: ${({fill}) => fill};

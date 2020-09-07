@@ -10,26 +10,33 @@ export interface IconListProps {
       type: string;
     },
   ];
+  scale: number;
 }
 
 export const IconListComponent = styled.div`
+  display: flex;
+  
   a + a {
     margin-left: 20px;
   }
 `;
 
-const IconList: FunctionComponent<IconListProps> = function ({ list }) {
+const IconList: FunctionComponent<IconListProps> = function ({ list, scale }) {
   return (
     <IconListComponent>
       {list && list.map(({ to, type }, index) => {
         return (
           <Link to={to} key={index} target="_blank">
-            <Icon type={type} />
+            <Icon type={type} scale={scale} />
           </Link>
         );
       })}
     </IconListComponent>
   );
+};
+
+IconList.defaultProps = {
+  scale: 1
 };
 
 export default IconList;

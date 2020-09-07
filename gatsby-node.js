@@ -47,9 +47,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   }
 
-  const IndexTemplate = path.resolve('src/templates/IndexTemplate.tsx');
-  const TagTemplate = path.resolve('src/templates/TagTemplate.tsx');
-  const SingleTemplate = path.resolve('src/templates/SingleTemplate.tsx');
+  const IndexTemplate = path.resolve('src/template.tsx');
+  // const TagTemplate = path.resolve('src/templates/TagTemplate.tsx');
+  // const SingleTemplate = path.resolve('src/templates/SingleTemplate.tsx');
 
   const { data, errors } = await graphql(`
     {
@@ -79,16 +79,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const edges = data.allMdx.edges;
 
-  edges.forEach(({ node }) => {
-    const { frontmatter, parent } = node;
-    const path = frontmatter.path || `/${parent.sourceInstanceName}/${parent.name}`;
-    createPage({
-      path,
-      component: SingleTemplate,
-    });
-  });
+  // edges.forEach(({ node }) => {
+  //   const { frontmatter, parent } = node;
+  //   const path = frontmatter.path || `/${parent.sourceInstanceName}/${parent.name}`;
+  //   createPage({
+  //     path,
+  //     component: SingleTemplate,
+  //   });
+  // });
 
-  reporter.info(`Articles (${edges.length})`);
+  // reporter.info(`Articles (${edges.length})`);
 
   createContentListPages({
     itemTotal: edges.length,
@@ -98,16 +98,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   reporter.info(`Index (${Math.ceil(edges.length / 10)})`);
 
-  groupCountBy('tags', edges).forEach(([tag, itemTotal]) => {
-    createContentListPages({
-      itemTotal,
-      prefix: `/tags/${kebabCase(tag)}`,
-      component: TagTemplate,
-      context: { tag },
-    });
+  // groupCountBy('tags', edges).forEach(([tag, itemTotal]) => {
+  //   createContentListPages({
+  //     itemTotal,
+  //     prefix: `/tags/${kebabCase(tag)}`,
+  //     component: TagTemplate,
+  //     context: { tag },
+  //   });
 
-    reporter.info(`Tag: ${tag} (${Math.ceil(itemTotal / 10)})`);
-  });
+  //   reporter.info(`Tag: ${tag} (${Math.ceil(itemTotal / 10)})`);
+  // });
 };
 
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {

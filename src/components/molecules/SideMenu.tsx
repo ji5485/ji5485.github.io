@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 
 export interface SideMenuProps {}
 
-const SideMenuComponent = styled.div`
+export const SideMenuComponent = styled.div`
   display: flex;
   width: 15px;
   font-weight: 300;

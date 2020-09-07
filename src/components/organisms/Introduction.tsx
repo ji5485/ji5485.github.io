@@ -18,6 +18,16 @@ export const IntroductionComponent = styled.div`
   ${ProfileImageComponent} {
     margin-right: 30px;
   }
+
+  @media (max-width: 1199px) {
+    ${ProfileImageComponent} {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const RightIntroduction = styled.div`
@@ -26,6 +36,12 @@ const RightIntroduction = styled.div`
 
   ${IconListComponent} {
     margin-top: 30px;
+  }
+
+  @media (max-width: 1199px) {
+    ${IconListComponent} {
+      display: none;
+    }
   }
 `;
 
@@ -39,8 +55,8 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
   return (
     <IntroductionComponent>
       <ProfileImage
-        width={width >= 768 ? 200 : 120}
-        height={width >= 768 ? 200 : 120}
+        width={width >= 1200 ? 200 : (width >= 768 ? 150 : 120)}
+        height={width >= 1200 ? 200 : (width >= 768 ? 150 : 120)}
         src={profileImageLink}
         alt={profileImageAlt}
       />
@@ -52,11 +68,5 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
     </IntroductionComponent>
   );
 };
-
-Introduction.defaultProps = {
-  profileImageLink: "#",
-  profileImageAlt: "Empty Image",
-  iconList: []
-}
 
 export default Introduction;
