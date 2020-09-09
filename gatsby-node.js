@@ -9,6 +9,25 @@
 const path = require('path');
 const { kebabCase } = require('lodash');
 
+// Setup Import Alias
+exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
+  if (stage !== 'develop') {
+    return;
+  }
+  const config = getConfig();
+  const output = config.output || {};
+
+  actions.setWebpackConfig({
+    output,
+    resolve: {
+      alias: {
+        components: path.resolve(__dirname, 'src/components'),
+        hooks: path.resolve(__dirname, 'src/hooks'),
+      },
+    },
+  });
+};
+
 function groupCountBy(field, edges) {
   const groupCounts = edges.reduce((acc, { node }) => {
     const groups = node.frontmatter[field] || [];
@@ -21,114 +40,91 @@ function groupCountBy(field, edges) {
   return Object.entries(groupCounts);
 }
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions;
+// exports.createPages = async ({ actions, graphql, reporter }) => {
+//   const { createPage } = actions;
 
-  function createContentListPages({ itemTotal, prefix, component, context, limit = 10 }) {
-    const pageTotal = Math.ceil(itemTotal / limit);
+//   function createContentListPages({ itemTotal, prefix, component, context, limit = 10 }) {
+//     const pageTotal = Math.ceil(itemTotal / limit);
 
-    for (let page = 1; page <= pageTotal; page++) {
-      const path = page > 1 ? `${prefix}/${page}` : `${prefix}`;
-      const skip = (page - 1) * limit;
+//     for (let page = 1; page <= pageTotal; page++) {
+//       const path = page > 1 ? `${prefix}/${page}` : `${prefix}`;
+//       const skip = (page - 1) * limit;
 
-      createPage({
-        path,
-        component,
-        context: {
-          ...context,
-          itemTotal,
-          limit,
-          page,
-          pageTotal,
-          prefix,
-          skip,
-        },
-      });
-    }
-  }
+//       createPage({
+//         path,
+//         component,
+//         context: {
+//           ...context,
+//           itemTotal,
+//           limit,
+//           page,
+//           pageTotal,
+//           prefix,
+//           skip,
+//         },
+//       });
+//     }
+//   }
 
-  const IndexTemplate = path.resolve('src/template.tsx');
-  // const TagTemplate = path.resolve('src/templates/TagTemplate.tsx');
-  // const SingleTemplate = path.resolve('src/templates/SingleTemplate.tsx');
+//   const IndexTemplate = path.resolve('src/template.tsx');
+//   const TagTemplate = path.resolve('src/templates/TagTemplate.tsx');
+//   const SingleTemplate = path.resolve('src/templates/SingleTemplate.tsx');
 
-  const { data, errors } = await graphql(`
-    {
-      allMdx(filter: { frontmatter: { draft: { ne: true } } }) {
-        edges {
-          node {
-            parent {
-              ... on File {
-                name
-                sourceInstanceName
-              }
-            }
-            frontmatter {
-              path
-              tags
-            }
-          }
-        }
-      }
-    }
-  `);
+//   const { data, errors } = await graphql(`
+//     {
+//       allMdx(filter: { frontmatter: { draft: { ne: true } } }) {
+//         edges {
+//           node {
+//             parent {
+//               ... on File {
+//                 name
+//                 sourceInstanceName
+//               }
+//             }
+//             frontmatter {
+//               path
+//               tags
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `);
 
-  if (errors) {
-    reporter.panicOnBuild('Error fetching data', errors);
-    return;
-  }
+//   if (errors) {
+//     reporter.panicOnBuild('Error fetching data', errors);
+//     return;
+//   }
 
-  const edges = data.allMdx.edges;
+//   const edges = data.allMdx.edges;
 
-  // edges.forEach(({ node }) => {
-  //   const { frontmatter, parent } = node;
-  //   const path = frontmatter.path || `/${parent.sourceInstanceName}/${parent.name}`;
-  //   createPage({
-  //     path,
-  //     component: SingleTemplate,
-  //   });
-  // });
+//   edges.forEach(({ node }) => {
+//     const { frontmatter, parent } = node;
+//     const path = frontmatter.path || `/${parent.sourceInstanceName}/${parent.name}`;
+//     createPage({
+//       path,
+//       component: SingleTemplate,
+//     });
+//   });
 
-  // reporter.info(`Articles (${edges.length})`);
+//   reporter.info(`Articles (${edges.length})`);
 
-  createContentListPages({
-    itemTotal: edges.length,
-    prefix: '/all',
-    component: IndexTemplate,
-  });
+//   createContentListPages({
+//     itemTotal: edges.length,
+//     prefix: '/all',
+//     component: IndexTemplate,
+//   });
 
-  reporter.info(`Index (${Math.ceil(edges.length / 10)})`);
+//   reporter.info(`Index (${Math.ceil(edges.length / 10)})`);
 
-  // groupCountBy('tags', edges).forEach(([tag, itemTotal]) => {
-  //   createContentListPages({
-  //     itemTotal,
-  //     prefix: `/tags/${kebabCase(tag)}`,
-  //     component: TagTemplate,
-  //     context: { tag },
-  //   });
+//   groupCountBy('tags', edges).forEach(([tag, itemTotal]) => {
+//     createContentListPages({
+//       itemTotal,
+//       prefix: `/tags/${kebabCase(tag)}`,
+//       component: TagTemplate,
+//       context: { tag },
+//     });
 
-  //   reporter.info(`Tag: ${tag} (${Math.ceil(itemTotal / 10)})`);
-  // });
-};
-
-exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
-  if (stage !== 'develop') {
-    return;
-  }
-  const config = getConfig();
-  const output = config.output || {};
-  const url = new URL(execSync('gp url 8000').toString());
-  output.publicPath = 'https://' + url.host + ':443/';
-  actions.setWebpackConfig({
-    output,
-    devServer: {
-      public: url.host + ':443',
-      disableHostCheck: true,
-    },
-    resolve: {
-      alias: {
-        components: path.resolve(__dirname, 'src/components'),
-        hooks: path.resolve(__dirname, 'src/hooks'),
-      },
-    },
-  });
-};
+//     reporter.info(`Tag: ${tag} (${Math.ceil(itemTotal / 10)})`);
+//   });
+// };

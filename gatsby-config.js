@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
 const gatsbyRemarkPlugins = [
-  'gatsby-plugin-typegen',
   {
     resolve: 'gatsby-remark-smartypants',
     options: {
@@ -27,39 +26,26 @@ const gatsbyRemarkPlugins = [
     resolve: 'gatsby-remark-copy-linked-files',
     options: {},
   },
-]
+];
 
 module.exports = {
+  // Gatsby Blog Metadata
+  // TODO: Thinking Metadata of My Gatsby Blog
   siteMetadata: {
-    title: 'TypeScript Gatsby Starter',
-    author: 'Luís Rodrigues',
-    description: 'A Gatsby starter using TypeScript.',
-    siteUrl: 'https://goblindegook-gatsby-starter-typescript.netlify.com',
+    title: '',
+    author: 'Ju Hyeon Do',
+    description: '',
+    siteUrl: 'https://ji5485.github.io/',
   },
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/typography',
-        omitGoogleFont: true,
-      },
-    },
-    'gatsby-plugin-catch-links',
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: 'content',
         path: `${__dirname}/content`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: '#ff5700',
-        showSpinner: false,
       },
     },
     {
@@ -126,8 +112,8 @@ module.exports = {
                   url: site.siteMetadata.siteUrl + node.frontmatter.path,
                   guid: site.siteMetadata.siteUrl + node.frontmatter.path,
                   custom_elements: [{ 'content:encoded': node.html }],
-                }
-              })
+                };
+              });
             },
             query: `
               {
@@ -155,35 +141,13 @@ module.exports = {
         ],
       },
     },
+    // TODO: Using SiteMap Plugin for Search Engine Optimization
+    'gatsby-plugin-sitemap',
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: `gatsby-plugin-offline`,
       options: {
-        name: 'gatsby-starter-typescript',
-        short_name: 'GatsbyTS',
-        start_url: '/',
-        background_color: '#f7f0eb',
-        theme_color: '#a2466c',
-        display: 'minimal-ui',
-        icons: [
-          {
-            // Everything in /static will be copied to an equivalent
-            // directory in /public during development and build, so
-            // assuming your favicons are in /static/favicon,
-            // you can reference them here
-            src: '/favicon/192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/favicon/512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
+        precachePages: ['/about', '/portfolio'],
       },
     },
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
   ],
-}
+};

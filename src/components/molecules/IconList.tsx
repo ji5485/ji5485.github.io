@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import Link from 'components/atoms/Link';
 import Icon from 'components/atoms/Icon';
 import styled from '@emotion/styled';
 
@@ -26,9 +25,9 @@ const IconList: FunctionComponent<IconListProps> = function ({ list, scale }) {
     <IconListComponent>
       {list && list.map(({ to, type }, index) => {
         return (
-          <Link to={to} key={index} target="_blank">
+          <a href={to} key={index} target="_blank">
             <Icon type={type} scale={scale} />
-          </Link>
+          </a>
         );
       })}
     </IconListComponent>

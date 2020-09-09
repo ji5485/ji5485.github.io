@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import Layout from "../Layout";
 import Main from 'components/templates/Main';
 
 const IndexPageProps = {
@@ -14,11 +15,13 @@ const IndexPageProps = {
 
 const IndexPage: FunctionComponent<{}> = function ({}) {
   return (
-    <Main
-      profileImageLink={IndexPageProps.profileImageLink}
-      profileImageAlt={IndexPageProps.profileImageAlt}
-      iconList={IndexPageProps.iconList}
-    />
+    <Layout>
+      <Main
+        profileImageLink={IndexPageProps.profileImageLink}
+        profileImageAlt={IndexPageProps.profileImageAlt}
+        iconList={IndexPageProps.iconList}
+      />
+    </Layout>
   );
 };
 
