@@ -7,7 +7,7 @@
  */
 
 const path = require('path');
-const { kebabCase } = require('lodash');
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
@@ -28,103 +28,59 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
   });
 };
 
-function groupCountBy(field, edges) {
-  const groupCounts = edges.reduce((acc, { node }) => {
-    const groups = node.frontmatter[field] || [];
-    groups.forEach((group) => {
-      acc[group] = (acc[group] || 0) + 1;
-    });
-    return acc;
-  }, {});
+// Make a Slug each Posts
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
 
-  return Object.entries(groupCounts);
-}
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode });
 
-// exports.createPages = async ({ actions, graphql, reporter }) => {
-//   const { createPage } = actions;
+    createNodeField({ node, name: 'slug', value: `/blog${slug}` });
+  }
+};
 
-//   function createContentListPages({ itemTotal, prefix, component, context, limit = 10 }) {
-//     const pageTotal = Math.ceil(itemTotal / limit);
+// Transform Markdown File to Page
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions;
 
-//     for (let page = 1; page <= pageTotal; page++) {
-//       const path = page > 1 ? `${prefix}/${page}` : `${prefix}`;
-//       const skip = (page - 1) * limit;
+  // Get All Markdown File For Paging
+  const getAllMarkdownQuery = await graphql(
+    `
+      {
+        allMarkdownRemark {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
 
-//       createPage({
-//         path,
-//         component,
-//         context: {
-//           ...context,
-//           itemTotal,
-//           limit,
-//           page,
-//           pageTotal,
-//           prefix,
-//           skip,
-//         },
-//       });
-//     }
-//   }
+  // Handle errors
+  if (getAllMarkdownQuery.errors) {
+    reporter.panicOnBuild(`Error while running transform markdown to page`);
+    return;
+  }
 
-//   const IndexTemplate = path.resolve('src/template.tsx');
-//   const TagTemplate = path.resolve('src/templates/TagTemplate.tsx');
-//   const SingleTemplate = path.resolve('src/templates/SingleTemplate.tsx');
+  const BlogTemplateComponent = path.resolve(__dirname, 'src/components/templates/BlogItem.tsx');
 
-//   const { data, errors } = await graphql(`
-//     {
-//       allMdx(filter: { frontmatter: { draft: { ne: true } } }) {
-//         edges {
-//           node {
-//             parent {
-//               ... on File {
-//                 name
-//                 sourceInstanceName
-//               }
-//             }
-//             frontmatter {
-//               path
-//               tags
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
-
-//   if (errors) {
-//     reporter.panicOnBuild('Error fetching data', errors);
-//     return;
-//   }
-
-//   const edges = data.allMdx.edges;
-
-//   edges.forEach(({ node }) => {
-//     const { frontmatter, parent } = node;
-//     const path = frontmatter.path || `/${parent.sourceInstanceName}/${parent.name}`;
-//     createPage({
-//       path,
-//       component: SingleTemplate,
-//     });
-//   });
-
-//   reporter.info(`Articles (${edges.length})`);
-
-//   createContentListPages({
-//     itemTotal: edges.length,
-//     prefix: '/all',
-//     component: IndexTemplate,
-//   });
-
-//   reporter.info(`Index (${Math.ceil(edges.length / 10)})`);
-
-//   groupCountBy('tags', edges).forEach(([tag, itemTotal]) => {
-//     createContentListPages({
-//       itemTotal,
-//       prefix: `/tags/${kebabCase(tag)}`,
-//       component: TagTemplate,
-//       context: { tag },
-//     });
-
-//     reporter.info(`Tag: ${tag} (${Math.ceil(itemTotal / 10)})`);
-//   });
-// };
+  getAllMarkdownQuery.data.allMarkdownRemark.edges.forEach(
+    ({
+      node: {
+        fields: { slug },
+      },
+    }) => {
+      createPage({
+        path: slug,
+        component: BlogTemplateComponent,
+        context: {
+          slug,
+        },
+      });
+    },
+  );
+};
