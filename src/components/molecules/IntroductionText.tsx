@@ -4,8 +4,8 @@ import { css } from "@emotion/core";
 
 const MainTextStyle = css`
   font-size: 50px;
-  font-weight: 500;
-  color: 1E1F21;
+  font-weight: 700;
+  color: #1E1F21;
   margin-bottom: 10px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
@@ -18,9 +18,9 @@ const MainTextStyle = css`
 `;
 
 const SubTextStyle = css`
-  font-size: 30px;
-  font-weight: 300;
-  color: 1E1F21;
+  font-size: 25px;
+  font-weight: 100;
+  color: #1E1F21;
 
   @media (min-width: 768px) and (max-width: 1199px) {
     font-size: 20px;

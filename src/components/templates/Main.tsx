@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import ProfileImage, { ProfileImageComponent } from 'components/atoms/ProfileImage';
-import HeaderMenu, { HeaderMenuComponent } from "components/molecules/HeaderMenu";
+import Header from "components/molecules/Header";
 import SideMenu, { SideMenuComponent } from "components/molecules/SideMenu";
-import IconList, { IconListComponent, iconListProps } from 'components/molecules/IconList';
+import IconList, { iconListProps } from 'components/molecules/IconList';
 import Introduction from 'components/organisms/Introduction';
 import useWindowSize from "hooks/useWindowSize";
 
@@ -82,7 +81,7 @@ const Main: FunctionComponent<MainProps> = function ({
   return (
     <MainComponent>
       <MainHeaderComponent>
-        <HeaderMenu />
+        <Header />
       </MainHeaderComponent>
 
       <MainContentComponent>

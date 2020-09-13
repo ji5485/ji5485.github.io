@@ -5,7 +5,7 @@ type TextStyleProps = {
   size: number;
   weight: number;
   color: string;
-  nestedStyle?: object;
+  nestedStyle?: object | null;
 };
 
 export interface TextProps extends TextStyleProps {
@@ -25,7 +25,7 @@ const Text: FunctionComponent<TextProps> = function ({ children, ...style }) {
 };
 
 Text.defaultProps = {
-  nestedStyle: {}
+  nestedStyle: null
 }
 
 export default Text;

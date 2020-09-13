@@ -8,6 +8,7 @@ export interface SideMenuProps {}
 export const SideMenuComponent = styled.div`
   display: flex;
   width: 15px;
+  height: 100%;
   font-weight: 300;
   margin-left: auto;
   flex-direction: row;

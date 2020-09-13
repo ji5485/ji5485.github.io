@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import Text from "components/atoms/Text";
-import { TextProps } from "components/atoms/Text/Text";
 import { withKnobs, text, number, select, color } from '@storybook/addon-knobs';
 
 export default {
@@ -9,10 +8,10 @@ export default {
   decorators: [withKnobs]
 }
 
-export const TextStory: FunctionComponent<TextProps> = () => {
+export const TextStory: FunctionComponent<{}> = () => {
   const children = text('Text', 'Hello Storybook');
-  const size = number('Size', 40);
-  const weight = select('Weight', { Thin: 300, Normal: 500, Bold: 700 }, 500);
+  const size = number('Size', 20);
+  const weight = select('Weight', { Thin: 100, Normal: 400, Bold: 700 }, 400);
   const fontColor = color('Color', "black");
 
   return <Text size={size} weight={weight} color={fontColor}>{children}</Text>;

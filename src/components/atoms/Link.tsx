@@ -14,7 +14,7 @@ export const LinkComponent = styled(GatsbyLink)`
   display: block;
 
   &.active {
-    font-weight: 700;
+    font-weight: 400;
   }
 `;
 
