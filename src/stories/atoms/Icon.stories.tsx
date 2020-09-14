@@ -10,7 +10,7 @@ export default {
 }
 
 export const IconStory: FunctionComponent<IconProps> = () => {
-  const type = select('Type', {Instagram: 'instagram', Facebook: 'facebook', Github: 'github'}, 'instagram');
+  const type = select('Type', {Instagram: 'instagram', Facebook: 'facebook', Github: 'github', Phone: 'phone', Email: 'email'}, 'instagram');
   const scale = number('Scale', 1);
   const fill = color('Color', 'black');
 

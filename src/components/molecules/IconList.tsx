@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 export interface IconListProps {
   list: [
     {
-      to: string;
+      href: string;
       type: string;
     },
   ];
@@ -23,9 +23,9 @@ export const IconListComponent = styled.div`
 const IconList: FunctionComponent<IconListProps> = function ({ list, scale }) {
   return (
     <IconListComponent>
-      {list && list.map(({ to, type }, index) => {
+      {list && list.map(({ href, type }, index) => {
         return (
-          <a href={to} key={index} target="_blank">
+          <a href={href} key={index} target="_blank">
             <Icon type={type} scale={scale} />
           </a>
         );

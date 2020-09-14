@@ -46,7 +46,7 @@ export const HeaderComponent = styled.div`
 const Header: FunctionComponent<HeaderProps> = function ({ logoVisibility }) {
   return (
     <HeaderComponent>
-      <HeaderLeft logoVisibility={true}>
+      <HeaderLeft logoVisibility={logoVisibility}>
         <Text size={15} weight={700}>Too Early To Stop</Text>
       </HeaderLeft>
 

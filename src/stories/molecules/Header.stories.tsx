@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Header from "components/molecules/Header";
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 export default {
   title: "Molecules",
@@ -9,5 +9,7 @@ export default {
 }
 
 export const HeaderStory: FunctionComponent<{}> = () => {
-  return <Header />;
+  const logoVisibility = boolean("Logo Visibility", true);
+
+  return <Header logoVisibility={logoVisibility} />;
 }
