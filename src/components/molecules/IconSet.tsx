@@ -3,12 +3,12 @@ import Icon from 'components/atoms/Icon';
 import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
 
-interface IconSetProps {
+export interface IconSetProps {
   href: string;
   type: string;
-  scale: number;
-  fill?: string;
-  text?: string;
+  size: number;
+  color?: string;
+  text: string;
 }
 
 export const IconSetComponent = styled.div`
@@ -20,20 +20,15 @@ export const IconSetComponent = styled.div`
   }
 `;
 
-const IconSet: FunctionComponent<IconSetProps> = function ({ href, type, scale, fill, text }) {
+const IconSet: FunctionComponent<IconSetProps> = function ({ href, type, size, color, text }) {
   return (
     <IconSetComponent>
       <a href={href} target="_blank">
-        <Icon type={type} scale={scale} fill={fill} />
+        <Icon type={type} size={size} color={color} />
       </a>
-      <Text weight={100} size={18}>{text}</Text>
+      <Text weight={100} size={size - 5}>{text}</Text>
     </IconSetComponent>
   );
-};
-
-IconSet.defaultProps = {
-  scale: 1,
-  fill: '#1E1F21',
 };
 
 export default IconSet;

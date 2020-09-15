@@ -4,7 +4,6 @@ import Header from "components/molecules/Header";
 import SideMenu, { SideMenuComponent } from "components/molecules/SideMenu";
 import IconList, { iconListProps } from 'components/molecules/IconList';
 import Introduction from 'components/organisms/Introduction';
-import useWindowSize from "hooks/useWindowSize";
 
 export interface MainProps {
   profileImageLink: string;
@@ -76,8 +75,6 @@ const Main: FunctionComponent<MainProps> = function ({
   profileImageAlt,
   iconList,
 }) {
-  const { width } = useWindowSize();
-
   return (
     <MainComponent>
       <MainHeaderComponent>
@@ -85,12 +82,12 @@ const Main: FunctionComponent<MainProps> = function ({
       </MainHeaderComponent>
 
       <MainContentComponent>
-        <Introduction profileImageLink={profileImageLink} profileImageAlt={profileImageAlt} iconList={iconList} />
+        <Introduction profileImageLink={profileImageLink} profileImageAlt={profileImageAlt} iconList={iconList} iconSize={30} />
         <SideMenu />
       </MainContentComponent>
 
       <MainFooterComponent>
-        <IconList list={iconList} scale={width >= 1200 ? 1 : 0.8} />
+        <IconList list={iconList} size={25} />
       </MainFooterComponent>
     </MainComponent>
   );

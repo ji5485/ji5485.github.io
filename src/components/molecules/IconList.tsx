@@ -9,7 +9,7 @@ export interface IconListProps {
       type: string;
     },
   ];
-  scale: number;
+  size: number;
 }
 
 export const IconListComponent = styled.div`
@@ -20,22 +20,18 @@ export const IconListComponent = styled.div`
   }
 `;
 
-const IconList: FunctionComponent<IconListProps> = function ({ list, scale }) {
+const IconList: FunctionComponent<IconListProps> = function ({ list, size }) {
   return (
     <IconListComponent>
       {list && list.map(({ href, type }, index) => {
         return (
           <a href={href} key={index} target="_blank">
-            <Icon type={type} scale={scale} />
+            <Icon type={type} size={size} />
           </a>
         );
       })}
     </IconListComponent>
   );
-};
-
-IconList.defaultProps = {
-  scale: 1
 };
 
 export default IconList;

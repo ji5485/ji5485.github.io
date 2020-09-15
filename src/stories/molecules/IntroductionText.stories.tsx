@@ -8,6 +8,6 @@ export default {
   decorators: [withKnobs]
 }
 
-export const IntroductionTextStory: FunctionComponent<{}> = () => {
+export const IntroductionTextStory: FunctionComponent<{}> = function ({}) {
   return <IntroductionText />;
 }

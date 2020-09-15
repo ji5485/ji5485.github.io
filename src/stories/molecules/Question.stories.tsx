@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs]
 }
 
-export const QuestionStory: FunctionComponent<{}> = () => {
+export const QuestionStory: FunctionComponent<{}> = function ({}) {
   const title = text('Title', 'Hello Storybook');
   const content = text('Content', `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`);
 

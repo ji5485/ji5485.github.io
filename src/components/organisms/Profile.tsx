@@ -2,25 +2,17 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Text from 'components/atoms/Text';
 import ProfileImage from 'components/atoms/ProfileImage';
-import IconSet, { IconSetComponent } from 'components/molecules/IconSet';
+import IconSet, { IconSetComponent, IconSetProps } from 'components/molecules/IconSet';
 
-interface ProfileProps {
-  profileImageProps: {
+export interface ProfileProps {
+  profileImage: {
     width: number;
     height: number;
     src: string;
     alt: string;
   };
 
-  IconSetListProps: [
-    {
-      href: string;
-      type: string;
-      scale?: number;
-      fill?: string;
-      text: string;
-    },
-  ];
+  iconSetList: [IconSetProps];
 }
 
 const ProfileComponent = styled.div`
@@ -30,7 +22,7 @@ const ProfileComponent = styled.div`
 
 const ProfileContentComponent = styled.div`
   flex: 1;
-  padding-left: 30px;
+  padding-left: 50px;
 `;
 
 const ProfileIconSetListComponent = styled.div`
@@ -41,27 +33,28 @@ const ProfileIconSetListComponent = styled.div`
 
   ${IconSetComponent} {
     width: 50%;
+    padding: 7px 0;
   }
 `;
 
 const Profile: FunctionComponent<ProfileProps> = function ({
-  profileImageProps: { width, height, src, alt },
-  IconSetListProps,
+  profileImage: { width, height, src, alt },
+  iconSetList,
 }) {
   return (
     <ProfileComponent>
       <ProfileImage width={width} height={height} src={src} alt={alt} />
 
       <ProfileContentComponent>
-        <Text size={30} weight={100}>
+        <Text size={40} weight={100}>
           Ju Hyeon Do
         </Text>
-        <Text size={15} weight={100}>
+        <Text size={20} weight={100}>
           Junior Web Frontend Developer
         </Text>
 
         <ProfileIconSetListComponent>
-          {IconSetListProps.map((props, index) => {
+          {iconSetList.map((props, index) => {
             return <IconSet {...props} key={index} />;
           })}
         </ProfileIconSetListComponent>

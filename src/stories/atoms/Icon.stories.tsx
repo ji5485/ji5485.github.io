@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import Icon from "components/atoms/Icon";
-import { IconProps } from "components/atoms/Icon/Icon";
 import { withKnobs, number, select, color } from '@storybook/addon-knobs';
 
 export default {
@@ -9,10 +8,10 @@ export default {
   decorators: [withKnobs]
 }
 
-export const IconStory: FunctionComponent<IconProps> = () => {
+export const IconStory: FunctionComponent<{}> = function({}) {
   const type = select('Type', {Instagram: 'instagram', Facebook: 'facebook', Github: 'github', Phone: 'phone', Email: 'email'}, 'instagram');
-  const scale = number('Scale', 1);
-  const fill = color('Color', 'black');
+  const size = number('Size', 20);
+  const iconColor = color('Color', 'black');
 
-  return <Icon type={type} scale={scale} fill={fill} />;
+  return <Icon type={type} size={size} color={iconColor} />;
 }

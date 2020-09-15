@@ -9,7 +9,11 @@ interface QuestionProps {
 
 export const QuestionComponent = styled.div`
   ${TextComponent} + ${TextComponent} {
-    margin-top: 30px;
+    margin-top: 40px;
+  }
+
+  & + & {
+    margin-top: 100px;
   }
 `;
 

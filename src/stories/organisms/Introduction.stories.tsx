@@ -10,7 +10,8 @@ const IntroductionProps = {
     { href: 'https://github.com/ji5485', type: 'github' },
     { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
     { href: 'https://www.facebook.com/', type: 'facebook' },
-  ]
+  ],
+  iconSize: 30
 };
 
 export default {
@@ -19,12 +20,13 @@ export default {
   decorators: [withKnobs],
 };
 
-export const IntroductionStory: FunctionComponent<{}> = () => {
+export const IntroductionStory: FunctionComponent<{}> = function ({}) {
   return (
     <Introduction
       profileImageLink={IntroductionProps.profileImageLink}
       profileImageAlt={IntroductionProps.profileImageAlt}
       iconList={IntroductionProps.iconList}
+      iconSize={IntroductionProps.iconSize}
     />
   );
 };

@@ -40,7 +40,7 @@ const SideMenu: FunctionComponent<SideMenuProps> = function ({}) {
       <Link to="/blog">
         <Text>Blog</Text>
       </Link>
-      <Text extra={{marginTop: '40px', cursor: 'pointer'}}>To Dark Mode</Text>
+      <Text>To Dark Mode</Text>
     </SideMenuComponent>
   );
 };

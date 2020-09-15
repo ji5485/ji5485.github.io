@@ -9,6 +9,7 @@ export interface IntroductionProps {
   profileImageLink: string;
   profileImageAlt: string;
   iconList: iconListProps.list;
+  iconSize: iconListProps.size;
 }
 
 export const IntroductionComponent = styled.div`
@@ -48,7 +49,8 @@ const RightIntroduction = styled.div`
 const Introduction: FunctionComponent<IntroductionProps> = function ({
   profileImageLink,
   profileImageAlt,
-  iconList
+  iconList,
+  iconSize
 }) {
   const { width } = useWindowSize();
 
@@ -63,7 +65,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
 
       <RightIntroduction>
         <IntroductionText />
-        <IconList list={iconList} />
+        <IconList list={iconList} size={iconSize} />
       </RightIntroduction>
     </IntroductionComponent>
   );

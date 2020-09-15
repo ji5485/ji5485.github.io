@@ -3,9 +3,11 @@ import Profile from "components/organisms/Profile";
 import { withKnobs, number, text } from "@storybook/addon-knobs";
 
 const IconSetListProps = [
-  { href: 'https://github.com/ji5485', type: 'github' },
-  { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
-  { href: 'https://www.facebook.com/', type: 'facebook' },
+  { href: 'https://www.instagram.com/?hl=ko', type: 'instagram', text: 'hello_d0o', size: 23 },
+  { href: '#', type: 'phone', text: '010-5593-3495', size: 23 },
+  { href: 'https://www.facebook.com/', type: 'facebook', text: 'Ju Hyeon Do', size: 23 },
+  { href: '#', type: 'email', text: 'dong5485@gmail.com', size: 23 },
+  { href: 'https://github.com/ji5485', type: 'github', text: 'HyeonDo Ju', size: 23 },
 ]
 
 export default {

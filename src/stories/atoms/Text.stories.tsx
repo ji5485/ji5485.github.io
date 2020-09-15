@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs]
 }
 
-export const TextStory: FunctionComponent<{}> = () => {
+export const TextStory: FunctionComponent<{}> = function ({}) {
   const children = text('Text', 'Hello Storybook');
   const size = number('Size', 20);
   const weight = select('Weight', { Thin: 100, Normal: 400, Bold: 700 }, 400);

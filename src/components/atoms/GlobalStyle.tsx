@@ -16,6 +16,7 @@ const style = css`
   a:hover {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
   }
 
   html,
