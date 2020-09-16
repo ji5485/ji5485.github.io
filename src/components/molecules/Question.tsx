@@ -5,25 +5,22 @@ import styled from '@emotion/styled';
 interface QuestionProps {
   title: string;
   content: string;
+  slug: string;
 }
 
 export const QuestionComponent = styled.div`
   ${TextComponent} + ${TextComponent} {
     margin-top: 40px;
   }
-
-  & + & {
-    margin-top: 100px;
-  }
 `;
 
-const Question: FunctionComponent<QuestionProps> = function ({ title, content }) {
+const Question: FunctionComponent<QuestionProps> = function ({ title, content, slug }) {
   return (
-    <QuestionComponent>
-      <Text size={40} weight={700}>
+    <QuestionComponent id={slug}>
+      <Text size={35} weight={400}>
         {title}
       </Text>
-      <Text size={20} weight={100}>
+      <Text size={18} weight={100}>
         {content}
       </Text>
     </QuestionComponent>

@@ -6,7 +6,7 @@ type CareerStyleProps = {
   direction: 'right' | 'left';
 };
 
-interface CareerProps extends CareerStyleProps {
+export interface CareerProps extends CareerStyleProps {
   title: string;
   contents: [string];
 }
@@ -17,7 +17,7 @@ const CareerContentsComponent = styled.div`
   }
 `;
 
-const CareerComponent = styled.div<CareerStyleProps>`
+export const CareerComponent = styled.div<CareerStyleProps>`
   display: flex;
   flex-direction: ${({ direction }) => (direction === 'right' ? 'row' : 'row-reverse')};
 

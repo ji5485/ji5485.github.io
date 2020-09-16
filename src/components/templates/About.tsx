@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Header from 'components/molecules/Header';
-import Question, { QuestionProps } from 'components/molecules/Question';
+import QuestionList, { QuestionListProps } from 'components/organisms/QuestionList';
 import Profile, { ProfileProps } from 'components/organisms/Profile';
-import Career, { CareerProps } from 'components/molecules/Career';
+import CareerList, { CareerListProps, CareerListComponent } from 'components/organisms/CareerList';
 
 interface AboutProps {
   logoVisibility: boolean;
-  questionList: [QuestionProps];
+  questionList: QuestionListProps;
   profileImage: ProfileProps.profileImage;
   iconSetList: ProfileProps.IconSetList;
-  careerList: [CareerProps];
+  careerList: CareerListProps;
 }
 
 const StyleLine = styled.div`
@@ -21,8 +21,22 @@ const StyleLine = styled.div`
 `;
 
 const AboutContentComponent = styled.div`
-  padding: 50px 0;
-  width: 840px;
+  display: grid;
+  grid-template-columns: 900px 240px;
+  grid-gap: 60px;
+  padding: 100px 0;
+  width: 1200px;
+  margin: 0 auto;
+
+  ${CareerListComponent} {
+    margin-top: 120px;
+  }
+
+  @media (max-width: 767px) {
+    display: block;
+    width: 100%;
+    padding: 60px 30px;
+  }
 `;
 
 const AboutComponent = styled.div`
@@ -35,19 +49,14 @@ const About: FunctionComponent<AboutProps> = function ({ logoVisibility, questio
       <Header logoVisibility={logoVisibility} />
       
       <AboutContentComponent>
-        {questionList.map((question, index) => {
-          let { title, content } = question;
-          return <Question title={title} content={content} key={`${question}-${index}`} />;
-        })}
+        <div>
+          <QuestionList questionList={questionList} />
+          <StyleLine />
+          <Profile profileImage={profileImage} iconSetList={iconSetList} id="developer-info" />
+          <CareerList careerList={careerList} id="developer-career" />
+        </div>
 
-        <StyleLine/>
-
-        <Profile profileImage={profileImage} iconSetList={iconSetList} />
-
-        {careerList.map((career, index) => {
-          let { title, contents, direction } = career;
-          return <Career title={title} contents={contents} direction={direction} key={`${title}-${index}`} />;
-        })}
+        <div>abc</div>
       </AboutContentComponent>
 
     </AboutComponent>

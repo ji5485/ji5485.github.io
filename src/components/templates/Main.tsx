@@ -20,7 +20,7 @@ const MainComponent = styled.div`
   @media (max-width: 1199px) {
     padding: 60px 60px;
     display: grid;
-    grid-template-rows: 40px minmax(350px, auto) 40px;
+    grid-template-rows: 30px minmax(400px, auto) 30px;
   }
 
   @media (max-width: 767px) {
@@ -62,8 +62,7 @@ const MainContentComponent = styled.div`
 const MainFooterComponent = styled.div`
   height: 100%;
   display: none;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
 
   @media (max-width: 1199px) {
     display: flex;

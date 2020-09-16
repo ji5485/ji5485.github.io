@@ -38,9 +38,15 @@ const HeaderRight = styled.div`
 
 export const HeaderComponent = styled.div`
   width: 100%;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: 1200px) {
+    width: 1200px;
+    margin: 0 auto;
+  }
 `;
 
 const Header: FunctionComponent<HeaderProps> = function ({ logoVisibility }) {

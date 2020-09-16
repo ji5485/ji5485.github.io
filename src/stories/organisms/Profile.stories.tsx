@@ -22,5 +22,5 @@ export const ProfileStory: FunctionComponent<{}> = function ({}) {
   const src = text('Link', "https://avatars2.githubusercontent.com/u/24629040?s=460&u=0bb3411f25c0e1c5d25d753fc648739367cb7032&v=4");
   const alt = text('Alt', 'Profile Image');
 
-  return <Profile profileImageProps={{ width, height, src, alt }} IconSetListProps={IconSetListProps} />;
+  return <Profile profileImage={{ width, height, src, alt }} iconSetList={IconSetListProps} />;
 }

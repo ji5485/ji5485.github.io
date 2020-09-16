@@ -5,9 +5,21 @@ import { withKnobs } from '@storybook/addon-knobs';
 const AboutProps = {
   logoVisibility: true,
   questionList: [
-    { title: 'Hello Storybook', content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s` },
-    { title: 'Hello Storybook', content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s` },
-    { title: 'Hello Storybook', content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s` },
+    {
+      title: 'Hello Storybook',
+      content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`,
+      slug: 'hello-storybook1'
+    },
+    {
+      title: 'Hello Storybook',
+      content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`,
+      slug: 'hello-storybook2'
+    },
+    {
+      title: 'Hello Storybook',
+      content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`,
+      slug: 'hello-storybook3'
+    },
   ],
   profileImage: {
     width: 200,
