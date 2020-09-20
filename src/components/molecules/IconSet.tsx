@@ -11,7 +11,7 @@ export interface IconSetProps {
   text: string;
 }
 
-export const IconSetComponent = styled.div`
+export const IconSetComponent = styled.a`
   display: flex;
   align-items: center;
 
@@ -22,10 +22,8 @@ export const IconSetComponent = styled.div`
 
 const IconSet: FunctionComponent<IconSetProps> = function ({ href, type, size, color, text }) {
   return (
-    <IconSetComponent>
-      <a href={href} target="_blank">
-        <Icon type={type} size={size} color={color} />
-      </a>
+    <IconSetComponent href={href} target="_blank">
+      <Icon type={type} size={size} color={color} />
       <Text weight={100} size={size - 5}>{text}</Text>
     </IconSetComponent>
   );

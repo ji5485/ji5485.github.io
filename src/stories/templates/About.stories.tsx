@@ -21,19 +21,6 @@ const AboutProps = {
       slug: 'hello-storybook3'
     },
   ],
-  profileImage: {
-    width: 200,
-    height: 200,
-    src: 'https://avatars2.githubusercontent.com/u/24629040?s=460&u=0bb3411f25c0e1c5d25d753fc648739367cb7032&v=4',
-    alt: 'Profile Image'
-  },
-  iconSetList: [
-    { href: 'https://www.instagram.com/?hl=ko', type: 'instagram', text: 'hello_d0o', size: 23 },
-    { href: '#', type: 'phone', text: '010-5593-3495', size: 23 },
-    { href: 'https://www.facebook.com/', type: 'facebook', text: 'Ju Hyeon Do', size: 23 },
-    { href: '#', type: 'email', text: 'dong5485@gmail.com', size: 23 },
-    { href: 'https://github.com/ji5485', type: 'github', text: 'HyeonDo Ju', size: 23 },
-  ],
   careerList: [
     { title: 'Experience', direction: 'right', contents: [
       'Lorem Ipsum is simply dummy text of the printing',
@@ -50,6 +37,11 @@ const AboutProps = {
       'Lorem Ipsum is simply dummy text of the printing',
       'Lorem Ipsum is simply dummy text of the printing'
     ]},
+  ],
+  toc: [
+    { title: 'Hello Storybook1', slug: 'hello-storybook1' },
+    { title: 'Hello Storybook2', slug: 'hello-storybook2' },
+    { title: 'Hello Storybook3', slug: 'hello-storybook3' }
   ]
 };
 
@@ -64,9 +56,8 @@ export const AboutStory: FunctionComponent<{}> = function ({}) {
     <About
       logoVisibility={AboutProps.logoVisibility}
       questionList={AboutProps.questionList}
-      profileImage={AboutProps.profileImage}
-      iconSetList={AboutProps.iconSetList}
       careerList={AboutProps.careerList}
+      toc={AboutProps.toc}
     />
   );
 };

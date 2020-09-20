@@ -1,16 +1,18 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Header from 'components/molecules/Header';
+import TocForPage, { TocForPageProps, TocForPageComponent } from 'components/molecules/TocForPage';
 import QuestionList, { QuestionListProps } from 'components/organisms/QuestionList';
-import Profile, { ProfileProps } from 'components/organisms/Profile';
+import Profile from 'components/organisms/Profile';
 import CareerList, { CareerListProps, CareerListComponent } from 'components/organisms/CareerList';
+import Footer from 'components/organisms/Footer';
+import useSetHeading from 'hooks/useSetHeading';
 
 interface AboutProps {
   logoVisibility: boolean;
   questionList: QuestionListProps;
-  profileImage: ProfileProps.profileImage;
-  iconSetList: ProfileProps.IconSetList;
   careerList: CareerListProps;
+  toc: TocForPageProps.toc;
 }
 
 const StyleLine = styled.div`
@@ -32,10 +34,14 @@ const AboutContentComponent = styled.div`
     margin-top: 120px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1199px) {
     display: block;
     width: 100%;
     padding: 60px 30px;
+
+    ${TocForPageComponent} {
+      display: none;
+    }
   }
 `;
 
@@ -43,22 +49,34 @@ const AboutComponent = styled.div`
   width: 100%;
 `;
 
-const About: FunctionComponent<AboutProps> = function ({ logoVisibility, questionList, profileImage, iconSetList, careerList }) {
+const NON_TARGET_ID: string[] = ['root', 'error-stack', 'error-message', 'docs-root'];
+
+const About: FunctionComponent<AboutProps> = function ({
+  logoVisibility,
+  questionList,
+  careerList,
+  toc,
+}) {
+  const activeSlug = useSetHeading('*[id]', NON_TARGET_ID);
+
   return (
     <AboutComponent>
       <Header logoVisibility={logoVisibility} />
-      
+
       <AboutContentComponent>
         <div>
           <QuestionList questionList={questionList} />
           <StyleLine />
-          <Profile profileImage={profileImage} iconSetList={iconSetList} id="developer-info" />
+          <Profile id="developer-info" />
           <CareerList careerList={careerList} id="developer-career" />
         </div>
 
-        <div>abc</div>
+        <div>
+          <TocForPage toc={toc} activeSlug={activeSlug} />
+        </div>
       </AboutContentComponent>
 
+      <Footer />
     </AboutComponent>
   );
 };
