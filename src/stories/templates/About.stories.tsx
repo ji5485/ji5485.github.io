@@ -8,41 +8,53 @@ const AboutProps = {
     {
       title: 'Hello Storybook',
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`,
-      slug: 'hello-storybook1'
+      slug: 'hello-storybook1',
     },
     {
       title: 'Hello Storybook',
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`,
-      slug: 'hello-storybook2'
+      slug: 'hello-storybook2',
     },
     {
       title: 'Hello Storybook',
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`,
-      slug: 'hello-storybook3'
+      slug: 'hello-storybook3',
     },
   ],
   careerList: [
-    { title: 'Experience', direction: 'right', contents: [
-      'Lorem Ipsum is simply dummy text of the printing',
-      'Lorem Ipsum is simply dummy text of the printing',
-      'Lorem Ipsum is simply dummy text of the printing'
-    ]},
-    { title: 'Experience', direction: 'left', contents: [
-      'Lorem Ipsum is simply dummy text of the printing',
-      'Lorem Ipsum is simply dummy text of the printing',
-      'Lorem Ipsum is simply dummy text of the printing'
-    ]},
-    { title: 'Experience', direction: 'right', contents: [
-      'Lorem Ipsum is simply dummy text of the printing',
-      'Lorem Ipsum is simply dummy text of the printing',
-      'Lorem Ipsum is simply dummy text of the printing'
-    ]},
+    {
+      title: 'Experience',
+      direction: 'left',
+      contents: [
+        'Lorem Ipsum is simply dummy text of the printing',
+        'Lorem Ipsum is simply dummy text of the printing',
+        'Lorem Ipsum is simply dummy text of the printing',
+      ],
+    },
+    {
+      title: 'Experience',
+      direction: 'right',
+      contents: [
+        'Lorem Ipsum is simply dummy text of the printing',
+        'Lorem Ipsum is simply dummy text of the printing',
+        'Lorem Ipsum is simply dummy text of the printing',
+      ],
+    },
+    {
+      title: 'Experience',
+      direction: 'left',
+      contents: [
+        'Lorem Ipsum is simply dummy text of the printing',
+        'Lorem Ipsum is simply dummy text of the printing',
+        'Lorem Ipsum is simply dummy text of the printing',
+      ],
+    },
   ],
   toc: [
     { title: 'Hello Storybook1', slug: 'hello-storybook1' },
     { title: 'Hello Storybook2', slug: 'hello-storybook2' },
-    { title: 'Hello Storybook3', slug: 'hello-storybook3' }
-  ]
+    { title: 'Hello Storybook3', slug: 'hello-storybook3' },
+  ],
 };
 
 export default {

@@ -8,7 +8,7 @@ export interface HeaderProps {
 }
 
 const HeaderLeft = styled.div<HeaderProps>`
-  visibility: ${({ logoVisibility }) => logoVisibility ? 'visible' : 'hidden'};
+  visibility: ${({ logoVisibility }) => (logoVisibility ? 'visible' : 'hidden')};
 
   @media (max-width: 767px) {
     display: none;
@@ -38,8 +38,7 @@ const HeaderRight = styled.div`
 
 export const HeaderComponent = styled.div`
   width: 100%;
-  height: 60px;
-  padding: 0 30px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,13 +47,23 @@ export const HeaderComponent = styled.div`
     width: 1200px;
     margin: 0 auto;
   }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0 20px;
+  }
 `;
 
 const Header: FunctionComponent<HeaderProps> = function ({ logoVisibility }) {
   return (
     <HeaderComponent>
       <HeaderLeft logoVisibility={logoVisibility}>
-        <Text size={15} weight={700}>Too Early To Stop</Text>
+        <Text size={15} weight={700}>
+          Too Early To Stop
+        </Text>
       </HeaderLeft>
 
       <HeaderRight>
@@ -70,14 +79,14 @@ const Header: FunctionComponent<HeaderProps> = function ({ logoVisibility }) {
         <Link to="/blog">
           <Text size={15}>Blog</Text>
         </Link>
-        <Text size={15}>To Dark Mode</Text>
+        <Text size={15}>Dark Mode</Text>
       </HeaderRight>
     </HeaderComponent>
   );
 };
 
 Header.defaultProps = {
-  logoVisibility: false
+  logoVisibility: false,
 };
 
 export default Header;

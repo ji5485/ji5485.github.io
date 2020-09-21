@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Header from "components/molecules/Header";
-import SideMenu, { SideMenuComponent } from "components/molecules/SideMenu";
+import Header, { HeaderComponent } from 'components/molecules/Header';
+import SideMenu, { SideMenuComponent } from 'components/molecules/SideMenu';
 import IconList, { iconListProps } from 'components/molecules/IconList';
 import Introduction from 'components/organisms/Introduction';
 
@@ -32,6 +32,10 @@ const MainHeaderComponent = styled.div`
   height: 100%;
   display: none;
   justify-content: flex-end;
+
+  ${HeaderComponent} {
+    height: 100%;
+  }
 
   @media (min-width: 768px) and (max-width: 1199px) {
     display: flex;
@@ -81,7 +85,12 @@ const Main: FunctionComponent<MainProps> = function ({
       </MainHeaderComponent>
 
       <MainContentComponent>
-        <Introduction profileImageLink={profileImageLink} profileImageAlt={profileImageAlt} iconList={iconList} iconSize={30} />
+        <Introduction
+          profileImageLink={profileImageLink}
+          profileImageAlt={profileImageAlt}
+          iconList={iconList}
+          iconSize={30}
+        />
         <SideMenu />
       </MainContentComponent>
 

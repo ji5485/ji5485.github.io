@@ -4,12 +4,12 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 const IconListProps = {
   list: [
-    { to: 'https://github.com/ji5485', type: 'github' },
-    { to: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
-    { to: 'https://www.facebook.com/', type: 'facebook' },
+    { href: 'https://github.com/ji5485', type: 'github' },
+    { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
+    { href: 'https://www.facebook.com/', type: 'facebook' },
   ],
-  size: 30
-}
+  size: 30,
+};
 
 export default {
   title: 'Molecules',

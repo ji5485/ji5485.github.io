@@ -14,7 +14,7 @@ export const CareerListComponent = styled.div`
 
 const CareerList: FunctionComponent<CareerListProps> = function ({ careerList }) {
   return (
-    <CareerListComponent>
+    <CareerListComponent id="developer-career">
       {careerList.map(({ title, contents, direction }, index) => {
         return (
           <Career

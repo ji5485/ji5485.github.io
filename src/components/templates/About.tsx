@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Header from 'components/molecules/Header';
 import TocForPage, { TocForPageProps, TocForPageComponent } from 'components/molecules/TocForPage';
@@ -43,13 +43,17 @@ const AboutContentComponent = styled.div`
       display: none;
     }
   }
+
+  @media (max-width: 767px) {
+    padding: 60px 20px;
+  }
 `;
 
 const AboutComponent = styled.div`
   width: 100%;
 `;
 
-const NON_TARGET_ID: string[] = ['root', 'error-stack', 'error-message', 'docs-root'];
+const NON_TARGET_ID: string[] = ['__gatsby', 'gatsby-focus-wrapper', 'gatsby-announcer'];
 
 const About: FunctionComponent<AboutProps> = function ({
   logoVisibility,
@@ -67,8 +71,8 @@ const About: FunctionComponent<AboutProps> = function ({
         <div>
           <QuestionList questionList={questionList} />
           <StyleLine />
-          <Profile id="developer-info" />
-          <CareerList careerList={careerList} id="developer-career" />
+          <Profile />
+          <CareerList careerList={careerList} />
         </div>
 
         <div>
