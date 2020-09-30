@@ -1,18 +1,15 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Header from 'components/molecules/Header';
-import TocForPage, { TocForPageProps, TocForPageComponent } from 'components/molecules/TocForPage';
 import QuestionList, { QuestionListProps } from 'components/organisms/QuestionList';
 import Profile from 'components/organisms/Profile';
 import CareerList, { CareerListProps, CareerListComponent } from 'components/organisms/CareerList';
 import Footer from 'components/organisms/Footer';
-import useSetHeading from 'hooks/useSetHeading';
 
 interface AboutProps {
   logoVisibility: boolean;
   questionList: QuestionListProps;
   careerList: CareerListProps;
-  toc: TocForPageProps.toc;
 }
 
 const StyleLine = styled.div`
@@ -23,9 +20,6 @@ const StyleLine = styled.div`
 `;
 
 const AboutContentComponent = styled.div`
-  display: grid;
-  grid-template-columns: 900px 240px;
-  grid-gap: 60px;
   padding: 100px 0;
   width: 1200px;
   margin: 0 auto;
@@ -35,13 +29,8 @@ const AboutContentComponent = styled.div`
   }
 
   @media (max-width: 1199px) {
-    display: block;
     width: 100%;
     padding: 60px 30px;
-
-    ${TocForPageComponent} {
-      display: none;
-    }
   }
 
   @media (max-width: 767px) {
@@ -53,31 +42,20 @@ const AboutComponent = styled.div`
   width: 100%;
 `;
 
-const NON_TARGET_ID: string[] = ['__gatsby', 'gatsby-focus-wrapper', 'gatsby-announcer'];
-
 const About: FunctionComponent<AboutProps> = function ({
   logoVisibility,
   questionList,
   careerList,
-  toc,
 }) {
-  const activeSlug = useSetHeading('*[id]', NON_TARGET_ID);
-
   return (
     <AboutComponent>
       <Header logoVisibility={logoVisibility} />
 
       <AboutContentComponent>
-        <div>
-          <QuestionList questionList={questionList} />
-          <StyleLine />
-          <Profile />
-          <CareerList careerList={careerList} />
-        </div>
-
-        <div>
-          <TocForPage toc={toc} activeSlug={activeSlug} />
-        </div>
+        <QuestionList questionList={questionList} />
+        <StyleLine />
+        <Profile />
+        <CareerList careerList={careerList} />
       </AboutContentComponent>
 
       <Footer />
