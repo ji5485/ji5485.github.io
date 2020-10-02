@@ -1,56 +1,74 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Text from 'components/atoms/Text';
-import ProfileImage from 'components/atoms/ProfileImage';
-import IconList, { IconListComponent } from 'components/molecules/IconList';
-import IconSet, { IconSetComponent } from 'components/molecules/IconSet';
+import Text, { TextComponent } from 'components/atoms/Text';
+import IconList from 'components/molecules/IconList';
+import firstProfileImage from '../../../public/static/profile-image-1.jpeg';
+import secondProfileImage from '../../../public/static/profile-image-2.jpg';
+import thirdProfileImage from '../../../public/static/profile-image-3.jpg';
 import useWindowSize from 'hooks/useWindowSize';
 
-const PROFILE_IMAGE_SRC =
-  'https://avatars2.githubusercontent.com/u/24629040?s=460&u=0bb3411f25c0e1c5d25d753fc648739367cb7032&v=4';
-const PROFILE_IMAGE_ALT = 'Github Profile Image';
-const MOBILE_PROFILE_ICON_LIST = [
+const PROFILE_IMAGE_LIST = [
+  { src: firstProfileImage, alt: 'First Profile Image' },
+  { src: secondProfileImage, alt: 'Second Profile Image' },
+  { src: thirdProfileImage, alt: 'Third Profile Image' },
+];
+const PROFILE_ICON_LIST = [
   { href: 'https://github.com/ji5485', type: 'github' },
   { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
   { href: 'https://www.facebook.com/', type: 'facebook' },
+  { href: '#', type: 'phone' },
+  { href: '#', type: 'email' },
 ];
 
 const ProfileComponent = styled.div`
   width: 100%;
-  display: flex;
-
-  @media (max-width: 767px) {
-    flex-direction: column;
-    align-items: center;
-  }
 `;
 
-const ProfileContentComponent = styled.div`
-  flex: 1;
-  padding-left: 50px;
-
-  ${IconListComponent} {
-    margin-top: 20px;
-  }
-
-  @media (max-width: 767px) {
-    padding-left: 0;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const ProfileIconSetListComponent = styled.div`
-  margin-top: 20px;
+const ProfileImageList = styled.div`
   width: 100%;
+  height: 300px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
 
-  ${IconSetComponent} {
-    width: 50%;
-    padding: 7px 0;
+  img {
+    width: auto;
+    max-height: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    height: 250px;
+  }
+
+  @media (max-width: 767px) {
+    height: 200px;
+  }
+`;
+
+const ProfileContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+const ProfileContentText = styled.div`
+  ${TextComponent}:first-child {
+    font-size: 25px;
+    font-weight: 700;
+
+    @media (max-width: 767px) {
+      font-size: 20px;
+    }
+  }
+
+  ${TextComponent}:last-child {
+    font-size: 15px;
+    font-weight: 100;
+
+    @media (max-width: 767px) {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -58,49 +76,21 @@ const Profile: FunctionComponent<{}> = function ({}) {
   const { width } = useWindowSize();
 
   return (
-    <ProfileComponent id="developer-info">
-      <ProfileImage
-        width={width >= 768 ? 200 : 150}
-        height={width >= 768 ? 200 : 150}
-        src={PROFILE_IMAGE_SRC}
-        alt={PROFILE_IMAGE_ALT}
-      />
+    <ProfileComponent>
+      <ProfileImageList>
+        {PROFILE_IMAGE_LIST.map(({ src, alt }, index) => (
+          <img key={`profile-image-${index}`} src={src} alt={alt} />
+        ))}
+      </ProfileImageList>
 
-      <ProfileContentComponent>
-        <Text size={width >= 768 ? 40 : 30} weight={100}>
-          Ju Hyeon Do
-        </Text>
-        <Text size={width >= 768 ? 20 : 15} weight={100}>
-          Junior Web Frontend Developer
-        </Text>
+      <ProfileContent>
+        <ProfileContentText>
+          <Text>Ju Hyeon Do</Text>
+          <Text>Junior Web Frontend Developer</Text>
+        </ProfileContentText>
 
-        {width >= 768 ? (
-          <ProfileIconSetListComponent>
-            <IconSet
-              href="https://www.instagram.com/?hl=ko"
-              type="instagram"
-              text="hello_d0o"
-              size={23}
-            />
-            <IconSet href="#" type="phone" text="010-5593-3495" size={23} />
-            <IconSet
-              href="https://www.instagram.com/?hl=ko"
-              type="facebook"
-              text="Ju Hyeon Do"
-              size={23}
-            />
-            <IconSet href="#" type="email" text="dong5485@gmail.com" size={23} />
-            <IconSet
-              href="https://www.instagram.com/?hl=ko"
-              type="github"
-              text="HyeonDo Ju"
-              size={23}
-            />
-          </ProfileIconSetListComponent>
-        ) : (
-          <IconList list={MOBILE_PROFILE_ICON_LIST} size={25} />
-        )}
-      </ProfileContentComponent>
+        <IconList list={PROFILE_ICON_LIST} size={width >= 768 ? 20 : 17} />
+      </ProfileContent>
     </ProfileComponent>
   );
 };

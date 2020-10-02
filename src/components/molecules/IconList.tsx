@@ -14,22 +14,27 @@ export interface IconListProps {
 
 export const IconListComponent = styled.div`
   display: flex;
-  
+
   a + a {
     margin-left: 20px;
+
+    @media (max-width: 767px) {
+      margin-left: 15px;
+    }
   }
 `;
 
 const IconList: FunctionComponent<IconListProps> = function ({ list, size }) {
   return (
     <IconListComponent>
-      {list && list.map(({ href, type }, index) => {
-        return (
-          <a href={href} key={index} target="_blank">
-            <Icon type={type} size={size} />
-          </a>
-        );
-      })}
+      {list &&
+        list.map(({ href, type }, index) => {
+          return (
+            <a href={href} key={index} rel="noreferrer" target="_blank">
+              <Icon type={type} size={size} />
+            </a>
+          );
+        })}
     </IconListComponent>
   );
 };

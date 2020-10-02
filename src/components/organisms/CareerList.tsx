@@ -8,7 +8,7 @@ export interface CareerListProps {
 
 export const CareerListComponent = styled.div`
   ${CareerComponent} + ${CareerComponent} {
-    margin-top: 80px;
+    margin-top: 120px;
   }
 `;
 

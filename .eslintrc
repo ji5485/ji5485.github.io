@@ -2,6 +2,7 @@
   "extends": ["@pacote/eslint-config", "@pacote/eslint-config-react"],
   "rules": {
     "no-empty-pattern": 0,
-    "react/no-unescaped-entities": 0
+    "react/no-unescaped-entities": 0,
+    "react/jsx-no-target-blank": 0
   }
 }

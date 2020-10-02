@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
+import Title from 'components/molecules/Title';
 import Header from 'components/molecules/Header';
 import QuestionList, { QuestionListProps } from 'components/organisms/QuestionList';
 import Profile from 'components/organisms/Profile';
@@ -52,8 +53,10 @@ const About: FunctionComponent<AboutProps> = function ({
       <Header logoVisibility={logoVisibility} />
 
       <AboutContentComponent>
+        <Title title="About." subTitle="Introduce Myself" align="left" />
         <QuestionList questionList={questionList} />
         <StyleLine />
+        <Title title="Profile." subTitle="Information About Me" align="right" />
         <Profile />
         <CareerList careerList={careerList} />
       </AboutContentComponent>
