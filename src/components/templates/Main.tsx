@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Header, { HeaderComponent } from 'components/molecules/Header';
 import SideMenu, { SideMenuComponent } from 'components/molecules/SideMenu';
 import IconList, { iconListProps } from 'components/molecules/IconList';
 import Introduction from 'components/organisms/Introduction';
+import Header, { HeaderComponent } from 'components/organisms/Header';
 
 export interface MainProps {
   profileImageLink: string;
@@ -12,8 +12,10 @@ export interface MainProps {
 }
 
 const MainComponent = styled.div`
+  max-width: 1200px;
   height: 100%;
-  padding: 60px 120px;
+  margin: 0 auto;
+  padding: 60px 0;
   display: flex;
   align-items: center;
 
@@ -24,26 +26,16 @@ const MainComponent = styled.div`
   }
 
   @media (max-width: 767px) {
-    padding: 60px 30px;
+    padding: 60px 20px;
   }
-`;
-
-const MainHeaderComponent = styled.div`
-  height: 100%;
-  display: none;
-  justify-content: flex-end;
 
   ${HeaderComponent} {
     height: 100%;
-  }
+    margin: 0;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    display: flex;
-  }
-
-  @media (max-width: 767px) {
-    display: flex;
-    justify-content: space-between;
+    @media (min-width: 768px) and (max-width: 1199px) {
+      width: 100%;
+    }
   }
 `;
 
@@ -80,9 +72,7 @@ const Main: FunctionComponent<MainProps> = function ({
 }) {
   return (
     <MainComponent>
-      <MainHeaderComponent>
-        <Header />
-      </MainHeaderComponent>
+      <Header />
 
       <MainContentComponent>
         <Introduction

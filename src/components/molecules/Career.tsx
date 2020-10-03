@@ -7,9 +7,19 @@ export interface CareerProps {
   contents: [string];
 }
 
+export const CareerComponent = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+`;
+
 const CareerTitle = styled.div`
   ${TextComponent} {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 700;
   }
 
@@ -23,9 +33,9 @@ const CareerContents = styled.div`
   min-width: 500px;
 
   ${TextComponent} {
-    font-size: 20x;
+    font-size: 15px;
     font-weight: 400;
-    padding: 15px;
+    padding: 12px;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
   }
 
@@ -35,16 +45,6 @@ const CareerContents = styled.div`
 
   @media (max-width: 767px) {
     width: 100%;
-  }
-`;
-
-export const CareerComponent = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  @media (max-width: 767px) {
-    flex-direction: column;
   }
 `;
 

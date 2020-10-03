@@ -1,15 +1,15 @@
-import React, { FunctionComponent } from "react";
-import Header from "components/molecules/Header";
+import React, { FunctionComponent } from 'react';
+import Header from 'components/organisms/Header';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 export default {
-  title: "Molecules",
+  title: 'Organisms',
   component: Header,
-  decorators: [withKnobs]
-}
+  decorators: [withKnobs],
+};
 
 export const HeaderStory: FunctionComponent<{}> = function ({}) {
-  const logoVisibility = boolean("Logo Visibility", true);
+  const logoVisibility = boolean('Logo Visibility', true);
 
   return <Header logoVisibility={logoVisibility} />;
-}
+};

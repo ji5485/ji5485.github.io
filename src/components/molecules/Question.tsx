@@ -2,7 +2,6 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import Icon, { IconComponent } from 'components/atoms/Icon';
 import { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
-import useWindowSize from 'hooks/useWindowSize';
 
 interface QuestionProps {
   icon: 'smileWink' | 'running' | 'layerGroup' | 'userTie';
@@ -22,32 +21,16 @@ export const QuestionComponent = styled.div`
 
 const TitleBox = styled.div`
   display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
 
-  @media (min-width: 1200px) {
-    flex-direction: column;
-
-    ${IconComponent} {
-      margin-bottom: 20px;
-    }
-
-    ${TextComponent} {
-      font-size: 20px;
-      font-weight: 700;
-    }
+  ${IconComponent} {
+    margin-bottom: 20px;
   }
 
-  @media (max-width: 1199px) {
-    align-items: center;
-
-    ${IconComponent} {
-      margin-right: 15px;
-    }
-
-    ${TextComponent} {
-      font-size: 15px;
-      font-weight: 700;
-    }
+  ${TextComponent} {
+    font-size: 18px;
+    font-weight: 700;
   }
 `;
 
@@ -61,12 +44,10 @@ const Content = styled.div`
 `;
 
 const Question: FunctionComponent<QuestionProps> = function ({ icon, title, content }) {
-  const { width } = useWindowSize();
-
   return (
     <QuestionComponent>
       <TitleBox>
-        <Icon size={width >= 1200 ? 60 : 40} color="#5C7CFA" type={icon} />
+        <Icon size={50} color="#5C7CFA" type={icon} />
         <div>{title}</div>
       </TitleBox>
 

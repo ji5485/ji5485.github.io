@@ -38,12 +38,8 @@ const TitleStyle = css`
   font-size: 60px;
   font-weight: 700;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    font-size: 50px;
-  }
-
   @media (max-width: 767px) {
-    font-size: 40px;
+    font-size: 50px;
   }
 `;
 
@@ -51,12 +47,8 @@ const SubTitleStyle = css`
   font-size: 30px;
   font-weight: 100;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    font-size: 25px;
-  }
-
   @media (max-width: 767px) {
-    font-size: 20px;
+    font-size: 25px;
   }
 `;
 

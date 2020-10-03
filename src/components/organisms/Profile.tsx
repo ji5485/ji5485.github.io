@@ -26,7 +26,7 @@ const ProfileComponent = styled.div`
 
 const ProfileImageList = styled.div`
   width: 100%;
-  height: 300px;
+  height: 250px;
   display: flex;
   justify-content: space-between;
 
@@ -34,10 +34,6 @@ const ProfileImageList = styled.div`
     width: auto;
     max-height: 100%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-  }
-
-  @media (min-width: 768px) and (max-width: 1199px) {
-    height: 250px;
   }
 
   @media (max-width: 767px) {
@@ -53,7 +49,7 @@ const ProfileContent = styled.div`
 `;
 
 const ProfileContentText = styled.div`
-  ${TextComponent}:first-child {
+  ${TextComponent}:first-of-type {
     font-size: 25px;
     font-weight: 700;
 
@@ -62,7 +58,7 @@ const ProfileContentText = styled.div`
     }
   }
 
-  ${TextComponent}:last-child {
+  ${TextComponent}:last-of-type {
     font-size: 15px;
     font-weight: 100;
 

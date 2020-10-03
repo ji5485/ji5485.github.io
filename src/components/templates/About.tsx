@@ -1,17 +1,25 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Title from 'components/molecules/Title';
-import Header from 'components/molecules/Header';
-import QuestionList, { QuestionListProps } from 'components/organisms/QuestionList';
+import QuestionList from 'components/organisms/QuestionList';
 import Profile from 'components/organisms/Profile';
 import CareerList, { CareerListProps, CareerListComponent } from 'components/organisms/CareerList';
+import Header, { HeaderComponent } from 'components/organisms/Header';
 import Footer from 'components/organisms/Footer';
 
 interface AboutProps {
-  logoVisibility: boolean;
-  questionList: QuestionListProps;
   careerList: CareerListProps;
 }
+
+const AboutComponent = styled.div`
+  width: 100%;
+
+  ${HeaderComponent} {
+    @media (min-width: 768px) {
+      width: 768px;
+    }
+  }
+`;
 
 const StyleLine = styled.div`
   width: 1px;
@@ -22,39 +30,27 @@ const StyleLine = styled.div`
 
 const AboutContentComponent = styled.div`
   padding: 100px 0;
-  width: 1200px;
+  width: 768px;
   margin: 0 auto;
 
   ${CareerListComponent} {
     margin-top: 120px;
   }
 
-  @media (max-width: 1199px) {
-    width: 100%;
-    padding: 60px 30px;
-  }
-
   @media (max-width: 767px) {
-    padding: 60px 20px;
+    width: 100%;
+    padding: 80px 20px;
   }
 `;
 
-const AboutComponent = styled.div`
-  width: 100%;
-`;
-
-const About: FunctionComponent<AboutProps> = function ({
-  logoVisibility,
-  questionList,
-  careerList,
-}) {
+const About: FunctionComponent<AboutProps> = function ({ careerList }) {
   return (
     <AboutComponent>
-      <Header logoVisibility={logoVisibility} />
+      <Header />
 
       <AboutContentComponent>
         <Title title="About." subTitle="Introduce Myself" align="left" />
-        <QuestionList questionList={questionList} />
+        <QuestionList />
         <StyleLine />
         <Title title="Profile." subTitle="Information About Me" align="right" />
         <Profile />
