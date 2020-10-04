@@ -1,17 +1,18 @@
 import React, { FunctionComponent } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import Text, { TextComponent } from 'components/atoms/Text';
 import IconList from 'components/molecules/IconList';
-import firstProfileImage from '../../../public/static/profile-image-1.jpeg';
-import secondProfileImage from '../../../public/static/profile-image-2.jpg';
-import thirdProfileImage from '../../../public/static/profile-image-3.jpg';
 import useWindowSize from 'hooks/useWindowSize';
 
-const PROFILE_IMAGE_LIST = [
-  { src: firstProfileImage, alt: 'First Profile Image' },
-  { src: secondProfileImage, alt: 'Second Profile Image' },
-  { src: thirdProfileImage, alt: 'Third Profile Image' },
-];
+type ImageEdgeType = {
+  node: {
+    original: {
+      src: string;
+    };
+  };
+};
+
 const PROFILE_ICON_LIST = [
   { href: 'https://github.com/ji5485', type: 'github' },
   { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
@@ -68,14 +69,31 @@ const ProfileContentText = styled.div`
   }
 `;
 
+const profileImageQuery = graphql`
+  query {
+    allImageSharp(filter: { resize: { originalName: { regex: "/about_profile/" } } }) {
+      edges {
+        node {
+          original {
+            src
+          }
+        }
+      }
+    }
+  }
+`;
+
 const Profile: FunctionComponent<{}> = function ({}) {
   const { width } = useWindowSize();
+  const {
+    allImageSharp: { edges },
+  } = useStaticQuery(profileImageQuery);
 
   return (
     <ProfileComponent>
       <ProfileImageList>
-        {PROFILE_IMAGE_LIST.map(({ src, alt }, index) => (
-          <img key={`profile-image-${index}`} src={src} alt={alt} />
+        {edges.map(({ node: { original: { src } } }: ImageEdgeType, index: number) => (
+          <img key={`profile-image-${index}`} src={src} alt={`profile_image_${index}`} />
         ))}
       </ProfileImageList>
 

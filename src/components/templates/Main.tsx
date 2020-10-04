@@ -30,10 +30,12 @@ const MainComponent = styled.div`
   }
 
   ${HeaderComponent} {
+    display: none;
     height: 100%;
     margin: 0;
 
-    @media (min-width: 768px) and (max-width: 1199px) {
+    @media (max-width: 1199px) {
+      display: flex;
       width: 100%;
     }
   }

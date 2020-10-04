@@ -1,10 +1,32 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Career, { CareerProps, CareerComponent } from 'components/molecules/Career';
+import Career, { CareerComponent } from 'components/molecules/Career';
 
-export interface CareerListProps {
-  careerList: [CareerProps];
-}
+const CAREER_LIST = [
+  {
+    title: 'Prize',
+    contents: [
+      'Smarteen App+ Challenge 본선 진출 / 가작 입상',
+      'Rehoboth Launch Cup 본선 진출 / 장려상 수상',
+      '건국대학교 Medical Hackathon / 대상 수상',
+    ],
+  },
+  {
+    title: 'Experience',
+    contents: [
+      '프리랜서 개발자 (2019.01 ~ 2019.06)',
+      '스타트업 Knar 웹 개발자 (2019.06 ~ 2020.02)',
+      '서울시립대학교 멋쟁이사자처럼 강의자 (2019.08 ~ 2019.11)',
+    ],
+  },
+  {
+    title: 'Education',
+    contents: [
+      '한국디지털미디어고등학교 졸업 (2016.03 ~ 2019.02)',
+      '서울시립대학교 수학과 재학 (2019.03 ~ )',
+    ],
+  },
+];
 
 export const CareerListComponent = styled.div`
   ${CareerComponent} + ${CareerComponent} {
@@ -12,18 +34,11 @@ export const CareerListComponent = styled.div`
   }
 `;
 
-const CareerList: FunctionComponent<CareerListProps> = function ({ careerList }) {
+const CareerList: FunctionComponent<{}> = function ({}) {
   return (
-    <CareerListComponent id="developer-career">
-      {careerList.map(({ title, contents, direction }, index) => {
-        return (
-          <Career
-            title={title}
-            contents={contents}
-            direction={direction}
-            key={`${title}-${index}`}
-          />
-        );
+    <CareerListComponent>
+      {CAREER_LIST.map(({ title, contents }, index) => {
+        return <Career title={title} contents={contents} key={`${title}-${index}`} />;
       })}
     </CareerListComponent>
   );

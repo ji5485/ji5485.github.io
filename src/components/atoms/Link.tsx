@@ -1,11 +1,10 @@
-import React, { FunctionComponent, ReactNode } from "react";
-import { Link as GatsbyLink } from "gatsby";
-import styled from "@emotion/styled";
+import React, { FunctionComponent, ReactNode } from 'react';
+import { Link as GatsbyLink } from 'gatsby';
+import styled from '@emotion/styled';
 
 export interface LinkProps {
   to: string;
   target?: string;
-  nestedStyle?: object;
   children: ReactNode;
 }
 
@@ -18,13 +17,16 @@ export const LinkComponent = styled(GatsbyLink)`
   }
 `;
 
-const Link: FunctionComponent<LinkProps> = function({ to, target, nestedStyle, children }) {
-  return <LinkComponent to={to} target={target} activeClassName="active" style={nestedStyle}>{children}</LinkComponent>
-}
+const Link: FunctionComponent<LinkProps> = function ({ to, target, children }) {
+  return (
+    <LinkComponent to={to} target={target} activeClassName="active">
+      {children}
+    </LinkComponent>
+  );
+};
 
 Link.defaultProps = {
-  target: "_self",
-  nestedStyle: {}
+  target: '_self',
 };
 
 export default Link;
