@@ -43,7 +43,7 @@ const AboutContentComponent = styled.div`
   }
 `;
 
-const About: FunctionComponent<AboutProps> = function ({ careerList }) {
+const About: FunctionComponent<AboutProps> = function ({}) {
   return (
     <AboutComponent>
       <Header />
@@ -54,7 +54,7 @@ const About: FunctionComponent<AboutProps> = function ({ careerList }) {
         <StyleLine />
         <Title title="Profile." subTitle="Information About Me" align="right" />
         <Profile />
-        <CareerList careerList={careerList} />
+        <CareerList />
       </AboutContentComponent>
 
       <Footer />

@@ -1,17 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import Text, { TextComponent } from 'components/atoms/Text';
 import IconList from 'components/molecules/IconList';
 import useWindowSize from 'hooks/useWindowSize';
-
-type ImageEdgeType = {
-  node: {
-    original: {
-      src: string;
-    };
-  };
-};
 
 const PROFILE_ICON_LIST = [
   { href: 'https://github.com/ji5485', type: 'github' },
@@ -19,6 +10,12 @@ const PROFILE_ICON_LIST = [
   { href: 'https://www.facebook.com/', type: 'facebook' },
   { href: '#', type: 'phone' },
   { href: '#', type: 'email' },
+];
+
+const IMAGE_LINK = [
+  '../../about_images/about_profile_1.jpeg',
+  '../../about_images/about_profile_2.jpg',
+  '../../about_images/about_profile_3.jpg',
 ];
 
 const ProfileComponent = styled.div`
@@ -68,31 +65,13 @@ const ProfileContentText = styled.div`
     }
   }
 `;
-
-const profileImageQuery = graphql`
-  query {
-    allImageSharp(filter: { resize: { originalName: { regex: "/about_profile/" } } }) {
-      edges {
-        node {
-          original {
-            src
-          }
-        }
-      }
-    }
-  }
-`;
-
 const Profile: FunctionComponent<{}> = function ({}) {
   const { width } = useWindowSize();
-  const {
-    allImageSharp: { edges },
-  } = useStaticQuery(profileImageQuery);
 
   return (
     <ProfileComponent>
       <ProfileImageList>
-        {edges.map(({ node: { original: { src } } }: ImageEdgeType, index: number) => (
+        {IMAGE_LINK.map((src: string, index: number) => (
           <img key={`profile-image-${index}`} src={src} alt={`profile_image_${index}`} />
         ))}
       </ProfileImageList>

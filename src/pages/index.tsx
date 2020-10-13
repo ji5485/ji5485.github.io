@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import Layout from "../Layout";
+import Layout from '../Layout';
 import Main from 'components/templates/Main';
 
 const IndexPageProps = {
@@ -10,7 +10,7 @@ const IndexPageProps = {
     { href: 'https://github.com/ji5485', type: 'github' },
     { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
     { href: 'https://www.facebook.com/', type: 'facebook' },
-  ]
+  ],
 };
 
 const IndexPage: FunctionComponent<{}> = function ({}) {
