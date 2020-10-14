@@ -1,47 +1,53 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Text, { TextComponent } from 'components/atoms/Text';
+import Text from 'components/atoms/Text';
 import { LinkComponent } from 'components/atoms/Link';
+import Icon, { IconComponent } from 'components/atoms/Icon';
 
 export interface PortfolioItemProps {
+  type: 'project' | 'activity';
   index: number;
   title: string;
   content: string;
+  image: string;
 }
 
-const PortfolioItemComponent = styled(LinkComponent)`
-  transition: 0.3s all;
-  padding: 20px;
-  border-radius: 5px;
-
-  &:hover {
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-  }
+const Index = styled(Text)`
+  font-size: 25px;
+  font-weight: 700;
 `;
 
-const PortfolioIndex = styled.div`
-  ${TextComponent} {
-    font-size: 25px;
-    font-weight: 700;
-  }
-`;
-
-const PortfolioImage = styled.img`
+const ImageBox = styled.div`
   width: 100%;
   height: 200px;
-  object-fit: contain;
   margin: 10px 0;
-`;
+  position: relative;
 
-const PortfolioTitle = styled.div`
-  ${TextComponent} {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 3px;
+  ${IconComponent} {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    display: grid;
+    place-items: center;
+    transition: 0.1s opacity;
+    opacity: 0;
   }
 `;
 
-const PortfolioContent = styled.div`
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const Title = styled(Text)`
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 3px;
+`;
+
+const Content = styled.div`
   font-size: 15px;
   font-weight: 400;
   height: 3rem;
@@ -53,24 +59,34 @@ const PortfolioContent = styled.div`
   word-wrap: break-word;
 `;
 
-const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({ index, title, content }) {
-  const portfolioIndex: number = index < 10 ? '0' + index : index;
+const PortfolioItemComponent = styled(LinkComponent)`
+  &:hover ${ImageBox} {
+    ${IconComponent} {
+      opacity: 1;
+    }
+  }
+`;
+
+const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({
+  type,
+  index,
+  title,
+  content,
+  image,
+}) {
+  const portfolioIndex: string = (index < 10 ? '0' : '') + index;
 
   return (
-    <PortfolioItemComponent to={`/portfolio/${index}`}>
-      <PortfolioIndex>
-        <Text>{portfolioIndex}.</Text>
-      </PortfolioIndex>
+    <PortfolioItemComponent to={`/portfolio/${type}/${index}`}>
+      <Index>{portfolioIndex}.</Index>
 
-      <PortfolioImage
-        src={`../../portfolio_images/portfolio_image_${index}.jpg`}
-        alt="Portfolio Item Image"
-      />
+      <ImageBox>
+        <Icon type="search" color="#ffffff" size={30} />
+        <Image src={`../../portfolio_images/${image}`} alt="Portfolio Item Image" />
+      </ImageBox>
 
-      <PortfolioTitle>
-        <Text>{title}</Text>
-      </PortfolioTitle>
-      <PortfolioContent>{content}</PortfolioContent>
+      <Title>{title}</Title>
+      <Content>{content}</Content>
     </PortfolioItemComponent>
   );
 };

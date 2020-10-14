@@ -64,4 +64,8 @@ const Title: FunctionComponent<TitleProps> = function ({ title, subTitle, align 
   );
 };
 
+Title.defaultProps = {
+  align: 'left',
+};
+
 export default Title;

@@ -8,6 +8,7 @@ import {
   faRunning,
   faLayerGroup,
   faUserTie,
+  faSearchPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 
@@ -26,7 +27,8 @@ export interface IconProps extends IconStyleProps {
     | 'smileWink'
     | 'running'
     | 'layerGroup'
-    | 'userTie';
+    | 'userTie'
+    | 'search';
 }
 
 const ICON_TYPE = {
@@ -39,6 +41,7 @@ const ICON_TYPE = {
   running: faRunning,
   layerGroup: faLayerGroup,
   userTie: faUserTie,
+  search: faSearchPlus,
 };
 
 export const IconComponent = styled.div<IconStyleProps>`

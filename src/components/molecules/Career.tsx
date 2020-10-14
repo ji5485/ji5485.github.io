@@ -17,7 +17,7 @@ export const CareerComponent = styled.div`
   }
 `;
 
-const CareerTitle = styled.div`
+const Title = styled(Text)`
   ${TextComponent} {
     font-size: 20px;
     font-weight: 700;
@@ -28,7 +28,7 @@ const CareerTitle = styled.div`
   }
 `;
 
-const CareerContents = styled.div`
+const Content = styled.div`
   width: 70%;
   min-width: 500px;
 
@@ -51,15 +51,13 @@ const CareerContents = styled.div`
 const Career: FunctionComponent<CareerProps> = function ({ title, contents }) {
   return (
     <CareerComponent>
-      <CareerTitle>
-        <Text>{title}</Text>
-      </CareerTitle>
+      <Title>{title}</Title>
 
-      <CareerContents>
+      <Content>
         {contents.map((content, index) => {
           return <Text key={`${content}-${index}`}>{content}</Text>;
         })}
-      </CareerContents>
+      </Content>
     </CareerComponent>
   );
 };

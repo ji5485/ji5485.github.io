@@ -22,7 +22,7 @@ export const HeaderComponent = styled.div`
   }
 `;
 
-const HeaderTitle = styled.div`
+const Title = styled(Text)`
   ${TextComponent} {
     font-size: 17px;
     font-weight: 700;
@@ -36,9 +36,7 @@ const HeaderTitle = styled.div`
 const Header: FunctionComponent<{}> = function ({}) {
   return (
     <HeaderComponent>
-      <HeaderTitle>
-        <Text>Too Early To Stop</Text>
-      </HeaderTitle>
+      <Title>Too Early To Stop</Title>
       <NavBar modeSwitch={true} currentMode="light" />
     </HeaderComponent>
   );

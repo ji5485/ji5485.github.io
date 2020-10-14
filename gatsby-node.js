@@ -8,6 +8,7 @@
 
 const path = require('path');
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const { project, activity } = require('./static/PortfolioList.json');
 
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
@@ -66,8 +67,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  const BlogTemplateComponent = path.resolve(__dirname, 'src/components/templates/BlogItem.tsx');
+  // Import Template Files for Blog and Portfolio Item Page
+  const BlogTemplate = path.resolve(__dirname, 'src/page_template/BlogItemTemplate.tsx');
+  const PortfolioTemplate = path.resolve(__dirname, 'src/page_template/PortfolioItemTemplate.tsx');
 
+  // Create Pages Through Markdown Files
   getAllMarkdownQuery.data.allMarkdownRemark.edges.forEach(
     ({
       node: {
@@ -76,11 +80,36 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }) => {
       createPage({
         path: slug,
-        component: BlogTemplateComponent,
+        component: BlogTemplate,
         context: {
           slug,
         },
       });
     },
   );
+
+  // Create Portfolio Item Pages
+  project.forEach(({ title, content, image }, index) => {
+    createPage({
+      path: `/portfolio/project/${index + 1}`,
+      component: PortfolioTemplate,
+      context: {
+        title,
+        content,
+        image,
+      },
+    });
+  });
+
+  activity.forEach(({ title, content, image }, index) => {
+    createPage({
+      path: `/portfolio/activity/${index + 1}`,
+      component: PortfolioTemplate,
+      context: {
+        title,
+        content,
+        image,
+      },
+    });
+  });
 };

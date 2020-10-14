@@ -3,22 +3,12 @@ import styled from '@emotion/styled';
 import Title from 'components/molecules/Title';
 import QuestionList from 'components/organisms/QuestionList';
 import Profile from 'components/organisms/Profile';
-import CareerList, { CareerListProps, CareerListComponent } from 'components/organisms/CareerList';
-import Header, { HeaderComponent } from 'components/organisms/Header';
+import CareerList, { CareerListComponent } from 'components/organisms/CareerList';
+import Header from 'components/organisms/Header';
 import Footer from 'components/organisms/Footer';
-
-interface AboutProps {
-  careerList: CareerListProps;
-}
 
 const AboutComponent = styled.div`
   width: 100%;
-
-  ${HeaderComponent} {
-    @media (min-width: 768px) {
-      width: 768px;
-    }
-  }
 `;
 
 const StyleLine = styled.div`
@@ -28,7 +18,7 @@ const StyleLine = styled.div`
   margin: 100px auto;
 `;
 
-const AboutContentComponent = styled.div`
+const Content = styled.div`
   padding: 100px 0;
   width: 768px;
   margin: 0 auto;
@@ -43,19 +33,19 @@ const AboutContentComponent = styled.div`
   }
 `;
 
-const About: FunctionComponent<AboutProps> = function ({}) {
+const About: FunctionComponent<{}> = function ({}) {
   return (
     <AboutComponent>
       <Header />
 
-      <AboutContentComponent>
+      <Content>
         <Title title="About." subTitle="Introduce Myself" align="left" />
         <QuestionList />
         <StyleLine />
         <Title title="Profile." subTitle="Information About Me" align="right" />
         <Profile />
         <CareerList />
-      </AboutContentComponent>
+      </Content>
 
       <Footer />
     </AboutComponent>

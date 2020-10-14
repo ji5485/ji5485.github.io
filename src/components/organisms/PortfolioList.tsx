@@ -4,29 +4,49 @@ import Text from 'components/atoms/Text';
 import PortfolioItem from 'components/molecules/PortfolioItem';
 
 interface PortfolioListProps {
+  type: 'project' | 'activity';
   title: string;
-  portfolioList: [
+  list: [
     {
       title: string;
       content: string;
+      image: string;
     },
   ];
 }
 
-const PortfolioListComponent = styled.div``;
+export const PortfolioListComponent = styled.div`
+  & + & {
+    margin-top: 120px;
+  }
+`;
 
-const Title = styled.div``;
+const Title = styled(Text)`
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 60px;
+`;
 
-const PortfolioList: FunctionComponent<PortfolioListProps> = function ({ title, portfolioList }) {
+const List = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const PortfolioList: FunctionComponent<PortfolioListProps> = function ({ type, title, list }) {
   return (
     <PortfolioListComponent>
-      <Title>
-        <Text>{title}</Text>
-      </Title>
+      <Title>#{title}</Title>
 
-      {portfolioList.map((props, index) => (
-        <PortfolioItem {...props} index={index} key={`${title}-${index}`} />
-      ))}
+      <List>
+        {list.map((props, index) => (
+          <PortfolioItem {...props} type={type} index={index + 1} key={`${title}-${index}`} />
+        ))}
+      </List>
     </PortfolioListComponent>
   );
 };
