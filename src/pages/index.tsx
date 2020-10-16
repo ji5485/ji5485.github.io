@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import Layout from '../Layout';
+import Layout from 'components/templates/Layout';
 import Main from 'components/templates/Main';
 
 const IndexPageProps = {

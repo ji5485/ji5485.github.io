@@ -1,12 +1,12 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import Icon, { IconComponent } from 'components/atoms/Icon';
-import { TextComponent } from 'components/atoms/Text';
+import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
 
 interface QuestionProps {
   icon: 'smileWink' | 'running' | 'layerGroup' | 'userTie';
-  title: ReactNode;
-  content: ReactNode;
+  title: string[];
+  content: string[];
 }
 
 export const QuestionComponent = styled.div`
@@ -48,10 +48,20 @@ const Question: FunctionComponent<QuestionProps> = function ({ icon, title, cont
     <QuestionComponent>
       <TitleBox>
         <Icon size={50} color="#5C7CFA" type={icon} />
-        <div>{title}</div>
+        <div>
+          {/* TODO: Modify Key of Text Component */}
+          {title.map((text, index) => (
+            <Text key={icon + text}>{text}</Text>
+          ))}
+        </div>
       </TitleBox>
 
-      <Content>{content}</Content>
+      <Content>
+        {/* TODO: Modify Key of Text Component */}
+        {content.map((text, index) => (
+          <Text key={icon + text}>{text}</Text>
+        ))}
+      </Content>
     </QuestionComponent>
   );
 };

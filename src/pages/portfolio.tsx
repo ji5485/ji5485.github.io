@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import Layout from '../Layout';
+import Layout from 'components/templates/Layout';
 import Portfolio from 'components/templates/Portfolio';
 
 const PortfolioPage: FunctionComponent<{}> = function ({}) {

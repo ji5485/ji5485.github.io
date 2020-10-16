@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Text from 'components/atoms/Text';
 import PortfolioItem from 'components/molecules/PortfolioItem';
 
-interface PortfolioListProps {
+export interface PortfolioListProps {
   type: 'project' | 'activity';
   title: string;
   list: [

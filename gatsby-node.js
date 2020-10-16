@@ -69,7 +69,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Import Template Files for Blog and Portfolio Item Page
   const BlogTemplate = path.resolve(__dirname, 'src/page_template/BlogItemTemplate.tsx');
-  const PortfolioTemplate = path.resolve(__dirname, 'src/page_template/PortfolioItemTemplate.tsx');
+  const PortfolioDetailTemplate = path.resolve(
+    __dirname,
+    'src/page_template/PortfolioDetailTemplate.tsx',
+  );
 
   // Create Pages Through Markdown Files
   getAllMarkdownQuery.data.allMarkdownRemark.edges.forEach(
@@ -89,14 +92,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   );
 
   // Create Portfolio Item Pages
-  project.forEach(({ title, content, image }, index) => {
+  project.forEach(({ title, image, extraInfo }, index) => {
     createPage({
       path: `/portfolio/project/${index + 1}`,
-      component: PortfolioTemplate,
+      component: PortfolioDetailTemplate,
       context: {
         title,
-        content,
         image,
+        ...extraInfo,
       },
     });
   });
@@ -104,7 +107,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   activity.forEach(({ title, content, image }, index) => {
     createPage({
       path: `/portfolio/activity/${index + 1}`,
-      component: PortfolioTemplate,
+      component: PortfolioDetailTemplate,
       context: {
         title,
         content,

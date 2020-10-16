@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 import Text from 'components/atoms/Text';
+import styled from '@emotion/styled';
 
 type TitleStyleProps = {
   align: 'right' | 'left';
@@ -34,7 +33,7 @@ const TextBox = styled.div<TitleStyleProps>`
   text-align: ${({ align }) => align};
 `;
 
-const TitleStyle = css`
+const MainTitle = styled(Text)`
   font-size: 60px;
   font-weight: 700;
 
@@ -43,7 +42,7 @@ const TitleStyle = css`
   }
 `;
 
-const SubTitleStyle = css`
+const SubTitle = styled(Text)`
   font-size: 30px;
   font-weight: 100;
 
@@ -56,9 +55,10 @@ const Title: FunctionComponent<TitleProps> = function ({ title, subTitle, align 
   return (
     <TitleComponent>
       {align === 'right' && <StyledLine />}
+
       <TextBox align={align}>
-        <Text nestedStyle={TitleStyle}>{title}</Text>
-        <Text nestedStyle={SubTitleStyle}>{subTitle}</Text>
+        <MainTitle>{title}</MainTitle>
+        <SubTitle>{subTitle}</SubTitle>
       </TextBox>
     </TitleComponent>
   );
