@@ -10,7 +10,7 @@ export interface PortfolioListProps {
     {
       title: string;
       content: string;
-      image: string;
+      mainImage: string;
     },
   ];
 }

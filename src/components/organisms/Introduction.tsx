@@ -5,12 +5,14 @@ import ProfileImage, { ProfileImageComponent } from 'components/atoms/ProfileIma
 import IconList, { IconListComponent, iconListProps } from "components/molecules/IconList";
 import IntroductionText from 'components/molecules/IntroductionText';
 
-export interface IntroductionProps {
-  profileImageLink: string;
-  profileImageAlt: string;
-  iconList: iconListProps.list;
-  iconSize: iconListProps.size;
+interface IntroductionProps {
+  iconList: [{
+    href: string,
+    type: string
+  }]
 }
+
+const PROFILE_IMAGE_LINK: string = "https://avatars2.githubusercontent.com/u/24629040?s=460&u=0bb3411f25c0e1c5d25d753fc648739367cb7032&v=4";
 
 export const IntroductionComponent = styled.div`
   display: flex;
@@ -46,12 +48,7 @@ const RightIntroduction = styled.div`
   }
 `;
 
-const Introduction: FunctionComponent<IntroductionProps> = function ({
-  profileImageLink,
-  profileImageAlt,
-  iconList,
-  iconSize
-}) {
+const Introduction: FunctionComponent<IntroductionProps> = function ({ iconList }) {
   const { width } = useWindowSize();
 
   return (
@@ -59,13 +56,13 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
       <ProfileImage
         width={width >= 1200 ? 200 : (width >= 768 ? 150 : 120)}
         height={width >= 1200 ? 200 : (width >= 768 ? 150 : 120)}
-        src={profileImageLink}
-        alt={profileImageAlt}
+        src={PROFILE_IMAGE_LINK}
+        alt="Profile Image"
       />
 
       <RightIntroduction>
         <IntroductionText />
-        <IconList list={iconList} size={iconSize} />
+        <IconList list={iconList} size={30} />
       </RightIntroduction>
     </IntroductionComponent>
   );

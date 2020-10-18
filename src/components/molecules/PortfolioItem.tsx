@@ -9,7 +9,7 @@ export interface PortfolioItemProps {
   index: number;
   title: string;
   content: string;
-  image: string;
+  mainImage: string;
 }
 
 const Index = styled(Text)`
@@ -72,7 +72,7 @@ const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({
   index,
   title,
   content,
-  image,
+  mainImage,
 }) {
   const portfolioIndex: string = (index < 10 ? '0' : '') + index;
 
@@ -82,7 +82,7 @@ const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({
 
       <ImageBox>
         <Icon type="search" color="#ffffff" size={30} />
-        <Image src={`../../portfolio_images/${image}`} alt="Portfolio Item Image" />
+        <Image src={`../../portfolio_images/${mainImage}`} alt="Portfolio Item Image" />
       </ImageBox>
 
       <Title>{title}</Title>

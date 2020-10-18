@@ -11,7 +11,16 @@ interface PortfolioDetailProps {
   extraImage: string;
 }
 
-const PortfolioDetailComponent = styled.div``;
+const PortfolioDetailComponent = styled.div`
+  @media (min-width: 1200px) {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-gap: 50px;
+  }
+`;
 
 const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
   title,
@@ -22,7 +31,9 @@ const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
   review,
   extraImage,
 }) {
-  return <PortfolioDetailComponent>{title}</PortfolioDetailComponent>;
+  return (
+    <PortfolioDetailComponent>{title}</PortfolioDetailComponent>
+  );
 };
 
 export default PortfolioDetail;

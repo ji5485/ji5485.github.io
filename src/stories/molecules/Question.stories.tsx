@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import Text from 'components/atoms/Text';
 import Question from 'components/molecules/Question';
 import { withKnobs, select } from '@storybook/addon-knobs';
 

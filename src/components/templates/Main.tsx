@@ -5,6 +5,17 @@ import IconList, { iconListProps } from 'components/molecules/IconList';
 import Introduction from 'components/organisms/Introduction';
 import Header, { HeaderComponent } from 'components/organisms/Header';
 
+type iconList = [{
+  href: string,
+  type: string
+}];
+
+const INTRODUCTION_ICON_LIST: iconList = [
+  { href: 'https://github.com/ji5485', type: 'github' },
+  { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
+  { href: 'https://www.facebook.com/', type: 'facebook' },
+];
+
 export interface MainProps {
   profileImageLink: string;
   profileImageAlt: string;
@@ -67,27 +78,18 @@ const MainFooterComponent = styled.div`
   }
 `;
 
-const Main: FunctionComponent<MainProps> = function ({
-  profileImageLink,
-  profileImageAlt,
-  iconList,
-}) {
+const Main: FunctionComponent<{}> = function ({}) {
   return (
     <MainComponent>
       <Header />
 
       <MainContentComponent>
-        <Introduction
-          profileImageLink={profileImageLink}
-          profileImageAlt={profileImageAlt}
-          iconList={iconList}
-          iconSize={30}
-        />
+        <Introduction iconList={INTRODUCTION_ICON_LIST} />
         <SideMenu />
       </MainContentComponent>
 
       <MainFooterComponent>
-        <IconList list={iconList} size={25} />
+        <IconList list={INTRODUCTION_ICON_LIST} size={25} />
       </MainFooterComponent>
     </MainComponent>
   );
