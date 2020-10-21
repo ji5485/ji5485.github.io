@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import Text from 'components/atoms/Text';
 import styled from '@emotion/styled';
 
-interface PortfolioDetailDescProps {
+export interface PortfolioDetailDescProps {
   title: string;
   content: string;
 }
@@ -20,13 +20,16 @@ const Desc = styled(Text)`
   font-weight: 400;
 `;
 
-const PortfolioDetailDesc: FunctionComponent<PortfolioDetailDescProps> = function ({ title, content }) {
+const PortfolioDetailDesc: FunctionComponent<PortfolioDetailDescProps> = function ({
+  title,
+  content,
+}) {
   return (
     <PortfolioDetailDescComponent>
       <Title>{title}</Title>
       <Desc>{content}</Desc>
     </PortfolioDetailDescComponent>
   );
-}
+};
 
 export default PortfolioDetailDesc;

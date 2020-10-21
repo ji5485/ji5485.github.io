@@ -2,17 +2,15 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import useWindowSize from 'hooks/useWindowSize';
 import ProfileImage, { ProfileImageComponent } from 'components/atoms/ProfileImage';
-import IconList, { IconListComponent, iconListProps } from "components/molecules/IconList";
+import IconList, { IconListComponent, IconListProps } from 'components/molecules/IconList';
 import IntroductionText from 'components/molecules/IntroductionText';
 
 interface IntroductionProps {
-  iconList: [{
-    href: string,
-    type: string
-  }]
+  iconList: IconListProps.list;
 }
 
-const PROFILE_IMAGE_LINK: string = "https://avatars2.githubusercontent.com/u/24629040?s=460&u=0bb3411f25c0e1c5d25d753fc648739367cb7032&v=4";
+const PROFILE_IMAGE_LINK =
+  'https://avatars2.githubusercontent.com/u/24629040?s=460&u=0bb3411f25c0e1c5d25d753fc648739367cb7032&v=4';
 
 export const IntroductionComponent = styled.div`
   display: flex;
@@ -54,8 +52,8 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({ iconList 
   return (
     <IntroductionComponent>
       <ProfileImage
-        width={width >= 1200 ? 200 : (width >= 768 ? 150 : 120)}
-        height={width >= 1200 ? 200 : (width >= 768 ? 150 : 120)}
+        width={width >= 1200 ? 200 : width >= 768 ? 150 : 120}
+        height={width >= 1200 ? 200 : width >= 768 ? 150 : 120}
         src={PROFILE_IMAGE_LINK}
         alt="Profile Image"
       />

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
 
-interface PortfolioDetailInfoProps {
+export interface PortfolioDetailInfoProps {
   title: string;
   subTitle: string;
   period: string;
@@ -26,7 +26,7 @@ const Desc = styled.div`
 const PortfolioDetailInfo: FunctionComponent<PortfolioDetailInfoProps> = function ({
   title,
   subTitle,
-  period
+  period,
 }) {
   return (
     <PortfoiloDetailInfoComponent>
@@ -38,6 +38,6 @@ const PortfolioDetailInfo: FunctionComponent<PortfolioDetailInfoProps> = functio
       </Desc>
     </PortfoiloDetailInfoComponent>
   );
-}
+};
 
 export default PortfolioDetailInfo;
