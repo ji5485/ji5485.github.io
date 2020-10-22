@@ -10,14 +10,15 @@ export interface PortfolioDetailDescProps {
 export const PortfolioDetailDescComponent = styled.div``;
 
 const Title = styled(Text)`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;
 `;
 
 const Desc = styled(Text)`
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
+  line-height: 1.3;
 `;
 
 const PortfolioDetailDesc: FunctionComponent<PortfolioDetailDescProps> = function ({

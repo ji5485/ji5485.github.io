@@ -18,7 +18,7 @@ const Index = styled(Text)`
   font-weight: 700;
 `;
 
-const ImageBox = styled.div`
+const ImageBox = styled(LinkComponent)`
   width: 100%;
   height: 200px;
   margin: 10px 0;
@@ -33,6 +33,12 @@ const ImageBox = styled.div`
     place-items: center;
     transition: 0.1s opacity;
     opacity: 0;
+  }
+
+  &:hover {
+    ${IconComponent} {
+      opacity: 1;
+    }
   }
 `;
 
@@ -60,13 +66,7 @@ const Content = styled.div`
   word-wrap: break-word;
 `;
 
-const PortfolioItemComponent = styled(LinkComponent)`
-  &:hover ${ImageBox} {
-    ${IconComponent} {
-      opacity: 1;
-    }
-  }
-`;
+const PortfolioItemComponent = styled.div``;
 
 const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({
   type,
@@ -78,10 +78,10 @@ const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({
   const portfolioIndex: string = (index < 10 ? '0' : '') + index;
 
   return (
-    <PortfolioItemComponent to={`/portfolio/${type}/${index}`}>
+    <PortfolioItemComponent>
       <Index>{portfolioIndex}.</Index>
 
-      <ImageBox>
+      <ImageBox to={`/portfolio/${type}/${index}`}>
         <Icon type="search" color="#ffffff" size={30} />
         <Image src={generateImageLink(image)} alt="Portfolio Item Image" />
       </ImageBox>

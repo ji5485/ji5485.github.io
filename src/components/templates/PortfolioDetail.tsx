@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import PortfolioDetailContent from 'components/organisms/PortfolioDetailContent';
+import PortfolioDetailImageList from 'components/organisms/PortfolioDetailImageList';
 
 interface PortfolioDetailProps {
   title: string;
@@ -18,6 +19,14 @@ const PortfolioDetailComponent = styled.div`
     margin: 0 auto;
     padding: 150px 0;
   }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    padding: 80px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 20px;
+  }
 `;
 
 const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
@@ -27,7 +36,7 @@ const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
   period,
   description,
   review,
-  //  extraImage,
+  extraImage,
 }) {
   console.log(image);
   return (
@@ -40,6 +49,7 @@ const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
         ]}
         image={image}
       />
+      <PortfolioDetailImageList list={extraImage} />
     </PortfolioDetailComponent>
   );
 };
