@@ -14,8 +14,9 @@ export const blogQuery = graphql`
       html
       frontmatter {
         title
-        tags
+        thumbnail
         date
+        categories
       }
     }
   }

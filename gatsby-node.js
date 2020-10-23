@@ -69,14 +69,29 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   // Import Template Files for Blog and Portfolio Item Page
-  const BlogTemplate = path.resolve(__dirname, 'src/page_template/BlogItemTemplate.tsx');
+  const BlogItemTemplate = path.resolve(__dirname, 'src/page_template/BlogItemTemplate.tsx');
+  const BlogCategoryTemplate = path.resolve(
+    __dirname,
+    'src/page_templates/BlogCategoryTemplate.tsx',
+  );
   const PortfolioDetailTemplate = path.resolve(
     __dirname,
     'src/page_template/PortfolioDetailTemplate.tsx',
   );
 
+  // Create Post List
+  const allPost = getAllMarkdownQuery.data.allMarkdownRemark.edges;
+  const pageNum = Math.ceil(allPost.length / 10);
+
+  for (let index = 1; index <= pageNum; i++)
+    createPage({
+      path: index == 1 ? '/blog' : `/blog/${index}`,
+      component: BlogCategoryTemplate,
+      context: { skip, pageNum, currentPage: index },
+    });
+
   // Create Pages Through Markdown Files
-  getAllMarkdownQuery.data.allMarkdownRemark.edges.forEach(
+  allPost.forEach(
     ({
       node: {
         fields: { slug },
@@ -84,7 +99,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }) => {
       createPage({
         path: slug,
-        component: BlogTemplate,
+        component: BlogItemTemplate,
         context: {
           slug,
         },
@@ -105,14 +120,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 
-  activity.forEach(({ title, content, image }, index) => {
+  activity.forEach(({ title, image, extraInfo }, index) => {
     createPage({
       path: `/portfolio/activity/${index + 1}`,
       component: PortfolioDetailTemplate,
       context: {
         title,
-        content,
         image,
+        ...extraInfo,
       },
     });
   });
