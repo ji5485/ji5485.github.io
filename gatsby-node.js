@@ -72,7 +72,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const BlogItemTemplate = path.resolve(__dirname, 'src/page_template/BlogItemTemplate.tsx');
   const BlogCategoryTemplate = path.resolve(
     __dirname,
-    'src/page_templates/BlogCategoryTemplate.tsx',
+    'src/page_template/BlogCategoryTemplate.tsx',
   );
   const PortfolioDetailTemplate = path.resolve(
     __dirname,
@@ -81,14 +81,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create Post List
   const allPost = getAllMarkdownQuery.data.allMarkdownRemark.edges;
-  const pageNum = Math.ceil(allPost.length / 10);
+  const totalPage = Math.ceil(allPost.length / 10);
 
-  for (let index = 1; index <= pageNum; i++)
+  for (let index = 1; index <= totalPage; index++) {
     createPage({
-      path: index == 1 ? '/blog' : `/blog/${index}`,
+      path: index === 1 ? '/blog' : `/blog/${index}`,
       component: BlogCategoryTemplate,
-      context: { skip, pageNum, currentPage: index },
+      context: {
+        skip: 10 * (index - 1),
+        totalPage,
+        currentPage: index,
+      },
     });
+  }
 
   // Create Pages Through Markdown Files
   allPost.forEach(
