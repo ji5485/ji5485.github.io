@@ -36,6 +36,11 @@ module.exports = {
       },
     });
     config.resolve.extensions.push('.ts', '.tsx');
+
+    config.resolve.alias = {
+      utilities: path.join(__dirname, '../src/utils'),
+    };
+
     return config;
   },
 };
