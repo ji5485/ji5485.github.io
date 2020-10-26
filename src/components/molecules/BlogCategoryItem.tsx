@@ -1,13 +1,20 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
-import { TextComponent } from 'components/atoms/Text';
+import Text, { TextComponent } from 'components/atoms/Text';
+import splitOnUpper from 'utilities/splitOnUpper';
 
 export interface BlogCategoryItemProps {
   title: string;
-  summary: string;
+  summary: string[];
   date: string;
-  thumbnail: string;
+  thumbnail: {
+    childImageSharp: {
+      resize: {
+        src: string;
+      };
+    };
+  };
   categories: string[];
   slug: string;
 }
@@ -16,7 +23,7 @@ const BlogCategoryItemComponent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  padding: 15px 0;
+  padding: 20px 0;
   border-top: 1px solid #1e1f21;
   border-bottom: 1px solid #1e1f21;
 
@@ -25,9 +32,14 @@ const BlogCategoryItemComponent = styled.div`
   }
 `;
 
-const ThumbnailImage = styled.img`
-  width: 180px;
-  object-fit: cover;
+const Content = styled.div`
+  width: calc(100% - 200px);
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled(LinkComponent)`
@@ -46,10 +58,10 @@ const Category = styled.div`
   margin-bottom: 10px;
 
   ${LinkComponent} {
-    font-size: 13px;
-    font-weight: 100;
+    font-size: 14px;
+    font-weight: 400;
     color: #1e1f21;
-    opacity: 0.8;
+    opacity: 0.75;
     margin-right: 10px;
   }
 
@@ -63,17 +75,26 @@ const Summary = styled(TextComponent)`
   font-weight: 400;
   color: #1e1f21;
   opacity: 0.9;
+  margin-top: auto;
 `;
 
-const Content = styled.div`
-  width: calc(100% - 200px);
+const ThumbnailImage = styled.img`
+  width: 180px;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const BlogCategoryItem: FunctionComponent<BlogCategoryItemProps> = function ({
   title,
   summary,
   date,
-  thumbnail,
+  thumbnail: {
+    childImageSharp: {
+      resize: { src },
+    },
+  },
   categories,
   slug,
 }) {
@@ -83,15 +104,19 @@ const BlogCategoryItem: FunctionComponent<BlogCategoryItemProps> = function ({
         <Title to={slug}>{title}</Title>
         <Category>
           {categories.map((category) => (
-            <Link to={`/blog/${category}/1`} key={`${title}-${category}`}>
+            <Link to={`/blog/${splitOnUpper(category)}/1`} key={`${title}-${category}`}>
               #{category}
             </Link>
           ))}
         </Category>
-        <Summary>{summary}</Summary>
+        <Summary>
+          {summary.map((sentence) => (
+            <Text key={sentence}>{sentence}</Text>
+          ))}
+        </Summary>
       </Content>
 
-      <ThumbnailImage src={thumbnail} alt="Thumbnail Image" />
+      <ThumbnailImage src={src} alt="Thumbnail Image" />
     </BlogCategoryItemComponent>
   );
 };

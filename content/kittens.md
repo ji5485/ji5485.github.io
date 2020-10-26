@@ -3,6 +3,8 @@ path: '/content/kittens/'
 date: '2018-01-07'
 title: 'Kittens'
 categories: ['markdown', 'kittens', 'example']
+summary: ['abcdef', 'abcdef', 'abcdef']
+thumbnail: './abc.png'
 ---
 
 This is an example of how you can build your site around Markdown files.

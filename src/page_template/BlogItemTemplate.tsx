@@ -14,7 +14,13 @@ export const blogQuery = graphql`
       html
       frontmatter {
         title
-        thumbnail
+        thumbnail {
+          childImageSharp {
+            resize(fit: COVER, width: 768, height: 500) {
+              tracedSVG
+            }
+          }
+        }
         date
         categories
       }

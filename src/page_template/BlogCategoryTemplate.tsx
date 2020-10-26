@@ -8,19 +8,17 @@ import BlogCategory from 'components/templates/BlogCategory';
 interface BlogCategoryTemplateProps {
   data: {
     allMarkdownRemark: {
-      edges: BlogCategoryListProps.list
-    }
-  },
-  pageContext: PaginationProps
+      edges: BlogCategoryListProps.list;
+    };
+  };
+  pageContext: PaginationProps;
 }
 
 const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = function ({
   data: {
-    allMarkdownRemark: {
-      edges
-    }
+    allMarkdownRemark: { edges },
   },
-  pageContext
+  pageContext,
 }) {
   return (
     <Layout>
@@ -33,17 +31,20 @@ export default BlogCategoryTemplate;
 
 export const blogCategoryQuery = graphql`
   query blogListQuery($skip: Int!) {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      skip: $skip
-    ) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, skip: $skip) {
       edges {
         node {
           frontmatter {
             title
             summary
             date
-            thumbnail
+            thumbnail {
+              childImageSharp {
+                resize(fit: COVER, width: 180, height: 130) {
+                  src
+                }
+              }
+            }
             categories
           }
           fields {
@@ -53,4 +54,4 @@ export const blogCategoryQuery = graphql`
       }
     }
   }
-`
+`;

@@ -11,9 +11,15 @@ export interface BlogCategoryListProps {
         };
         frontmatter: {
           title: string;
-          summary: string;
+          summary: string[];
           date: string;
-          thumbnail: string;
+          thumbnail: {
+            childImageSharp: {
+              resize: {
+                src: string;
+              };
+            };
+          };
           categories: string[];
         };
       };
