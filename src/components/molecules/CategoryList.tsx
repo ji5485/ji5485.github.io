@@ -1,30 +1,38 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
+import splitOnUpper from 'utilities/splitOnUpper';
 
-interface CategoryListProps {
-  categories: [
-    {
-      category: string;
-      count: number;
-    },
-  ];
+export interface CategoryListProps {
+  categories: {
+    [key: string]: number
+  };
 }
 
 const CategoryListComponent = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin: -5px -10px;
+  margin-bottom: 60px;
 
-  ${LinkComponent} + ${LinkComponent} {
-    margin-left: 15px;
+  ${LinkComponent} {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 5px 10px;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
 const CategoryList: FunctionComponent<CategoryListProps> = function ({ categories }) {
   return (
     <CategoryListComponent>
-      {categories.map(({ category, count }) => {
-        const url = `/blog/${category}/1`;
+      {Object.keys(categories).map((category: string) => {
+        const url: string = `/blog/${splitOnUpper(category)}/1`;
+        const count: number = categories[category];
+
         return (
           <Link to={url} key={`${category}-${count}`}>
             #{category}({count})

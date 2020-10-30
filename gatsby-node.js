@@ -10,6 +10,15 @@ const path = require('path');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { project, activity } = require('./static/PortfolioList.json');
 
+const splitOnUpper = function (str) {
+  const lowerCaseArr = str.split(/(?=[A-Z])/).reduce((acc, cur) => {
+    acc.push(cur.toLowerCase());
+    return acc;
+  }, []);
+
+  return lowerCaseArr.join('-');
+};
+
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
   if (stage !== 'develop') {
@@ -62,8 +71,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     `,
   );
 
+  // Get All Category Through Markdown Files
+  const getAllCategoryList = await graphql(
+    `
+      {
+        allMarkdownRemark {
+          edges {
+            node {
+              frontmatter {
+                categories
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+
   // Handle errors
-  if (getAllMarkdownQuery.errors) {
+  if (getAllMarkdownQuery.errors || getAllCategoryList.errors) {
     reporter.panicOnBuild(`Error while running transform markdown to page`);
     return;
   }
@@ -79,6 +105,26 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     'src/page_template/PortfolioDetailTemplate.tsx',
   );
 
+  // Make Category Count Object
+  const categoryCount = getAllCategoryList.data.allMarkdownRemark.edges.reduce(
+    (
+      acc,
+      {
+        node: {
+          frontmatter: { categories },
+        },
+      },
+    ) => {
+      categories.forEach((category) => {
+        if (!acc[category]) acc[category] = 1;
+        else acc[category]++;
+      });
+
+      return acc;
+    },
+    {},
+  );
+
   // Create Post List
   const allPost = getAllMarkdownQuery.data.allMarkdownRemark.edges;
   const totalPage = Math.ceil(allPost.length / 10);
@@ -91,9 +137,30 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         skip: 10 * (index - 1),
         totalPage,
         currentPage: index,
+        categories: categoryCount,
       },
     });
   }
+
+  // Create Post List By Category
+  Object.keys(categoryCount).forEach((category) => {
+    const allCategoryPost = categoryCount[category];
+    const totalCategoryPage = Math.ceil(allCategoryPost / 10);
+
+    for (let index = 1; index <= totalCategoryPage; index++) {
+      createPage({
+        path: `/blog/${splitOnUpper(category)}/${index}`,
+        component: BlogCategoryTemplate,
+        context: {
+          skip: 10 * (index - 1),
+          totalPage: totalCategoryPage,
+          currentPage: index,
+          categories: categoryCount,
+          category,
+        },
+      });
+    }
+  });
 
   // Create Pages Through Markdown Files
   allPost.forEach(

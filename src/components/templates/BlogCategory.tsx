@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Title from 'components/molecules/Title';
+import CategoryList, { CategoryListProps } from 'components/molecules/CategoryList';
 import Header from 'components/organisms/Header';
 import Footer from 'components/organisms/Footer';
 import BlogCategoryList, { BlogCategoryListProps } from 'components/organisms/BlogCategoryList';
@@ -8,7 +9,7 @@ import Pagination, { PaginationProps } from 'components/organisms/Pagination';
 
 export interface BlogCategoryProps {
   list: BlogCategoryListProps.list;
-  pagination: PaginationProps;
+  context: PaginationProps | CategoryListProps;
 }
 
 const BlogCategoryComponent = styled.div`
@@ -28,7 +29,7 @@ const Content = styled.div`
 
 const BlogCategory: FunctionComponent<BlogCategoryProps> = function ({
   list,
-  pagination: { totalPage, currentPage },
+  context: { totalPage, currentPage, categories },
 }) {
   return (
     <BlogCategoryComponent>
@@ -36,6 +37,7 @@ const BlogCategory: FunctionComponent<BlogCategoryProps> = function ({
 
       <Content>
         <Title title="Blog." subTitle="Development, Record" />
+        <CategoryList categories={categories} />
         <BlogCategoryList list={list} />
       </Content>
 

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 import Layout from 'components/templates/Layout';
+import { CategoryListProps } from 'components/molecules/CategoryList';
 import { BlogCategoryListProps } from 'components/organisms/BlogCategoryList';
 import { PaginationProps } from 'components/organisms/Pagination';
 import BlogCategory from 'components/templates/BlogCategory';
@@ -11,7 +12,7 @@ interface BlogCategoryTemplateProps {
       edges: BlogCategoryListProps.list;
     };
   };
-  pageContext: PaginationProps;
+  pageContext: PaginationProps | CategoryListProps;
 }
 
 const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = function ({
@@ -22,7 +23,7 @@ const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = funct
 }) {
   return (
     <Layout>
-      <BlogCategory list={edges} pagination={pageContext} />
+      <BlogCategory list={edges} context={pageContext} />
     </Layout>
   );
 };
@@ -30,8 +31,12 @@ const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = funct
 export default BlogCategoryTemplate;
 
 export const blogCategoryQuery = graphql`
-  query blogListQuery($skip: Int!) {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, skip: $skip) {
+  query blogListQuery($skip: Int!, $category: String = "//") {
+    allMarkdownRemark(
+      filter: { frontmatter: { categories: { regex: $category } } },
+      sort: { fields: [frontmatter___date], order: DESC },
+      skip: $skip)
+    {
       edges {
         node {
           frontmatter {
