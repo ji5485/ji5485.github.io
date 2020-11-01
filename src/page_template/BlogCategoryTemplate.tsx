@@ -12,7 +12,7 @@ interface BlogCategoryTemplateProps {
       edges: BlogCategoryListProps.list;
     };
   };
-  pageContext: PaginationProps | CategoryListProps;
+  pageContext: PaginationProps | CategoryListProps | { category: string };
 }
 
 const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = function ({
@@ -31,11 +31,13 @@ const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = funct
 export default BlogCategoryTemplate;
 
 export const blogCategoryQuery = graphql`
-  query blogListQuery($skip: Int!, $category: String = "//") {
+  query blogListQuery($skip: Int!, $category: String = "/w/") {
     allMarkdownRemark(
       filter: { frontmatter: { categories: { regex: $category } } },
       sort: { fields: [frontmatter___date], order: DESC },
-      skip: $skip)
+      skip: $skip,
+      limit: 10
+    )
     {
       edges {
         node {

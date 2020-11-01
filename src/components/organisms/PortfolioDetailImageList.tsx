@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import generateImageLink from 'utilities/imageLinkGenerator';
+import shortId from 'utilities/shortId';
 
 interface PortfolioDetailImageListProps {
   list: string[];
@@ -46,7 +47,7 @@ const PortfolioDetailImageList: FunctionComponent<PortfolioDetailImageListProps>
   return (
     <PortfolioDetailImageListComponent>
       {list.map((image, index) => (
-        <ImageBox key={`${image}-${index}`}>
+        <ImageBox key={shortId()}>
           <Image src={generateImageLink(image)} alt="Activity Image" />
         </ImageBox>
       ))}

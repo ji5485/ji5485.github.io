@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Text, { TextComponent } from 'components/atoms/Text';
+import shortId from 'utilities/shortId';
 
 export interface CareerProps {
   title: string;
@@ -54,8 +55,8 @@ const Career: FunctionComponent<CareerProps> = function ({ title, contents }) {
       <Title>{title}</Title>
 
       <Content>
-        {contents.map((content, index) => {
-          return <Text key={`${content}-${index}`}>{content}</Text>;
+        {contents.map((content) => {
+          return <Text key={shortId()}>{content}</Text>;
         })}
       </Content>
     </CareerComponent>

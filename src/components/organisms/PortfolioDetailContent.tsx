@@ -11,6 +11,7 @@ import PortfolioDetailInfo, {
 } from 'components/molecules/PortfolioDetailInfo';
 import generateImageLink from 'utilities/imageLinkGenerator';
 import useWindowSize from 'hooks/useWindowSize';
+import shortId from 'utilities/shortId';
 
 interface PortfolioDetailContentProps {
   info: PortfolioDetailInfoProps;
@@ -115,7 +116,7 @@ const PortfolioDetailContent: FunctionComponent<PortfolioDetailContentProps> = f
 
         <Description>
           {contents.map((item) => (
-            <PortfolioDetailDesc {...item} key={`${info.title}-${item.title}`} />
+            <PortfolioDetailDesc {...item} key={shortId()} />
           ))}
         </Description>
 

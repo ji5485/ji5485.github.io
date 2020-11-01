@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Text from 'components/atoms/Text';
 import PortfolioItem from 'components/molecules/PortfolioItem';
+import shortId from 'utilities/shortId';
 
 export interface PortfolioListProps {
   type: 'project' | 'activity';
@@ -44,7 +45,7 @@ const PortfolioList: FunctionComponent<PortfolioListProps> = function ({ type, t
 
       <List>
         {list.map((props, index) => (
-          <PortfolioItem {...props} type={type} index={index + 1} key={`${title}-${index}`} />
+          <PortfolioItem {...props} type={type} index={index + 1} key={shortId()} />
         ))}
       </List>
     </PortfolioListComponent>

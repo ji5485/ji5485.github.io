@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import Icon from 'components/atoms/Icon';
 import styled from '@emotion/styled';
+import shortId from 'utilities/shortId';
 
 export interface IconListProps {
   list: [
@@ -28,9 +29,9 @@ const IconList: FunctionComponent<IconListProps> = function ({ list, size }) {
   return (
     <IconListComponent>
       {list &&
-        list.map(({ href, type }, index) => {
+        list.map(({ href, type }) => {
           return (
-            <a href={href} key={index} rel="noreferrer" target="_blank">
+            <a href={href} key={shortId()} rel="noreferrer" target="_blank">
               <Icon type={type} size={size} />
             </a>
           );

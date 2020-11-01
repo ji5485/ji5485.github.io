@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Career, { CareerComponent } from 'components/molecules/Career';
+import shortId from 'utilities/shortId';
 
 const CAREER_LIST = [
   {
@@ -37,8 +38,8 @@ export const CareerListComponent = styled.div`
 const CareerList: FunctionComponent<{}> = function ({}) {
   return (
     <CareerListComponent>
-      {CAREER_LIST.map(({ title, contents }, index) => {
-        return <Career title={title} contents={contents} key={`${title}-${index}`} />;
+      {CAREER_LIST.map(({ title, contents }) => {
+        return <Career title={title} contents={contents} key={shortId()} />;
       })}
     </CareerListComponent>
   );

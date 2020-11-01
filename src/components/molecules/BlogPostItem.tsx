@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
 import Text, { TextComponent } from 'components/atoms/Text';
 import splitOnUpper from 'utilities/splitOnUpper';
+import shortId from 'utilities/shortId';
 
-export interface BlogCategoryItemProps {
+export interface BlogPostItemProps {
   title: string;
   summary: string[];
   date: string;
@@ -19,7 +20,7 @@ export interface BlogCategoryItemProps {
   slug: string;
 }
 
-const BlogCategoryItemComponent = styled.div`
+const BlogPostItemComponent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -86,7 +87,7 @@ const ThumbnailImage = styled.img`
   }
 `;
 
-const BlogCategoryItem: FunctionComponent<BlogCategoryItemProps> = function ({
+const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
   title,
   summary,
   date,
@@ -99,26 +100,26 @@ const BlogCategoryItem: FunctionComponent<BlogCategoryItemProps> = function ({
   slug,
 }) {
   return (
-    <BlogCategoryItemComponent>
+    <BlogPostItemComponent>
       <Content>
         <Title to={slug}>{title}</Title>
         <Category>
           {categories.map((category) => (
-            <Link to={`/blog/${splitOnUpper(category)}/1`} key={`${title}-${category}`}>
+            <Link to={`/blog/${splitOnUpper(category)}/1`} key={shortId()}>
               #{category}
             </Link>
           ))}
         </Category>
         <Summary>
           {summary.map((sentence) => (
-            <Text key={sentence}>{sentence}</Text>
+            <Text key={shortId()}>{sentence}</Text>
           ))}
         </Summary>
       </Content>
 
       <ThumbnailImage src={src} alt="Thumbnail Image" />
-    </BlogCategoryItemComponent>
+    </BlogPostItemComponent>
   );
 };
 
-export default BlogCategoryItem;
+export default BlogPostItem;

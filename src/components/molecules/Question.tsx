@@ -1,7 +1,8 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent } from 'react';
 import Icon, { IconComponent } from 'components/atoms/Icon';
 import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
+import shortId from 'utilities/shortId';
 
 interface QuestionProps {
   icon: 'smileWink' | 'running' | 'layerGroup' | 'userTie';
@@ -49,17 +50,15 @@ const Question: FunctionComponent<QuestionProps> = function ({ icon, title, cont
       <TitleBox>
         <Icon size={50} color="#5C7CFA" type={icon} />
         <div>
-          {/* TODO: Modify Key of Text Component */}
-          {title.map((text, index) => (
-            <Text key={icon + text}>{text}</Text>
+          {title.map((text) => (
+            <Text key={shortId()}>{text}</Text>
           ))}
         </div>
       </TitleBox>
 
       <Content>
-        {/* TODO: Modify Key of Text Component */}
-        {content.map((text, index) => (
-          <Text key={icon + text}>{text}</Text>
+        {content.map((text) => (
+          <Text key={shortId()}>{text}</Text>
         ))}
       </Content>
     </QuestionComponent>

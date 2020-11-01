@@ -156,7 +156,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           totalPage: totalCategoryPage,
           currentPage: index,
           categories: categoryCount,
-          category,
+          category: `/${category}/`,
         },
       });
     }

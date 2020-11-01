@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Text, { TextComponent } from 'components/atoms/Text';
 import IconList from 'components/molecules/IconList';
 import useWindowSize from 'hooks/useWindowSize';
+import shortId from 'utilities/shortId';
 
 const PROFILE_ICON_LIST = [
   { href: 'https://github.com/ji5485', type: 'github' },
@@ -72,7 +73,7 @@ const Profile: FunctionComponent<{}> = function ({}) {
     <ProfileComponent>
       <ProfileImageList>
         {IMAGE_LINK.map((src: string, index: number) => (
-          <img key={`profile-image-${index}`} src={src} alt={`profile_image_${index}`} />
+          <img key={shortId()} src={src} alt={`profile_image_${index}`} />
         ))}
       </ProfileImageList>
 

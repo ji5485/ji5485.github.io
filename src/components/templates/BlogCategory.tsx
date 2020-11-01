@@ -4,12 +4,12 @@ import Title from 'components/molecules/Title';
 import CategoryList, { CategoryListProps } from 'components/molecules/CategoryList';
 import Header from 'components/organisms/Header';
 import Footer from 'components/organisms/Footer';
-import BlogCategoryList, { BlogCategoryListProps } from 'components/organisms/BlogCategoryList';
+import BlogPostList, { BlogPostListProps } from 'components/organisms/BlogPostList';
 import Pagination, { PaginationProps } from 'components/organisms/Pagination';
 
 export interface BlogCategoryProps {
-  list: BlogCategoryListProps.list;
-  context: PaginationProps | CategoryListProps;
+  list: BlogPostListProps.list;
+  context: PaginationProps | CategoryListProps | { category: string };
 }
 
 const BlogCategoryComponent = styled.div`
@@ -29,16 +29,18 @@ const Content = styled.div`
 
 const BlogCategory: FunctionComponent<BlogCategoryProps> = function ({
   list,
-  context: { totalPage, currentPage, categories },
+  context: { totalPage, currentPage, categories, category },
 }) {
+  const categoryTitle = category ? '#' + category.substring(1, category.length - 1) : '';
+
   return (
     <BlogCategoryComponent>
       <Header />
 
       <Content>
-        <Title title="Blog." subTitle="Development, Record" />
+        <Title title={`Blog${categoryTitle}.`} subTitle="Development, Record" />
         <CategoryList categories={categories} />
-        <BlogCategoryList list={list} />
+        <BlogPostList list={list} />
       </Content>
 
       <Footer />

@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
 import splitOnUpper from 'utilities/splitOnUpper';
+import shortId from 'utilities/shortId';
 
 export interface CategoryListProps {
   categories: {
@@ -34,7 +35,7 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({ categorie
         const count: number = categories[category];
 
         return (
-          <Link to={url} key={`${category}-${count}`}>
+          <Link to={url} key={shortId()}>
             #{category}({count})
           </Link>
         );
