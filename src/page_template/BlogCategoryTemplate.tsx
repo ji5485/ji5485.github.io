@@ -8,22 +8,28 @@ import BlogCategory from 'components/templates/BlogCategory';
 
 interface BlogCategoryTemplateProps {
   data: {
-    allMarkdownRemark: {
+    filtered?: {
+      edges: BlogCategoryListProps.list;
+    };
+    unfiltered?: {
       edges: BlogCategoryListProps.list;
     };
   };
-  pageContext: PaginationProps | CategoryListProps | { category: string };
+  pageContext:
+    | PaginationProps
+    | CategoryListProps
+    | { category: string; selectedCategory: boolean };
 }
 
 const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = function ({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-  pageContext,
+  data,
+  pageContext: { selectedCategory, ...restPageContext },
 }) {
+  const list: BlogCategoryListProps.list = selectedCategory ? data.filtered : data.unfiltered;
+
   return (
     <Layout>
-      <BlogCategory list={edges} context={pageContext} />
+      <BlogCategory list={list.edges} context={restPageContext} />
     </Layout>
   );
 };
@@ -31,14 +37,40 @@ const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = funct
 export default BlogCategoryTemplate;
 
 export const blogCategoryQuery = graphql`
-  query blogListQuery($skip: Int!, $category: String = "/w/") {
-    allMarkdownRemark(
-      filter: { frontmatter: { categories: { regex: $category } } },
-      sort: { fields: [frontmatter___date], order: DESC },
-      skip: $skip,
+  query blogListQuery($skip: Int!, $selectedCategory: Boolean!, $category: String) {
+    filtered: allMarkdownRemark(
+      filter: { frontmatter: { categories: { regex: $category } } }
+      sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+      skip: $skip
       limit: 10
-    )
-    {
+    ) @include(if: $selectedCategory) {
+      edges {
+        node {
+          frontmatter {
+            title
+            summary
+            date
+            thumbnail {
+              childImageSharp {
+                resize(fit: COVER, width: 180, height: 130) {
+                  src
+                }
+              }
+            }
+            categories
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+
+    unfiltered: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+      skip: $skip
+      limit: 10
+    ) @skip(if: $selectedCategory) {
       edges {
         node {
           frontmatter {

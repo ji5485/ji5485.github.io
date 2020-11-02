@@ -137,6 +137,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         skip: 10 * (index - 1),
         totalPage,
         currentPage: index,
+        selectedCategory: false,
         categories: categoryCount,
       },
     });
@@ -156,6 +157,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           totalPage: totalCategoryPage,
           currentPage: index,
           categories: categoryCount,
+          selectedCategory: true,
           category: `/${category}/`,
         },
       });

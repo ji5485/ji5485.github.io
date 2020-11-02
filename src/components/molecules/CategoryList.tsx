@@ -6,7 +6,7 @@ import shortId from 'utilities/shortId';
 
 export interface CategoryListProps {
   categories: {
-    [key: string]: number
+    [key: string]: number;
   };
 }
 
@@ -25,13 +25,17 @@ const CategoryListComponent = styled.div`
       text-decoration: underline;
     }
   }
+
+  @media (max-width: 767px) {
+    margin-bottom: 40px;
+  }
 `;
 
 const CategoryList: FunctionComponent<CategoryListProps> = function ({ categories }) {
   return (
     <CategoryListComponent>
       {Object.keys(categories).map((category: string) => {
-        const url: string = `/blog/${splitOnUpper(category)}/1`;
+        const url = `/blog/${splitOnUpper(category)}/1`;
         const count: number = categories[category];
 
         return (

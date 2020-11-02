@@ -18,7 +18,11 @@ const FooterComponent = styled.div`
 
 const FooterContent = styled.div`
   width: 768px;
+  height: 80px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media (max-width: 767px) {
     width: 100%;
@@ -31,10 +35,6 @@ const ContentLine = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  & + & {
-    margin-top: 50px;
-  }
 `;
 
 const Footer: FunctionComponent<{}> = function ({}) {

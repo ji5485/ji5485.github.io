@@ -51,6 +51,10 @@ const Title = styled(LinkComponent)`
   &:hover {
     text-decoration: underline;
   }
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+  }
 `;
 
 const Category = styled.div`
@@ -64,6 +68,10 @@ const Category = styled.div`
     color: #1e1f21;
     opacity: 0.75;
     margin-right: 10px;
+
+    @media (max-width: 767px) {
+      font-size: 12px;
+    }
   }
 
   ${LinkComponent}:hover {
@@ -77,6 +85,10 @@ const Summary = styled(TextComponent)`
   color: #1e1f21;
   opacity: 0.9;
   margin-top: auto;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 `;
 
 const ThumbnailImage = styled.img`

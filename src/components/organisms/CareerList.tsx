@@ -29,9 +29,11 @@ const CAREER_LIST = [
   },
 ];
 
-export const CareerListComponent = styled.div`
+const CareerListComponent = styled.div`
+  margin-top: 120px;
+
   ${CareerComponent} + ${CareerComponent} {
-    margin-top: 120px;
+    margin-top: 100px;
   }
 `;
 
