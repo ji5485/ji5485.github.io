@@ -95,10 +95,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   // Import Template Files for Blog and Portfolio Item Page
-  const BlogItemTemplate = path.resolve(__dirname, 'src/page_template/BlogItemTemplate.tsx');
-  const BlogCategoryTemplate = path.resolve(
+  const BlogPostItemTemplate = path.resolve(
     __dirname,
-    'src/page_template/BlogCategoryTemplate.tsx',
+    'src/page_template/BlogPostItemTemplate.tsx',
+  );
+  const BlogPostListTemplate = path.resolve(
+    __dirname,
+    'src/page_template/BlogPostListTemplate.tsx',
   );
   const PortfolioDetailTemplate = path.resolve(
     __dirname,
@@ -132,7 +135,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   for (let index = 1; index <= totalPage; index++) {
     createPage({
       path: index === 1 ? '/blog' : `/blog/${index}`,
-      component: BlogCategoryTemplate,
+      component: BlogPostListTemplate,
       context: {
         skip: 10 * (index - 1),
         totalPage,
@@ -151,7 +154,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     for (let index = 1; index <= totalCategoryPage; index++) {
       createPage({
         path: `/blog/${splitOnUpper(category)}/${index}`,
-        component: BlogCategoryTemplate,
+        component: BlogPostListTemplate,
         context: {
           skip: 10 * (index - 1),
           totalPage: totalCategoryPage,
@@ -173,7 +176,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }) => {
       createPage({
         path: slug,
-        component: BlogItemTemplate,
+        component: BlogPostItemTemplate,
         context: {
           slug,
         },

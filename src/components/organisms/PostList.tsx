@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import BlogPostItem from 'components/molecules/BlogPostItem';
+import PostItem from 'components/molecules/PostItem';
 import shortId from 'utilities/shortId';
 
-export interface BlogPostListProps {
+export interface PostListProps {
   list: [
     {
       node: {
@@ -28,16 +28,16 @@ export interface BlogPostListProps {
   ];
 }
 
-const BlogPostListComponent = styled.div``;
+const PostListComponent = styled.div``;
 
-const BlogPostList: FunctionComponent<BlogPostListProps> = function ({ list }) {
+const PostList: FunctionComponent<PostListProps> = function ({ list }) {
   return (
-    <BlogPostListComponent>
+    <PostListComponent>
       {list.map(({ node: { fields: { slug }, frontmatter } }) => (
-        <BlogPostItem slug={slug} {...frontmatter} key={shortId()} />
+        <PostItem slug={slug} {...frontmatter} key={shortId()} />
       ))}
-    </BlogPostListComponent>
+    </PostListComponent>
   );
 };
 
-export default BlogPostList;
+export default PostList;

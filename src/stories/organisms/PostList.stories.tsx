@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import BlogCategoryList from 'components/organisms/BlogCategoryList';
+import PostList from 'components/organisms/PostList';
 import { withKnobs } from '@storybook/addon-knobs';
 
-const BlogCategoryListProps = [
+const PostListProps = [
   {
     node: {
       fields: {
@@ -82,10 +82,10 @@ const BlogCategoryListProps = [
 
 export default {
   title: 'Organisms',
-  component: BlogCategoryList,
+  component: PostList,
   decorators: [withKnobs],
 };
 
-export const BlogCategoryListStory: FunctionComponent<{}> = function ({}) {
-  return <BlogCategoryList list={BlogCategoryListProps} />;
+export const PostItemListStory: FunctionComponent<{}> = function ({}) {
+  return <PostList list={PostListProps} />;
 };

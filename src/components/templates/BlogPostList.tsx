@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import Title from 'components/molecules/Title';
 import CategoryList, { CategoryListProps } from 'components/molecules/CategoryList';
-import BlogPostList, { BlogPostListProps } from 'components/organisms/BlogPostList';
+import PostList, { PostListProps } from 'components/organisms/PostList';
 import Pagination, { PaginationProps } from 'components/organisms/Pagination';
 import PageTemplate from 'components/templates/PageTemplate';
 
-export interface BlogCategoryProps {
-  list: BlogPostListProps.list;
-  context: PaginationProps | CategoryListProps | { category: string };
+export interface BlogPostListProps {
+  list: PostListProps.list;
+  context: PaginationProps | CategoryListProps;
 }
 
-const BlogCategory: FunctionComponent<BlogCategoryProps> = function ({
+const BlogPostList: FunctionComponent<BlogPostListProps> = function ({
   list,
   context: { totalPage, currentPage, categories, category },
 }) {
@@ -20,9 +20,10 @@ const BlogCategory: FunctionComponent<BlogCategoryProps> = function ({
     <PageTemplate>
       <Title title={`Blog${categoryTitle}.`} subTitle="Development, Record" />
       <CategoryList categories={categories} />
-      <BlogPostList list={list} />
+      <PostList list={list} />
+      <Pagination totalPage={totalPage} currentPage={currentPage} category={category} />
     </PageTemplate>
   );
 };
 
-export default BlogCategory;
+export default BlogPostList;

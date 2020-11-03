@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import BlogCategoryItem from 'components/molecules/BlogCategoryItem';
+import PostItem from 'components/molecules/PostItem';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-const BlogCategoryItemProps = {
+const PostItemProps = {
   thumbnail:
     'https://www.notion.so/image/https%3A%2F%2Fstatics.goorm.io%2Fimages%2F1200_628_goorm_edu.png?table=block&id=313188d2-7086-41d6-bfe9-591105c022bc&width=3840&userId=259ce6c4-908e-4655-a6e7-19f62c9fd54e&cache=v2',
   categories: [
@@ -24,11 +24,11 @@ const BlogCategoryItemProps = {
 
 export default {
   title: 'Molecules',
-  component: BlogCategoryItem,
+  component: PostItem,
   decorators: [withKnobs],
 };
 
-export const BlogCategoryItemStory: FunctionComponent<{}> = function ({}) {
+export const PostItemStory: FunctionComponent<{}> = function ({}) {
   const title = text('Title', 'Layout Development Through Modern CSS Techniques');
   const summary = text(
     'Summary',
@@ -36,7 +36,5 @@ export const BlogCategoryItemStory: FunctionComponent<{}> = function ({}) {
   );
   const date = text('Date', '2020/10/14');
 
-  return (
-    <BlogCategoryItem title={title} summary={summary} date={date} {...BlogCategoryItemProps} />
-  );
+  return <PostItem title={title} summary={summary} date={date} {...PostItemProps} />;
 };

@@ -4,9 +4,9 @@ import Layout from 'components/templates/Layout';
 import { CategoryListProps } from 'components/molecules/CategoryList';
 import { BlogCategoryListProps } from 'components/organisms/BlogCategoryList';
 import { PaginationProps } from 'components/organisms/Pagination';
-import BlogCategory from 'components/templates/BlogCategory';
+import BlogPostList from 'components/templates/BlogPostList';
 
-interface BlogCategoryTemplateProps {
+interface BlogPostListTemplateProps {
   data: {
     filtered?: {
       edges: BlogCategoryListProps.list;
@@ -21,7 +21,7 @@ interface BlogCategoryTemplateProps {
     | { category: string; selectedCategory: boolean };
 }
 
-const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = function ({
+const BlogPostListTemplate: FunctionComponent<BlogPostListTemplateProps> = function ({
   data,
   pageContext: { selectedCategory, ...restPageContext },
 }) {
@@ -29,12 +29,12 @@ const BlogCategoryTemplate: FunctionComponent<BlogCategoryTemplateProps> = funct
 
   return (
     <Layout>
-      <BlogCategory list={list.edges} context={restPageContext} />
+      <BlogPostList list={list.edges} context={restPageContext} />
     </Layout>
   );
 };
 
-export default BlogCategoryTemplate;
+export default BlogPostListTemplate;
 
 export const blogCategoryQuery = graphql`
   query blogListQuery($skip: Int!, $selectedCategory: Boolean!, $category: String) {

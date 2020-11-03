@@ -5,7 +5,7 @@ import Text, { TextComponent } from 'components/atoms/Text';
 import splitOnUpper from 'utilities/splitOnUpper';
 import shortId from 'utilities/shortId';
 
-export interface BlogPostItemProps {
+export interface PostItemProps {
   title: string;
   summary: string[];
   date: string;
@@ -20,7 +20,7 @@ export interface BlogPostItemProps {
   slug: string;
 }
 
-const BlogPostItemComponent = styled.div`
+const PostItemComponent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -99,7 +99,7 @@ const ThumbnailImage = styled.img`
   }
 `;
 
-const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
+const PostItem: FunctionComponent<PostItemProps> = function ({
   title,
   summary,
   date,
@@ -112,7 +112,7 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
   slug,
 }) {
   return (
-    <BlogPostItemComponent>
+    <PostItemComponent>
       <Content>
         <Title to={slug}>{title}</Title>
         <Category>
@@ -130,8 +130,8 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
       </Content>
 
       <ThumbnailImage src={src} alt="Thumbnail Image" />
-    </BlogPostItemComponent>
+    </PostItemComponent>
   );
 };
 
-export default BlogPostItem;
+export default PostItem;

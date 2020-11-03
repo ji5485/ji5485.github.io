@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
-const BlogItemTemplate: FunctionComponent<any> = function (props) {
+const BlogPostItemTemplate: FunctionComponent<any> = function (props) {
   console.log(props);
   return <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />;
 };
 
-export default BlogItemTemplate;
+export default BlogPostItemTemplate;
 
 export const blogQuery = graphql`
   query getBlogData($slug: String) {
