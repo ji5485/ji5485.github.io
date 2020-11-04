@@ -134,7 +134,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   for (let index = 1; index <= totalPage; index++) {
     createPage({
-      path: index === 1 ? '/blog' : `/blog/${index}`,
+      path: `/blog/${index}`,
       component: BlogPostListTemplate,
       context: {
         skip: 10 * (index - 1),

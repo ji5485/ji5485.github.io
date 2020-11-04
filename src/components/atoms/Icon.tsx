@@ -9,8 +9,10 @@ import {
   faLayerGroup,
   faUserTie,
   faSearchPlus,
-  faArrowLeft,
   faArrowRight,
+  faArrowLeft,
+  faCaretRight,
+  faCaretLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 
@@ -31,8 +33,10 @@ export interface IconProps extends IconStyleProps {
     | 'layerGroup'
     | 'userTie'
     | 'search'
+    | 'arrowRight'
     | 'arrowLeft'
-    | 'arrowRight';
+    | 'caretRight'
+    | 'caretLeft';
 }
 
 const ICON_TYPE = {
@@ -46,8 +50,10 @@ const ICON_TYPE = {
   layerGroup: faLayerGroup,
   userTie: faUserTie,
   search: faSearchPlus,
-  arrowLeft: faArrowLeft,
   arrowRight: faArrowRight,
+  arrowLeft: faArrowLeft,
+  caretRight: faCaretRight,
+  caretLeft: faCaretLeft,
 };
 
 export const IconComponent = styled.div<IconStyleProps>`

@@ -39,7 +39,7 @@ const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch, currentMo
       <Link to="/portfolio">
         <Text>Portfolio</Text>
       </Link>
-      <Link to="/blog">
+      <Link to="/blog/1">
         <Text>Blog</Text>
       </Link>
       {modeSwitch && <Text>{currentMode === 'light' ? 'Dark' : 'Light'} Mode</Text>}

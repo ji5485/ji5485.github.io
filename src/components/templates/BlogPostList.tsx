@@ -21,7 +21,9 @@ const BlogPostList: FunctionComponent<BlogPostListProps> = function ({
       <Title title={`Blog${categoryTitle}.`} subTitle="Development, Record" />
       <CategoryList categories={categories} />
       <PostList list={list} />
-      <Pagination totalPage={totalPage} currentPage={currentPage} category={category} />
+      {totalPage > 1 && (
+        <Pagination totalPage={totalPage} currentPage={currentPage} category={category} />
+      )}
     </PageTemplate>
   );
 };

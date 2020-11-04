@@ -16,10 +16,23 @@ const PaginationButtonComponent = styled(LinkComponent)`
   display: grid;
   place-items: center;
   color: #1e1f21;
+
+  & + & {
+    margin-left: 10px;
+  }
+
+  &.active {
+    background: #1e1f21;
+    color: white;
+  }
 `;
 
 const PaginationButton: FunctionComponent<PaginationButtonProps> = function ({ to, page }) {
-  return <PaginationButtonComponent to={to}>{page}</PaginationButtonComponent>;
+  return (
+    <PaginationButtonComponent to={to} activeClassName="active">
+      {page}
+    </PaginationButtonComponent>
+  );
 };
 
 export default PaginationButton;
