@@ -24,7 +24,7 @@ const FooterContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     width: 100%;
     padding: 0 20px;
   }

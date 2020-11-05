@@ -14,7 +14,7 @@ const Template = styled.div`
   grid-template-rows: 80px 1fr 180px;
   grid-gap: 100px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     grid-gap: 80px;
   }
 `;
@@ -23,7 +23,7 @@ const Content = styled.div`
   width: 768px;
   margin: 0 auto;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     width: 100%;
     padding: 0 20px;
   }

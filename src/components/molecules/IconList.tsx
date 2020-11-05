@@ -19,7 +19,7 @@ export const IconListComponent = styled.div`
   a + a {
     margin-left: 20px;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       margin-left: 15px;
     }
   }

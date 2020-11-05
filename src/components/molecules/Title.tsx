@@ -18,7 +18,7 @@ const TitleComponent = styled.div`
   align-items: center;
   margin-bottom: 100px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     margin-bottom: 60px;
   }
 `;
@@ -28,7 +28,7 @@ const StyledLine = styled.div`
   height: 1px;
   background: #1e1f21;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     width: 30%;
   }
 `;
@@ -41,8 +41,8 @@ const MainTitle = styled(Text)`
   font-size: 60px;
   font-weight: 700;
 
-  @media (max-width: 767px) {
-    font-size: 50px;
+  @media (max-width: 768px) {
+    font-size: 2rem;
   }
 `;
 
@@ -50,7 +50,7 @@ const SubTitle = styled(Text)`
   font-size: 30px;
   font-weight: 100;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     font-size: 25px;
   }
 `;

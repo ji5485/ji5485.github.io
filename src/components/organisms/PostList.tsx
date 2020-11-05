@@ -14,6 +14,7 @@ export interface PostListProps {
           title: string;
           summary: string[];
           date: string;
+          categories: string[];
           thumbnail: {
             childImageSharp: {
               resize: {
@@ -21,7 +22,6 @@ export interface PostListProps {
               };
             };
           };
-          categories: string[];
         };
       };
     },

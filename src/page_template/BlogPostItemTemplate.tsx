@@ -1,9 +1,38 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
+import Layout from 'components/templates/Layout';
+import BlogPostItem from 'components/templates/BlogPostItem';
 
-const BlogPostItemTemplate: FunctionComponent<any> = function (props) {
-  console.log(props);
-  return <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />;
+interface BlogPostItemTemplateProps {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        title: string;
+        date: string;
+        categories: string[];
+        thumbnail: {
+          childImageSharp: {
+            resize: {
+              tracedSVG: string;
+            };
+          };
+        };
+      };
+      html: string;
+    };
+  };
+}
+
+const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> = function ({
+  data: {
+    markdownRemark: { frontmatter, html },
+  },
+}) {
+  return (
+    <Layout>
+      <BlogPostItem postInfo={frontmatter} html={html} />
+    </Layout>
+  );
 };
 
 export default BlogPostItemTemplate;
@@ -14,6 +43,8 @@ export const blogQuery = graphql`
       html
       frontmatter {
         title
+        date
+        categories
         thumbnail {
           childImageSharp {
             resize(fit: COVER, width: 768, height: 500) {
@@ -21,8 +52,6 @@ export const blogQuery = graphql`
             }
           }
         }
-        date
-        categories
       }
     }
   }

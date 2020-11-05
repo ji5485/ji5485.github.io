@@ -12,7 +12,7 @@ const MainText = styled(Text)`
     font-size: 35px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     font-size: 25px;
   }
 `;
@@ -22,11 +22,11 @@ const SubText = styled(Text)`
   font-weight: 100;
   color: #1e1f21;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media (min-width: 769px) and (max-width: 1199px) {
     font-size: 20px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     font-size: 15px;
   }
 `;

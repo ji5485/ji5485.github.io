@@ -78,7 +78,7 @@ const Description = styled.div`
     grid-gap: 50px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     ${PortfolioDetailDescComponent} + ${PortfolioDetailDescComponent} {
       margin-top: 30px;
     }

@@ -33,7 +33,7 @@ const List = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `;

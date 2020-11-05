@@ -21,7 +21,7 @@ const PortfolioDetailImageListComponent = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     margin-top: 100px;
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;

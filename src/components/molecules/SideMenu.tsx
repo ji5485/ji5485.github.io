@@ -3,8 +3,6 @@ import Link, { LinkComponent } from 'components/atoms/Link';
 import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
 
-export interface SideMenuProps {}
-
 export const SideMenuComponent = styled.div`
   display: flex;
   width: 15px;
@@ -25,7 +23,7 @@ export const SideMenuComponent = styled.div`
   }
 `;
 
-const SideMenu: FunctionComponent<SideMenuProps> = function ({}) {
+const SideMenu: FunctionComponent<{}> = function ({}) {
   return (
     <SideMenuComponent>
       <Link to="/">
@@ -37,7 +35,7 @@ const SideMenu: FunctionComponent<SideMenuProps> = function ({}) {
       <Link to="/portfolio">
         <Text>Portfolio</Text>
       </Link>
-      <Link to="/blog">
+      <Link to="/blog/1">
         <Text>Blog</Text>
       </Link>
       <Text>To Dark Mode</Text>

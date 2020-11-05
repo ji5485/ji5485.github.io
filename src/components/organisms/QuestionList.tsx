@@ -9,7 +9,7 @@ export const QuestionListComponent = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     align-items: stretch;

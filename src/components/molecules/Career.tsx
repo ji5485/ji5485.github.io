@@ -13,7 +13,7 @@ export const CareerComponent = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
@@ -24,7 +24,7 @@ const Title = styled(Text)`
     font-weight: 700;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     margin-bottom: 40px;
   }
 `;
@@ -44,7 +44,7 @@ const Content = styled.div`
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 `;

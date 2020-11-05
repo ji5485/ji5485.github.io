@@ -5,10 +5,12 @@ import IconList, { iconListProps } from 'components/molecules/IconList';
 import Introduction from 'components/organisms/Introduction';
 import Header, { HeaderComponent } from 'components/organisms/Header';
 
-type iconList = [{
-  href: string,
-  type: string
-}];
+type iconList = [
+  {
+    href: string;
+    type: string;
+  },
+];
 
 const INTRODUCTION_ICON_LIST: iconList = [
   { href: 'https://github.com/ji5485', type: 'github' },
@@ -36,7 +38,7 @@ const MainComponent = styled.div`
     grid-template-rows: 30px minmax(400px, auto) 30px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     padding: 60px 20px;
   }
 

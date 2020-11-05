@@ -14,7 +14,8 @@ const BlogPostList: FunctionComponent<BlogPostListProps> = function ({
   list,
   context: { totalPage, currentPage, categories, category },
 }) {
-  const categoryTitle = category ? '#' + category.substring(1, category.length - 1) : '';
+  const slicedCategory = category ? category.substring(1, category.length - 1) : null;
+  const categoryTitle = slicedCategory ? `#${slicedCategory}` : '';
 
   return (
     <PageTemplate>
@@ -22,7 +23,7 @@ const BlogPostList: FunctionComponent<BlogPostListProps> = function ({
       <CategoryList categories={categories} />
       <PostList list={list} />
       {totalPage > 1 && (
-        <Pagination totalPage={totalPage} currentPage={currentPage} category={category} />
+        <Pagination totalPage={totalPage} currentPage={currentPage} category={slicedCategory} />
       )}
     </PageTemplate>
   );

@@ -35,7 +35,7 @@ const ProfileImageList = styled.div`
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     height: 200px;
   }
 `;
@@ -52,7 +52,7 @@ const ProfileContentText = styled.div`
     font-size: 25px;
     font-weight: 700;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       font-size: 20px;
     }
   }
@@ -61,7 +61,7 @@ const ProfileContentText = styled.div`
     font-size: 15px;
     font-weight: 100;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       font-size: 12px;
     }
   }

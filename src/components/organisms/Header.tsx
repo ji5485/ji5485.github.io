@@ -11,7 +11,7 @@ export const HeaderComponent = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     padding: 0 20px;
     width: 100%;
 
@@ -26,7 +26,7 @@ const Title = styled(TextComponent)`
   font-size: 17px;
   font-weight: 700;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `;

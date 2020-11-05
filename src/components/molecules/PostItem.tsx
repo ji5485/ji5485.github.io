@@ -38,7 +38,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 `;
@@ -52,7 +52,7 @@ const Title = styled(LinkComponent)`
     text-decoration: underline;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     font-size: 20px;
   }
 `;
@@ -69,7 +69,7 @@ const Category = styled.div`
     opacity: 0.75;
     margin-right: 10px;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       font-size: 12px;
     }
   }
@@ -86,7 +86,7 @@ const Summary = styled(TextComponent)`
   opacity: 0.9;
   margin-top: auto;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     font-size: 14px;
   }
 `;
@@ -94,7 +94,7 @@ const Summary = styled(TextComponent)`
 const ThumbnailImage = styled.img`
   width: 180px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `;
@@ -115,6 +115,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
     <PostItemComponent>
       <Content>
         <Title to={slug}>{title}</Title>
+        <div>{date}</div>
         <Category>
           {categories.map((category) => (
             <Link to={`/blog/${splitOnUpper(category)}/1`} key={shortId()}>

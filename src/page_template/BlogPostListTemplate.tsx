@@ -50,6 +50,7 @@ export const blogCategoryQuery = graphql`
             title
             summary
             date
+            categories
             thumbnail {
               childImageSharp {
                 resize(fit: COVER, width: 180, height: 130) {
@@ -57,7 +58,6 @@ export const blogCategoryQuery = graphql`
                 }
               }
             }
-            categories
           }
           fields {
             slug
@@ -77,6 +77,7 @@ export const blogCategoryQuery = graphql`
             title
             summary
             date
+            categories
             thumbnail {
               childImageSharp {
                 resize(fit: COVER, width: 180, height: 130) {
@@ -84,7 +85,6 @@ export const blogCategoryQuery = graphql`
                 }
               }
             }
-            categories
           }
           fields {
             slug

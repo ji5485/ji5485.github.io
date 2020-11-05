@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Icon from 'components/atoms/Icon';
-import Link, { LinkComponent } from 'components/atoms/Link';
+import Icon, { IconComponent } from 'components/atoms/Icon';
+import { LinkComponent } from 'components/atoms/Link';
 import PaginationButton from 'components/molecules/PaginationButton';
 import shortId from 'utilities/shortId';
 
@@ -18,10 +18,14 @@ const PaginationComponent = styled.div`
   margin-top: 80px;
 `;
 
-const PageMoveIcon = styled(Link)<{ active: boolean }>`
+const PageMoveIcon = styled(LinkComponent)<{ active: number }>`
   cursor: pointer;
-  pointer-events: ${(active) => (active ? 'initial' : 'none')};
-  padding: 0 15px;
+  pointer-events: ${({ active }) => (active ? 'initial' : 'none')};
+  padding: 0 10px;
+
+  ${IconComponent} {
+    color: ${({ active }) => (active ? 'initial' : 'rgba(0, 0, 0, 0.3)')};
+  }
 `;
 
 const Pagination: FunctionComponent<PaginationProps> = function ({
@@ -31,13 +35,18 @@ const Pagination: FunctionComponent<PaginationProps> = function ({
 }) {
   const currentPosition = Math.floor((currentPage - 1) / 5) + 1;
   const prev = currentPosition === 1 ? null : (currentPosition - 1) * 5;
-  const next = currentPosition === (totalPage - 1) / 5 + 1 ? null : currentPosition * 5 + 1;
+  const next =
+    currentPosition === Math.floor((totalPage - 1) / 5) + 1 ? null : currentPosition * 5 + 1;
 
   const returnPageLink = (page: number | null): string =>
     `/blog${category ? `/${category}` : ''}/${page}`;
 
   return (
     <PaginationComponent>
+      <PageMoveIcon to={returnPageLink(prev)} active={prev ? 1 : 0}>
+        <Icon type="caretLeft" size={17} />
+      </PageMoveIcon>
+
       {[1, 2, 3, 4, 5].map((index) => {
         const page = (currentPosition - 1) * 5 + index;
         return (
@@ -46,6 +55,10 @@ const Pagination: FunctionComponent<PaginationProps> = function ({
           )
         );
       })}
+
+      <PageMoveIcon to={returnPageLink(next)} active={next ? 1 : 0}>
+        <Icon type="caretRight" size={17} />
+      </PageMoveIcon>
     </PaginationComponent>
   );
 };
