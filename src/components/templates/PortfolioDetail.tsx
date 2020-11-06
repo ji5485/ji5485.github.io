@@ -20,7 +20,7 @@ const PortfolioDetailComponent = styled.div`
     padding: 150px 0;
   }
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media (min-width: 768px) and (max-width: 1200px) {
     padding: 80px;
   }
 

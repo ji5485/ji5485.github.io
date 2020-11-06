@@ -24,6 +24,7 @@ const style = css`
   div[id='___gatsby'],
   div[id='root'],
   div[id='gatsby-focus-wrapper'] {
+    min-height: 100%;
     height: 100%;
   }
 `;

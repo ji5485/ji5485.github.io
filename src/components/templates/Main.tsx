@@ -32,22 +32,23 @@ const MainComponent = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: 1199px) {
-    padding: 60px 60px;
+  @media (max-width: 1200px) {
+    padding: 0 60px;
     display: grid;
-    grid-template-rows: 30px minmax(400px, auto) 30px;
+    grid-template-rows: 80px minmax(400px, auto) 80px;
   }
 
   @media (max-width: 768px) {
-    padding: 60px 20px;
+    padding: 0 20px;
   }
 
   ${HeaderComponent} {
     display: none;
     height: 100%;
     margin: 0;
+    padding: 0;
 
-    @media (max-width: 1199px) {
+    @media (max-width: 1200px) {
       display: flex;
       width: 100%;
     }
@@ -60,7 +61,7 @@ const MainContentComponent = styled.div`
   height: 100%;
   align-items: center;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     display: flex;
     justify-content: space-between;
 
@@ -75,7 +76,7 @@ const MainFooterComponent = styled.div`
   display: none;
   align-items: center;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     display: flex;
   }
 `;

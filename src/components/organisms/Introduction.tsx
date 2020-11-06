@@ -20,7 +20,7 @@ export const IntroductionComponent = styled.div`
     margin-right: 30px;
   }
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     ${ProfileImageComponent} {
       margin-right: 0;
       margin-bottom: 20px;
@@ -39,7 +39,7 @@ const RightIntroduction = styled.div`
     margin-top: 30px;
   }
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     ${IconListComponent} {
       display: none;
     }

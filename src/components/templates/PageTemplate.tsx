@@ -15,7 +15,7 @@ const Template = styled.div`
   grid-gap: 100px;
 
   @media (max-width: 768px) {
-    grid-gap: 80px;
+    grid-gap: 50px;
   }
 `;
 

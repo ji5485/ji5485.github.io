@@ -42,7 +42,7 @@ const Image = styled.img`
   height: 100%;
   object-fit: cover;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     margin-top: 40px;
   }
 `;
@@ -72,7 +72,7 @@ const Description = styled.div`
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media (min-width: 768px) and (max-width: 1200px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
@@ -91,7 +91,7 @@ const StyledLine = styled.div`
   background: #1e1f21;
   margin-top: auto;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;

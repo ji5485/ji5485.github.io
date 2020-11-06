@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 import Layout from 'components/templates/Layout';
 import BlogPostItem from 'components/templates/BlogPostItem';
+import { FluidObject } from 'gatsby-image';
 
 interface BlogPostItemTemplateProps {
   data: {
@@ -12,9 +13,7 @@ interface BlogPostItemTemplateProps {
         categories: string[];
         thumbnail: {
           childImageSharp: {
-            resize: {
-              tracedSVG: string;
-            };
+            fluid: FluidObject;
           };
         };
       };
@@ -47,8 +46,8 @@ export const blogQuery = graphql`
         categories
         thumbnail {
           childImageSharp {
-            resize(fit: COVER, width: 768, height: 500) {
-              tracedSVG
+            fluid(maxWidth: 768, maxHeight: 450, fit: FILL) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

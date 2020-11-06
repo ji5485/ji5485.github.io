@@ -15,7 +15,7 @@ export const QuestionComponent = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   padding: 30px;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     padding: 20px;
   }
 `;
@@ -39,7 +39,7 @@ const Content = styled.div`
   font-size: 15px;
   font-weight: 100;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     font-size: 13px;
   }
 `;
