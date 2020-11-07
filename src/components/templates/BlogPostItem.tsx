@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import PageTemplate from 'components/templates/PageTemplate';
 import PostItemHead from 'components/organisms/PostItemHead';
+import PostItemFoot from 'components/organisms/PostItemFoot';
 import { FluidObject } from 'gatsby-image';
 
 interface BlogPostItemProps {
@@ -15,6 +16,8 @@ interface BlogPostItemProps {
     };
   };
   html: string;
+  prevItem: string;
+  nextItem: string;
 }
 
 const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
@@ -27,11 +30,14 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
     },
   },
   html,
+  prevItem,
+  nextItem,
 }) {
   return (
     <PageTemplate>
       <PostItemHead title={title} date={date} categories={categories} thumbnail={fluid} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
+      <PostItemFoot prevItem={prevItem} nextItem={nextItem} />
     </PageTemplate>
   );
 };

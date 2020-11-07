@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
+import { OtherItemInfo } from 'components/organisms/PostItemFoot';
 import Layout from 'components/templates/Layout';
 import BlogPostItem from 'components/templates/BlogPostItem';
 import { FluidObject } from 'gatsby-image';
@@ -20,16 +21,21 @@ interface BlogPostItemTemplateProps {
       html: string;
     };
   };
+  pageContext: {
+    prev: OtherItemInfo | null;
+    next: OtherItemInfo | null;
+  };
 }
 
 const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> = function ({
   data: {
     markdownRemark: { frontmatter, html },
   },
+  pageContext: { prev, next },
 }) {
   return (
     <Layout>
-      <BlogPostItem postInfo={frontmatter} html={html} />
+      <BlogPostItem postInfo={frontmatter} html={html} prevItem={prev} nextItem={next} />
     </Layout>
   );
 };

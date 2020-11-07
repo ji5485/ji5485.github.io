@@ -1,8 +1,7 @@
 image: gitpod/workspace-full
 
 tasks:
-  - init: 'echo "TODO: Replace with init/build command"'
-    command: 'echo "TODO: Replace with command to start project"'
+  - command: "yarn develop"
 
 vscode:
   extensions:

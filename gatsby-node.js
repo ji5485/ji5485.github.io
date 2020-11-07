@@ -58,11 +58,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const getAllMarkdownQuery = await graphql(
     `
       {
-        allMarkdownRemark {
+        allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+        ) {
           edges {
             node {
               fields {
                 slug
+              }
+              frontmatter {
+                title
               }
             }
           }
@@ -169,16 +174,33 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create Pages Through Markdown Files
   allPost.forEach(
-    ({
-      node: {
-        fields: { slug },
+    (
+      {
+        node: {
+          fields: { slug },
+        },
       },
-    }) => {
+      index,
+    ) => {
       createPage({
         path: slug,
         component: BlogPostItemTemplate,
         context: {
           slug,
+          prev:
+            index == 0
+              ? null
+              : {
+                  slug: allPost[index - 1].node.fields.slug,
+                  title: allPost[index - 1].node.frontmatter.title,
+                },
+          next:
+            index == allPost.length - 1
+              ? null
+              : {
+                  slug: allPost[index + 1].node.fields.slug,
+                  title: allPost[index + 1].node.frontmatter.title,
+                },
         },
       });
     },

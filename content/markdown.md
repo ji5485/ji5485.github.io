@@ -1,5 +1,4 @@
 ---
-path: '/content/markdown-syntax/'
 date: '2017-11-07'
 title: 'Markdown Syntax'
 categories: ['markdown', 'example']

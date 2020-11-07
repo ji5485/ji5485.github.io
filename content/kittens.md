@@ -1,5 +1,4 @@
 ---
-path: '/content/kittens/'
 date: '2018-01-07'
 title: 'Kittens'
 categories:
