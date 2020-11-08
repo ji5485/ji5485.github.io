@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import PostNavigator from 'components/molecules/PostNavigator';
+import Utterances from 'components/molecules/Utterances';
 
 export type OtherItemInfo = {
   slug: string;
@@ -12,18 +13,22 @@ interface PostItemFootProps {
   nextItem: OtherItemInfo | null;
 }
 
-const PostItemFootComponent = styled.div`
+const PostNavigatorContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
+  margin-bottom: 60px;
 `;
 
 const PostItemFoot: FunctionComponent<PostItemFootProps> = function ({ prevItem, nextItem }) {
   return (
-    <PostItemFootComponent>
-      {prevItem && <PostNavigator direction="prev" {...prevItem} />}
-      {nextItem && <PostNavigator direction="next" {...nextItem} />}
-    </PostItemFootComponent>
+    <div>
+      <PostNavigatorContainer>
+        {prevItem && <PostNavigator direction="prev" {...prevItem} />}
+        {nextItem && <PostNavigator direction="next" {...nextItem} />}
+      </PostNavigatorContainer>
+
+      <Utterances mode="light" repo="ji5485/ji5485.github.io" />
+    </div>
   );
 };
 

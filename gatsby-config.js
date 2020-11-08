@@ -26,6 +26,15 @@ const gatsbyRemarkPlugins = [
     resolve: 'gatsby-remark-copy-linked-files',
     options: {},
   },
+  {
+    resolve: `gatsby-remark-autolink-headers`,
+    options: {
+      className: `anchor-header`,
+      maintainCase: false,
+      removeAccents: true,
+      elements: ['h1', 'h2', 'h3'],
+    },
+  },
 ];
 
 module.exports = {
@@ -56,13 +65,6 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: ['.md', '.mdx'],
-        gatsbyRemarkPlugins,
-      },
-    },
     {
       resolve: 'gatsby-plugin-lunr',
       options: {

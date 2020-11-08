@@ -11,10 +11,6 @@ interface PostItemHeadProps {
   thumbnail: FluidObject;
 }
 
-const PostItemHeadComponent = styled.div`
-  margin-bottom: 100px;
-`;
-
 const Title = styled(Text)`
   font-size: 40px;
   font-weight: 700;
@@ -66,7 +62,7 @@ const PostItemHead: FunctionComponent<PostItemHeadProps> = function ({
   thumbnail,
 }) {
   return (
-    <PostItemHeadComponent>
+    <div>
       <Img fluid={thumbnail} alt="Thumbnail Image" />
       <Title>{title}</Title>
       <PostInfo>
@@ -77,7 +73,7 @@ const PostItemHead: FunctionComponent<PostItemHeadProps> = function ({
         </Categories>
         <Date>{date}</Date>
       </PostInfo>
-    </PostItemHeadComponent>
+    </div>
   );
 };
 

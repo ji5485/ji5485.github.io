@@ -8,6 +8,7 @@ import { FluidObject } from 'gatsby-image';
 interface BlogPostItemTemplateProps {
   data: {
     markdownRemark: {
+      html: string;
       frontmatter: {
         title: string;
         date: string;
@@ -18,7 +19,7 @@ interface BlogPostItemTemplateProps {
           };
         };
       };
-      html: string;
+      tableOfContents: string;
     };
   };
   pageContext: {
@@ -29,13 +30,20 @@ interface BlogPostItemTemplateProps {
 
 const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> = function ({
   data: {
-    markdownRemark: { frontmatter, html },
+    markdownRemark: { html, frontmatter, tableOfContents },
   },
   pageContext: { prev, next },
 }) {
+  console.log(tableOfContents);
   return (
     <Layout>
-      <BlogPostItem postInfo={frontmatter} html={html} prevItem={prev} nextItem={next} />
+      <BlogPostItem
+        postInfo={frontmatter}
+        html={html}
+        prevItem={prev}
+        nextItem={next}
+        toc={tableOfContents}
+      />
     </Layout>
   );
 };
@@ -58,6 +66,7 @@ export const blogQuery = graphql`
           }
         }
       }
+      tableOfContents
     }
   }
 `;
