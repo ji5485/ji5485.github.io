@@ -34,7 +34,6 @@ const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> = funct
   },
   pageContext: { prev, next },
 }) {
-  console.log(tableOfContents);
   return (
     <Layout>
       <BlogPostItem

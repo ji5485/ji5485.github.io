@@ -19,6 +19,11 @@ const style = css`
     cursor: pointer;
   }
 
+  ul,
+  li {
+    list-style-type: none;
+  }
+
   html,
   body,
   div[id='___gatsby'],

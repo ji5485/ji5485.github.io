@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-function useSetHeading(target: string, nonTarget: string[]) {
+function useSetHeading(toc: string): string {
   const [activeSlug, setActiveSlug] = useState<string>('');
   const [headingElements, setHeadingElements] = useState<Element[]>([]);
 
@@ -8,7 +8,7 @@ function useSetHeading(target: string, nonTarget: string[]) {
     for (let i = headingElements.length - 1; i >= 0; i--) {
       const { top } = headingElements[i].getBoundingClientRect();
 
-      if (0 >= top) {
+      if (top <= 0) {
         headingElements[i].id !== activeSlug && setActiveSlug(headingElements[i].id);
         return;
       }
@@ -18,20 +18,13 @@ function useSetHeading(target: string, nonTarget: string[]) {
   };
 
   useEffect(() => {
-    const getElementsByTarget = () => new Promise((resolve) => {
-      const elements: Element[] = Array.from(window.document.querySelectorAll(target));
-
-      const filteredElements: Element[] = elements.reduce<Element[]>((acc, cur) => {
-        if (!nonTarget.includes(cur.id)) acc.push(cur);
-        return acc;
-      }, []);
-
-      setHeadingElements(filteredElements);
-      resolve();
-    });
+    const getElementsByTarget = () => {
+      const allHeadingTags: Element[] = Array.from(window.document.querySelectorAll('h1, h2, h3'));
+      setHeadingElements(allHeadingTags);
+    };
 
     getElementsByTarget();
-  }, []);
+  }, [toc]);
 
   useEffect(() => {
     window.addEventListener('scroll', scrollEvent);
