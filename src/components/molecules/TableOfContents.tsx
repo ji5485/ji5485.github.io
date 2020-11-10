@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import useSetHeading from 'hooks/useSetHeading';
 
@@ -18,12 +18,19 @@ const TableOfContentsComponent = styled.div`
 const TOC = styled.div<{ activeSlug: string }>`
   position: sticky;
   top: 150px;
-  border-left: 3px solid #1e1f21;
+  border-left: 3px solid rgba(30, 31, 33, 0.5);
   padding: 5px 0;
 
   a {
     display: block;
-    padding: 3px 0;
+    padding: 4px 0;
+    color: rgba(30, 31, 33, 0.5);
+    transition: 0.3s all;
+  }
+
+  ul,
+  li {
+    list-style-type: none;
   }
 
   & ul {
@@ -35,6 +42,7 @@ const TOC = styled.div<{ activeSlug: string }>`
   }
 
   a[href$='${({ activeSlug }) => activeSlug}'] {
+    color: #1e1f21;
     font-weight: 700;
   }
 `;
@@ -42,13 +50,9 @@ const TOC = styled.div<{ activeSlug: string }>`
 const TableOfContents: FunctionComponent<TableOfContentsProps> = function ({ toc }) {
   const activeSlug: string = useSetHeading(toc);
 
-  useEffect(() => {
-    console.log(activeSlug);
-  }, [activeSlug]);
-
   return (
     <TableOfContentsComponent>
-      <TOC dangerouslySetInnerHTML={{ __html: toc }} activeSlug={activeSlug} />
+      {toc && <TOC dangerouslySetInnerHTML={{ __html: toc }} activeSlug={activeSlug} />}
     </TableOfContentsComponent>
   );
 };

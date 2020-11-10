@@ -10,6 +10,7 @@ const style = css`
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+    color: #1e1f21;
   }
 
   a,
@@ -19,11 +20,6 @@ const style = css`
     cursor: pointer;
   }
 
-  ul,
-  li {
-    list-style-type: none;
-  }
-
   html,
   body,
   div[id='___gatsby'],
@@ -31,6 +27,20 @@ const style = css`
   div[id='gatsby-focus-wrapper'] {
     min-height: 100%;
     height: 100%;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #dee2e6;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e1f21;
+    border-radius: 3px;
   }
 `;
 

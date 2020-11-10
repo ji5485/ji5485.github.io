@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
+import Markdown from 'components/molecules/Markdown';
 import TableOfContents from 'components/molecules/TableOfContents';
 
 interface PostItemBodyProps {
@@ -18,14 +19,14 @@ const PostItemBodyComponent = styled.div`
   }
 
   @media (max-width: 768px) {
-    margin: 100px 0;
+    margin: 80px 0;
   }
 `;
 
 const PostItemBody: FunctionComponent<PostItemBodyProps> = function ({ html, toc }) {
   return (
     <PostItemBodyComponent>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <Markdown html={html} />
       <TableOfContents toc={toc} />
     </PostItemBodyComponent>
   );

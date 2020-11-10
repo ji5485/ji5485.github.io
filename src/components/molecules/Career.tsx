@@ -19,10 +19,8 @@ export const CareerComponent = styled.div`
 `;
 
 const Title = styled(Text)`
-  ${TextComponent} {
-    font-size: 20px;
-    font-weight: 700;
-  }
+  font-size: 20px;
+  font-weight: 700;
 
   @media (max-width: 768px) {
     margin-bottom: 40px;

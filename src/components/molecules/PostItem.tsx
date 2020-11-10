@@ -80,7 +80,7 @@ const Category = styled.div`
 `;
 
 const Summary = styled(TextComponent)`
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 400;
   color: #1e1f21;
   opacity: 0.9;
