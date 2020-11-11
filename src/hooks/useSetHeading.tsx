@@ -8,8 +8,8 @@ function useSetHeading(toc: string): string {
     for (let i = headingElements.length - 1; i >= 0; i--) {
       const { top } = headingElements[i].getBoundingClientRect();
 
-      if (top <= 0.1) {
-        headingElements[i].id !== activeSlug && setActiveSlug(headingElements[i].id);
+      if (top <= 0.1 && headingElements[i].id !== activeSlug) {
+        setActiveSlug(headingElements[i].id);
         return;
       }
     }

@@ -4,13 +4,14 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import GlobalStyle from 'components/atoms/GlobalStyle';
 
 interface LayoutProps {
+  currentMode: 'light' | 'dark';
   children: ReactNode;
 }
 
-const Layout: FunctionComponent<LayoutProps> = function ({ children }) {
+const Layout: FunctionComponent<LayoutProps> = function ({ currentMode, children }) {  
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle mode={currentMode} />
       {children}
     </>
   );

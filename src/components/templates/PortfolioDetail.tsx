@@ -38,7 +38,6 @@ const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
   review,
   extraImage,
 }) {
-  console.log(image);
   return (
     <PortfolioDetailComponent>
       <PortfolioDetailContent

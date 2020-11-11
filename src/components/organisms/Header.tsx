@@ -3,6 +3,11 @@ import styled from '@emotion/styled';
 import { TextComponent } from 'components/atoms/Text';
 import NavBar, { NavBarComponent } from 'components/molecules/NavBar';
 
+interface HeaderProps {
+  currentMode: 'light' | 'dark';
+  changeCurrentMode: Function;
+}
+
 export const HeaderComponent = styled.div`
   width: 768px;
   height: 80px;
@@ -31,17 +36,13 @@ const Title = styled(TextComponent)`
   }
 `;
 
-const Header: FunctionComponent<{}> = function ({}) {
+const Header: FunctionComponent<HeaderProps> = function ({ currentMode, changeCurrentMode }) {
   return (
     <HeaderComponent>
       <Title>Too Early To Stop</Title>
-      <NavBar modeSwitch={true} currentMode="light" />
+      <NavBar modeSwitch={true} currentMode={currentMode} changeCurrentMode={changeCurrentMode} />
     </HeaderComponent>
   );
-};
-
-Header.defaultProps = {
-  logo: true,
 };
 
 export default Header;

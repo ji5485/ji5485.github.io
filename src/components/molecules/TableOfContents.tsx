@@ -41,7 +41,7 @@ const TOC = styled.div<{ activeSlug: string }>`
     }
   }
 
-  a[href$='${({ activeSlug }) => activeSlug}'] {
+  a[href$='#${({ activeSlug }) => activeSlug}'] {
     color: #1e1f21;
     font-weight: 700;
   }

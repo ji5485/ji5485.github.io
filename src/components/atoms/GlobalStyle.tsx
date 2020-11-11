@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Global, css } from '@emotion/core';
 
-const style = css`
+interface GlobalStyleProps {
+  mode: 'light' | 'dark';
+}
+
+const commonStyle = css`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
 
@@ -10,7 +14,6 @@ const style = css`
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', 'Noto Sans KR', sans-serif;
-    color: #1e1f21;
   }
 
   a,
@@ -33,6 +36,12 @@ const style = css`
     width: 8px;
     height: 8px;
   }
+`;
+
+const lightStyle = css`
+  * {
+    color: #1e1f21;
+  }
 
   ::-webkit-scrollbar-track {
     background: #dee2e6;
@@ -44,8 +53,31 @@ const style = css`
   }
 `;
 
-const GlobalStyle = function () {
-  return <Global styles={style} />;
+const darkStyle = css`
+  * {
+    color: #FFFFFF;
+  }
+
+  html {
+    background: #1E1F21;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #dee2e6;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #FFFFFF;
+    border-radius: 3px;
+  }
+`;
+
+const GlobalStyle: FunctionComponent<GlobalStyleProps> = function ({ mode }) {
+  return <Global styles={[commonStyle, mode === 'light' ? lightStyle : darkStyle]} />;
+};
+
+GlobalStyle.defaultProps = {
+  mode: 'light'
 };
 
 export default GlobalStyle;

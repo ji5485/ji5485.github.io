@@ -6,6 +6,8 @@ interface MarkdownProps {
 }
 
 const MarkdownComponent = styled.div`
+  display: flex;
+  flex-direction: column;
   line-height: 1.8;
   font-size: 18px;
 

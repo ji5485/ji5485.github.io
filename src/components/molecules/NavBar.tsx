@@ -3,22 +3,19 @@ import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
 import Text, { TextComponent } from 'components/atoms/Text';
 
-type NavBarStyleProps = {
-  currentMode: 'light' | 'dark';
-};
-
-interface NavBarProps extends NavBarStyleProps {
+interface NavBarProps {
   modeSwitch: boolean;
+  currentMode: 'light' | 'dark';
+  changeCurrentMode: Function;
 }
 
-export const NavBarComponent = styled.div<NavBarStyleProps>`
+export const NavBarComponent = styled.div`
   display: flex;
   font-weight: 100;
 
   ${TextComponent} {
     cursor: pointer;
     font-size: 15px;
-    color: ${({ currentMode }) => (currentMode === 'light' ? '#1E1F21' : '#FFFFFF')};
   }
 
   ${LinkComponent} + ${TextComponent},
@@ -27,9 +24,11 @@ export const NavBarComponent = styled.div<NavBarStyleProps>`
   }
 `;
 
-const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch, currentMode }) {
+const ModeSelectSwitch = styled(Text)``;
+
+const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch, currentMode, changeCurrentMode }) {
   return (
-    <NavBarComponent currentMode={currentMode}>
+    <NavBarComponent>
       <Link to="/">
         <Text>Main</Text>
       </Link>
@@ -42,14 +41,9 @@ const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch, currentMo
       <Link to="/blog/1">
         <Text>Blog</Text>
       </Link>
-      {modeSwitch && <Text>{currentMode === 'light' ? 'Dark' : 'Light'} Mode</Text>}
+      {modeSwitch && <ModeSelectSwitch onClick={changeCurrentMode}>{currentMode === 'light' ? 'Dark' : 'Light'} Mode</ModeSelectSwitch>}
     </NavBarComponent>
   );
-};
-
-NavBar.defaultProps = {
-  modeSwitch: true,
-  currentMode: 'light',
 };
 
 export default NavBar;
