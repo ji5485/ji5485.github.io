@@ -49,6 +49,7 @@
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
+    "recoil": "^0.1.2",
     "regenerator-runtime": "^0.13.2",
     "typeface-domine": "^0.0.72",
     "typeface-montserrat": "^0.0.75",

@@ -2,11 +2,10 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
 import Text, { TextComponent } from 'components/atoms/Text';
+import useCurrentMode from 'hooks/useCurrentMode';
 
 interface NavBarProps {
   modeSwitch: boolean;
-  currentMode: 'light' | 'dark';
-  changeCurrentMode: Function;
 }
 
 export const NavBarComponent = styled.div`
@@ -26,7 +25,9 @@ export const NavBarComponent = styled.div`
 
 const ModeSelectSwitch = styled(Text)``;
 
-const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch, currentMode, changeCurrentMode }) {
+const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
+  const { currentMode, toggleCurrentMode } = useCurrentMode();
+
   return (
     <NavBarComponent>
       <Link to="/">
@@ -41,7 +42,11 @@ const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch, currentMo
       <Link to="/blog/1">
         <Text>Blog</Text>
       </Link>
-      {modeSwitch && <ModeSelectSwitch onClick={changeCurrentMode}>{currentMode === 'light' ? 'Dark' : 'Light'} Mode</ModeSelectSwitch>}
+      {modeSwitch && (
+        <ModeSelectSwitch onClick={toggleCurrentMode}>
+          {currentMode === 'light' ? 'Dark' : 'Light'} Mode
+        </ModeSelectSwitch>
+      )}
     </NavBarComponent>
   );
 };

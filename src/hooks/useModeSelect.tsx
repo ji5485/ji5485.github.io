@@ -1,31 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useSetRecoilState } from 'recoil';
+import { modeState } from 'store/mode';
 import storage from 'utilities/localStorage';
 
 type mode = 'light' | 'dark';
-const MODE_STORAGE_KEY: string = 'blog-current-mode';
+const MODE_STORAGE_KEY = 'blog-current-mode';
 
 function useModeSelect() {
-  const [currentMode, setCurrentMode] = useState<mode>("light");
-
-  const changeCurrentMode = () => {
-    const toggledMode: mode = currentMode === 'light' ? 'dark' : 'light';
-
-    setCurrentMode(toggledMode);
-    storage.set(MODE_STORAGE_KEY, toggledMode);
-  };
+  const setCurrentMode = useSetRecoilState<mode>(modeState);
 
   useEffect(() => {
     const storedMode: mode | null = storage.get(MODE_STORAGE_KEY);
 
     if (storedMode === null) {
-      storage.set(MODE_STORAGE_KEY, 'light');  
-      return
-    };
+      storage.set(MODE_STORAGE_KEY, 'light');
+      return;
+    }
 
-    storedMode === 'dark' && changeCurrentMode();
-  }, [])
-
-  return { currentMode, changeCurrentMode };
+    if (storedMode === 'dark') {
+      setCurrentMode('dark');
+      storage.set(MODE_STORAGE_KEY, 'dark');
+    }
+  }, []);
 }
 
 export default useModeSelect;

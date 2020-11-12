@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Global, css } from '@emotion/core';
-
-interface GlobalStyleProps {
-  mode: 'light' | 'dark';
-}
+import useCurrentMode from 'hooks/useCurrentMode';
 
 const commonStyle = css`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
@@ -14,6 +11,8 @@ const commonStyle = css`
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+    transition: color 0.2s;
+    transition: background 0.2s;
   }
 
   a,
@@ -55,11 +54,11 @@ const lightStyle = css`
 
 const darkStyle = css`
   * {
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   html {
-    background: #1E1F21;
+    background: #1e1f21;
   }
 
   ::-webkit-scrollbar-track {
@@ -67,17 +66,15 @@ const darkStyle = css`
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 3px;
   }
 `;
 
-const GlobalStyle: FunctionComponent<GlobalStyleProps> = function ({ mode }) {
-  return <Global styles={[commonStyle, mode === 'light' ? lightStyle : darkStyle]} />;
-};
+const GlobalStyle: FunctionComponent<{}> = function ({}) {
+  const { currentMode } = useCurrentMode();
 
-GlobalStyle.defaultProps = {
-  mode: 'light'
+  return <Global styles={[commonStyle, currentMode === 'light' ? lightStyle : darkStyle]} />;
 };
 
 export default GlobalStyle;

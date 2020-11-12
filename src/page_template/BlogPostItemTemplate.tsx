@@ -35,18 +35,16 @@ const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> = funct
   },
   pageContext: { prev, next },
 }) {
-  const { currentMode, changeCurrentMode } = useModeSelect();
+  useModeSelect();
 
   return (
-    <Layout currentMode={currentMode}>
+    <Layout>
       <BlogPostItem
         postInfo={frontmatter}
         html={html}
         prevItem={prev}
         nextItem={next}
         toc={tableOfContents}
-        currentMode={currentMode}
-        changeCurrentMode={changeCurrentMode}
       />
     </Layout>
   );

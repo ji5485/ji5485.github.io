@@ -20,8 +20,6 @@ interface BlogPostItemProps {
   prevItem: string;
   nextItem: string;
   toc: string;
-  currentMode: 'light' | 'dark';
-  changeCurrentMode: Function;
 }
 
 const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
@@ -37,11 +35,9 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
   prevItem,
   nextItem,
   toc,
-  currentMode,
-  changeCurrentMode
 }) {
   return (
-    <PageTemplate currentMode={currentMode} changeCurrentMode={changeCurrentMode}>
+    <PageTemplate>
       <PostItemHead title={title} date={date} categories={categories} thumbnail={fluid} />
       <PostItemBody html={html} toc={toc} />
       <PostItemFoot prevItem={prevItem} nextItem={nextItem} />

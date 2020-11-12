@@ -4,8 +4,6 @@ import Header from 'components/organisms/Header';
 import Footer from 'components/organisms/Footer';
 
 interface PageTemplateProps {
-  currentMode: 'light' | 'dark';
-  changeCurrentMode: Function;
   children: ReactNode;
 }
 
@@ -31,10 +29,10 @@ const Content = styled.div`
   }
 `;
 
-const PageTemplate: FunctionComponent<PageTemplateProps> = function ({ currentMode, changeCurrentMode, children }) {
+const PageTemplate: FunctionComponent<PageTemplateProps> = function ({ children }) {
   return (
     <Template>
-      <Header currentMode={currentMode} changeCurrentMode={changeCurrentMode} />
+      <Header />
       <Content>{children}</Content>
       <Footer />
     </Template>
