@@ -4,7 +4,6 @@ import { OtherItemInfo } from 'components/organisms/PostItemFoot';
 import Layout from 'components/templates/Layout';
 import BlogPostItem from 'components/templates/BlogPostItem';
 import { FluidObject } from 'gatsby-image';
-import useModeSelect from 'hooks/useModeSelect';
 
 interface BlogPostItemTemplateProps {
   data: {
@@ -35,8 +34,6 @@ const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> = funct
   },
   pageContext: { prev, next },
 }) {
-  useModeSelect();
-
   return (
     <Layout>
       <BlogPostItem

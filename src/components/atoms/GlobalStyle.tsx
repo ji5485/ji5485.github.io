@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Global, css } from '@emotion/core';
-import useCurrentMode from 'hooks/useCurrentMode';
 
-const commonStyle = css`
+const defaultStyle = css`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
 
@@ -11,8 +10,6 @@ const commonStyle = css`
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', 'Noto Sans KR', sans-serif;
-    transition: color 0.2s;
-    transition: background 0.2s;
   }
 
   a,
@@ -31,50 +28,48 @@ const commonStyle = css`
     height: 100%;
   }
 
+  body {
+    color: var(--color);
+    background: var(--background);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  body.dark-mode {
+    --color: #ffffff;
+    --background: #1e1f21;
+
+    ::-webkit-scrollbar-track {
+      background: #dee2e6;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #ffffff;
+      border-radius: 3px;
+    }
+  }
+
+  body {
+    --color: #1e1f21;
+    --background: #ffffff;
+
+    ::-webkit-scrollbar-track {
+      background: #dee2e6;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1e1f21;
+      border-radius: 3px;
+    }
+  }
+
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 `;
 
-const lightStyle = css`
-  * {
-    color: #1e1f21;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #dee2e6;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #1e1f21;
-    border-radius: 3px;
-  }
-`;
-
-const darkStyle = css`
-  * {
-    color: #ffffff;
-  }
-
-  html {
-    background: #1e1f21;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #dee2e6;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #ffffff;
-    border-radius: 3px;
-  }
-`;
-
 const GlobalStyle: FunctionComponent<{}> = function ({}) {
-  const { currentMode } = useCurrentMode();
-
-  return <Global styles={[commonStyle, currentMode === 'light' ? lightStyle : darkStyle]} />;
+  return <Global styles={defaultStyle} />;
 };
 
 export default GlobalStyle;

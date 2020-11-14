@@ -49,7 +49,6 @@
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
-    "recoil": "^0.1.2",
     "regenerator-runtime": "^0.13.2",
     "typeface-domine": "^0.0.72",
     "typeface-montserrat": "^0.0.75",
@@ -98,6 +97,7 @@
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^2.1.2",
     "eslint-plugin-standard": "^4.0.0",
+    "gh-pages": "^3.1.0",
     "husky": "^4.2.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.1.0",
@@ -122,7 +122,8 @@
     "lint": "eslint '{__mocks__,src,test}/**/*.{js,ts,tsx}'",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "husky": {
     "hooks": {
