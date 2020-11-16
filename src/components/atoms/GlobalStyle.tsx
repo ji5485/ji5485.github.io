@@ -34,7 +34,7 @@ const defaultStyle = css`
     transition: background 0.2s, color 0.2s;
   }
 
-  body.dark-mode {
+  body.dark {
     --color: #ffffff;
     --background: #1e1f21;
 

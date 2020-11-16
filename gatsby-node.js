@@ -21,9 +21,6 @@ const splitOnUpper = function (str) {
 
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
-  if (stage !== 'develop') {
-    return;
-  }
   const config = getConfig();
   const output = config.output || {};
 

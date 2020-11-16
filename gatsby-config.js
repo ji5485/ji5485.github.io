@@ -97,52 +97,6 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        /**
-         * no need to specify the other options, since they will be merged with this
-         */
-        feeds: [
-          {
-            title: 'Feed',
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(({ node }) => {
-                return {
-                  ...node.frontmatter,
-                  description: node.excerpt,
-                  url: site.siteMetadata.siteUrl + node.frontmatter.path,
-                  guid: site.siteMetadata.siteUrl + node.frontmatter.path,
-                  custom_elements: [{ 'content:encoded': node.html }],
-                };
-              });
-            },
-            query: `
-              {
-                allMdx(
-                  limit: 1000,
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: { frontmatter: { draft: { ne: true } } }
-                ) {
-                  edges {
-                    node {
-                      frontmatter {
-                        path
-                        title
-                        date
-                      }
-                      excerpt
-                      html
-                    }
-                  }
-                }
-              }
-            `,
-            output: 'rss.xml',
-          },
-        ],
-      },
-    },
     // TODO: Using SiteMap Plugin for Search Engine Optimization
     'gatsby-plugin-sitemap',
     {

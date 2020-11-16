@@ -1,12 +1,13 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
 import Text, { TextComponent } from 'components/atoms/Text';
-import useCurrentMode from 'hooks/useCurrentMode';
 
 interface NavBarProps {
   modeSwitch: boolean;
 }
+
+const MODE_STORAGE_KEY = 'blog-current-mode';
 
 export const NavBarComponent = styled.div`
   display: flex;
@@ -26,7 +27,21 @@ export const NavBarComponent = styled.div`
 const ModeSelectSwitch = styled(Text)``;
 
 const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
-  const { currentMode, toggleCurrentMode } = useCurrentMode();
+  const [currentMode, setCurrentMode] = useState<string>('');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    setCurrentMode(window.localStorage.getItem(MODE_STORAGE_KEY));
+  });
+
+  const changeMode = () => {
+    const toggledMode = currentMode === 'light' ? 'dark' : 'light';
+
+    window.document.body.classList.toggle('dark');
+    window.localStorage.setItem(MODE_STORAGE_KEY, toggledMode);
+    setCurrentMode(toggledMode);
+  };
 
   return (
     <NavBarComponent>
@@ -43,7 +58,7 @@ const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
         <Text>Blog</Text>
       </Link>
       {modeSwitch && (
-        <ModeSelectSwitch onClick={toggleCurrentMode}>
+        <ModeSelectSwitch onClick={changeMode}>
           {currentMode === 'light' ? 'Dark' : 'Light'} Mode
         </ModeSelectSwitch>
       )}
