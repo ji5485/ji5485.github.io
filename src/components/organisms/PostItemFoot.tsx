@@ -1,7 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import PostNavigator from 'components/molecules/PostNavigator';
 import Utterances from 'components/molecules/Utterances';
+
+const MODE_STORAGE_KEY = 'blog-current-mode';
 
 export type OtherItemInfo = {
   slug: string;
@@ -27,7 +29,7 @@ const PostItemFoot: FunctionComponent<PostItemFootProps> = function ({ prevItem,
         {nextItem && <PostNavigator direction="next" {...nextItem} />}
       </PostNavigatorContainer>
 
-      <Utterances mode="light" repo="ji5485/ji5485.github.io" />
+      <Utterances />
     </div>
   );
 };

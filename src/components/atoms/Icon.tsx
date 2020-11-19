@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 
 type IconStyleProps = {
   size: number;
-  color: string;
 };
 
 export interface IconProps extends IconStyleProps {
@@ -58,7 +57,6 @@ const ICON_TYPE = {
 
 export const IconComponent = styled.div<IconStyleProps>`
   font-size: ${({ size }) => size + 'px'};
-  color: ${({ color }) => color};
   width: ${({ size }) => size + 'px'};
   display: flex;
   justify-content: center;
@@ -74,7 +72,6 @@ const Icon: FunctionComponent<IconProps> = function ({ type, ...style }) {
 
 Icon.defaultProps = {
   size: 30,
-  color: '#1E1F21',
 };
 
 export default Icon;

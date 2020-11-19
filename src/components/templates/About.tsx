@@ -9,8 +9,12 @@ import PageTemplate from 'components/templates/PageTemplate';
 const StyleLine = styled.div`
   width: 1px;
   height: 100px;
-  background: black;
+  background: #000000;
   margin: 100px auto;
+
+  body.dark & {
+    background: #FFFFFF;
+  }
 `;
 
 const About: FunctionComponent<{}> = function ({}) {

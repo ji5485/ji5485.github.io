@@ -14,6 +14,10 @@ const FooterComponent = styled.div`
   background: rgba(0, 0, 0, 0.03);
   width: 100%;
   padding: 50px 0;
+
+  body.dark & {
+    background: rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const FooterContent = styled.div`

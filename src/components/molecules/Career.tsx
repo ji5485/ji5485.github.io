@@ -42,6 +42,12 @@ const Content = styled.div`
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   }
 
+  body.dark & {
+    ${TextComponent} {
+      border-color: #FFFFFF;
+    }
+  }
+
   @media (max-width: 768px) {
     width: 100%;
   }

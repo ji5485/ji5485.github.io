@@ -39,7 +39,7 @@ const defaultStyle = css`
     --background: #1e1f21;
 
     ::-webkit-scrollbar-track {
-      background: #dee2e6;
+      background: #18171A;
     }
 
     ::-webkit-scrollbar-thumb {

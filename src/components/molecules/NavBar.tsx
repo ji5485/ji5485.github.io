@@ -24,8 +24,6 @@ export const NavBarComponent = styled.div`
   }
 `;
 
-const ModeSelectSwitch = styled(Text)``;
-
 const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
   const [currentMode, setCurrentMode] = useState<string>('');
 
@@ -58,9 +56,9 @@ const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
         <Text>Blog</Text>
       </Link>
       {modeSwitch && (
-        <ModeSelectSwitch onClick={changeMode}>
+        <Text onClick={changeMode}>
           {currentMode === 'light' ? 'Dark' : 'Light'} Mode
-        </ModeSelectSwitch>
+        </Text>
       )}
     </NavBarComponent>
   );

@@ -31,6 +31,10 @@ const PostItemComponent = styled.div`
   & + & {
     border-top: none;
   }
+
+  body.dark & {
+    border-color: #ffffff;
+  }
 `;
 
 const Content = styled.div`
@@ -65,7 +69,6 @@ const Category = styled.div`
   ${LinkComponent} {
     font-size: 14px;
     font-weight: 400;
-    color: #1e1f21;
     opacity: 0.75;
     margin-right: 10px;
 
@@ -82,7 +85,6 @@ const Category = styled.div`
 const Summary = styled(TextComponent)`
   font-size: 15px;
   font-weight: 400;
-  color: #1e1f21;
   opacity: 0.9;
   margin-top: auto;
 

@@ -1,7 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import Link, { LinkComponent } from 'components/atoms/Link';
 import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
+
+const MODE_STORAGE_KEY = 'blog-current-mode';
 
 export const SideMenuComponent = styled.div`
   display: flex;
@@ -24,6 +26,22 @@ export const SideMenuComponent = styled.div`
 `;
 
 const SideMenu: FunctionComponent<{}> = function ({}) {
+  const [currentMode, setCurrentMode] = useState<string>('');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    setCurrentMode(window.localStorage.getItem(MODE_STORAGE_KEY));
+  });
+
+  const changeMode = () => {
+    const toggledMode = currentMode === 'light' ? 'dark' : 'light';
+
+    window.document.body.classList.toggle('dark');
+    window.localStorage.setItem(MODE_STORAGE_KEY, toggledMode);
+    setCurrentMode(toggledMode);
+  };
+
   return (
     <SideMenuComponent>
       <Link to="/">
@@ -38,7 +56,9 @@ const SideMenu: FunctionComponent<{}> = function ({}) {
       <Link to="/blog/1">
         <Text>Blog</Text>
       </Link>
-      <Text>To Dark Mode</Text>
+      <Text onClick={changeMode}>
+        {currentMode === 'light' ? 'Dark' : 'Light'} Mode
+      </Text>
     </SideMenuComponent>
   );
 };

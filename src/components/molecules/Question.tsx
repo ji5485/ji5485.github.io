@@ -26,6 +26,7 @@ const TitleBox = styled.div`
   margin-bottom: 10px;
 
   ${IconComponent} {
+    color: #5C7CFA;
     margin-bottom: 20px;
   }
 
@@ -48,7 +49,7 @@ const Question: FunctionComponent<QuestionProps> = function ({ icon, title, cont
   return (
     <QuestionComponent>
       <TitleBox>
-        <Icon size={50} color="#5C7CFA" type={icon} />
+        <Icon size={50} type={icon} />
         <div>
           {title.map((text) => (
             <Text key={shortId()}>{text}</Text>

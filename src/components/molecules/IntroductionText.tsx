@@ -5,7 +5,6 @@ import styled from '@emotion/styled';
 const MainText = styled(Text)`
   font-size: 50px;
   font-weight: 700;
-  color: #1e1f21;
   margin-bottom: 10px;
 
   @media (min-width: 768px) and (max-width: 1200px) {
@@ -20,7 +19,6 @@ const MainText = styled(Text)`
 const SubText = styled(Text)`
   font-size: 25px;
   font-weight: 100;
-  color: #1e1f21;
 
   @media (min-width: 769px) and (max-width: 1200px) {
     font-size: 20px;

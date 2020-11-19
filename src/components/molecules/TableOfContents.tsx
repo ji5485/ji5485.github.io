@@ -24,7 +24,7 @@ const TOC = styled.div<{ activeSlug: string }>`
   a {
     display: block;
     padding: 4px 0;
-    color: rgba(30, 31, 33, 0.5);
+    opacity: 0.5;
     transition: 0.3s all;
   }
 
@@ -42,8 +42,12 @@ const TOC = styled.div<{ activeSlug: string }>`
   }
 
   a[href$='#${({ activeSlug }) => activeSlug}'] {
-    color: #1e1f21;
+    opacity: 1;
     font-weight: 700;
+  }
+
+  body.dark & {
+    border-color: rgba(255, 255, 255, 0.5);
   }
 `;
 

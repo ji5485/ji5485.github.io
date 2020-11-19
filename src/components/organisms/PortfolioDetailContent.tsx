@@ -59,7 +59,15 @@ const StyledButton = styled(LinkComponent)`
 
   ${IconComponent} {
     font-size: 20px;
-    color: white;
+    color: #ffffff;
+  }
+
+  body.dark & {
+    background: #ffffff;
+
+    ${IconComponent} {
+      color: #1e1f21;
+    }
   }
 `;
 
@@ -90,6 +98,10 @@ const StyledLine = styled.div`
   height: 2px;
   background: #1e1f21;
   margin-top: auto;
+
+  body.dark & {
+    background: #ffffff;
+  }
 
   @media (max-width: 1200px) {
     display: none;
