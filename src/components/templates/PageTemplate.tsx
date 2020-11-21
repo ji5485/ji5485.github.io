@@ -9,9 +9,9 @@ interface PageTemplateProps {
 
 const Template = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: grid;
-  grid-template-rows: 80px 1fr 180px;
+  grid-template-rows: auto 1fr auto;
   grid-gap: 100px;
 
   @media (max-width: 768px) {

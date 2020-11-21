@@ -26,15 +26,14 @@ export interface MainProps {
 
 const MainComponent = styled.div`
   max-width: 1200px;
-  height: 100%;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 60px 0;
-  display: flex;
+  display: grid;
   align-items: center;
 
   @media (max-width: 1200px) {
     padding: 0 60px;
-    display: grid;
     grid-template-rows: 80px minmax(400px, auto) 80px;
   }
 
@@ -56,13 +55,11 @@ const MainComponent = styled.div`
 `;
 
 const MainContentComponent = styled.div`
-  display: flex;
   flex: 1;
-  height: 100%;
+  display: flex;
   align-items: center;
 
   @media (max-width: 1200px) {
-    display: flex;
     justify-content: space-between;
 
     ${SideMenuComponent} {

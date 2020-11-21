@@ -24,14 +24,7 @@ const defaultStyle = css`
   div[id='___gatsby'],
   div[id='root'],
   div[id='gatsby-focus-wrapper'] {
-    min-height: 100%;
-    height: 100%;
-  }
-
-  body {
-    color: var(--color);
-    background: var(--background);
-    transition: background 0.2s, color 0.2s;
+    min-height: 100vh;
   }
 
   body.dark {
@@ -39,7 +32,7 @@ const defaultStyle = css`
     --background: #1e1f21;
 
     ::-webkit-scrollbar-track {
-      background: #18171A;
+      background: #18171a;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -48,7 +41,7 @@ const defaultStyle = css`
     }
   }
 
-  body {
+  body.light {
     --color: #1e1f21;
     --background: #ffffff;
 

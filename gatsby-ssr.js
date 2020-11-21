@@ -13,14 +13,14 @@ const awaitLoadStorageScript = `
       let mode = localStorage.getItem('blog-current-mode');
       let supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
-      if (mode === null && supportDarkMode) {
-        document.body.classList.add('dark');
-        localStorage.setItem('blog-current-mode', 'dark');
+      if (mode === null) {
+        const initialMode = supportDarkMode ? 'dark' : 'light';
+        document.body.classList.add(initialMode);
+        localStorage.setItem('blog-current-mode', initialMode);
+        return;
       };
 
-      if (mode === 'dark') document.body.classList.add('dark');
-
-      if (mode === null) localStorage.setItem('blog-current-mode', 'light');
+      document.body.classList.add(mode);
     } catch (e) {}
   })();
 `;

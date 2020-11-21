@@ -28,15 +28,15 @@ const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
   const [currentMode, setCurrentMode] = useState<string>('');
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
     setCurrentMode(window.localStorage.getItem(MODE_STORAGE_KEY));
-  });
+  }, []);
 
   const changeMode = () => {
     const toggledMode = currentMode === 'light' ? 'dark' : 'light';
 
-    window.document.body.classList.toggle('dark');
+    window.document.body.classList.remove(currentMode);
+    window.document.body.classList.add(toggledMode);
+
     window.localStorage.setItem(MODE_STORAGE_KEY, toggledMode);
     setCurrentMode(toggledMode);
   };
@@ -56,9 +56,7 @@ const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
         <Text>Blog</Text>
       </Link>
       {modeSwitch && (
-        <Text onClick={changeMode}>
-          {currentMode === 'light' ? 'Dark' : 'Light'} Mode
-        </Text>
+        <Text onClick={changeMode}>{currentMode === 'light' ? 'Dark' : 'Light'} Mode</Text>
       )}
     </NavBarComponent>
   );
