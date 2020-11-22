@@ -2,13 +2,13 @@
 
 import React, { FunctionComponent, ReactNode } from 'react';
 import GlobalStyle from 'components/atoms/GlobalStyle';
-import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-const LayoutStyle = css`
+const LayoutComponent = styled.div`
   min-height: 100vh;
   background: var(--background);
   color: var(--color);
@@ -17,10 +17,10 @@ const LayoutStyle = css`
 
 const Layout: FunctionComponent<LayoutProps> = function ({ children }) {
   return (
-    <div css={LayoutStyle}>
+    <LayoutComponent>
       <GlobalStyle />
       {children}
-    </div>
+    </LayoutComponent>
   );
 };
 

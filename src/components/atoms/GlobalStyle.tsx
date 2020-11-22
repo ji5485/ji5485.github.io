@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 
 const defaultStyle = css`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
@@ -61,7 +61,7 @@ const defaultStyle = css`
   }
 `;
 
-const GlobalStyle: FunctionComponent<{}> = function ({}) {
+const GlobalStyle: FunctionComponent = function ({}) {
   return <Global styles={defaultStyle} />;
 };
 
