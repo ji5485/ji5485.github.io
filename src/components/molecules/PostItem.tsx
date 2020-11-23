@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
-import Text, { TextComponent } from 'components/atoms/Text';
+import Text from 'components/atoms/Text';
 import splitOnUpper from 'utilities/splitOnUpper';
 import shortId from 'utilities/shortId';
+import dateFormat from 'utilities/dateFormat';
 
 export interface PostItemProps {
   title: string;
@@ -64,7 +65,7 @@ const Title = styled(LinkComponent)`
 const Category = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
 
   ${LinkComponent} {
     font-size: 14px;
@@ -82,7 +83,14 @@ const Category = styled.div`
   }
 `;
 
-const Summary = styled(TextComponent)`
+const Date = styled(Text)`
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.7;
+  margin-bottom: 10px;
+`;
+
+const Summary = styled(Text)`
   font-size: 15px;
   font-weight: 400;
   opacity: 0.9;
@@ -116,8 +124,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
   return (
     <PostItemComponent>
       <Content>
-        <Title to={slug}>{title}</Title>
-        <div>{date}</div>
+        <Title to={slug}>{title}</Title>\
         <Category>
           {categories.map((category) => (
             <Link to={`/blog/${splitOnUpper(category)}/1`} key={shortId()}>
@@ -125,6 +132,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
             </Link>
           ))}
         </Category>
+        <Date>{dateFormat(date)}</Date>
         <Summary>
           {summary.map((sentence) => (
             <Text key={shortId()}>{sentence}</Text>

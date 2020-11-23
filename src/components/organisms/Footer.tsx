@@ -5,9 +5,9 @@ import IconList from 'components/molecules/IconList';
 import NavBar from 'components/molecules/NavBar';
 
 const ICON_LIST = [
-  { to: 'https://github.com/ji5485', type: 'github' },
-  { to: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
-  { to: 'https://www.facebook.com/', type: 'facebook' },
+  { href: 'https://github.com/ji5485', type: 'github' },
+  { href: 'https://www.instagram.com/hello_d0o/', type: 'instagram' },
+  { href: 'https://www.facebook.com/people/주현도/100006799395407', type: 'facebook' },
 ];
 
 const FooterComponent = styled.div`

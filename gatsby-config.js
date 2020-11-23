@@ -41,9 +41,9 @@ module.exports = {
   // Gatsby Blog Metadata
   // TODO: Thinking Metadata of My Gatsby Blog
   siteMetadata: {
-    title: '',
-    author: 'Ju Hyeon Do',
-    description: '',
+    title: 'Dev Log of Nickname',
+    author: 'Nickname (Ju Hyeon Do)',
+    description: '이것저것 배우고 만들기를 좋아하는 주니어 웹 개발자 Nickname의 데브 로그',
     siteUrl: 'https://ji5485.github.io/',
   },
   plugins: [

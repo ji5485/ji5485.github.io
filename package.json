@@ -1,8 +1,8 @@
 {
-  "name": "@goblindegook/gatsby-starter-typescript",
-  "description": "A Gatsby starter the way I like it.",
+  "name": "@ji5485/ji5485.github.io",
+  "description": "Personal Portfoilo Blog",
   "version": "1.0.0",
-  "author": "Luís Rodrigues <hello@goblindegook.com>",
+  "author": "Ju Hyeon Do <dong5485@gmail.com>",
   "dependencies": {
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
@@ -19,6 +19,8 @@
     "core-js": "^3.1.4",
     "emotion": "^11.0.0",
     "emotion-server": "^11.0.0",
+    "fontsource-noto-sans-kr": "^3.0.9",
+    "fontsource-roboto": "^3.0.3",
     "gatsby": "^2.25.0",
     "gatsby-image": "^2.4.21",
     "gatsby-page-utils": "^0.4.0",

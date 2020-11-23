@@ -48,6 +48,8 @@ const Utterances: FunctionComponent<{}> = function ({}) {
       childList: false, 
       characterData: false
     });
+
+    return () => observer.disconnect();
   }, []);
 
   return <div ref={element} />;

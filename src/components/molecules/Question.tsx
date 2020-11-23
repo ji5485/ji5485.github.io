@@ -13,17 +13,13 @@ interface QuestionProps {
 export const QuestionComponent = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  padding: 30px;
-
-  @media (max-width: 1200px) {
-    padding: 20px;
-  }
+  padding: 25px;
 `;
 
 const TitleBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   ${IconComponent} {
     color: #5C7CFA;
@@ -38,18 +34,15 @@ const TitleBox = styled.div`
 
 const Content = styled.div`
   font-size: 15px;
-  font-weight: 100;
-
-  @media (max-width: 1200px) {
-    font-size: 13px;
-  }
+  font-weight: 300;
+  line-height: 1.6;
 `;
 
 const Question: FunctionComponent<QuestionProps> = function ({ icon, title, content }) {
   return (
     <QuestionComponent>
       <TitleBox>
-        <Icon size={50} type={icon} />
+        <Icon size={60} type={icon} />
         <div>
           {title.map((text) => (
             <Text key={shortId()}>{text}</Text>

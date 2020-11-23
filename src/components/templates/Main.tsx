@@ -1,28 +1,15 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import SideMenu, { SideMenuComponent } from 'components/molecules/SideMenu';
-import IconList, { iconListProps } from 'components/molecules/IconList';
+import IconList, { IconListProps } from 'components/molecules/IconList';
 import Introduction from 'components/organisms/Introduction';
 import Header, { HeaderComponent } from 'components/organisms/Header';
 
-type iconList = [
-  {
-    href: string;
-    type: string;
-  },
-];
-
-const INTRODUCTION_ICON_LIST: iconList = [
+const INTRODUCTION_ICON_LIST: IconListProps.list = [
   { href: 'https://github.com/ji5485', type: 'github' },
-  { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
-  { href: 'https://www.facebook.com/', type: 'facebook' },
+  { href: 'https://www.instagram.com/hello_d0o/', type: 'instagram' },
+  { href: 'https://www.facebook.com/people/주현도/100006799395407', type: 'facebook' },
 ];
-
-export interface MainProps {
-  profileImageLink: string;
-  profileImageAlt: string;
-  iconList: iconListProps.list;
-}
 
 const MainComponent = styled.div`
   max-width: 1200px;

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import { TextComponent } from 'components/atoms/Text';
+import Text from 'components/atoms/Text';
 import NavBar, { NavBarComponent } from 'components/molecules/NavBar';
 
 export const HeaderComponent = styled.div`
@@ -22,7 +22,7 @@ export const HeaderComponent = styled.div`
   }
 `;
 
-const Title = styled(TextComponent)`
+const Title = styled(Text)`
   font-size: 17px;
   font-weight: 700;
 
