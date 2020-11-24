@@ -7,10 +7,10 @@ import shortId from 'utilities/shortId';
 
 const PROFILE_ICON_LIST = [
   { href: 'https://github.com/ji5485', type: 'github' },
-  { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
-  { href: 'https://www.facebook.com/', type: 'facebook' },
+  { href: 'https://www.instagram.com/hello_d0o/', type: 'instagram' },
+  { href: 'https://www.facebook.com/people/주현도/100006799395407', type: 'facebook' },
   { href: '#', type: 'phone' },
-  { href: '#', type: 'email' },
+  { href: 'mailto:dong5485@gmail.com', type: 'email' },
 ];
 
 const IMAGE_LINK = [
@@ -66,7 +66,7 @@ const ProfileContentText = styled.div`
     }
   }
 `;
-const Profile: FunctionComponent<{}> = function ({}) {
+const Profile: FunctionComponent = function ({}) {
   const { width } = useWindowSize();
 
   return (

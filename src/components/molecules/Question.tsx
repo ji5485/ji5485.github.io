@@ -14,6 +14,10 @@ export const QuestionComponent = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   padding: 25px;
+
+  body.dark & {
+    background: rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const TitleBox = styled.div`
@@ -22,7 +26,7 @@ const TitleBox = styled.div`
   margin-bottom: 15px;
 
   ${IconComponent} {
-    color: #5C7CFA;
+    color: #5c7cfa;
     margin-bottom: 20px;
   }
 
@@ -30,11 +34,17 @@ const TitleBox = styled.div`
     font-size: 18px;
     font-weight: 700;
   }
+
+  body.dark & {
+    ${IconComponent} {
+      color: #748ffc;
+    }
+  }
 `;
 
 const Content = styled.div`
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
 `;
 

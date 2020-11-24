@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Text, { TextComponent } from 'components/atoms/Text';
 import Img, { FluidObject } from 'gatsby-image';
 import shortId from 'utilities/shortId';
+import dateFormat from 'utilities/dateFormat';
 
 interface PostItemHeadProps {
   title: string;
@@ -26,6 +27,7 @@ const PostInfo = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 10px;
+  line-height: 1.5;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -71,7 +73,7 @@ const PostItemHead: FunctionComponent<PostItemHeadProps> = function ({
             <Text key={shortId()}>#{category}</Text>
           ))}
         </Categories>
-        <Date>{date}</Date>
+        <Date>{dateFormat(date)}</Date>
       </PostInfo>
     </div>
   );

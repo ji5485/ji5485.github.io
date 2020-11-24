@@ -2,12 +2,7 @@
 date: '2020-07-29'
 title: 'Transition To Micro Service Architecture'
 categories: ['Web', 'Architecture', 'Backend']
-summary:
-  [
-    '마이크로서비스 아키텍처가 무엇이고 어떤 특징을 가지는가?',
-    '마이크로서비스를 적용했을 때의 장단점은 무엇인가?',
-    '이 아키텍처에서 각 컴포넌트가 통신하는 방법은 뭐가 있을까?',
-  ]
+summary: '하나의 큰 어플리케이션으로 동작하는 Monolithic 아키텍처와는 다른 여러 개의 작은 어플리케이션으로 쪼개어 구동하는 Microservice 아키텍처는 무엇이고, 어떤 특징을 가질까?'
 thumbnail: './abc_copy.png'
 ---
 

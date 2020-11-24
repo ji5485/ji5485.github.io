@@ -8,7 +8,7 @@ import dateFormat from 'utilities/dateFormat';
 
 export interface PostItemProps {
   title: string;
-  summary: string[];
+  summary: string;
   date: string;
   thumbnail: {
     childImageSharp: {
@@ -95,6 +95,13 @@ const Summary = styled(Text)`
   font-weight: 400;
   opacity: 0.9;
   margin-top: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -124,7 +131,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
   return (
     <PostItemComponent>
       <Content>
-        <Title to={slug}>{title}</Title>\
+        <Title to={slug}>{title}</Title>
         <Category>
           {categories.map((category) => (
             <Link to={`/blog/${splitOnUpper(category)}/1`} key={shortId()}>
@@ -133,11 +140,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
           ))}
         </Category>
         <Date>{dateFormat(date)}</Date>
-        <Summary>
-          {summary.map((sentence) => (
-            <Text key={shortId()}>{sentence}</Text>
-          ))}
-        </Summary>
+        <Summary>{summary}</Summary>
       </Content>
 
       <ThumbnailImage src={src} alt="Thumbnail Image" />

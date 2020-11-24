@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react';
+import Layout from 'components/templates/Layout';
 
-const NotFoundPage = () => (
-  <div>
-    <h2>Nothing Here</h2>
-    <p>Check that you followed the correct address.</p>
-  </div>
-)
+const NotFoundPage: FunctionComponent = function ({}) {
+  return <Layout>abc</Layout>;
+};
 
-export default NotFoundPage
+export default NotFoundPage;

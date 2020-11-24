@@ -44,7 +44,7 @@ const Content = styled.div`
 
   body.dark & {
     ${TextComponent} {
-      border-color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.3);
     }
   }
 
