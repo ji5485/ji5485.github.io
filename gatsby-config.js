@@ -44,7 +44,7 @@ module.exports = {
     title: 'Dev Log of Nickname',
     author: 'Nickname (Ju Hyeon Do)',
     description: '이것저것 배우고 만들기를 좋아하는 주니어 웹 개발자 Nickname의 데브 로그',
-    siteUrl: 'https://ji5485.github.io/',
+    siteUrl: 'https://ji5485.github.io',
   },
   plugins: [
     'gatsby-plugin-typescript',
@@ -98,7 +98,11 @@ module.exports = {
       },
     },
     // TODO: Using SiteMap Plugin for Search Engine Optimization
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: '/sitemap.xml',
+      excludes: [`/blog/*`, `/portfolio/project/*`, `/portfolio/activity/*`],
+    },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
