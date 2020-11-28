@@ -66,47 +66,29 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-lunr',
-      options: {
-        languages: [
-          {
-            name: 'en',
-            filterNodes: (node) => !node.frontmatter || node.frontmatter.draft !== true,
-            customEntries: [
-              {
-                title: 'Another Page',
-                content: 'Welcome to page 2',
-                path: '/another-page/',
-              },
-            ],
-          },
-        ],
-        fields: [
-          { name: 'title', store: true, attributes: { boost: 20 } },
-          { name: 'path', store: true },
-          { name: 'content' },
-          { name: 'tags' },
-        ],
-        resolvers: {
-          Mdx: {
-            title: (node) => node.frontmatter.title,
-            path: (node) => node.frontmatter.path,
-            content: (node) => node.rawBody,
-            tags: (node) => node.frontmatter.tags,
-          },
-        },
-      },
-    },
-    // TODO: Using SiteMap Plugin for Search Engine Optimization
-    {
       resolve: 'gatsby-plugin-sitemap',
-      options: '/sitemap.xml',
-      excludes: [`/blog/*`, `/portfolio/project/*`, `/portfolio/activity/*`],
+      options: {
+        exclude: [`/blog/*`, `/portfolio/project/*`, `/portfolio/activity/*`],
+      },
     },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
         precachePages: ['/about', '/portfolio'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://ji5485.github.io',
+        sitemap: 'https://ji5485.github.io/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://ji5485.github.io`,
       },
     },
   ],

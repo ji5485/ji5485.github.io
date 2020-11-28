@@ -33,7 +33,7 @@ const Content = styled.div`
 
   ${TextComponent} {
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 300;
     padding: 12px;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
   }

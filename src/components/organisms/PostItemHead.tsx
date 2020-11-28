@@ -40,14 +40,14 @@ const Categories = styled.div`
 
   ${TextComponent} {
     font-size: 15px;
-    font-weight: 100;
+    font-weight: 300;
     margin-right: 15px;
   }
 `;
 
 const Date = styled.div`
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 300;
   flex-shrink: 0;
   padding-left: 30px;
 

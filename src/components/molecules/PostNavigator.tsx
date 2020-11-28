@@ -37,7 +37,7 @@ const LinkButton = styled.div<{ direction: string }>`
 
 const Title = styled(Text)`
   font-size: 18px;
-  font-weight: 100;
+  font-weight: 300;
 `;
 
 const PostNavigator: FunctionComponent<PostNavigatorProps> = function ({ direction, slug, title }) {

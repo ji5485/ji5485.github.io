@@ -41,7 +41,7 @@ const ContentLine = styled.div`
   justify-content: space-between;
 `;
 
-const Footer: FunctionComponent<{}> = function ({}) {
+const Footer: FunctionComponent = function ({}) {
   return (
     <FooterComponent>
       <FooterContent>
@@ -53,7 +53,7 @@ const Footer: FunctionComponent<{}> = function ({}) {
         </ContentLine>
 
         <ContentLine>
-          <Text size={12} weight={100}>
+          <Text size={12} weight={300}>
             ⓒ Copyright
           </Text>
           <NavBar modeSwitch={false} currentMode="light" />

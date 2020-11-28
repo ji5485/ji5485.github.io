@@ -59,7 +59,7 @@ const ProfileContentText = styled.div`
 
   ${TextComponent}:last-of-type {
     font-size: 15px;
-    font-weight: 100;
+    font-weight: 300;
 
     @media (max-width: 768px) {
       font-size: 12px;

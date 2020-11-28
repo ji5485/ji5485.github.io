@@ -92,7 +92,7 @@ const Date = styled(Text)`
 
 const Summary = styled(Text)`
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 300;
   opacity: 0.9;
   margin-top: auto;
   overflow: hidden;

@@ -3,6 +3,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import GlobalStyle from 'components/atoms/GlobalStyle';
 import styled from '@emotion/styled';
+import { Helmet } from 'react-helmet';
 
 interface LayoutProps {
   children: ReactNode;
@@ -18,6 +19,8 @@ const LayoutComponent = styled.div`
 const Layout: FunctionComponent<LayoutProps> = function ({ children }) {
   return (
     <LayoutComponent>
+      <Helmet />
+
       <GlobalStyle />
       {children}
     </LayoutComponent>

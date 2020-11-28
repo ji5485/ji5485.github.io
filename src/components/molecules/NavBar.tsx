@@ -11,7 +11,7 @@ const MODE_STORAGE_KEY = 'blog-current-mode';
 
 export const NavBarComponent = styled.div`
   display: flex;
-  font-weight: 100;
+  font-weight: 300;
 
   ${TextComponent} {
     cursor: pointer;

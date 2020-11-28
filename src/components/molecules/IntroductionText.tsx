@@ -18,7 +18,7 @@ const MainText = styled(Text)`
 
 const SubText = styled(Text)`
   font-size: 25px;
-  font-weight: 100;
+  font-weight: 300;
 
   @media (min-width: 769px) and (max-width: 1200px) {
     font-size: 20px;
@@ -29,7 +29,7 @@ const SubText = styled(Text)`
   }
 `;
 
-const IntroductionText: FunctionComponent<{}> = function ({}) {
+const IntroductionText: FunctionComponent = function ({}) {
   return (
     <div>
       <MainText>Hello, I am Ju Hyeon Do</MainText>

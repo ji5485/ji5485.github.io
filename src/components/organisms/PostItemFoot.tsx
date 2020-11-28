@@ -1,9 +1,7 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import PostNavigator from 'components/molecules/PostNavigator';
 import Utterances from 'components/molecules/Utterances';
-
-const MODE_STORAGE_KEY = 'blog-current-mode';
 
 export type OtherItemInfo = {
   slug: string;

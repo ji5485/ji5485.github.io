@@ -19,7 +19,7 @@ const Title = styled(Text)`
 const Desc = styled.div`
   ${TextComponent} {
     font-size: 15px;
-    font-weight: 100;
+    font-weight: 300;
   }
 `;
 

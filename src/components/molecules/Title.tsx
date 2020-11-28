@@ -47,11 +47,11 @@ const MainTitle = styled(Text)`
 `;
 
 const SubTitle = styled(Text)`
-  font-size: 30px;
-  font-weight: 100;
+  font-size: 25px;
+  font-weight: 300;
 
   @media (max-width: 768px) {
-    font-size: 25px;
+    font-size: 20px;
   }
 `;
 
