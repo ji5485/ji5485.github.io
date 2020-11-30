@@ -46,8 +46,8 @@ const Footer: FunctionComponent = function ({}) {
     <FooterComponent>
       <FooterContent>
         <ContentLine>
-          <Text size={15} weight={700}>
-            Too Early To Stop
+          <Text size={17} weight={700}>
+            Developer Hyun
           </Text>
           <IconList list={ICON_LIST} size={20} />
         </ContentLine>
