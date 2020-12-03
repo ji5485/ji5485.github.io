@@ -33,6 +33,7 @@ const ImageBox = styled(LinkComponent)`
     place-items: center;
     transition: 0.1s opacity;
     opacity: 0;
+    color: #ffffff;
   }
 
   &:hover {
@@ -82,7 +83,7 @@ const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({
       <Index>{portfolioIndex}.</Index>
 
       <ImageBox to={`/portfolio/${type}/${index}`}>
-        <Icon type="search" color="#ffffff" size={30} />
+        <Icon type="search" size={30} />
         <Image src={generateImageLink(image)} alt="Portfolio Item Image" />
       </ImageBox>
 

@@ -1,4 +1,8 @@
 /* eslint-disable @typescript-eslint/camelcase */
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const gatsbyRemarkPlugins = [
   {
     resolve: 'gatsby-remark-smartypants',
@@ -87,6 +91,20 @@ module.exports = {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: `https://ji5485.github.io`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // If you need using Google Optimize, you must append optimizeId, experimentId, variationId.
+        trackingId: process.env.GA_TRACKING_ID,
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
+        defer: false,
+        siteSpeedSampleRate: 10,
+        cookieDomain: 'ji5485.github.io',
       },
     },
   ],

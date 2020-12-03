@@ -22,6 +22,7 @@
     "gatsby-page-utils": "^0.4.0",
     "gatsby-plugin-canonical-urls": "^2.5.0",
     "gatsby-plugin-emotion": "^4.0.4",
+    "gatsby-plugin-google-analytics": "^2.7.0",
     "gatsby-plugin-lunr": "^1.2.0",
     "gatsby-plugin-offline": "^3.0.8",
     "gatsby-plugin-react-helmet": "^3.0.0",
@@ -105,7 +106,8 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "gatsby build && gh-pages -d public -b master",
+    "serve": "gatsby serve"
   },
   "husky": {
     "hooks": {

@@ -48,3 +48,10 @@ node_modules/
 # Uncomment the following lines if you're not using Zero-Installs:
 # .yarn/cache
 # .pnp.*
+
+### Environment Files ###
+
+.env
+.env.production
+.env.development
+.env.*
