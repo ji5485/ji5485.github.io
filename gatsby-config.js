@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/camelcase */
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+// require('dotenv').config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// });
+require('dotenv');
 
 const gatsbyRemarkPlugins = [
   {
@@ -49,6 +50,15 @@ module.exports = {
     siteUrl: 'https://ji5485.github.io',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // If you need using Google Optimize, you must append optimizeId, experimentId, variationId.
+        trackingId: 'UA-136620069-1',
+        head: true,
+        anonymize: true,
+      },
+    },
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
@@ -91,20 +101,6 @@ module.exports = {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: `https://ji5485.github.io`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // If you need using Google Optimize, you must append optimizeId, experimentId, variationId.
-        trackingId: process.env.GA_TRACKING_ID,
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        pageTransitionDelay: 0,
-        defer: false,
-        siteSpeedSampleRate: 10,
-        cookieDomain: 'ji5485.github.io',
       },
     },
   ],
