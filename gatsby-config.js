@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
-// require('dotenv').config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// });
-require('dotenv');
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const gatsbyRemarkPlugins = [
   {
@@ -54,7 +53,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // If you need using Google Optimize, you must append optimizeId, experimentId, variationId.
-        trackingId: 'UA-136620069-1',
+        trackingId: process.env.GA_TRACKING_ID,
         head: true,
         anonymize: true,
       },
@@ -80,7 +79,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: [`/blog/*`, `/portfolio/project/*`, `/portfolio/activity/*`],
+        exclude: [`/blog/*/*`, `/portfolio/project/*`, `/portfolio/activity/*`],
       },
     },
     {
