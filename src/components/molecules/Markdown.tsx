@@ -27,7 +27,13 @@ const MarkdownComponent = styled.div`
   h2,
   h3 {
     font-weight: 700;
-    margin: 20px 0;
+    margin-bottom: 40px;
+  }
+
+  * + h1,
+  * + h2,
+  * + h3 {
+    margin-top: 100px;
   }
 
   blockquote {
@@ -38,7 +44,7 @@ const MarkdownComponent = styled.div`
 
   ol,
   ul {
-    margin: 20px 0 20px 25px;
+    margin-left: 20px;
   }
 
   hr {

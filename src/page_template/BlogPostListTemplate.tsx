@@ -28,7 +28,10 @@ const BlogPostListTemplate: FunctionComponent<BlogPostListTemplateProps> = funct
   const list: BlogCategoryListProps.list = selectedCategory ? data.filtered : data.unfiltered;
 
   return (
-    <Layout>
+    <Layout
+      title="Dev Log List"
+      description="개발자 Hyun이 지금까지 활동하면서 작성한 Dev Log 목록입니다."
+    >
       <BlogPostList list={list.edges} context={restPageContext} />
     </Layout>
   );

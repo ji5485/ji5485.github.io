@@ -12,6 +12,7 @@ interface BlogPostItemTemplateProps {
       frontmatter: {
         title: string;
         date: string;
+        summary: string;
         categories: string[];
         thumbnail: {
           childImageSharp: {
@@ -21,21 +22,36 @@ interface BlogPostItemTemplateProps {
       };
       tableOfContents: string;
     };
+    site: {
+      siteMetadata: {
+        siteUrl: string;
+      };
+    };
   };
   pageContext: {
     prev: OtherItemInfo | null;
     next: OtherItemInfo | null;
+    slug: string;
   };
 }
 
 const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> = function ({
   data: {
     markdownRemark: { html, frontmatter, tableOfContents },
+    site: {
+      siteMetadata: { siteUrl },
+    },
   },
-  pageContext: { prev, next },
+  pageContext: { prev, next, slug },
 }) {
+  const PostItemMetaData = {
+    title: frontmatter.title,
+    description: frontmatter.summary,
+    url: siteUrl + slug,
+  };
+
   return (
-    <Layout>
+    <Layout {...PostItemMetaData}>
       <BlogPostItem
         postInfo={frontmatter}
         html={html}
@@ -56,6 +72,7 @@ export const blogQuery = graphql`
       frontmatter {
         title
         date
+        summary
         categories
         thumbnail {
           childImageSharp {
@@ -66,6 +83,11 @@ export const blogQuery = graphql`
         }
       }
       tableOfContents
+    }
+    site {
+      siteMetadata {
+        siteUrl
+      }
     }
   }
 `;

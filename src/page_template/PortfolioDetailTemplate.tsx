@@ -18,7 +18,7 @@ const PortfolioDetailTemplate: FunctionComponent<PortfolioDetailTemplateProps> =
   pathContext,
 }) {
   return (
-    <Layout>
+    <Layout title="Detail of This Portfolio">
       <PortfolioDetail {...pathContext} />
     </Layout>
   );

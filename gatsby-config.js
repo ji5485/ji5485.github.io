@@ -45,7 +45,8 @@ module.exports = {
   siteMetadata: {
     title: 'Dev Log of Hyun',
     author: 'Hyun (Ju Hyeon Do)',
-    description: '이것저것 배우고 만들기를 좋아하는 주니어 웹 개발자 Hyun의 데브 로그',
+    description:
+      '이것 저것 배우고 만들어보는 것을 좋아하는 주니어 웹 풀스택 개발자 Hyun입니다. 성장하는 과정을 Dev Log로 담은 개인 블로그입니다.',
     siteUrl: 'https://ji5485.github.io',
   },
   plugins: [
