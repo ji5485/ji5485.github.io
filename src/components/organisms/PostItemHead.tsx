@@ -18,7 +18,7 @@ const Title = styled(Text)`
   margin-top: 30px;
 
   @media (max-width: 768px) {
-    font-size: 30px;
+    font-size: 25px;
   }
 `;
 
@@ -43,6 +43,12 @@ const Categories = styled.div`
     font-weight: 300;
     margin-right: 15px;
   }
+
+  @media (max-width: 768px) {
+    ${TextComponent} {
+      font-size: 12px;
+    }
+  }
 `;
 
 const Date = styled.div`
@@ -53,7 +59,7 @@ const Date = styled.div`
 
   @media (max-width: 768px) {
     padding: 0;
-    margin-top: 5px;
+    font-size: 12px;
   }
 `;
 

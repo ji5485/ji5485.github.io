@@ -11,7 +11,7 @@ interface PostNavigatorProps {
 }
 
 const PostNavigatorComponent = styled(LinkComponent)<{ direction: string }>`
-  width: 45%;
+  width: 47%;
   display: flex;
   flex-direction: column;
   ${({ direction }) =>
@@ -35,9 +35,14 @@ const LinkButton = styled.div<{ direction: string }>`
   }
 `;
 
-const Title = styled(Text)`
+const Title = styled(Text)<{ direction: string }>`
   font-size: 18px;
   font-weight: 300;
+  ${({ direction }) => `text-align: ${direction === 'prev' ? 'left' : 'right'}`};
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
 `;
 
 const PostNavigator: FunctionComponent<PostNavigatorProps> = function ({ direction, slug, title }) {
@@ -48,7 +53,7 @@ const PostNavigator: FunctionComponent<PostNavigatorProps> = function ({ directi
         <Text>{direction.charAt(0).toUpperCase() + direction.slice(1)}</Text>
       </LinkButton>
 
-      <Title>{title}</Title>
+      <Title direction={direction}>{title}</Title>
     </PostNavigatorComponent>
   );
 };
