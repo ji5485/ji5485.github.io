@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Text from 'components/atoms/Text';
 import NavBar, { NavBarComponent } from 'components/molecules/NavBar';
 
-export const HeaderComponent = styled.div`
+export const HeaderComponent = styled.header`
   width: 768px;
   height: 80px;
   margin: 0 auto;
@@ -31,7 +31,7 @@ const Title = styled(Text)`
   }
 `;
 
-const Header: FunctionComponent<{}> = function ({}) {
+const Header: FunctionComponent = function ({}) {
   return (
     <HeaderComponent>
       <Title>Too Early To Stop</Title>

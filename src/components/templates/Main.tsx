@@ -41,7 +41,7 @@ const MainComponent = styled.div`
   }
 `;
 
-const MainContentComponent = styled.div`
+const MainContentComponent = styled.main`
   flex: 1;
   display: flex;
   align-items: center;
@@ -65,7 +65,7 @@ const MainFooterComponent = styled.div`
   }
 `;
 
-const Main: FunctionComponent<{}> = function ({}) {
+const Main: FunctionComponent = function ({}) {
   return (
     <MainComponent>
       <Header />

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import Text from 'components/atoms/Text';
 import styled from '@emotion/styled';
 
-const MainText = styled(Text)`
+const MainText = styled.h1`
   font-size: 50px;
   font-weight: 700;
   margin-bottom: 10px;

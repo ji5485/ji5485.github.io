@@ -12,14 +12,12 @@ const awaitLoadStorageScript = `
     try {
       let mode = localStorage.getItem('blog-current-mode');
       let supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-
       if (mode === null) {
         const initialMode = supportDarkMode ? 'dark' : 'light';
         document.body.classList.add(initialMode);
         localStorage.setItem('blog-current-mode', initialMode);
         return;
       };
-
       document.body.classList.add(mode);
     } catch (e) {}
   })();

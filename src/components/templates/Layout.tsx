@@ -1,5 +1,3 @@
-// TODO: Make a Global Layout Component for Search Engine Optimization
-
 import React, { FunctionComponent, ReactNode } from 'react';
 import GlobalStyle from 'components/atoms/GlobalStyle';
 import styled from '@emotion/styled';
@@ -45,6 +43,8 @@ const Layout: FunctionComponent<LayoutProps> = function ({
         {image && <meta property="og:image" content={image} />}
         <meta property="og:url" content={url} />
         <meta property="og:site_name" content="Dev Log of Hyun" />
+
+        <html lang="ko" />
       </Helmet>
 
       <GlobalStyle />

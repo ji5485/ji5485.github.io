@@ -10,7 +10,7 @@ const ICON_LIST = [
   { href: 'https://www.facebook.com/people/주현도/100006799395407', type: 'facebook' },
 ];
 
-const FooterComponent = styled.div`
+const FooterComponent = styled.footer`
   background: rgba(0, 0, 0, 0.03);
   width: 100%;
   padding: 50px 0;

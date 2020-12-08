@@ -31,7 +31,7 @@ const IconList: FunctionComponent<IconListProps> = function ({ list, size }) {
       {list &&
         list.map(({ href, type }) => {
           return (
-            <a href={href} key={shortId()} rel="noreferrer" target="_blank">
+            <a href={href} key={shortId()} rel="noreferrer" target="_blank" aria-label={type}>
               <Icon type={type} size={size} />
             </a>
           );
