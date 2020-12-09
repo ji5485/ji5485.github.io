@@ -20,7 +20,6 @@ export const ProfileImageComponent = styled.div<ProfileImageStyleProps>`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  cursor: pointer;
 
   img {
     width: 100%;

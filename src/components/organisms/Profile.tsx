@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import Text, { TextComponent } from 'components/atoms/Text';
 import IconList from 'components/molecules/IconList';
 import useWindowSize from 'hooks/useWindowSize';
 import shortId from 'utilities/shortId';
+import Img from 'gatsby-image';
 
 const PROFILE_ICON_LIST = [
   { href: 'https://github.com/ji5485', type: 'github' },
@@ -19,6 +21,20 @@ const IMAGE_LINK = [
   '../../about_images/about_profile_3.jpg',
 ];
 
+const getImageQuery = graphql`
+  {
+    allImageSharp(filter: { original: { src: { regex: "/about/" } } }) {
+      edges {
+        node {
+          fluid {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  }
+`;
+
 const ProfileComponent = styled.div`
   width: 100%;
 `;
@@ -29,10 +45,8 @@ const ProfileImageList = styled.div`
   display: flex;
   justify-content: space-between;
 
-  img {
-    width: auto;
-    max-height: 100%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  .gatsby-image-wrapper {
+    flex: 1;
   }
 
   @media (max-width: 768px) {
@@ -68,12 +82,15 @@ const ProfileContentText = styled.div`
 `;
 const Profile: FunctionComponent = function ({}) {
   const { width } = useWindowSize();
+  const {
+    allImageSharp: { edges },
+  } = useStaticQuery(getImageQuery);
 
   return (
     <ProfileComponent>
       <ProfileImageList>
-        {IMAGE_LINK.map((src: string, index: number) => (
-          <img key={shortId()} src={src} alt={`profile_image_${index}`} />
+        {edges.map(({ node: { fluid } }) => (
+          <Img fluid={fluid} key={shortId()} alt="Profile Image" />
         ))}
       </ProfileImageList>
 

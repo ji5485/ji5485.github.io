@@ -19,7 +19,7 @@ const Template = styled.div`
   }
 `;
 
-const Content = styled.div`
+const Content = styled.main`
   width: 768px;
   margin: 0 auto;
 
