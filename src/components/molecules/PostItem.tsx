@@ -133,7 +133,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
       <Content>
         <Title to={slug}>{title}</Title>
         <Category>
-          {categories.map((category) => (
+          {categories.map((category: string) => (
             <Link to={`/blog/${splitOnUpper(category)}/1`} key={shortId()}>
               #{category}
             </Link>

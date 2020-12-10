@@ -28,7 +28,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const PostItemStory: FunctionComponent<{}> = function ({}) {
+export const PostItemStory: FunctionComponent = function ({}) {
   const title = text('Title', 'Layout Development Through Modern CSS Techniques');
   const summary = text(
     'Summary',

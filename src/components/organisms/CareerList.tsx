@@ -3,7 +3,12 @@ import styled from '@emotion/styled';
 import Career, { CareerComponent } from 'components/molecules/Career';
 import shortId from 'utilities/shortId';
 
-const CAREER_LIST = [
+type CareerType = {
+  title: string;
+  contents: string[];
+};
+
+const CAREER_LIST: CareerType[] = [
   {
     title: 'Prize',
     contents: [
@@ -37,10 +42,10 @@ const CareerListComponent = styled.div`
   }
 `;
 
-const CareerList: FunctionComponent<{}> = function ({}) {
+const CareerList: FunctionComponent = function ({}) {
   return (
     <CareerListComponent>
-      {CAREER_LIST.map(({ title, contents }) => {
+      {CAREER_LIST.map(({ title, contents }: CareerType) => {
         return <Career title={title} contents={contents} key={shortId()} />;
       })}
     </CareerListComponent>

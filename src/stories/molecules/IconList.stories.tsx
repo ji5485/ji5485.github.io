@@ -17,6 +17,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const IconListStory: FunctionComponent<{}> = function ({}) {
+export const IconListStory: FunctionComponent = function ({}) {
   return <IconList list={IconListProps.list} size={IconListProps.size} />;
 };

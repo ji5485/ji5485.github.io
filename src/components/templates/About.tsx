@@ -13,11 +13,11 @@ const StyleLine = styled.div`
   margin: 100px auto;
 
   body.dark & {
-    background: #FFFFFF;
+    background: #ffffff;
   }
 `;
 
-const About: FunctionComponent<{}> = function ({}) {
+const About: FunctionComponent = function ({}) {
   return (
     <PageTemplate>
       <Title title="About." subTitle="Introduce Myself" align="left" />

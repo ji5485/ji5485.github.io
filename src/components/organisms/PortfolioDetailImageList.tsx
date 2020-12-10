@@ -46,7 +46,7 @@ const PortfolioDetailImageList: FunctionComponent<PortfolioDetailImageListProps>
 }) {
   return (
     <PortfolioDetailImageListComponent>
-      {list.map((image, index) => (
+      {list.map((image: string) => (
         <ImageBox key={shortId()}>
           <Image src={generateImageLink(image)} alt="Activity Image" />
         </ImageBox>

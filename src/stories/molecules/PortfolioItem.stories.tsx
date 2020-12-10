@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const PortfolioItemStory: FunctionComponent<{}> = function ({}) {
+export const PortfolioItemStory: FunctionComponent = function ({}) {
   const index = number('Index', 1);
   const title = text('Title', 'Likelion Hackathon');
   const content = text(

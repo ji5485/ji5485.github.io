@@ -47,7 +47,7 @@ const Pagination: FunctionComponent<PaginationProps> = function ({
         <Icon type="caretLeft" size={17} />
       </PageMoveIcon>
 
-      {[1, 2, 3, 4, 5].map((index) => {
+      {[1, 2, 3, 4, 5].map((index: number) => {
         const page = (currentPosition - 1) * 5 + index;
         return (
           page <= totalPage && (

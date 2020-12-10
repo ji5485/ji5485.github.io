@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from "react";
-import SideMenu from "components/molecules/SideMenu";
+import React, { FunctionComponent } from 'react';
+import SideMenu from 'components/molecules/SideMenu';
 import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
-  title: "Molecules",
+  title: 'Molecules',
   component: SideMenu,
-  decorators: [withKnobs]
-}
+  decorators: [withKnobs],
+};
 
-export const SideMenuStory: FunctionComponent<{}> = function ({}) {
+export const SideMenuStory: FunctionComponent = function ({}) {
   return <SideMenu />;
-}
+};

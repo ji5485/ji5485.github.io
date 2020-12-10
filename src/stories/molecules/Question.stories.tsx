@@ -18,7 +18,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const QuestionStory: FunctionComponent<{}> = function ({}) {
+export const QuestionStory: FunctionComponent = function ({}) {
   const icon = select(
     'Icon',
     { smileWink: 'smileWink', running: 'running', layerGroup: 'layerGroup', userTie: 'userTie' },

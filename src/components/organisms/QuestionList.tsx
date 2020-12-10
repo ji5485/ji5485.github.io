@@ -4,6 +4,12 @@ import Question, { QuestionComponent } from 'components/molecules/Question';
 import QUESTION_LIST from '../../../static/QuestionList.json';
 import shortId from 'utilities/shortId';
 
+type QuestionType = {
+  icon: string;
+  title: string[];
+  content: string[];
+};
+
 export const QuestionListComponent = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -20,11 +26,11 @@ export const QuestionListComponent = styled.div`
   }
 `;
 
-const QuestionList: FunctionComponent<{}> = function () {
+const QuestionList: FunctionComponent = function () {
   return (
     <QuestionListComponent>
-      {QUESTION_LIST.map(({ icon, title, content }) => {
-        return <Question icon={icon} title={title} content={content} key={shortId()} />;
+      {QUESTION_LIST.map((props: QuestionType) => {
+        return <Question {...props} key={shortId()} />;
       })}
     </QuestionListComponent>
   );

@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const PaginationButtonStory: FunctionComponent<{}> = function ({}) {
+export const PaginationButtonStory: FunctionComponent = function ({}) {
   const to = text('To', '/blog/3');
   const page = number('Page', 3);
 

@@ -75,7 +75,7 @@ const PostItemHead: FunctionComponent<PostItemHeadProps> = function ({
       <Title>{title}</Title>
       <PostInfo>
         <Categories>
-          {categories.map((category) => (
+          {categories.map((category: string) => (
             <Text key={shortId()}>#{category}</Text>
           ))}
         </Categories>

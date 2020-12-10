@@ -59,7 +59,7 @@ const Career: FunctionComponent<CareerProps> = function ({ title, contents }) {
       <Title>{title}</Title>
 
       <Content>
-        {contents.map((content) => {
+        {contents.map((content: string) => {
           return <Text key={shortId()}>{content}</Text>;
         })}
       </Content>

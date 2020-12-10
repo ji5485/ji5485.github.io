@@ -14,7 +14,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const CareerStory: FunctionComponent<{}> = function ({}) {
+export const CareerStory: FunctionComponent = function ({}) {
   const title = text('Title', 'Experience');
   const direction = select('Direction', { Right: 'right', Left: 'left' }, 'left');
 

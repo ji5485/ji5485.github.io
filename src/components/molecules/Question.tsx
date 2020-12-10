@@ -54,14 +54,14 @@ const Question: FunctionComponent<QuestionProps> = function ({ icon, title, cont
       <TitleBox>
         <Icon size={60} type={icon} />
         <div>
-          {title.map((text) => (
+          {title.map((text: string) => (
             <Text key={shortId()}>{text}</Text>
           ))}
         </div>
       </TitleBox>
 
       <Content>
-        {content.map((text) => (
+        {content.map((text: string) => (
           <Text key={shortId()}>{text}</Text>
         ))}
       </Content>

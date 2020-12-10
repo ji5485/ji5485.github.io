@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const IconStory: FunctionComponent<{}> = function ({}) {
+export const IconStory: FunctionComponent = function ({}) {
   const type = select(
     'Type',
     {

@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const TitleStory: FunctionComponent<{}> = function ({}) {
+export const TitleStory: FunctionComponent = function ({}) {
   const title = text('Title', 'Profile.');
   const subTitle = text('SubTitle', 'Information About Me');
   const align = select('Align', { left: 'left', right: 'right' }, 'left');

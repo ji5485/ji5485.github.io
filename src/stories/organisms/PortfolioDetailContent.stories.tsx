@@ -26,6 +26,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const PortfolioDetailContentStory: FunctionComponent<{}> = function ({}) {
+export const PortfolioDetailContentStory: FunctionComponent = function ({}) {
   return <PortfolioDetailContent {...PortfolioDetailContentProps} />;
 };

@@ -3,7 +3,7 @@ import React, { createRef, FunctionComponent, useEffect } from 'react';
 const src = 'https://utteranc.es/client.js';
 const repo = 'ji5485/ji5485.github.io';
 
-const Utterances: FunctionComponent<{}> = function ({}) {
+const Utterances: FunctionComponent = function ({}) {
   const element = createRef<HTMLDivElement>();
 
   useEffect(() => {
@@ -31,11 +31,11 @@ const Utterances: FunctionComponent<{}> = function ({}) {
 
       const message = {
         type: 'set-theme',
-        theme: `github-${mode}`
+        theme: `github-${mode}`,
       };
-      
+
       utterances.postMessage(message, 'https://utteranc.es');
-    }
+    };
 
     const observer = new MutationObserver(() => {
       const currentMode = window.document.body.classList.contains('dark') ? 'dark' : 'light';
@@ -45,8 +45,8 @@ const Utterances: FunctionComponent<{}> = function ({}) {
     observer.observe(window.document.body, {
       attributes: true,
       attributeFilter: ['class'],
-      childList: false, 
-      characterData: false
+      childList: false,
+      characterData: false,
     });
 
     return () => observer.disconnect();

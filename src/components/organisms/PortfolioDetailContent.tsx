@@ -127,7 +127,7 @@ const PortfolioDetailContent: FunctionComponent<PortfolioDetailContentProps> = f
         {width < 1200 && <Image src={generateImageLink(image)} alt={info.title} />}
 
         <Description>
-          {contents.map((item) => (
+          {contents.map((item: PortfolioDetailDescProps) => (
             <PortfolioDetailDesc {...item} key={shortId()} />
           ))}
         </Description>

@@ -8,6 +8,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const FooterStory: FunctionComponent<{}> = function ({}) {
+export const FooterStory: FunctionComponent = function ({}) {
   return <Footer />;
 };

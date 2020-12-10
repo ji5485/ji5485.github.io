@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const PostNavigatorStory: FunctionComponent<{}> = function ({}) {
+export const PostNavigatorStory: FunctionComponent = function ({}) {
   const direction = select('Direction', { Prev: 'prev', Next: 'next' }, 'prev');
   const title = text('Title', 'How to prevent SQL Injection?');
   const slug = text('Slug', '/blog/kittens/');

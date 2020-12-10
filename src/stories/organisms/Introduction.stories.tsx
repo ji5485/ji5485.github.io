@@ -11,7 +11,7 @@ const IntroductionProps = {
     { href: 'https://www.instagram.com/?hl=ko', type: 'instagram' },
     { href: 'https://www.facebook.com/', type: 'facebook' },
   ],
-  iconSize: 30
+  iconSize: 30,
 };
 
 export default {
@@ -20,7 +20,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const IntroductionStory: FunctionComponent<{}> = function ({}) {
+export const IntroductionStory: FunctionComponent = function ({}) {
   return (
     <Introduction
       profileImageLink={IntroductionProps.profileImageLink}

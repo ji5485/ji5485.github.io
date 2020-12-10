@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from "react";
-import IntroductionText from "components/molecules/IntroductionText";
+import React, { FunctionComponent } from 'react';
+import IntroductionText from 'components/molecules/IntroductionText';
 import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
-  title: "Molecules",
+  title: 'Molecules',
   component: IntroductionText,
-  decorators: [withKnobs]
-}
+  decorators: [withKnobs],
+};
 
-export const IntroductionTextStory: FunctionComponent<{}> = function ({}) {
+export const IntroductionTextStory: FunctionComponent = function ({}) {
   return <IntroductionText />;
-}
+};

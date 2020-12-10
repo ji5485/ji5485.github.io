@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const NavBarStory: FunctionComponent<{}> = function ({}) {
+export const NavBarStory: FunctionComponent = function ({}) {
   const modeSwitch = boolean('Mode Switch', true);
   const currentMode = select('Current Mode', { Light: 'light', Dark: 'dark' }, 'light');
 

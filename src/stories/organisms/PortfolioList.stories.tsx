@@ -41,7 +41,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const PortfolioListStory: FunctionComponent<{}> = function ({}) {
+export const PortfolioListStory: FunctionComponent = function ({}) {
   const type = select('Type', { project: 'project', activity: 'activity' }, 'project');
   const title = text('Title', 'Projects');
 

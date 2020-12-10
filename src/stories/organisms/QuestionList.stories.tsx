@@ -8,6 +8,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const QuestionListStory: FunctionComponent<{}> = function ({}) {
+export const QuestionListStory: FunctionComponent = function ({}) {
   return <QuestionList />;
 };

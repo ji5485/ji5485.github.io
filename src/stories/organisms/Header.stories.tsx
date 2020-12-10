@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const HeaderStory: FunctionComponent<{}> = function ({}) {
+export const HeaderStory: FunctionComponent = function ({}) {
   const logoVisibility = boolean('Logo Visibility', true);
 
   return <Header logoVisibility={logoVisibility} />;

@@ -24,7 +24,7 @@ export const SideMenuComponent = styled.div`
   }
 `;
 
-const SideMenu: FunctionComponent<{}> = function ({}) {
+const SideMenu: FunctionComponent = function ({}) {
   const [currentMode, setCurrentMode] = useState<string>('');
 
   useEffect(() => {

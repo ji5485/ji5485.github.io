@@ -86,6 +86,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const PostItemListStory: FunctionComponent<{}> = function ({}) {
+export const PostItemListStory: FunctionComponent = function ({}) {
   return <PostList list={PostListProps} />;
 };

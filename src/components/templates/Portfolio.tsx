@@ -4,7 +4,7 @@ import PortfolioList from 'components/organisms/PortfolioList';
 import PageTemplate from 'components/templates/PageTemplate';
 import PORTFOLIO_LIST from '../../../static/PortfolioList.json';
 
-const Portfolio: FunctionComponent<{}> = function ({}) {
+const Portfolio: FunctionComponent = function ({}) {
   return (
     <PageTemplate>
       <Title title="Portfolio." subTitle="My Projects & Activities" />

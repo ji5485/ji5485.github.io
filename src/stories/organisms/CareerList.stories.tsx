@@ -8,6 +8,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const CareerListStory: FunctionComponent<{}> = function ({}) {
+export const CareerListStory: FunctionComponent = function ({}) {
   return <CareerList />;
 };

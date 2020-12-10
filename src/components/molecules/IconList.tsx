@@ -3,13 +3,13 @@ import Icon from 'components/atoms/Icon';
 import styled from '@emotion/styled';
 import shortId from 'utilities/shortId';
 
+type IconInfoObjType = {
+  href: string;
+  type: string;
+};
+
 export interface IconListProps {
-  list: [
-    {
-      href: string;
-      type: string;
-    },
-  ];
+  list: [IconInfoObjType];
   size: number;
 }
 
@@ -29,7 +29,7 @@ const IconList: FunctionComponent<IconListProps> = function ({ list, size }) {
   return (
     <IconListComponent>
       {list &&
-        list.map(({ href, type }) => {
+        list.map(({ href, type }: IconInfoObjType) => {
           return (
             <a href={href} key={shortId()} rel="noreferrer" target="_blank" aria-label={type}>
               <Icon type={type} size={size} />
