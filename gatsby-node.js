@@ -19,6 +19,10 @@ const splitOnUpper = function (str) {
   return lowerCaseArr.join('-');
 };
 
+function shortId() {
+  return Math.random().toString(36).substring(2);
+}
+
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
   const config = getConfig();
@@ -36,6 +40,139 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
     },
   });
 };
+
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = [
+    schema.buildObjectType({
+      name: 'PortfolioMetadata',
+      fields: {
+        title: 'String!',
+        content: 'String!',
+        image: {
+          type: 'ImageSharp!',
+          resolve: async (source, args, context) => {
+            const img = await context.nodeModel.runQuery({
+              type: 'ImageSharp',
+              query: {
+                filter: {
+                  fluid: {
+                    originalName: { eq: source.image },
+                  },
+                },
+              },
+            });
+
+            return img[0];
+          },
+        },
+        detail: 'PortfolioDetailInfo',
+      },
+      interfaces: ['Node'],
+      extensions: {
+        infer: true,
+      },
+    }),
+    schema.buildObjectType({
+      name: 'PortfolioDetailInfo',
+      fields: {
+        subTitle: 'String!',
+        period: 'String!',
+        description: 'String!',
+        review: 'String!',
+        extraImage: {
+          type: '[ImageSharp]',
+          resolve: async (source, args, context) => {
+            const sharpImageArray = await source.extraImage.reduce(async (fileName, imageArray) => {
+              const img = await context.nodeModel.runQuery({
+                type: 'ImageSharp',
+                query: {
+                  filter: {
+                    fluid: {
+                      originalName: { eq: fileName },
+                    },
+                  },
+                },
+              });
+
+              imageArray.push(img[0]);
+              return imageArray;
+            }, []);
+
+            return sharpImageArray;
+          },
+        },
+      },
+      interfaces: ['Node'],
+      extensions: {
+        infer: true,
+      },
+    }),
+  ];
+
+  createTypes(typeDefs);
+};
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  project.forEach((portfolioItem) => {
+    const { extraInfo, ...portfolioMetadata } = portfolioItem;
+
+    const detailInfoNode = {
+      id: createNodeId(`Portfolio-Detail-Info-${shortId()}`),
+      ...extraInfo,
+      internal: {
+        type: 'PortfolioDetailInfo',
+        contentDigest: createContentDigest(extraInfo),
+      },
+    };
+
+    const metadataNode = {
+      id: createNodeId(`Portfolio-${shortId()}`),
+      ...portfolioMetadata,
+      detail: detailInfoNode,
+      internal: {
+        type: 'PortfolioMetadata',
+        contentDigest: createContentDigest(portfolioMetadata),
+      },
+    };
+
+    actions.createNode(detailInfoNode);
+    actions.createNode(metadataNode);
+  });
+};
+
+// exports.createResolvers = ({ createResolvers }) => {
+//   const resolver = {
+//     Query: {
+//       allOptimizedPortfolioMetadata: {
+//         type: ['PortfolioMetadata'],
+//         resolve(source, args, context, info) {
+//           const allMetadata = context.nodeModel.runQuery({ type: 'PortfolioMetadata ' });
+//           // console.log(allMetadata);
+//           // allMetadata.edges.forEach((metadata) => {
+//           //   const imageSharp = context.nodeModel.runQuery({
+//           //     type: 'ImageSharp',
+//           //     filter: {
+//           //       fluid: {
+//           //         originalName: {
+//           //           eq: metadata.node.image,
+//           //         },
+//           //       },
+//           //     },
+//           //   });
+
+//           //   metadata.node.image = imageSharp;
+//           // });
+
+//           return allMetadata;
+//         },
+//       },
+//     },
+//   };
+
+//   createResolvers(resolver);
+// };
 
 // Make a Slug each Posts
 exports.onCreateNode = ({ node, getNode, actions }) => {

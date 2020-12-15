@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import Layout from 'components/templates/Layout';
 import Portfolio from 'components/templates/Portfolio';
+import { graphql } from 'gatsby';
 
 const PORTFOLIO_PAGE_METADATA = {
   title: 'Portfolios in Dev Life',
@@ -9,7 +10,7 @@ const PORTFOLIO_PAGE_METADATA = {
   siteUrl: 'https://ji5485.github.io/portfolio',
 };
 
-const PortfolioPage: FunctionComponent = function ({}) {
+const PortfolioPage: FunctionComponent = function () {
   return (
     <Layout {...PORTFOLIO_PAGE_METADATA}>
       <Portfolio />
@@ -18,3 +19,15 @@ const PortfolioPage: FunctionComponent = function ({}) {
 };
 
 export default PortfolioPage;
+
+// export const metadataQuery = graphql`
+//   {
+//     allPortfolioMetadata {
+//       edges {
+//         node {
+//           image
+//         }
+//       }
+//     }
+//   }
+// `;
