@@ -3,14 +3,19 @@ import styled from '@emotion/styled';
 import Text from 'components/atoms/Text';
 import { LinkComponent } from 'components/atoms/Link';
 import Icon, { IconComponent } from 'components/atoms/Icon';
-import generateImageLink from 'utilities/imageLinkGenerator';
+import Img, { FluidObject } from 'gatsby-image';
 
-export interface PortfolioItemProps {
-  type: 'project' | 'activity';
-  index: number;
+export type PortfolioItemType = {
   title: string;
   content: string;
-  image: string;
+  image: {
+    fluid: FluidObject;
+  };
+};
+
+interface PortfolioItemProps extends PortfolioItemType {
+  type: 'project' | 'activity';
+  index: number;
 }
 
 const Index = styled(Text)`
@@ -34,6 +39,7 @@ const ImageBox = styled(LinkComponent)`
     transition: 0.1s opacity;
     opacity: 0;
     color: #ffffff;
+    z-index: 5;
   }
 
   &:hover {
@@ -43,10 +49,10 @@ const ImageBox = styled(LinkComponent)`
   }
 `;
 
-const Image = styled.img`
+const Image = styled(Img)`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  z-index: 1;
 `;
 
 const Title = styled(Text)`
@@ -84,7 +90,7 @@ const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({
 
       <ImageBox to={`/portfolio/${type}/${index}`}>
         <Icon type="search" size={30} />
-        <Image src={generateImageLink(image)} alt="Portfolio Item Image" />
+        <Image fluid={image.fluid} alt="Portfolio Item Image" />
       </ImageBox>
 
       <Title>{title}</Title>

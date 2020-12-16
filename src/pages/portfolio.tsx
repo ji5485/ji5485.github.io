@@ -1,7 +1,19 @@
 import React, { FunctionComponent } from 'react';
+import { PortfolioListProps } from 'components/organisms/PortfolioList';
 import Layout from 'components/templates/Layout';
 import Portfolio from 'components/templates/Portfolio';
 import { graphql } from 'gatsby';
+
+interface PortfolioPageProps {
+  data: {
+    project: {
+      edges: PortfolioListProps.list;
+    };
+    activity: {
+      edges: PortfolioListProps.list;
+    };
+  };
+}
 
 const PORTFOLIO_PAGE_METADATA = {
   title: 'Portfolios in Dev Life',
@@ -10,24 +22,43 @@ const PORTFOLIO_PAGE_METADATA = {
   siteUrl: 'https://ji5485.github.io/portfolio',
 };
 
-const PortfolioPage: FunctionComponent = function () {
+const PortfolioPage: FunctionComponent<PortfolioPageProps> = function ({
+  data: { project, activity },
+}) {
   return (
     <Layout {...PORTFOLIO_PAGE_METADATA}>
-      <Portfolio />
+      <Portfolio project={project.edges} activity={activity.edges} />
     </Layout>
   );
 };
 
 export default PortfolioPage;
 
-// export const metadataQuery = graphql`
-//   {
-//     allPortfolioMetadata {
-//       edges {
-//         node {
-//           image
-//         }
-//       }
-//     }
-//   }
-// `;
+export const getPortfolioMetadata = graphql`
+  fragment PortfolioData on PortfolioMetadata {
+    title
+    content
+    image {
+      fluid(maxWidth: 720, maxHeight: 200, fit: OUTSIDE, quality: 100) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+
+  query getAllPortfolioMetadata {
+    project: allPortfolioMetadata(filter: { type: { eq: "project" } }) {
+      edges {
+        node {
+          ...PortfolioData
+        }
+      }
+    }
+    activity: allPortfolioMetadata(filter: { type: { eq: "activity" } }) {
+      edges {
+        node {
+          ...PortfolioData
+        }
+      }
+    }
+  }
+`;

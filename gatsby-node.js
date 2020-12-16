@@ -8,7 +8,7 @@
 
 const path = require('path');
 const { createFilePath } = require(`gatsby-source-filesystem`);
-const { project, activity } = require('./static/PortfolioList.json');
+const PortfolioList = require('./static/PortfolioList.json');
 
 const splitOnUpper = function (str) {
   const lowerCaseArr = str.split(/(?=[A-Z])/).reduce((acc, cur) => {
@@ -19,9 +19,9 @@ const splitOnUpper = function (str) {
   return lowerCaseArr.join('-');
 };
 
-function shortId() {
+const shortId = function () {
   return Math.random().toString(36).substring(2);
-}
+};
 
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
@@ -41,6 +41,7 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
   });
 };
 
+// Create Custom GrpahQL Schema for Transformation Image Link to Image Sharp in Portfolio Data
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
 
@@ -48,6 +49,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     schema.buildObjectType({
       name: 'PortfolioMetadata',
       fields: {
+        type: 'String!',
         title: 'String!',
         content: 'String!',
         image: {
@@ -84,21 +86,22 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         extraImage: {
           type: '[ImageSharp]',
           resolve: async (source, args, context) => {
-            const sharpImageArray = await source.extraImage.reduce(async (fileName, imageArray) => {
-              const img = await context.nodeModel.runQuery({
-                type: 'ImageSharp',
-                query: {
-                  filter: {
-                    fluid: {
-                      originalName: { eq: fileName },
+            const sharpImageArray = await Promise.all(
+              source.extraImage.map(async (fileName) => {
+                const img = await context.nodeModel.runQuery({
+                  type: 'ImageSharp',
+                  query: {
+                    filter: {
+                      fluid: {
+                        originalName: { eq: fileName },
+                      },
                     },
                   },
-                },
-              });
+                });
 
-              imageArray.push(img[0]);
-              return imageArray;
-            }, []);
+                return img[0];
+              }),
+            );
 
             return sharpImageArray;
           },
@@ -114,65 +117,40 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   createTypes(typeDefs);
 };
 
+// Push Portfolio Data From Static File To GraphQL
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
-  project.forEach((portfolioItem) => {
-    const { extraInfo, ...portfolioMetadata } = portfolioItem;
+  const generatePortfolioNode = (type) => {
+    PortfolioList[type].forEach((portfolioItem) => {
+      const { extraInfo, ...portfolioMetadata } = portfolioItem;
 
-    const detailInfoNode = {
-      id: createNodeId(`Portfolio-Detail-Info-${shortId()}`),
-      ...extraInfo,
-      internal: {
-        type: 'PortfolioDetailInfo',
-        contentDigest: createContentDigest(extraInfo),
-      },
-    };
+      const detailInfoNode = {
+        id: createNodeId(`Portfolio-Detail-Info-${shortId()}`),
+        ...extraInfo,
+        internal: {
+          type: 'PortfolioDetailInfo',
+          contentDigest: createContentDigest(extraInfo),
+        },
+      };
 
-    const metadataNode = {
-      id: createNodeId(`Portfolio-${shortId()}`),
-      ...portfolioMetadata,
-      detail: detailInfoNode,
-      internal: {
-        type: 'PortfolioMetadata',
-        contentDigest: createContentDigest(portfolioMetadata),
-      },
-    };
+      const metadataNode = {
+        id: createNodeId(`Portfolio-${shortId()}`),
+        type,
+        ...portfolioMetadata,
+        detail: detailInfoNode,
+        internal: {
+          type: 'PortfolioMetadata',
+          contentDigest: createContentDigest(portfolioMetadata),
+        },
+      };
 
-    actions.createNode(detailInfoNode);
-    actions.createNode(metadataNode);
-  });
+      actions.createNode(detailInfoNode);
+      actions.createNode(metadataNode);
+    });
+  };
+
+  generatePortfolioNode('project');
+  generatePortfolioNode('activity');
 };
-
-// exports.createResolvers = ({ createResolvers }) => {
-//   const resolver = {
-//     Query: {
-//       allOptimizedPortfolioMetadata: {
-//         type: ['PortfolioMetadata'],
-//         resolve(source, args, context, info) {
-//           const allMetadata = context.nodeModel.runQuery({ type: 'PortfolioMetadata ' });
-//           // console.log(allMetadata);
-//           // allMetadata.edges.forEach((metadata) => {
-//           //   const imageSharp = context.nodeModel.runQuery({
-//           //     type: 'ImageSharp',
-//           //     filter: {
-//           //       fluid: {
-//           //         originalName: {
-//           //           eq: metadata.node.image,
-//           //         },
-//           //       },
-//           //     },
-//           //   });
-
-//           //   metadata.node.image = imageSharp;
-//           // });
-
-//           return allMetadata;
-//         },
-//       },
-//     },
-//   };
-
-//   createResolvers(resolver);
-// };
 
 // Make a Slug each Posts
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -342,27 +320,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   );
 
   // Create Portfolio Item Pages
-  project.forEach(({ title, image, extraInfo }, index) => {
-    createPage({
-      path: `/portfolio/project/${index + 1}`,
-      component: PortfolioDetailTemplate,
-      context: {
-        title,
-        image,
-        ...extraInfo,
-      },
+  const generatePortfolioPages = (type) => {
+    PortfolioList[type].forEach(({ title, image, extraInfo }, index) => {
+      createPage({
+        path: `/portfolio/${type}/${index + 1}`,
+        component: PortfolioDetailTemplate,
+        context: {
+          title,
+          image,
+          ...extraInfo,
+        },
+      });
     });
-  });
+  };
 
-  activity.forEach(({ title, image, extraInfo }, index) => {
-    createPage({
-      path: `/portfolio/activity/${index + 1}`,
-      component: PortfolioDetailTemplate,
-      context: {
-        title,
-        image,
-        ...extraInfo,
-      },
-    });
-  });
+  generatePortfolioPages('project');
+  generatePortfolioPages('activity');
 };

@@ -1,22 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Text from 'components/atoms/Text';
-import PortfolioItem from 'components/molecules/PortfolioItem';
+import PortfolioItem, { PortfolioItemType } from 'components/molecules/PortfolioItem';
 import shortId from 'utilities/shortId';
-
-type PortfolioItemType = {
-  title: string;
-  content: string;
-  image: string;
-};
 
 export interface PortfolioListProps {
   type: 'project' | 'activity';
   title: string;
-  list: PortfolioItemType[];
+  list: [{ node: PortfolioItemType }];
 }
 
-export const PortfolioListComponent = styled.div`
+const PortfolioListComponent = styled.div`
   & + & {
     margin-top: 120px;
   }
@@ -44,8 +38,8 @@ const PortfolioList: FunctionComponent<PortfolioListProps> = function ({ type, t
       <Title>#{title}</Title>
 
       <List>
-        {list.map((props: PortfolioItemType, index: number) => (
-          <PortfolioItem {...props} type={type} index={index + 1} key={shortId()} />
+        {list.map(({ node }: PortfolioItemType, index: number) => (
+          <PortfolioItem {...node} type={type} index={index + 1} key={shortId()} />
         ))}
       </List>
     </PortfolioListComponent>
