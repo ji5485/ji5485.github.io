@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Career, { CareerComponent } from 'components/molecules/Career';
-import shortId from 'utilities/shortId';
+import { shortId } from 'utilities/utils';
 
 type CareerType = {
   title: string;

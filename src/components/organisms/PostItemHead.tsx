@@ -2,8 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Text, { TextComponent } from 'components/atoms/Text';
 import Img, { FluidObject } from 'gatsby-image';
-import shortId from 'utilities/shortId';
-import dateFormat from 'utilities/dateFormat';
+import { dateFormat, shortId } from 'utilities/utils';
 
 interface PostItemHeadProps {
   title: string;

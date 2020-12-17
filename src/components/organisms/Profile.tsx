@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import Text, { TextComponent } from 'components/atoms/Text';
 import IconList from 'components/molecules/IconList';
 import useWindowSize from 'hooks/useWindowSize';
-import shortId from 'utilities/shortId';
+import { shortId } from 'utilities/utils';
 import Img, { FluidObject } from 'gatsby-image';
 
 type FluidImageType = {

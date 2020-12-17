@@ -2,17 +2,17 @@ import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 import Layout from 'components/templates/Layout';
 import { CategoryListProps } from 'components/molecules/CategoryList';
-import { BlogCategoryListProps } from 'components/organisms/BlogCategoryList';
+import { PostListProps } from 'components/organisms/PostList';
 import { PaginationProps } from 'components/organisms/Pagination';
 import BlogPostList from 'components/templates/BlogPostList';
 
 interface BlogPostListTemplateProps {
   data: {
     filtered?: {
-      edges: BlogCategoryListProps.list;
+      edges: PostListProps;
     };
     unfiltered?: {
-      edges: BlogCategoryListProps.list;
+      edges: PostListProps;
     };
   };
   pageContext:
@@ -25,7 +25,7 @@ const BlogPostListTemplate: FunctionComponent<BlogPostListTemplateProps> = funct
   data,
   pageContext: { selectedCategory, ...restPageContext },
 }) {
-  const list: BlogCategoryListProps.list = selectedCategory ? data.filtered : data.unfiltered;
+  const list: PostListProps = selectedCategory ? data.filtered : data.unfiltered;
 
   return (
     <Layout
@@ -40,6 +40,25 @@ const BlogPostListTemplate: FunctionComponent<BlogPostListTemplateProps> = funct
 export default BlogPostListTemplate;
 
 export const blogCategoryQuery = graphql`
+  fragment MarkdownData on MarkdownRemark {
+    frontmatter {
+      title
+      summary
+      date
+      categories
+      thumbnail {
+        childImageSharp {
+          fixed(width: 180, height: 130, quality: 80) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
+        }
+      }
+    }
+    fields {
+      slug
+    }
+  }
+
   query blogListQuery($skip: Int!, $selectedCategory: Boolean!, $category: String) {
     filtered: allMarkdownRemark(
       filter: { frontmatter: { categories: { regex: $category } } }
@@ -49,22 +68,7 @@ export const blogCategoryQuery = graphql`
     ) @include(if: $selectedCategory) {
       edges {
         node {
-          frontmatter {
-            title
-            summary
-            date
-            categories
-            thumbnail {
-              childImageSharp {
-                resize(fit: COVER, width: 180, height: 130) {
-                  src
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
+          ...MarkdownData
         }
       }
     }
@@ -76,22 +80,7 @@ export const blogCategoryQuery = graphql`
     ) @skip(if: $selectedCategory) {
       edges {
         node {
-          frontmatter {
-            title
-            summary
-            date
-            categories
-            thumbnail {
-              childImageSharp {
-                resize(fit: COVER, width: 180, height: 130) {
-                  src
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
+          ...MarkdownData
         }
       }
     }

@@ -206,9 +206,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     `,
   );
 
+  // Get All Portfolio Items
+  const getAllPortfolioItem = await graphql(
+    `
+      {
+        allPortfolioMetadata {
+          edges {
+            node {
+              id
+              type
+            }
+          }
+        }
+      }
+    `,
+  );
+
   // Handle errors
-  if (getAllMarkdownQuery.errors || getAllCategoryList.errors) {
-    reporter.panicOnBuild(`Error while running transform markdown to page`);
+  if (getAllMarkdownQuery.errors || getAllCategoryList.errors || getAllPortfolioItemId.errors) {
+    reporter.panicOnBuild(`Error while running query`);
     return;
   }
 
@@ -320,15 +336,27 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   );
 
   // Create Portfolio Item Pages
+  const distributePortfolioByType = (portfolioType) =>
+    getAllPortfolioItem.allPortfolioMetadata.edges.reduce(
+      (portfolioIdArray, { node: { id, type } }) => {
+        if (type === portfolioType) portfolioIdArray.push(id);
+        return portfolioIdArray;
+      },
+      [],
+    );
+
+  const portfolioIdList = {
+    project: distributePortfolioByType('project'),
+    activity: distributePortfolioByType('activity'),
+  };
+
   const generatePortfolioPages = (type) => {
-    PortfolioList[type].forEach(({ title, image, extraInfo }, index) => {
+    portfolioIdList[type].forEach((portfolioId, index) => {
       createPage({
         path: `/portfolio/${type}/${index + 1}`,
         component: PortfolioDetailTemplate,
         context: {
-          title,
-          image,
-          ...extraInfo,
+          portfolioId,
         },
       });
     });

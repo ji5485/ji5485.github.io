@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Text, { TextComponent } from 'components/atoms/Text';
-import shortId from 'utilities/shortId';
+import { shortId } from 'utilities/utils';
 
 export interface CareerProps {
   title: string;

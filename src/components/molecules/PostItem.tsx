@@ -2,9 +2,8 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
 import Text from 'components/atoms/Text';
-import splitOnUpper from 'utilities/splitOnUpper';
-import shortId from 'utilities/shortId';
-import dateFormat from 'utilities/dateFormat';
+import { dateFormat, shortId, splitOnUpper } from 'utilities/utils';
+import Img, { FixedObject } from 'gatsby-image';
 
 export interface PostItemProps {
   title: string;
@@ -12,9 +11,7 @@ export interface PostItemProps {
   date: string;
   thumbnail: {
     childImageSharp: {
-      resize: {
-        src: string;
-      };
+      fixed: FixedObject;
     };
   };
   categories: string[];
@@ -49,12 +46,18 @@ const Content = styled.div`
 `;
 
 const Title = styled(LinkComponent)`
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 400;
   margin-bottom: 5px;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  @media (min-width: 769px) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   @media (max-width: 768px) {
@@ -108,11 +111,9 @@ const Summary = styled(Text)`
   }
 `;
 
-const ThumbnailImage = styled.img`
-  width: 180px;
-
+const ThumbnailImage = styled(Img)`
   @media (max-width: 768px) {
-    display: none;
+    display: none !important;
   }
 `;
 
@@ -121,9 +122,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
   summary,
   date,
   thumbnail: {
-    childImageSharp: {
-      resize: { src },
-    },
+    childImageSharp: { fixed },
   },
   categories,
   slug,
@@ -143,7 +142,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
         <Summary>{summary}</Summary>
       </Content>
 
-      <ThumbnailImage src={src} alt="Thumbnail Image" />
+      <ThumbnailImage fixed={fixed} alt="Thumbnail Image" />
     </PostItemComponent>
   );
 };

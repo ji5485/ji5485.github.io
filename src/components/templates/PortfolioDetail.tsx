@@ -2,15 +2,20 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import PortfolioDetailContent from 'components/organisms/PortfolioDetailContent';
 import PortfolioDetailImageList from 'components/organisms/PortfolioDetailImageList';
+import { FluidObject } from 'gatsby-image';
 
-interface PortfolioDetailProps {
+export interface PortfolioDetailProps {
   title: string;
-  image: string;
-  subTitle: string;
-  period: string;
-  description: string;
-  review: string;
-  extraImage: string;
+  image: {
+    fluid: FluidObject;
+  };
+  detail: {
+    subTitle: string;
+    period: string;
+    description: string;
+    review: string;
+    extraImage: [{ fluid: FluidObject }];
+  };
 }
 
 const PortfolioDetailComponent = styled.div`
@@ -31,12 +36,8 @@ const PortfolioDetailComponent = styled.div`
 
 const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
   title,
-  image,
-  subTitle,
-  period,
-  description,
-  review,
-  extraImage,
+  image: { fluid },
+  detail: { subTitle, period, description, review, extraImage },
 }) {
   return (
     <PortfolioDetailComponent>
@@ -46,7 +47,7 @@ const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
           { title: 'Description', content: description },
           { title: 'Review', content: review },
         ]}
-        image={image}
+        image={fluid}
       />
       <PortfolioDetailImageList list={extraImage} />
     </PortfolioDetailComponent>

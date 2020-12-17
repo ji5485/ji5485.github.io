@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Text from 'components/atoms/Text';
 import PortfolioItem, { PortfolioItemType } from 'components/molecules/PortfolioItem';
-import shortId from 'utilities/shortId';
+import { shortId } from 'utilities/utils';
 
 export interface PortfolioListProps {
   type: 'project' | 'activity';

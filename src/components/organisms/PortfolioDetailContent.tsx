@@ -9,14 +9,14 @@ import PortfolioDetailDesc, {
 import PortfolioDetailInfo, {
   PortfolioDetailInfoProps,
 } from 'components/molecules/PortfolioDetailInfo';
-import generateImageLink from 'utilities/imageLinkGenerator';
 import useWindowSize from 'hooks/useWindowSize';
-import shortId from 'utilities/shortId';
+import { shortId } from 'utilities/utils';
+import Img, { FluidObject } from 'gatsby-image';
 
 interface PortfolioDetailContentProps {
   info: PortfolioDetailInfoProps;
   contents: PortfolioDetailDescProps[];
-  image: string;
+  image: FluidObject;
 }
 
 const PortfolioDetailContentComponent = styled.div`
@@ -36,12 +36,7 @@ const Content = styled.div`
   flex-direction: column;
 `;
 
-const Image = styled.img`
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
+const Image = styled(Img)`
   @media (max-width: 1200px) {
     margin-top: 40px;
   }
@@ -124,7 +119,7 @@ const PortfolioDetailContent: FunctionComponent<PortfolioDetailContentProps> = f
 
         <PortfolioDetailInfo {...info} />
 
-        {width < 1200 && <Image src={generateImageLink(image)} alt={info.title} />}
+        {width < 1200 && <Image fluid={image} alt={info.title} />}
 
         <Description>
           {contents.map((item: PortfolioDetailDescProps) => (
@@ -135,7 +130,7 @@ const PortfolioDetailContent: FunctionComponent<PortfolioDetailContentProps> = f
         <StyledLine />
       </Content>
 
-      {width >= 1200 && <Image src={generateImageLink(image)} alt={info.title} />}
+      {width >= 1200 && <Image fluid={image} alt={info.title} />}
     </PortfolioDetailContentComponent>
   );
 };

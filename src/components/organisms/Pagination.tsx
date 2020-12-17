@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Icon, { IconComponent } from 'components/atoms/Icon';
 import { LinkComponent } from 'components/atoms/Link';
 import PaginationButton from 'components/molecules/PaginationButton';
-import shortId from 'utilities/shortId';
+import { shortId } from 'utilities/utils';
 
 export interface PaginationProps {
   totalPage: number;

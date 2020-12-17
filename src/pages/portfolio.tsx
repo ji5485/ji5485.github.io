@@ -39,7 +39,7 @@ export const getPortfolioMetadata = graphql`
     title
     content
     image {
-      fluid(maxWidth: 720, maxHeight: 200, fit: OUTSIDE, quality: 100) {
+      fluid(maxWidth: 720, maxHeight: 200, fit: OUTSIDE, quality: 80) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }

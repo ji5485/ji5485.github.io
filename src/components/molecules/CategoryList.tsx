@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
-import splitOnUpper from 'utilities/splitOnUpper';
-import shortId from 'utilities/shortId';
+import { shortId, splitOnUpper } from 'utilities/utils';
 
 export interface CategoryListProps {
   categories: {

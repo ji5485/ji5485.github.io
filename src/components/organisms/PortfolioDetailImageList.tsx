@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import generateImageLink from 'utilities/imageLinkGenerator';
-import shortId from 'utilities/shortId';
+import { shortId } from 'utilities/utils';
+import Img, { FluidObject } from 'gatsby-image';
 
 interface PortfolioDetailImageListProps {
-  list: string[];
+  list: [{ fluid: FluidObject }];
 }
 
 const PortfolioDetailImageListComponent = styled.div`
@@ -28,28 +28,13 @@ const PortfolioDetailImageListComponent = styled.div`
   }
 `;
 
-const ImageBox = styled.div`
-  width: 100%;
-  padding-bottom: 100%;
-  position: relative;
-`;
-
-const Image = styled.img`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
 const PortfolioDetailImageList: FunctionComponent<PortfolioDetailImageListProps> = function ({
   list,
 }) {
   return (
     <PortfolioDetailImageListComponent>
-      {list.map((image: string) => (
-        <ImageBox key={shortId()}>
-          <Image src={generateImageLink(image)} alt="Activity Image" />
-        </ImageBox>
+      {list.map(({ fluid }) => (
+        <Img fluid={{ ...fluid, aspectRatio: 1 }} alt="Activity Image" key={shortId()} />
       ))}
     </PortfolioDetailImageListComponent>
   );

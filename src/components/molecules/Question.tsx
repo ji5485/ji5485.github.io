@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import Icon, { IconComponent } from 'components/atoms/Icon';
 import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
-import shortId from 'utilities/shortId';
+import { shortId } from 'utilities/utils';
 
 interface QuestionProps {
   icon: 'smileWink' | 'running' | 'layerGroup' | 'userTie';

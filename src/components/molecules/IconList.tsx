@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import Icon from 'components/atoms/Icon';
 import styled from '@emotion/styled';
-import shortId from 'utilities/shortId';
+import { shortId } from 'utilities/utils';
 
 type IconInfoObjType = {
   href: string;
