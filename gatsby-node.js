@@ -223,7 +223,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   );
 
   // Handle errors
-  if (getAllMarkdownQuery.errors || getAllCategoryList.errors || getAllPortfolioItemId.errors) {
+  if (getAllMarkdownQuery.errors || getAllCategoryList.errors || getAllPortfolioItem.errors) {
     reporter.panicOnBuild(`Error while running query`);
     return;
   }
@@ -337,7 +337,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create Portfolio Item Pages
   const distributePortfolioByType = (portfolioType) =>
-    getAllPortfolioItem.allPortfolioMetadata.edges.reduce(
+    getAllPortfolioItem.data.allPortfolioMetadata.edges.reduce(
       (portfolioIdArray, { node: { id, type } }) => {
         if (type === portfolioType) portfolioIdArray.push(id);
         return portfolioIdArray;
