@@ -12,28 +12,33 @@ const MarkdownComponent = styled.div`
   font-size: 18px;
 
   h1 {
-    font-size: 30px;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  h1,
-  h2,
-  h3 {
     font-weight: 700;
+    font-size: 30px;
     margin-bottom: 40px;
   }
 
-  * + h1,
-  * + h2,
-  * + h3 {
+  h2 {
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  * + h1 {
     margin-top: 100px;
+  }
+
+  * + h2 {
+    margin-top: 60px;
+  }
+
+  * + h3 {
+    margin-top: 40px;
   }
 
   blockquote {

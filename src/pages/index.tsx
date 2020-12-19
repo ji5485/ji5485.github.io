@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 import Layout from 'components/templates/Layout';
 import Main from 'components/templates/Main';
+import { FixedObject } from 'gatsby-image';
 
 interface IndexPageProps {
   data: {
@@ -12,6 +13,9 @@ interface IndexPageProps {
         siteUrl: string;
       };
     };
+    imageSharp: {
+      fixed: FixedObject;
+    };
   };
 }
 
@@ -20,11 +24,12 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     site: {
       siteMetadata: { title, description, siteUrl },
     },
+    imageSharp: { fixed },
   },
 }) {
   return (
     <Layout title={title} description={description} url={siteUrl}>
-      <Main />
+      <Main image={fixed} />
     </Layout>
   );
 };
@@ -38,6 +43,11 @@ export const metadataQuery = graphql`
         title
         description
         siteUrl
+      }
+    }
+    imageSharp(fixed: { originalName: { eq: "main_image.jpeg" } }) {
+      fixed(width: 200, height: 200, quality: 80) {
+        ...GatsbyImageSharpFixed_withWebp
       }
     }
   }

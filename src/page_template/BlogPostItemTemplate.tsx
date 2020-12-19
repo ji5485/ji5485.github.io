@@ -76,7 +76,7 @@ export const blogQuery = graphql`
         categories
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 768, maxHeight: 450, fit: FILL) {
+            fluid(maxWidth: 768, maxHeight: 450, fit: FILL, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

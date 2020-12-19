@@ -3,7 +3,7 @@ date: '2020-07-29'
 title: 'Transition To Micro Service Architecture'
 categories: ['Web', 'Architecture', 'Backend']
 summary: '하나의 큰 어플리케이션으로 동작하는 Monolithic 아키텍처와는 다른 여러 개의 작은 어플리케이션으로 쪼개어 구동하는 Microservice 아키텍처는 무엇이고, 어떤 특징을 가질까?'
-thumbnail: './abc_copy.png'
+thumbnail: './transition-to-micro-service-architecture.png'
 ---
 
 ## What is Micro Service Architecture?
