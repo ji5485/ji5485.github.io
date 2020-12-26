@@ -44,6 +44,8 @@ const Layout: FunctionComponent<LayoutProps> = function ({
         <meta property="og:url" content={url} />
         <meta property="og:site_name" content="Dev Log of Hyun" />
 
+        <meta name="naver-site-verification" content="d6448fbae8901970c9fa2efd77297a4882a3e9a5" />
+
         <html lang="ko" />
       </Helmet>
 
