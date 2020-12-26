@@ -1,64 +1,26 @@
 {
   "project": [
     {
-      "title": "LikeLion Hackathon",
-      "content": "전국 대학교 멋쟁이 사자처럼 동아리 원들이 모여 다 같이 밤샘 개발을 하는 행사",
-      "image": "likelion_hackathon.jpg",
+      "title": "KakaoBook",
+      "content": "고등학교 교내 웹 애플리케이션 개발 대회에 제출한 Open API를 통해 원하는 정보를 스크랩하는 서비스",
+      "image": "kakaobook_search_page.png",
       "extraInfo": {
-        "subTitle": "중앙 멋쟁이 사자처럼 해커톤",
-        "period": "2019.07. ~ 2019.08.",
-        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites.",
-        "review": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+        "subTitle": "고등학교 2학년때 개발한 첫 웹 애플리케이션",
+        "period": "2017.08. ~ 2017.10.",
+        "description": "고등학교 2학년, 교내 웹 애플리케이션 개발 대회에서 대상을 수상받은 프로젝트입니다. Java Servlet과 Open API를 활용하여 웹 애플리케이션을 개발하는 대회였는데, 저는 Naver와 Kakao의 Open API를 활용하여 정보를 스크랩하여 모바일에서 확인이 가능하며, SNS에 공유할 수 있는 애플리케이션을 개발하였습니다.",
+        "review": "이 프로젝트를 진행하면서 Java 웹 애플리케이션의 기본적인 구조와 구성 요소를 알게 되었고, 소프트웨어 디자인 패턴까지 이해하게 되어 여러모로 기억에 남는 프로젝트입니다. 단순히 어떻게 웹 애플리케이션을 개발한다라는 개념만 알아가는 것이 아닌, 현재 소프트웨어 시장 동향이나 여러 소프트웨어 개발 지식을 알 수 있었기 때문에 저에게 있어서 애착이 가는 아주 귀중한 프로젝트입니다.",
         "extraImage": [
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg"
+          "kakaobook_main_page.png",
+          "kakakbook_app_connect_page.png",
+          "kakaobook_user_info_page.png",
+          "kakaobook_search_page.png",
+          "kakaobook_scrap_list_page.png",
+          "kakaobook_scrap_share_page.png"
         ]
       }
     },
     {
-      "title": "LikeLion Hackathon",
-      "content": "전국 대학교 멋쟁이 사자처럼 동아리 원들이 모여 다 같이 밤샘 개발을 하는 행사",
-      "image": "likelion_hackathon.jpg",
-      "extraInfo": {
-        "subTitle": "중앙 멋쟁이 사자처럼 해커톤",
-        "period": "2019.07. ~ 2019.08.",
-        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites.",
-        "review": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-        "extraImage": [
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg"
-        ]
-      }
-    },
-    {
-      "title": "LikeLion Hackathon",
-      "content": "전국 대학교 멋쟁이 사자처럼 동아리 원들이 모여 다 같이 밤샘 개발을 하는 행사",
-      "image": "likelion_hackathon.jpg",
-      "extraInfo": {
-        "subTitle": "중앙 멋쟁이 사자처럼 해커톤",
-        "period": "2019.07. ~ 2019.08.",
-        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites.",
-        "review": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-        "extraImage": [
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg",
-          "likelion_hackathon.jpg"
-        ]
-      }
-    },
-    {
-      "title": "LikeLion Hackathon",
+      "title": "MeilMail",
       "content": "전국 대학교 멋쟁이 사자처럼 동아리 원들이 모여 다 같이 밤샘 개발을 하는 행사",
       "image": "likelion_hackathon.jpg",
       "extraInfo": {

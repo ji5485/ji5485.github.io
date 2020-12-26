@@ -18,7 +18,7 @@ const Title = styled(Text)`
 const Desc = styled(Text)`
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.5;
 `;
 
 const PortfolioDetailDesc: FunctionComponent<PortfolioDetailDescProps> = function ({
