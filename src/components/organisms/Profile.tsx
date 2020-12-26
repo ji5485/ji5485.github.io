@@ -60,7 +60,7 @@ const ProfileContent = styled.div`
 
 const ProfileContentText = styled.div`
   ${TextComponent}:first-of-type {
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 700;
 
     @media (max-width: 768px) {
@@ -69,7 +69,7 @@ const ProfileContentText = styled.div`
   }
 
   ${TextComponent}:last-of-type {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 300;
 
     @media (max-width: 768px) {
@@ -88,7 +88,7 @@ const Profile: FunctionComponent = function ({}) {
     <ProfileComponent>
       <ProfileImageList>
         {edges.map(({ node: { fluid } }: FluidImageType) => (
-          <Img fluid={fluid} key={shortId()} alt="Profile Image" />
+          <Img fluid={{ ...fluid, aspectRatio: 1 }} key={shortId()} alt="Profile Image" />
         ))}
       </ProfileImageList>
 

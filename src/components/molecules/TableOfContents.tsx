@@ -20,6 +20,7 @@ const TOC = styled.div<{ activeSlug: string }>`
   top: 150px;
   border-left: 3px solid rgba(30, 31, 33, 0.5);
   padding: 5px 0;
+  font-size: 15px;
 
   a {
     display: block;
@@ -56,7 +57,7 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = function ({ toc
 
   return (
     <TableOfContentsComponent>
-      {toc && <TOC dangerouslySetInnerHTML={{ __html: toc }} activeSlug={activeSlug} />}
+      {toc && <TOC dangerouslySetInnerHTML={{ __html: toc }} activeSlug={encodeURI(activeSlug)} />}
     </TableOfContentsComponent>
   );
 };

@@ -9,7 +9,7 @@ const MarkdownComponent = styled.div`
   display: flex;
   flex-direction: column;
   line-height: 1.8;
-  font-size: 18px;
+  font-size: 17px;
 
   h1 {
     font-weight: 700;
@@ -34,11 +34,17 @@ const MarkdownComponent = styled.div`
   }
 
   * + h2 {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 
   * + h3 {
-    margin-top: 40px;
+    margin-top: 60px;
+  }
+
+  hr + h1,
+  hr + h2,
+  hr + h3 {
+    margin-top: 0;
   }
 
   blockquote {
@@ -50,15 +56,21 @@ const MarkdownComponent = styled.div`
   ol,
   ul {
     margin-left: 20px;
+    padding: 30px 0;
   }
 
   hr {
     border: 1px solid rgba(30, 31, 32, 0.5);
-    margin: 20px 0;
+    margin: 100px 0;
   }
 
   p {
     padding: 3px 0;
+  }
+
+  a {
+    color: #4263eb;
+    text-decoration: underline;
   }
 
   pre[class*='language-'] {

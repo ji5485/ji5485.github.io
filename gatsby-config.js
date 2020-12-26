@@ -39,6 +39,13 @@ const gatsbyRemarkPlugins = [
       elements: ['h1', 'h2', 'h3'],
     },
   },
+  {
+    resolve: 'gatsby-remark-external-links',
+    options: {
+      target: '_blank',
+      rel: 'nofollow',
+    },
+  },
 ];
 
 module.exports = {
