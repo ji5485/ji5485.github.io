@@ -21,6 +21,10 @@ interface PortfolioItemProps extends PortfolioItemType {
 const Index = styled(Text)`
   font-size: 25px;
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const ImageBox = styled(LinkComponent)`
@@ -59,6 +63,10 @@ const Title = styled(Text)`
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 3px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const Content = styled.div`
@@ -71,6 +79,10 @@ const Content = styled.div`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   word-wrap: break-word;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
 `;
 
 const PortfolioItemComponent = styled.div``;

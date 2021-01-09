@@ -81,7 +81,7 @@ const Main: FunctionComponent<MainProps> = function ({ image }) {
       </MainContentComponent>
 
       <MainFooterComponent>
-        <IconList list={INTRODUCTION_ICON_LIST} size={25} />
+        <IconList list={INTRODUCTION_ICON_LIST} size={20} />
       </MainFooterComponent>
     </MainComponent>
   );

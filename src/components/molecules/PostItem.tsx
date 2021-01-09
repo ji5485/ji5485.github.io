@@ -61,7 +61,7 @@ const Title = styled(LinkComponent)`
   }
 
   @media (max-width: 768px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 `;
 
@@ -91,6 +91,10 @@ const Date = styled(Text)`
   font-weight: 400;
   opacity: 0.7;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const Summary = styled(Text)`
@@ -107,7 +111,7 @@ const Summary = styled(Text)`
   -webkit-box-orient: vertical;
 
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 13px;
   }
 `;
 

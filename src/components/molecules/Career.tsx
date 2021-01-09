@@ -29,7 +29,6 @@ const Title = styled(Text)`
 
 const Content = styled.div`
   width: 70%;
-  min-width: 500px;
 
   ${TextComponent} {
     font-size: 15px;
@@ -50,6 +49,10 @@ const Content = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+
+    ${TextComponent} {
+      font-size: 12px;
+    }
   }
 `;
 

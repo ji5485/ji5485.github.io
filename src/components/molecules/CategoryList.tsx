@@ -16,7 +16,7 @@ const CategoryListComponent = styled.div`
   margin-bottom: 60px;
 
   ${LinkComponent} {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     margin: 5px 10px;
 

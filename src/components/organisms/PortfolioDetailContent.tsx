@@ -113,7 +113,7 @@ const PortfolioDetailContent: FunctionComponent<PortfolioDetailContentProps> = f
   return (
     <PortfolioDetailContentComponent>
       <Content>
-        <StyledButton to="/portfolio">
+        <StyledButton to="/portfolio/">
           <Icon type="arrowLeft" />
         </StyledButton>
 

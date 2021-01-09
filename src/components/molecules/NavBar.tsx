@@ -22,6 +22,12 @@ export const NavBarComponent = styled.div`
   ${LinkComponent} + ${LinkComponent} {
     margin-left: 20px;
   }
+
+  @media (max-width: 768px) {
+    ${TextComponent} {
+      font-size: 13px;
+    }
+  }
 `;
 
 const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {

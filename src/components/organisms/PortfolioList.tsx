@@ -20,6 +20,10 @@ const Title = styled(Text)`
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 60px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const List = styled.div`

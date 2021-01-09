@@ -46,10 +46,10 @@ const Footer: FunctionComponent = function ({}) {
     <FooterComponent>
       <FooterContent>
         <ContentLine>
-          <Text size={17} weight={700}>
+          <Text size={15} weight={700}>
             Developer Hyun
           </Text>
-          <IconList list={ICON_LIST} size={20} />
+          <IconList list={ICON_LIST} size={17} />
         </ContentLine>
 
         <ContentLine>

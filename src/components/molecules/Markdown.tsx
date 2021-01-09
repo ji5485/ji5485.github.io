@@ -91,18 +91,18 @@ const MarkdownComponent = styled.div`
 
   @media (max-width: 768px) {
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 14px;
 
     h1 {
-      font-size: 30px;
+      font-size: 23px;
     }
 
     h2 {
-      font-size: 25px;
+      font-size: 20px;
     }
 
     h3 {
-      font-size: 20px;
+      font-size: 17px;
     }
   }
 `;

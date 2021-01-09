@@ -40,19 +40,29 @@ const TitleBox = styled.div`
       color: #748ffc;
     }
   }
+
+  @media (max-width: 768px) {
+    ${TextComponent} {
+      font-size: 15px;
+    }
+  }
 `;
 
 const Content = styled.div`
   font-size: 15px;
   font-weight: 400;
   line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
 `;
 
 const Question: FunctionComponent<QuestionProps> = function ({ icon, title, content }) {
   return (
     <QuestionComponent>
       <TitleBox>
-        <Icon size={60} type={icon} />
+        <Icon size={50} type={icon} />
         <div>
           {title.map((text: string) => (
             <Text key={shortId()}>{text}</Text>
