@@ -36,7 +36,7 @@ const LinkButton = styled.div<{ direction: string }>`
 `;
 
 const Title = styled(Text)<{ direction: string }>`
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
   ${({ direction }) => `text-align: ${direction === 'prev' ? 'left' : 'right'}`};
 

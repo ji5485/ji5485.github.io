@@ -48,7 +48,7 @@ export const blogCategoryQuery = graphql`
       categories
       thumbnail {
         childImageSharp {
-          fixed(width: 180, height: 130, quality: 80) {
+          fixed(width: 180, height: 130, quality: 100) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
