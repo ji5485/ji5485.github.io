@@ -26,7 +26,7 @@ export const getPortfolioDetailById = graphql`
     portfolioMetadata(id: { eq: $portfolioId }) {
       title
       image {
-        fluid(maxWidth: 800, fit: INSIDE, quality: 100) {
+        fluid(maxWidth: 1600, fit: CONTAIN, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
@@ -36,7 +36,7 @@ export const getPortfolioDetailById = graphql`
         description
         review
         extraImage {
-          fluid(maxWidth: 300, maxHeight: 300, fit: OUTSIDE, quality: 80) {
+          fluid(maxWidth: 570, fit: CONTAIN, quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }

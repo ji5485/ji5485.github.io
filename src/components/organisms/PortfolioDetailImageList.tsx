@@ -9,22 +9,20 @@ interface PortfolioDetailImageListProps {
 
 const PortfolioDetailImageListComponent = styled.div`
   display: grid;
-  grid-gap: 30px;
+  grid-gap: 50px;
+  grid-template-columns: 1fr 1fr;
 
   @media (min-width: 1200px) {
     margin-top: 250px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
   @media (min-width: 768px) and (max-width: 1200px) {
     margin-top: 100px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
   @media (max-width: 768px) {
     margin-top: 100px;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 15px;
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -34,7 +32,7 @@ const PortfolioDetailImageList: FunctionComponent<PortfolioDetailImageListProps>
   return (
     <PortfolioDetailImageListComponent>
       {list.map(({ fluid }) => (
-        <Img fluid={{ ...fluid, aspectRatio: 1 }} alt="Activity Image" key={shortId()} />
+        <Img fluid={fluid} alt="Activity Image" key={shortId()} />
       ))}
     </PortfolioDetailImageListComponent>
   );

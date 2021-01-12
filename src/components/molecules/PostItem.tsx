@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Link, { LinkComponent } from 'components/atoms/Link';
 import Text from 'components/atoms/Text';
 import { dateFormat, shortId, splitOnUpper } from 'utilities/utils';
-import Img, { FixedObject } from 'gatsby-image';
+import Img, { FluidObject } from 'gatsby-image';
 
 export interface PostItemProps {
   title: string;
@@ -11,7 +11,7 @@ export interface PostItemProps {
   date: string;
   thumbnail: {
     childImageSharp: {
-      fixed: FixedObject;
+      fluid: FluidObject;
     };
   };
   categories: string[];
@@ -116,6 +116,8 @@ const Summary = styled(Text)`
 `;
 
 const ThumbnailImage = styled(Img)`
+  width: 180px;
+
   @media (max-width: 768px) {
     display: none !important;
   }
@@ -126,7 +128,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
   summary,
   date,
   thumbnail: {
-    childImageSharp: { fixed },
+    childImageSharp: { fluid },
   },
   categories,
   slug,
@@ -146,7 +148,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
         <Summary>{summary}</Summary>
       </Content>
 
-      <ThumbnailImage fixed={fixed} alt="Thumbnail Image" />
+      <ThumbnailImage fluid={fluid} alt="Thumbnail Image" />
     </PostItemComponent>
   );
 };

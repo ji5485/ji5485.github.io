@@ -30,7 +30,7 @@ const Index = styled(Text)`
 const ImageBox = styled(LinkComponent)`
   width: 100%;
   height: 200px;
-  margin: 10px 0;
+  margin: 15px 0;
   position: relative;
 
   ${IconComponent} {

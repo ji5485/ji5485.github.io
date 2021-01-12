@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import PostItem from 'components/molecules/PostItem';
 import { shortId } from 'utilities/utils';
-import { FixedObject } from 'gatsby-image';
+import { FluidObject } from 'gatsby-image';
 
 type PostItemType = {
   node: {
@@ -16,7 +16,7 @@ type PostItemType = {
       categories: string[];
       thumbnail: {
         childImageSharp: {
-          fixed: FixedObject;
+          fluid: FluidObject;
         };
       };
     };
