@@ -6,6 +6,8 @@ summary: '많이 부족했던 만큼 배워간 주니어 개발자인 저의 첫
 thumbnail: './looking-back-on-my-first-online-lecture.png'
 ---
 
+![Lecture List](./looking-back-on-my-first-online-lecture-1.png)
+
 ## React 가지고 놀아보기의 첫 시작점
 
 나는 2020년 당시 대학교에 진학하자마자 고등학교때부터 찾아보며 들어가고 싶던 멋쟁이사자처럼이라는 동아리에 가입하여 활동하게 되었다.

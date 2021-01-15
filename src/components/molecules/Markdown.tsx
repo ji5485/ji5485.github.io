@@ -9,7 +9,7 @@ const MarkdownComponent = styled.div`
   display: flex;
   flex-direction: column;
   line-height: 1.8;
-  font-size: 17px;
+  font-size: 16px;
 
   h1 {
     font-weight: 700;

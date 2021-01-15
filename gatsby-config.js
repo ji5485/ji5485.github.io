@@ -23,7 +23,13 @@ const gatsbyRemarkPlugins = [
   {
     resolve: 'gatsby-remark-images',
     options: {
-      maxWidth: 1200,
+      maxWidth: 768,
+      quality: 100,
+      withWebp: true,
+      wrapperStyle: () => `
+        width: 90%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      `,
     },
   },
   {
@@ -60,7 +66,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        // If you need using Google Optimize, you must append optimizeId, experimentId, variationId.
         trackingId: process.env.GA_TRACKING_ID,
         head: true,
         anonymize: true,
@@ -94,7 +99,6 @@ module.exports = {
       resolve: 'gatsby-plugin-sharp',
       options: {
         defaultQuality: 80,
-        fit: 'INSIDE',
       },
     },
     {
