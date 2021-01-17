@@ -1,7 +1,7 @@
 ---
 date: '2021-01-09'
 title: '나의 첫 온라인 강의 돌아보기'
-categories: ['retrospection']
+categories: ['Retrospection']
 summary: '많이 부족했던 만큼 배워간 주니어 개발자인 저의 첫 온라인 강의를 작성한지 1년이 지난 지금에 와서야 느끼는 감정과 생각을 담았습니다.'
 thumbnail: './looking-back-on-my-first-online-lecture.png'
 ---
