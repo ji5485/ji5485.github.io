@@ -4,8 +4,8 @@ import PortfolioList, { PortfolioListProps } from 'components/organisms/Portfoli
 import PageTemplate from 'components/templates/PageTemplate';
 
 interface PortfolioProps {
-  project: PortfolioListProps.list;
-  activity: PortfolioListProps.list;
+  project: PortfolioListProps['list'];
+  activity: PortfolioListProps['list'];
 }
 
 const Portfolio: FunctionComponent<PortfolioProps> = function ({ project, activity }) {

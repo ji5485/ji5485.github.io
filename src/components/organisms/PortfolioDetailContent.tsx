@@ -114,7 +114,7 @@ const PortfolioDetailContent: FunctionComponent<PortfolioDetailContentProps> = f
     <PortfolioDetailContentComponent>
       <Content>
         <StyledButton to="/portfolio/">
-          <Icon type="arrowLeft" />
+          <Icon type="arrowLeft" size={30} />
         </StyledButton>
 
         <PortfolioDetailInfo {...info} />

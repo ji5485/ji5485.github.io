@@ -7,7 +7,7 @@ import Img, { FluidObject } from 'gatsby-image';
 
 export interface PostItemProps {
   title: string;
-  summary: string;
+  summary: string[];
   date: string;
   thumbnail: {
     childImageSharp: {

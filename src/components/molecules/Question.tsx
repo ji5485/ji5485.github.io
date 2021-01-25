@@ -4,7 +4,7 @@ import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
 import { shortId } from 'utilities/utils';
 
-interface QuestionProps {
+export interface QuestionProps {
   icon: 'smileWink' | 'running' | 'layerGroup' | 'userTie';
   title: string[];
   content: string[];

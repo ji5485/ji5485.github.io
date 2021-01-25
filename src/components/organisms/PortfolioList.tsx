@@ -4,10 +4,14 @@ import Text from 'components/atoms/Text';
 import PortfolioItem, { PortfolioItemType } from 'components/molecules/PortfolioItem';
 import { shortId } from 'utilities/utils';
 
+type GraphQLPortfolioItemType = {
+  node: PortfolioItemType;
+};
+
 export interface PortfolioListProps {
   type: 'project' | 'activity';
   title: string;
-  list: [{ node: PortfolioItemType }];
+  list: GraphQLPortfolioItemType[];
 }
 
 const PortfolioListComponent = styled.div`
@@ -42,7 +46,7 @@ const PortfolioList: FunctionComponent<PortfolioListProps> = function ({ type, t
       <Title>#{title}</Title>
 
       <List>
-        {list.map(({ node }: PortfolioItemType, index: number) => (
+        {list.map(({ node }: GraphQLPortfolioItemType, index: number) => (
           <PortfolioItem {...node} type={type} index={index + 1} key={shortId()} />
         ))}
       </List>

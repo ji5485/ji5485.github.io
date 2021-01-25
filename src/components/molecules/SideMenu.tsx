@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
+import Icon, { IconComponent } from 'components/atoms/Icon';
 import Link, { LinkComponent } from 'components/atoms/Link';
 import Text, { TextComponent } from 'components/atoms/Text';
 import styled from '@emotion/styled';
@@ -7,11 +8,12 @@ const MODE_STORAGE_KEY = 'blog-current-mode';
 
 export const SideMenuComponent = styled.div`
   display: flex;
-  width: 15px;
+  width: 20px;
   font-weight: 300;
   margin-left: auto;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   writing-mode: vertical-rl;
 
   ${TextComponent} {
@@ -24,8 +26,26 @@ export const SideMenuComponent = styled.div`
   }
 `;
 
+const SwitchText = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 2px;
+  border-radius: 3px;
+  background: var(--color);
+  color: var(--background);
+
+  ${IconComponent} {
+    margin-bottom: 3px;
+    padding-left: 0.5px;
+    transform: rotate(90deg);
+  }
+`;
+
 const SideMenu: FunctionComponent = function ({}) {
-  const [currentMode, setCurrentMode] = useState<string>('');
+  const [currentMode, setCurrentMode] = useState<string | null>();
 
   useEffect(() => {
     setCurrentMode(window.localStorage.getItem(MODE_STORAGE_KEY));
@@ -33,6 +53,8 @@ const SideMenu: FunctionComponent = function ({}) {
 
   const changeMode = () => {
     const toggledMode = currentMode === 'light' ? 'dark' : 'light';
+
+    if (!currentMode) return;
 
     window.document.body.classList.remove(currentMode);
     window.document.body.classList.add(toggledMode);
@@ -55,7 +77,10 @@ const SideMenu: FunctionComponent = function ({}) {
       <Link to="/blog/1">
         <Text>Blog</Text>
       </Link>
-      <Text onClick={changeMode}>{currentMode === 'light' ? 'Dark' : 'Light'} Mode</Text>
+      <SwitchText onClick={changeMode}>
+        <Icon type={currentMode === 'light' ? 'moon' : 'sun'} size={11} />{' '}
+        {currentMode === 'light' ? 'Dark' : 'Light'}
+      </SwitchText>{' '}
     </SideMenuComponent>
   );
 };

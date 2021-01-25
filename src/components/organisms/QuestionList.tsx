@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Question, { QuestionComponent } from 'components/molecules/Question';
-import QUESTION_LIST from '../../../static/QuestionList.json';
+import Question, { QuestionComponent, QuestionProps } from 'components/molecules/Question';
+import QUESTION_LIST from 'static/QuestionList.json';
 import { shortId } from 'utilities/utils';
 
 type QuestionType = {
-  icon: string;
+  icon: QuestionProps['icon'];
   title: string[];
   content: string[];
 };

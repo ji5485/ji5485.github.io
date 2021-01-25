@@ -5,7 +5,7 @@ import { shortId } from 'utilities/utils';
 
 export interface CareerProps {
   title: string;
-  contents: [string];
+  contents: string[];
 }
 
 export const CareerComponent = styled.div`

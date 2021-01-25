@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 interface LayoutProps {
   title: string;
   description?: string;
-  type: string;
+  type?: string;
   image?: string;
   url: string;
   children: ReactNode;
@@ -59,7 +59,7 @@ Layout.defaultProps = {
   title: 'Dev Log of Hyun',
   type: 'website',
   image: undefined,
-  url: 'https://ji5485.github.io',
+  url: 'https://ji5485.github.io/',
 };
 
 export default Layout;

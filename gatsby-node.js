@@ -24,7 +24,7 @@ const shortId = function () {
 };
 
 // Setup Import Alias
-exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   const config = getConfig();
   const output = config.output || {};
 
@@ -35,7 +35,7 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
         components: path.resolve(__dirname, 'src/components'),
         hooks: path.resolve(__dirname, 'src/hooks'),
         utilities: path.resolve(__dirname, 'src/utils'),
-        store: path.resolve(__dirname, 'src/store'),
+        static: path.resolve(__dirname, 'static'),
       },
     },
   });
@@ -317,14 +317,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         context: {
           slug,
           prev:
-            index == 0
+            index === 0
               ? null
               : {
                   slug: allPost[index - 1].node.fields.slug,
                   title: allPost[index - 1].node.frontmatter.title,
                 },
           next:
-            index == allPost.length - 1
+            index === allPost.length - 1
               ? null
               : {
                   slug: allPost[index + 1].node.fields.slug,

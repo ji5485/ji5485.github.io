@@ -3,7 +3,7 @@ import Text from 'components/atoms/Text';
 import styled from '@emotion/styled';
 
 type TitleStyleProps = {
-  align: 'right' | 'left';
+  align?: 'right' | 'left';
 };
 
 interface TitleProps extends TitleStyleProps {

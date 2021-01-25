@@ -6,7 +6,7 @@ import Img, { FixedObject } from 'gatsby-image';
 
 interface IntroductionProps {
   image: FixedObject;
-  iconList: IconListProps.list;
+  iconList: IconListProps['list'];
 }
 
 export const IntroductionComponent = styled.div`

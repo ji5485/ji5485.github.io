@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Icon, { IconComponent } from 'components/atoms/Icon';
+import Icon, { IconComponent, IconProps } from 'components/atoms/Icon';
 import Text from 'components/atoms/Text';
 import { LinkComponent } from 'components/atoms/Link';
 
@@ -46,10 +46,12 @@ const Title = styled(Text)<{ direction: string }>`
 `;
 
 const PostNavigator: FunctionComponent<PostNavigatorProps> = function ({ direction, slug, title }) {
+  const iconType: IconProps['type'] = direction === 'prev' ? 'arrowLeft' : 'arrowRight';
+
   return (
     <PostNavigatorComponent to={slug} direction={direction}>
       <LinkButton direction={direction}>
-        <Icon type={`arrow${direction === 'prev' ? 'Left' : 'Right'}`} size={20} />
+        <Icon type={iconType} size={20} />
         <Text>{direction.charAt(0).toUpperCase() + direction.slice(1)}</Text>
       </LinkButton>
 

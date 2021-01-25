@@ -13,11 +13,19 @@
     "noResolve": false,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
+    "resolveJsonModule": true,
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "target": "esnext"
+    "target": "esnext",
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "utilities/*": ["utils/*"],
+      "hooks/*": ["hooks/*"],
+      "static/*": ["../static/*"]
+    }
   },
   "include": ["./src/**/*", "./test/**/*"]
 }

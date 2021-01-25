@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import PageTemplate from 'components/templates/PageTemplate';
 import PostItemHead from 'components/organisms/PostItemHead';
 import PostItemBody from 'components/organisms/PostItemBody';
-import PostItemFoot from 'components/organisms/PostItemFoot';
+import PostItemFoot, { OtherItemInfo } from 'components/organisms/PostItemFoot';
 import { FluidObject } from 'gatsby-image';
 
 interface BlogPostItemProps {
@@ -17,8 +17,8 @@ interface BlogPostItemProps {
     };
   };
   html: string;
-  prevItem: string;
-  nextItem: string;
+  prevItem: OtherItemInfo | null;
+  nextItem: OtherItemInfo | null;
   toc: string;
 }
 

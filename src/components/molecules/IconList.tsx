@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import Icon from 'components/atoms/Icon';
+import Icon, { IconProps } from 'components/atoms/Icon';
 import styled from '@emotion/styled';
 import { shortId } from 'utilities/utils';
 
-type IconInfoObjType = {
+export type IconInfoObjType = {
   href: string;
-  type: string;
+  type: IconProps['type'];
 };
 
 export interface IconListProps {
-  list: [IconInfoObjType];
+  list: IconInfoObjType[];
   size: number;
 }
 

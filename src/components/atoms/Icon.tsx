@@ -13,6 +13,8 @@ import {
   faArrowLeft,
   faCaretRight,
   faCaretLeft,
+  faMoon,
+  faSun,
 } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 
@@ -35,7 +37,9 @@ export interface IconProps extends IconStyleProps {
     | 'arrowRight'
     | 'arrowLeft'
     | 'caretRight'
-    | 'caretLeft';
+    | 'caretLeft'
+    | 'moon'
+    | 'sun';
 }
 
 const ICON_TYPE = {
@@ -53,6 +57,8 @@ const ICON_TYPE = {
   arrowLeft: faArrowLeft,
   caretRight: faCaretRight,
   caretLeft: faCaretLeft,
+  moon: faMoon,
+  sun: faSun,
 };
 
 export const IconComponent = styled.div<IconStyleProps>`

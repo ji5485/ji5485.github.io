@@ -15,17 +15,18 @@ interface BlogPostListTemplateProps {
       edges: PostListProps;
     };
   };
-  pageContext:
-    | PaginationProps
-    | CategoryListProps
-    | { category: string; selectedCategory: boolean };
+  pageContext: CategoryListProps &
+    PaginationProps & {
+      category: string;
+      selectedCategory: boolean;
+    };
 }
 
 const BlogPostListTemplate: FunctionComponent<BlogPostListTemplateProps> = function ({
   data,
   pageContext: { selectedCategory, ...restPageContext },
 }) {
-  const list: PostListProps = selectedCategory ? data.filtered : data.unfiltered;
+  const list = selectedCategory ? data.filtered : data.unfiltered;
 
   return (
     <Layout

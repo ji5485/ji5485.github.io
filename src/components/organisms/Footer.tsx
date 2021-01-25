@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Text from 'components/atoms/Text';
-import IconList from 'components/molecules/IconList';
+import IconList, { IconInfoObjType } from 'components/molecules/IconList';
 import NavBar from 'components/molecules/NavBar';
 
-const ICON_LIST = [
+const ICON_LIST: IconInfoObjType[] = [
   { href: 'https://github.com/ji5485', type: 'github' },
   { href: 'https://www.instagram.com/hello_d0o/', type: 'instagram' },
   { href: 'https://www.facebook.com/people/주현도/100006799395407', type: 'facebook' },
@@ -56,7 +56,7 @@ const Footer: FunctionComponent = function ({}) {
           <Text size={12} weight={300}>
             ⓒ Copyright
           </Text>
-          <NavBar modeSwitch={false} currentMode="light" />
+          <NavBar modeSwitch={false} />
         </ContentLine>
       </FooterContent>
     </FooterComponent>

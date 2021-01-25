@@ -2,13 +2,13 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 type TextStyleProps = {
-  size: number;
-  weight: number;
-  color: string;
+  size?: number;
+  weight?: number;
+  color?: string;
 };
 
 export interface TextProps extends TextStyleProps {
-  children: string;
+  children: string | string[];
 }
 
 export const TextComponent = styled.div<TextStyleProps>(({ size, weight, color }) => ({

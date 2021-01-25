@@ -15,7 +15,7 @@ const NotFoundTextBox = styled.div`
   display: flex;
 `;
 
-const NotFoundText = styled(Text)<{ reverse: boolean }>`
+const NotFoundText = styled(Text)<{ reverse?: boolean }>`
   font-size: 250px;
   font-weight: 700;
 
