@@ -1,8 +1,0 @@
-image: gitpod/workspace-full
-
-tasks:
-  - command: "yarn develop"
-
-vscode:
-  extensions:
-    - wayou.vscode-todo-highlight@1.0.4:TEjqQVt71hdvHUZA7eWgHA==

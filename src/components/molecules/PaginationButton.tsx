@@ -10,20 +10,21 @@ interface PaginationButtonProps {
 const PaginationButtonComponent = styled(LinkComponent)`
   width: 25px;
   height: 25px;
-  border: 1px solid #1e1f21;
+  border: 1px solid var(--color);
   font-size: 17px;
   font-weight: 700;
   display: grid;
   place-items: center;
-  color: #1e1f21;
+  color: var(--color);
+  background: var(--background);
 
   & + & {
     margin-left: 10px;
   }
 
   &.active {
-    background: #1e1f21;
-    color: white;
+    color: var(--background);
+    background: var(--color);
   }
 `;
 

@@ -42,7 +42,7 @@ const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
       <Link to="/portfolio/">
         <Text>Portfolio</Text>
       </Link>
-      <Link to="/blog/1">
+      <Link to="/blog/1/">
         <Text>Blog</Text>
       </Link>
       {modeSwitch && <ModeSwitch />}

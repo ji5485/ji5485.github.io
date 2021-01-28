@@ -49,7 +49,7 @@ const SideMenu: FunctionComponent = function ({}) {
       <Link to="/portfolio/">
         <Text>Portfolio</Text>
       </Link>
-      <Link to="/blog/1">
+      <Link to="/blog/1/">
         <Text>Blog</Text>
       </Link>
       <ModeSwitch />

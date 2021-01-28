@@ -24,7 +24,8 @@ const PageMoveIcon = styled(LinkComponent)<{ active: number }>`
   padding: 0 10px;
 
   ${IconComponent} {
-    color: ${({ active }) => (active ? 'initial' : 'rgba(0, 0, 0, 0.3)')};
+    color: ${({ active }) => (active ? 'initial' : 'var(--color)')};
+    opacity: 0.3;
   }
 `;
 
@@ -39,7 +40,7 @@ const Pagination: FunctionComponent<PaginationProps> = function ({
     currentPosition === Math.floor((totalPage - 1) / 5) + 1 ? null : currentPosition * 5 + 1;
 
   const returnPageLink = (page: number | null): string =>
-    `/blog${category ? `/${category}` : ''}/${page}`;
+    `/blog${category ? `/${category}` : ''}/${page}/`;
 
   return (
     <PaginationComponent>
