@@ -26,7 +26,7 @@ const TitleComponent = styled.div`
 const StyledLine = styled.div`
   width: 50%;
   height: 1px;
-  background: #1e1f21;
+  background: var(--color);
 
   @media (max-width: 768px) {
     width: 30%;

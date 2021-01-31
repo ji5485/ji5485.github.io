@@ -60,7 +60,8 @@ const MarkdownComponent = styled.div`
   }
 
   hr {
-    border: 1px solid rgba(30, 31, 32, 0.5);
+    border: 1px solid var(--color);
+    opacity: 0.5;
     margin: 100px 0;
   }
 
