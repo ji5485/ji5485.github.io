@@ -158,6 +158,12 @@ var freshman = new Student('Hyun', 1);
 
 <br />
 
+### 프로토타입 체이닝의 끝
+
+위에서 본 예시와 같이 프로토타입 체이닝의 마지막은 Object.prototype 객체입니다.
+
+체이닝 방법에 상관없이 모든 자바스크립트 객체는 프로토타입 체이닝을 통해 Object.prototype 객체의 프로퍼티에 접근할 수 있습니다.
+
 ---
 
 ## Source
