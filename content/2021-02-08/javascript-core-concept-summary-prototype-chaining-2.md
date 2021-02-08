@@ -1,5 +1,5 @@
 ---
-date: '2021-02-05'
+date: '2021-02-08'
 title: 'JavaScript 핵심 개념 - 프로토타입 체이닝#2 (Prototype Chaining)'
 categories: ['JavaScript']
 summary: '자바스크립트에서 필수적으로 알아야 할 핵심 개념들을 정리해보았습니다. / 자바스크립트에서의 프로토타입 체이닝 두 번째 이야기 (Prototype Chaining)'
