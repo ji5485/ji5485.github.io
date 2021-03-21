@@ -17,3 +17,4 @@ jobs:
         with:
           access-token: ${{ secrets.AUTO_DEPLOY_API_KEY }}
           deploy-branch: master
+          gatsby-args: --verbose
