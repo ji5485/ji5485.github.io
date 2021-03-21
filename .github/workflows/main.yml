@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
   
       - name: Gatsby Publish
-        uses: enriikke/gatsby-gh-pages-action@v2.1.1
+        uses: enriikke/gatsby-gh-pages-action@v2.0.0
         with:
           access-token: ${{ secrets.AUTO_DEPLOY_API_KEY }}
           deploy-branch: master
