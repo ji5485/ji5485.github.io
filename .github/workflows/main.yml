@@ -1,0 +1,19 @@
+name: Automatically Deployment for Gatsby Blog
+
+on:
+  push:
+    branches: develop
+  pull_request:
+    branches: develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Gatsby Publish
+        uses: enriikke/gatsby-gh-pages-action@v2.1.1
+        with:
+          access-token: ${{ secrets.AUTO_DEPLOY_API_KEY }}
+          deploy-branch: master
