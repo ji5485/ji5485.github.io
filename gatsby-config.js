@@ -27,7 +27,7 @@ const gatsbyRemarkPlugins = [
       quality: 100,
       withWebp: true,
       wrapperStyle: () => `
-        width: 90%;
+        width: 100%;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
       `,
     },
