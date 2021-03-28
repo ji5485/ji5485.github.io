@@ -78,6 +78,7 @@ const MarkdownComponent = styled.div`
     margin: 30px 0;
     padding: 15px;
     font-size: 15px;
+    tab-size: 2;
 
     ::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.5);
@@ -85,9 +86,13 @@ const MarkdownComponent = styled.div`
     }
   }
 
-  code[class*='language-'],
-  pre[class*='language-'] {
+  & > p > code[class*='language-'] {
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+    color: var(--background);
     tab-size: 2;
+    background: var(--color);
   }
 
   @media (max-width: 768px) {
