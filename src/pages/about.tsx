@@ -9,12 +9,34 @@ const ABOUT_PAGE_METADATA = {
   url: 'https://ji5485.github.io/about/',
 };
 
-const AboutPage: FunctionComponent = function ({}) {
+interface AboutPageProps {
+  data: {
+    imageSharp: {
+      fixed: { src: string };
+    };
+  };
+}
+
+const AboutPage: FunctionComponent<AboutPageProps> = function ({
+  imageSharp: {
+    fixed: { src },
+  },
+}) {
   return (
-    <Layout {...ABOUT_PAGE_METADATA}>
+    <Layout {...ABOUT_PAGE_METADATA} image={src}>
       <About />
     </Layout>
   );
 };
 
 export default AboutPage;
+
+export const imageMetadataQuery = graphql`
+  {
+    imageSharp(fixed: { originalName: { eq: "main_image.jpeg" } }) {
+      fixed {
+        src
+      }
+    }
+  }
+`;

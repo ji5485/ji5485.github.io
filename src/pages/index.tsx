@@ -28,7 +28,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   },
 }) {
   return (
-    <Layout title={title} description={description} url={siteUrl}>
+    <Layout title={title} description={description} image={fixed.src} url={siteUrl}>
       <Main image={fixed} />
     </Layout>
   );

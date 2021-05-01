@@ -7,13 +7,24 @@ interface PortfolioDetailTemplateProps {
   data: {
     portfolioMetadata: PortfolioDetailProps;
   };
+  location: {
+    href: string;
+  };
 }
 
 const PortfolioDetailTemplate: FunctionComponent<PortfolioDetailTemplateProps> = function ({
   data: { portfolioMetadata },
+  location: { href },
 }) {
+  const portfolioDetailMetaData = {
+    title: `Detail of ${portfolioMetadata.title}`,
+    description: portfolioMetadata.detail.subTitle,
+    image: portfolioMetadata.image.fluid.src,
+    url: href,
+  };
+
   return (
-    <Layout title="Detail of This Portfolio">
+    <Layout {...portfolioDetailMetaData}>
       <PortfolioDetail {...portfolioMetadata} />
     </Layout>
   );

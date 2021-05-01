@@ -12,6 +12,9 @@ interface PortfolioPageProps {
     activity: {
       edges: PortfolioListProps['list'];
     };
+    imageSharp: {
+      fixed: { src: string };
+    };
   };
 }
 
@@ -23,10 +26,16 @@ const PORTFOLIO_PAGE_METADATA = {
 };
 
 const PortfolioPage: FunctionComponent<PortfolioPageProps> = function ({
-  data: { project, activity },
+  data: {
+    project,
+    activity,
+    imageSharp: {
+      fixed: { src },
+    },
+  },
 }) {
   return (
-    <Layout {...PORTFOLIO_PAGE_METADATA}>
+    <Layout {...PORTFOLIO_PAGE_METADATA} image={src}>
       <Portfolio project={project.edges} activity={activity.edges} />
     </Layout>
   );
@@ -58,6 +67,12 @@ export const getPortfolioMetadata = graphql`
         node {
           ...PortfolioData
         }
+      }
+    }
+
+    imageSharp(fixed: { originalName: { eq: "main_image.jpeg" } }) {
+      fixed {
+        src
       }
     }
   }

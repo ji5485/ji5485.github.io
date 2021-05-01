@@ -15,6 +15,7 @@ interface BlogPostItemTemplateProps {
         summary: string;
         categories: string[];
         thumbnail: {
+          publicURL: string;
           childImageSharp: {
             fluid: FluidObject;
           };
@@ -44,14 +45,15 @@ const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> = funct
   },
   pageContext: { prev, next, slug },
 }) {
-  const PostItemMetaData = {
+  const postItemMetaData = {
     title: frontmatter.title,
     description: frontmatter.summary,
+    image: frontmatter.thumbnail.publicURL,
     url: siteUrl + slug,
   };
 
   return (
-    <Layout {...PostItemMetaData}>
+    <Layout {...postItemMetaData}>
       <BlogPostItem
         postInfo={frontmatter}
         html={html}
@@ -75,6 +77,7 @@ export const blogQuery = graphql`
         summary
         categories
         thumbnail {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 768, maxHeight: 450, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp

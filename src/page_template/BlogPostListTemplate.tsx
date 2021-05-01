@@ -14,25 +14,38 @@ interface BlogPostListTemplateProps {
     unfiltered?: {
       edges: PostListProps;
     };
+    imageSharp: {
+      fixed: {
+        src: string;
+      };
+    };
   };
   pageContext: CategoryListProps &
     PaginationProps & {
       category: string;
       selectedCategory: boolean;
     };
+  location: {
+    href: string;
+  };
 }
 
 const BlogPostListTemplate: FunctionComponent<BlogPostListTemplateProps> = function ({
   data,
   pageContext: { selectedCategory, ...restPageContext },
+  location: { href },
 }) {
   const list = selectedCategory ? data.filtered : data.unfiltered;
 
+  const blogPostListMetaData = {
+    title: 'Dev Log List',
+    description: '지금까지 활동하면서 작성한 Hyun의 Dev Log 목록입니다.',
+    image: data.imageSharp.fixed.src,
+    url: href,
+  };
+
   return (
-    <Layout
-      title="Dev Log List"
-      description="개발자 Hyun이 지금까지 활동하면서 작성한 Dev Log 목록입니다."
-    >
+    <Layout {...blogPostListMetaData}>
       <BlogPostList list={list.edges} context={restPageContext} />
     </Layout>
   );
@@ -83,6 +96,12 @@ export const blogCategoryQuery = graphql`
         node {
           ...MarkdownData
         }
+      }
+    }
+
+    imageSharp(fixed: { originalName: { eq: "main_image.jpeg" } }) {
+      fixed {
+        src
       }
     }
   }
