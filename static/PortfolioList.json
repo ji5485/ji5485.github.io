@@ -112,7 +112,7 @@
       }
     },
     {
-      "title": "Goorm EDU Online Lecturer",
+      "title": "Launching Online Lecture in Goorm EDU",
       "content": "주니어 개발자의 가장 핫한 FE 라이브러리🔥, React 가지고 놀아보기 온라인 강의 in Goorm EDU",
       "image": "goorm_online_lecturer_thumbnail.jpg",
       "extraInfo": {
@@ -159,6 +159,22 @@
           "frontend_developer_in_knar_3.jpg",
           "frontend_developer_in_knar_4.jpg",
           "frontend_developer_in_knar_5.jpg"
+        ]
+      }
+    },
+    {
+      "title": "Second Lecture in Inflearn & Goorm EDU",
+      "content": "군 복무 기간 3개월을 갈아넣어 출시한 새로운 온라인 Gatsby 블로그 개발 강의",
+      "image": "second_lecture_in_inflearn_and_goorm_thumbnail.png",
+      "extraInfo": {
+        "subTitle": "열정과 끈기로 이뤄낸 새로운 강의",
+        "period": "2021.01. ~ 2021.04.",
+        "description": "이전에 Gatsby를 통해 블로그를 개발했던 경험을 활용하여 Inflearn과 Goorm EDU에 Gatsby 블로그 개발 온라인 강의를 출시했습니다. 단순히 블로그 개발만 하는 것을 넘어 검색 엔진 최적화, 웹 접근성 조치, 블로그 배포 등 프론트엔드 개발자에게 있어 꼭 알아야 할 다양한 개념을 담았습니다.",
+        "review": "군복무 기간동안 기술 블로그 개발을 끝내고, 강의를 제작하고 싶다는 생각이 들어 시작하게 되었습니다. 하루 1시간 30분 동안의 연등 시간을 활용하여 근 3달간 강의 준비에 매달렸고, 그렇게 Gatsby로 기술 블로그 개발하기라는 강의가 출시되었습니다. 강의자가 얻을 수 있는 경험은 물론 열정과 꾸준함이 주는 힘을 깨닫게 해준 특별한 경험이었습니다.",
+        "extraImage": [
+          "second_lecture_in_inflearn_and_goorm_1.png",
+          "second_lecture_in_inflearn_and_goorm_2.png",
+          "second_lecture_in_inflearn_and_goorm_3.png"
         ]
       }
     }
