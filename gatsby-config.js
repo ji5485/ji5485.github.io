@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable node/no-path-concat */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -104,13 +105,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: [`/blog/*/*`, `/portfolio/project/*`, `/portfolio/activity/*`],
+        exclude: [`/blog/*`],
       },
     },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: ['/about', '/portfolio'],
+        precachePages: ['/about', '/portfolio', '/blog/1'],
       },
     },
     {
