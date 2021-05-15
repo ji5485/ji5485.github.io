@@ -18,8 +18,10 @@ interface AboutPageProps {
 }
 
 const AboutPage: FunctionComponent<AboutPageProps> = function ({
-  imageSharp: {
-    fixed: { src },
+  data: {
+    imageSharp: {
+      fixed: { src },
+    },
   },
 }) {
   return (
