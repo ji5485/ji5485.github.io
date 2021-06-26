@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://ji5485.github.io/sitemap.xml
+Host: https://ji5485.github.io
