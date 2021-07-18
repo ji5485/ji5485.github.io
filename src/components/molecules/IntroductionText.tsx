@@ -33,7 +33,7 @@ const IntroductionText: FunctionComponent = function ({}) {
   return (
     <div>
       <MainText>Hello, I am Ju Hyeon Do</MainText>
-      <SubText>I am a Junior Full-Stack Developer,</SubText>
+      <SubText>I am a Junior Frontend Developer,</SubText>
       <SubText>hoping to become Professional Developer</SubText>
     </div>
   );
