@@ -47,6 +47,11 @@ const MarkdownComponent = styled.div`
     margin-top: 0;
   }
 
+  img {
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  }
+
   blockquote {
     padding: 5px 15px;
     border-left: 3px solid rgba(30, 31, 32, 0.5);
