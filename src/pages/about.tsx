@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { graphql } from 'gatsby';
 import Layout from 'components/templates/Layout';
 import About from 'components/templates/About';
 
