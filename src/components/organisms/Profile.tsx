@@ -1,33 +1,37 @@
-import React, { FunctionComponent } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import styled from '@emotion/styled';
-import Text, { TextComponent } from 'components/atoms/Text';
-import { shortId } from 'utilities/utils';
-import Img, { FluidObject } from 'gatsby-image';
+import React, { FunctionComponent } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import styled from '@emotion/styled'
+import Text, { TextComponent } from 'components/atoms/Text'
+import { shortId } from 'utilities/utils'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-type FluidImageType = {
+type GatsbyImageNodeType = {
   node: {
-    fluid: FluidObject;
-  };
-};
+    gatsbyImageData: IGatsbyImageData
+  }
+}
+
+type ProfileImageQueryType = {
+  allImageSharp: {
+    edges: GatsbyImageNodeType[]
+  }
+}
 
 const getImageQuery = graphql`
   {
     allImageSharp(filter: { original: { src: { regex: "/about/" } } }) {
       edges {
         node {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(aspectRatio: 1)
         }
       }
     }
   }
-`;
+`
 
 const ProfileComponent = styled.div`
   width: 100%;
-`;
+`
 
 const ProfileImageList = styled.div`
   width: 100%;
@@ -39,7 +43,7 @@ const ProfileImageList = styled.div`
   .gatsby-image-wrapper {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   }
-`;
+`
 
 const ProfileContent = styled.div`
   display: flex;
@@ -61,18 +65,22 @@ const ProfileContent = styled.div`
       font-size: 15px;
     }
   }
-`;
+`
 
-const Profile: FunctionComponent = function ({}) {
+const Profile: FunctionComponent = function () {
   const {
     allImageSharp: { edges },
-  } = useStaticQuery(getImageQuery);
+  } = useStaticQuery<ProfileImageQueryType>(getImageQuery)
 
   return (
     <ProfileComponent>
       <ProfileImageList>
-        {edges.map(({ node: { fluid } }: FluidImageType) => (
-          <Img fluid={{ ...fluid, aspectRatio: 1 }} key={shortId()} alt="Profile Image" />
+        {edges.map(({ node: { gatsbyImageData } }: GatsbyImageNodeType) => (
+          <GatsbyImage
+            image={gatsbyImageData}
+            key={shortId()}
+            alt="Profile Image"
+          />
         ))}
       </ProfileImageList>
 
@@ -81,7 +89,7 @@ const Profile: FunctionComponent = function ({}) {
         <Text>Ju Hyeon Do</Text>
       </ProfileContent>
     </ProfileComponent>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

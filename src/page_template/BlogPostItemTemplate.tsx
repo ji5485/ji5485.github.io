@@ -1,71 +1,72 @@
-import React, { FunctionComponent } from 'react';
-import { graphql } from 'gatsby';
-import { OtherItemInfo } from 'components/organisms/PostItemFoot';
-import Layout from 'components/templates/Layout';
-import BlogPostItem from 'components/templates/BlogPostItem';
-import { FluidObject } from 'gatsby-image';
+import React, { FunctionComponent } from 'react'
+import { graphql } from 'gatsby'
+import { OtherItemInfo } from 'components/organisms/PostItemFoot'
+import Layout from 'components/templates/Layout'
+import BlogPostItem from 'components/templates/BlogPostItem'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
-interface BlogPostItemTemplateProps {
+type BlogPostItemTemplateProps = {
   data: {
     markdownRemark: {
-      html: string;
+      html: string
       frontmatter: {
-        title: string;
-        date: string;
-        summary: string;
-        categories: string[];
+        title: string
+        date: string
+        summary: string
+        categories: string[]
         thumbnail: {
-          publicURL: string;
+          publicURL: string
           childImageSharp: {
-            fluid: FluidObject;
-          };
-        };
-      };
-      tableOfContents: string;
-    };
+            gatsbyImageData: IGatsbyImageData
+          }
+        }
+      }
+      tableOfContents: string
+    }
     site: {
       siteMetadata: {
-        siteUrl: string;
-      };
-    };
-  };
+        siteUrl: string
+      }
+    }
+  }
   pageContext: {
-    prev: OtherItemInfo | null;
-    next: OtherItemInfo | null;
-    slug: string;
-  };
+    prev: OtherItemInfo | null
+    next: OtherItemInfo | null
+    slug: string
+  }
 }
 
-const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> = function ({
-  data: {
-    markdownRemark: { html, frontmatter, tableOfContents },
-    site: {
-      siteMetadata: { siteUrl },
+const BlogPostItemTemplate: FunctionComponent<BlogPostItemTemplateProps> =
+  function ({
+    data: {
+      markdownRemark: { html, frontmatter, tableOfContents },
+      site: {
+        siteMetadata: { siteUrl },
+      },
     },
-  },
-  pageContext: { prev, next, slug },
-}) {
-  const postItemMetaData = {
-    title: frontmatter.title,
-    description: frontmatter.summary,
-    image: frontmatter.thumbnail.publicURL,
-    url: siteUrl + slug,
-  };
+    pageContext: { prev, next, slug },
+  }) {
+    const postItemMetaData = {
+      title: frontmatter.title,
+      description: frontmatter.summary,
+      image: frontmatter.thumbnail.publicURL,
+      url: siteUrl + slug,
+    }
 
-  return (
-    <Layout {...postItemMetaData}>
-      <BlogPostItem
-        postInfo={frontmatter}
-        html={html}
-        prevItem={prev}
-        nextItem={next}
-        toc={tableOfContents}
-      />
-    </Layout>
-  );
-};
+    return (
+      <Layout {...postItemMetaData}>
+        <BlogPostItem
+          postInfo={frontmatter}
+          html={html}
+          prevItem={prev}
+          nextItem={next}
+          toc={tableOfContents}
+        />
+      </Layout>
+    )
+  }
 
-export default BlogPostItemTemplate;
+export default BlogPostItemTemplate
 
 export const blogQuery = graphql`
   query getBlogData($slug: String) {
@@ -79,9 +80,7 @@ export const blogQuery = graphql`
         thumbnail {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 768, maxHeight: 450, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(width: 768, height: 450)
           }
         }
       }
@@ -93,4 +92,4 @@ export const blogQuery = graphql`
       }
     }
   }
-`;
+`

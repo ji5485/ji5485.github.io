@@ -1,45 +1,43 @@
-import React, { FunctionComponent } from 'react';
-import Layout from 'components/templates/Layout';
-import PortfolioDetail, { PortfolioDetailProps } from 'components/templates/PortfolioDetail';
-import { graphql } from 'gatsby';
+import React, { FunctionComponent } from 'react'
+import Layout from 'components/templates/Layout'
+import PortfolioDetail, {
+  PortfolioDetailProps,
+} from 'components/templates/PortfolioDetail'
+import { graphql } from 'gatsby'
 
-interface PortfolioDetailTemplateProps {
+type PortfolioDetailTemplateProps = {
   data: {
-    portfolioMetadata: PortfolioDetailProps;
-  };
+    portfolioMetadata: PortfolioDetailProps
+  }
   location: {
-    href: string;
-  };
+    href: string
+  }
 }
 
-const PortfolioDetailTemplate: FunctionComponent<PortfolioDetailTemplateProps> = function ({
-  data: { portfolioMetadata },
-  location: { href },
-}) {
-  const portfolioDetailMetaData = {
-    title: `Detail of ${portfolioMetadata.title}`,
-    description: portfolioMetadata.detail.subTitle,
-    image: portfolioMetadata.image.fluid.src,
-    url: href,
-  };
+const PortfolioDetailTemplate: FunctionComponent<PortfolioDetailTemplateProps> =
+  function ({ data: { portfolioMetadata }, location: { href } }) {
+    const portfolioDetailMetaData = {
+      title: `Detail of ${portfolioMetadata.title}`,
+      description: portfolioMetadata.detail.subTitle,
+      image: portfolioMetadata.image.gatsbyImageData.images.fallback!.src,
+      url: href,
+    }
 
-  return (
-    <Layout {...portfolioDetailMetaData}>
-      <PortfolioDetail {...portfolioMetadata} />
-    </Layout>
-  );
-};
+    return (
+      <Layout {...portfolioDetailMetaData}>
+        <PortfolioDetail {...portfolioMetadata} />
+      </Layout>
+    )
+  }
 
-export default PortfolioDetailTemplate;
+export default PortfolioDetailTemplate
 
 export const getPortfolioDetailById = graphql`
   query getPortfolioDetailById($portfolioId: String) {
     portfolioMetadata(id: { eq: $portfolioId }) {
       title
       image {
-        fluid(maxWidth: 1600, fit: CONTAIN, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(width: 1600)
       }
       detail {
         subTitle
@@ -47,11 +45,9 @@ export const getPortfolioDetailById = graphql`
         description
         review
         extraImage {
-          fluid(maxWidth: 570, fit: CONTAIN, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(width: 570)
         }
       }
     }
   }
-`;
+`

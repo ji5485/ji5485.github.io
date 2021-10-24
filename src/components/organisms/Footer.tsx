@@ -1,14 +1,17 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Text from 'components/atoms/Text';
-import IconList, { IconInfoObjType } from 'components/molecules/IconList';
-import NavBar from 'components/molecules/NavBar';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Text from 'components/atoms/Text'
+import IconList, { IconInfoObjType } from 'components/molecules/IconList'
+import NavBar from 'components/molecules/NavBar'
 
 const ICON_LIST: IconInfoObjType[] = [
   { href: 'https://github.com/ji5485', type: 'github' },
   { href: 'https://www.instagram.com/hello_d0o/', type: 'instagram' },
-  { href: 'https://www.facebook.com/people/주현도/100006799395407', type: 'facebook' },
-];
+  {
+    href: 'https://www.facebook.com/people/주현도/100006799395407',
+    type: 'facebook',
+  },
+]
 
 const FooterComponent = styled.footer`
   background: rgba(0, 0, 0, 0.03);
@@ -18,7 +21,7 @@ const FooterComponent = styled.footer`
   body.dark & {
     background: rgba(0, 0, 0, 0.3);
   }
-`;
+`
 
 const FooterContent = styled.div`
   width: 768px;
@@ -32,16 +35,16 @@ const FooterContent = styled.div`
     width: 100%;
     padding: 0 20px;
   }
-`;
+`
 
 const ContentLine = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
+`
 
-const Footer: FunctionComponent = function ({}) {
+const Footer: FunctionComponent = function () {
   return (
     <FooterComponent>
       <FooterContent>
@@ -60,7 +63,7 @@ const Footer: FunctionComponent = function ({}) {
         </ContentLine>
       </FooterContent>
     </FooterComponent>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

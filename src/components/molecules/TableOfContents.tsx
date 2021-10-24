@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import useSetHeading from 'hooks/useSetHeading';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import useSetHeading from 'hooks/useSetHeading'
 
-interface TableOfContentsProps {
-  toc: string;
+type TableOfContentsProps = {
+  toc: string
 }
 
 const TableOfContentsComponent = styled.div`
@@ -13,7 +13,7 @@ const TableOfContentsComponent = styled.div`
   @media (max-width: 1350px) {
     display: none;
   }
-`;
+`
 
 const TOC = styled.div<{ activeSlug: string }>`
   position: sticky;
@@ -50,16 +50,23 @@ const TOC = styled.div<{ activeSlug: string }>`
   body.dark & {
     border-color: rgba(255, 255, 255, 0.5);
   }
-`;
+`
 
-const TableOfContents: FunctionComponent<TableOfContentsProps> = function ({ toc }) {
-  const activeSlug: string = useSetHeading(toc);
+const TableOfContents: FunctionComponent<TableOfContentsProps> = function ({
+  toc,
+}) {
+  const activeSlug: string = useSetHeading(toc)
 
   return (
     <TableOfContentsComponent>
-      {toc && <TOC dangerouslySetInnerHTML={{ __html: toc }} activeSlug={encodeURI(activeSlug)} />}
+      {toc && (
+        <TOC
+          dangerouslySetInnerHTML={{ __html: toc }}
+          activeSlug={encodeURI(activeSlug)}
+        />
+      )}
     </TableOfContentsComponent>
-  );
-};
+  )
+}
 
-export default TableOfContents;
+export default TableOfContents

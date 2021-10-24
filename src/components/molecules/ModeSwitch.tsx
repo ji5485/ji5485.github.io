@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
-import styled from '@emotion/styled';
-import Icon, { IconComponent } from 'components/atoms/Icon';
-import { Helmet } from 'react-helmet';
-import LIGHT_FAVICON from 'static/favicon/light_favicon.ico';
-import DARK_FAVICON from 'static/favicon/dark_favicon.ico';
+import React, { FunctionComponent, useState, useEffect } from 'react'
+import styled from '@emotion/styled'
+import Icon, { IconComponent } from 'components/atoms/Icon'
+import { Helmet } from 'react-helmet'
+import LIGHT_FAVICON from 'static/favicon/light_favicon.ico'
+import DARK_FAVICON from 'static/favicon/dark_favicon.ico'
 
-const MODE_STORAGE_KEY = 'blog-current-mode';
+const MODE_STORAGE_KEY = 'blog-current-mode'
 
 export const Switch = styled.div`
   display: flex;
@@ -30,35 +30,39 @@ export const Switch = styled.div`
       padding-bottom: 0;
     }
   }
-`;
+`
 
 const ModeSwitch: FunctionComponent = function () {
-  const [currentMode, setCurrentMode] = useState<string | null>();
+  const [currentMode, setCurrentMode] = useState<string | null>()
 
   useEffect(() => {
-    setCurrentMode(window.localStorage.getItem(MODE_STORAGE_KEY));
-  }, []);
+    setCurrentMode(window.localStorage.getItem(MODE_STORAGE_KEY))
+  }, [])
 
   useEffect(() => {
-    const icon = currentMode === 'light' ? LIGHT_FAVICON : DARK_FAVICON;
-    const element = window.document.getElementById('favicon');
+    if (currentMode === null || currentMode === undefined) return
 
-    if (!element) return;
+    const icon = (
+      currentMode === 'light' ? LIGHT_FAVICON : DARK_FAVICON
+    ) as string
+    const element = window.document.getElementById('favicon')
 
-    element.setAttribute('href', icon);
-  }, [currentMode]);
+    if (!element) return
+
+    element.setAttribute('href', icon)
+  }, [currentMode])
 
   const changeMode = () => {
-    const toggledMode = currentMode === 'light' ? 'dark' : 'light';
+    const toggledMode = currentMode === 'light' ? 'dark' : 'light'
 
-    if (!currentMode) return;
+    if (!currentMode) return
 
-    window.document.body.classList.remove(currentMode);
-    window.document.body.classList.add(toggledMode);
+    window.document.body.classList.remove(currentMode)
+    window.document.body.classList.add(toggledMode)
 
-    window.localStorage.setItem(MODE_STORAGE_KEY, toggledMode);
-    setCurrentMode(toggledMode);
-  };
+    window.localStorage.setItem(MODE_STORAGE_KEY, toggledMode)
+    setCurrentMode(toggledMode)
+  }
 
   return (
     <>
@@ -71,7 +75,7 @@ const ModeSwitch: FunctionComponent = function () {
         {currentMode === 'light' ? 'Dark' : 'Light'}
       </Switch>
     </>
-  );
-};
+  )
+}
 
-export default ModeSwitch;
+export default ModeSwitch

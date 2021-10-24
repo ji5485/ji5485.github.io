@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Career, { CareerComponent } from 'components/molecules/Career';
-import { shortId } from 'utilities/utils';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Career, { CareerComponent } from 'components/molecules/Career'
+import { shortId } from 'utilities/utils'
 
 type CareerType = {
-  title: string;
-  contents: string[];
-};
+  title: string
+  contents: string[]
+}
 
 const CAREER_LIST: CareerType[] = [
   {
@@ -32,7 +32,7 @@ const CAREER_LIST: CareerType[] = [
       '서울시립대학교 수학과 재학 (2019.03 ~ )',
     ],
   },
-];
+]
 
 const CareerListComponent = styled.div`
   margin-top: 120px;
@@ -40,16 +40,16 @@ const CareerListComponent = styled.div`
   ${CareerComponent} + ${CareerComponent} {
     margin-top: 100px;
   }
-`;
+`
 
-const CareerList: FunctionComponent = function ({}) {
+const CareerList: FunctionComponent = function () {
   return (
     <CareerListComponent>
       {CAREER_LIST.map(({ title, contents }: CareerType) => {
-        return <Career title={title} contents={contents} key={shortId()} />;
+        return <Career title={title} contents={contents} key={shortId()} />
       })}
     </CareerListComponent>
-  );
-};
+  )
+}
 
-export default CareerList;
+export default CareerList

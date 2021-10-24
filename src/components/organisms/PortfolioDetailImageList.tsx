@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import { shortId } from 'utilities/utils';
-import Img, { FluidObject } from 'gatsby-image';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import { shortId } from 'utilities/utils'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-interface PortfolioDetailImageListProps {
-  list: [{ fluid: FluidObject }];
+export type PortfolioDetailImageListProps = {
+  imageList: [{ gatsbyImageData: IGatsbyImageData }]
 }
 
 const PortfolioDetailImageListComponent = styled.div`
@@ -24,18 +24,21 @@ const PortfolioDetailImageListComponent = styled.div`
     margin-top: 100px;
     grid-template-columns: 1fr;
   }
-`;
+`
 
-const PortfolioDetailImageList: FunctionComponent<PortfolioDetailImageListProps> = function ({
-  list,
-}) {
-  return (
-    <PortfolioDetailImageListComponent>
-      {list.map(({ fluid }) => (
-        <Img fluid={fluid} alt="Activity Image" key={shortId()} />
-      ))}
-    </PortfolioDetailImageListComponent>
-  );
-};
+const PortfolioDetailImageList: FunctionComponent<PortfolioDetailImageListProps> =
+  function ({ imageList }) {
+    return (
+      <PortfolioDetailImageListComponent>
+        {imageList.map(({ gatsbyImageData }) => (
+          <GatsbyImage
+            image={gatsbyImageData}
+            alt="Activity Image"
+            key={shortId()}
+          />
+        ))}
+      </PortfolioDetailImageListComponent>
+    )
+  }
 
-export default PortfolioDetailImageList;
+export default PortfolioDetailImageList

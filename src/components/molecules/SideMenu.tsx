@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import { IconComponent } from 'components/atoms/Icon';
-import Link, { LinkComponent } from 'components/atoms/Link';
-import Text, { TextComponent } from 'components/atoms/Text';
-import ModeSwitch, { Switch } from 'components/molecules/ModeSwitch';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import { IconComponent } from 'components/atoms/Icon'
+import Link, { LinkComponent } from 'components/atoms/Link'
+import Text, { TextComponent } from 'components/atoms/Text'
+import ModeSwitch, { Switch } from 'components/molecules/ModeSwitch'
 
 export const SideMenuComponent = styled.div`
   display: flex;
@@ -35,9 +35,9 @@ export const SideMenuComponent = styled.div`
       transform: rotate(90deg);
     }
   }
-`;
+`
 
-const SideMenu: FunctionComponent = function ({}) {
+const SideMenu: FunctionComponent = function () {
   return (
     <SideMenuComponent>
       <Link to="/">
@@ -54,7 +54,7 @@ const SideMenu: FunctionComponent = function ({}) {
       </Link>
       <ModeSwitch />
     </SideMenuComponent>
-  );
-};
+  )
+}
 
-export default SideMenu;
+export default SideMenu

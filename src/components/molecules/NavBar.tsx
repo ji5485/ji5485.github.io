@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Link, { LinkComponent } from 'components/atoms/Link';
-import Text, { TextComponent } from 'components/atoms/Text';
-import ModeSwitch from 'components/molecules/ModeSwitch';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Link, { LinkComponent } from 'components/atoms/Link'
+import Text, { TextComponent } from 'components/atoms/Text'
+import ModeSwitch from 'components/molecules/ModeSwitch'
 
-interface NavBarProps {
-  modeSwitch: boolean;
+type NavBarProps = {
+  modeSwitch: boolean
 }
 
 export const NavBarComponent = styled.div`
@@ -28,7 +28,7 @@ export const NavBarComponent = styled.div`
       font-size: 13px;
     }
   }
-`;
+`
 
 const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
   return (
@@ -47,7 +47,7 @@ const NavBar: FunctionComponent<NavBarProps> = function ({ modeSwitch }) {
       </Link>
       {modeSwitch && <ModeSwitch />}
     </NavBarComponent>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

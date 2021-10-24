@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import { LinkComponent } from 'components/atoms/Link';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import { LinkComponent } from 'components/atoms/Link'
 
-interface PaginationButtonProps {
-  to: string;
-  page: number;
+type PaginationButtonProps = {
+  to: string
+  page: number
 }
 
 const PaginationButtonComponent = styled(LinkComponent)`
@@ -26,14 +26,17 @@ const PaginationButtonComponent = styled(LinkComponent)`
     color: var(--background);
     background: var(--color);
   }
-`;
+`
 
-const PaginationButton: FunctionComponent<PaginationButtonProps> = function ({ to, page }) {
+const PaginationButton: FunctionComponent<PaginationButtonProps> = function ({
+  to,
+  page,
+}) {
   return (
     <PaginationButtonComponent to={to} activeClassName="active">
       {page}
     </PaginationButtonComponent>
-  );
-};
+  )
+}
 
-export default PaginationButton;
+export default PaginationButton

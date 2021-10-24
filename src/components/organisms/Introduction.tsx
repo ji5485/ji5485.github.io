@@ -2,10 +2,10 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import IconList, { IconListComponent, IconListProps } from 'components/molecules/IconList';
 import IntroductionText from 'components/molecules/IntroductionText';
-import Img, { FixedObject } from 'gatsby-image';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface IntroductionProps {
-  image: FixedObject;
+  image: IGatsbyImageData;
   iconList: IconListProps['list'];
 }
 
@@ -19,7 +19,7 @@ export const IntroductionComponent = styled.div`
   }
 `;
 
-const ProfileImage = styled(Img)`
+const ProfileImage = styled(GatsbyImage)`
   border-radius: 50%;
   margin-right: 30px;
 
@@ -56,7 +56,7 @@ const RightIntroduction = styled.div`
 const Introduction: FunctionComponent<IntroductionProps> = function ({ image, iconList }) {
   return (
     <IntroductionComponent>
-      <ProfileImage fixed={image} />
+      <ProfileImage image={image} alt="Profile Image" />
 
       <RightIntroduction>
         <IntroductionText />

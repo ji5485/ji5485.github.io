@@ -1,21 +1,21 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Link, { LinkComponent } from 'components/atoms/Link';
-import Text from 'components/atoms/Text';
-import { dateFormat, shortId, splitOnUpper } from 'utilities/utils';
-import Img, { FluidObject } from 'gatsby-image';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Link, { LinkComponent } from 'components/atoms/Link'
+import Text from 'components/atoms/Text'
+import { dateFormat, shortId, splitOnUpper } from 'utilities/utils'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-export interface PostItemProps {
-  title: string;
-  summary: string[];
-  date: string;
+export type PostItemProps = {
+  title: string
+  summary: string[]
+  date: string
   thumbnail: {
     childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
-  categories: string[];
-  slug: string;
+      gatsbyImageData: IGatsbyImageData
+    }
+  }
+  categories: string[]
+  slug: string
 }
 
 const PostItemComponent = styled.div`
@@ -33,7 +33,7 @@ const PostItemComponent = styled.div`
   body.dark & {
     border-color: #ffffff;
   }
-`;
+`
 
 const Content = styled.div`
   width: calc(100% - 200px);
@@ -43,7 +43,7 @@ const Content = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
-`;
+`
 
 const Title = styled(LinkComponent)`
   font-size: 23px;
@@ -63,7 +63,7 @@ const Title = styled(LinkComponent)`
   @media (max-width: 768px) {
     font-size: 18px;
   }
-`;
+`
 
 const Category = styled.div`
   display: flex;
@@ -84,7 +84,7 @@ const Category = styled.div`
   ${LinkComponent}:hover {
     text-decoration: underline;
   }
-`;
+`
 
 const Date = styled(Text)`
   font-size: 14px;
@@ -95,7 +95,7 @@ const Date = styled(Text)`
   @media (max-width: 768px) {
     font-size: 12px;
   }
-`;
+`
 
 const Summary = styled(Text)`
   font-size: 15px;
@@ -113,22 +113,22 @@ const Summary = styled(Text)`
   @media (max-width: 768px) {
     font-size: 13px;
   }
-`;
+`
 
-const ThumbnailImage = styled(Img)`
+const ThumbnailImage = styled(GatsbyImage)`
   width: 180px;
 
   @media (max-width: 768px) {
     display: none !important;
   }
-`;
+`
 
 const PostItem: FunctionComponent<PostItemProps> = function ({
   title,
   summary,
   date,
   thumbnail: {
-    childImageSharp: { fluid },
+    childImageSharp: { gatsbyImageData },
   },
   categories,
   slug,
@@ -148,9 +148,9 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
         <Summary>{summary}</Summary>
       </Content>
 
-      <ThumbnailImage fluid={fluid} alt="Thumbnail Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Thumbnail Image" />
     </PostItemComponent>
-  );
-};
+  )
+}
 
-export default PostItem;
+export default PostItem

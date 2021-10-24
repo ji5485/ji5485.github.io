@@ -1,28 +1,30 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import PortfolioDetailContent from 'components/organisms/PortfolioDetailContent';
-import PortfolioDetailImageList from 'components/organisms/PortfolioDetailImageList';
-import { FluidObject } from 'gatsby-image';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import PortfolioDetailContent from 'components/organisms/PortfolioDetailContent'
+import PortfolioDetailImageList, {
+  PortfolioDetailImageListProps,
+} from 'components/organisms/PortfolioDetailImageList'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
-export interface PortfolioDetailProps {
-  title: string;
+export type PortfolioDetailProps = {
+  title: string
   image: {
-    fluid: FluidObject;
-  };
+    gatsbyImageData: IGatsbyImageData
+  }
   detail: {
-    subTitle: string;
-    period: string;
-    description: string;
-    review: string;
-    extraImage: [{ fluid: FluidObject }];
-  };
+    subTitle: string
+    period: string
+    description: string
+    review: string
+    extraImage: PortfolioDetailImageListProps['imageList']
+  }
 }
 
 const PortfolioDetailComponent = styled.div`
   @media (min-width: 1200px) {
     width: 1200px;
     margin: 0 auto;
-    padding: 150px 0;
+    padding: 100px 0;
   }
 
   @media (min-width: 768px) and (max-width: 1200px) {
@@ -32,11 +34,11 @@ const PortfolioDetailComponent = styled.div`
   @media (max-width: 768px) {
     padding: 20px;
   }
-`;
+`
 
 const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
   title,
-  image: { fluid },
+  image: { gatsbyImageData },
   detail: { subTitle, period, description, review, extraImage },
 }) {
   return (
@@ -47,11 +49,11 @@ const PortfolioDetail: FunctionComponent<PortfolioDetailProps> = function ({
           { title: 'Description', content: description },
           { title: 'Review', content: review },
         ]}
-        image={fluid}
+        image={gatsbyImageData}
       />
-      <PortfolioDetailImageList list={extraImage} />
+      <PortfolioDetailImageList imageList={extraImage} />
     </PortfolioDetailComponent>
-  );
-};
+  )
+}
 
-export default PortfolioDetail;
+export default PortfolioDetail

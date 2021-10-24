@@ -1,15 +1,15 @@
-import React, { FunctionComponent } from 'react';
-import Text from 'components/atoms/Text';
-import styled from '@emotion/styled';
+import React, { FunctionComponent } from 'react'
+import Text from 'components/atoms/Text'
+import styled from '@emotion/styled'
 
 type TitleStyleProps = {
-  align?: 'right' | 'left';
-};
-
-interface TitleProps extends TitleStyleProps {
-  title: string;
-  subTitle: string;
+  align?: 'right' | 'left'
 }
+
+type TitleProps = {
+  title: string
+  subTitle: string
+} & TitleStyleProps
 
 const TitleComponent = styled.div`
   width: 100%;
@@ -21,7 +21,7 @@ const TitleComponent = styled.div`
   @media (max-width: 768px) {
     margin-bottom: 60px;
   }
-`;
+`
 
 const StyledLine = styled.div`
   width: 50%;
@@ -31,11 +31,11 @@ const StyledLine = styled.div`
   @media (max-width: 768px) {
     width: 30%;
   }
-`;
+`
 
 const TextBox = styled.div<TitleStyleProps>`
   text-align: ${({ align }) => align};
-`;
+`
 
 const MainTitle = styled(Text)`
   font-size: 60px;
@@ -44,7 +44,7 @@ const MainTitle = styled(Text)`
   @media (max-width: 768px) {
     font-size: 30px;
   }
-`;
+`
 
 const SubTitle = styled(Text)`
   font-size: 25px;
@@ -53,9 +53,13 @@ const SubTitle = styled(Text)`
   @media (max-width: 768px) {
     font-size: 15px;
   }
-`;
+`
 
-const Title: FunctionComponent<TitleProps> = function ({ title, subTitle, align }) {
+const Title: FunctionComponent<TitleProps> = function ({
+  title,
+  subTitle,
+  align,
+}) {
   return (
     <TitleComponent>
       {align === 'right' && <StyledLine />}
@@ -65,11 +69,11 @@ const Title: FunctionComponent<TitleProps> = function ({ title, subTitle, align 
         <SubTitle>{subTitle}</SubTitle>
       </TextBox>
     </TitleComponent>
-  );
-};
+  )
+}
 
 Title.defaultProps = {
   align: 'left',
-};
+}
 
-export default Title;
+export default Title

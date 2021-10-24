@@ -25,7 +25,8 @@
       "utilities/*": ["utils/*"],
       "hooks/*": ["hooks/*"],
       "static/*": ["../static/*"]
-    }
+    },
+    "typeRoots": ["./@types"]
   },
   "include": ["./src/**/*", "./test/**/*"]
 }

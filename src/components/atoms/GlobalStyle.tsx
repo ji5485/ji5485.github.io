@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import { Global, css } from '@emotion/react';
+import React, { FunctionComponent } from 'react'
+import { Global, css } from '@emotion/react'
 
 const defaultStyle = css`
   * {
@@ -56,10 +56,10 @@ const defaultStyle = css`
     width: 8px;
     height: 8px;
   }
-`;
+`
 
-const GlobalStyle: FunctionComponent = function ({}) {
-  return <Global styles={defaultStyle} />;
-};
+const GlobalStyle: FunctionComponent = function () {
+  return <Global styles={defaultStyle} />
+}
 
-export default GlobalStyle;
+export default GlobalStyle

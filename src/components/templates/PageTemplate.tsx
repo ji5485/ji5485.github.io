@@ -1,10 +1,10 @@
-import React, { FunctionComponent, ReactNode } from 'react';
-import styled from '@emotion/styled';
-import Header from 'components/organisms/Header';
-import Footer from 'components/organisms/Footer';
+import React, { FunctionComponent, ReactNode } from 'react'
+import styled from '@emotion/styled'
+import Header from 'components/organisms/Header'
+import Footer from 'components/organisms/Footer'
 
-interface PageTemplateProps {
-  children: ReactNode;
+type PageTemplateProps = {
+  children: ReactNode
 }
 
 const Template = styled.div`
@@ -17,7 +17,7 @@ const Template = styled.div`
   @media (max-width: 768px) {
     grid-gap: 50px;
   }
-`;
+`
 
 const Content = styled.main`
   width: 768px;
@@ -28,16 +28,18 @@ const Content = styled.main`
     padding: 0 20px;
     overflow: auto;
   }
-`;
+`
 
-const PageTemplate: FunctionComponent<PageTemplateProps> = function ({ children }) {
+const PageTemplate: FunctionComponent<PageTemplateProps> = function ({
+  children,
+}) {
   return (
     <Template>
       <Header />
       <Content>{children}</Content>
       <Footer />
     </Template>
-  );
-};
+  )
+}
 
-export default PageTemplate;
+export default PageTemplate

@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Text, { TextComponent } from 'components/atoms/Text';
-import { shortId } from 'utilities/utils';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Text, { TextComponent } from 'components/atoms/Text'
+import { shortId } from 'utilities/utils'
 
-export interface CareerProps {
-  title: string;
-  contents: string[];
+export type CareerProps = {
+  title: string
+  contents: string[]
 }
 
 export const CareerComponent = styled.div`
@@ -16,7 +16,7 @@ export const CareerComponent = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
-`;
+`
 
 const Title = styled(Text)`
   font-size: 20px;
@@ -25,7 +25,7 @@ const Title = styled(Text)`
   @media (max-width: 768px) {
     margin-bottom: 40px;
   }
-`;
+`
 
 const Content = styled.div`
   width: 70%;
@@ -54,7 +54,7 @@ const Content = styled.div`
       font-size: 12px;
     }
   }
-`;
+`
 
 const Career: FunctionComponent<CareerProps> = function ({ title, contents }) {
   return (
@@ -63,11 +63,11 @@ const Career: FunctionComponent<CareerProps> = function ({ title, contents }) {
 
       <Content>
         {contents.map((content: string) => {
-          return <Text key={shortId()}>{content}</Text>;
+          return <Text key={shortId()}>{content}</Text>
         })}
       </Content>
     </CareerComponent>
-  );
-};
+  )
+}
 
-export default Career;
+export default Career

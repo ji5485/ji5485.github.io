@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
-import Text from 'components/atoms/Text';
-import styled from '@emotion/styled';
+import React, { FunctionComponent } from 'react'
+import Text from 'components/atoms/Text'
+import styled from '@emotion/styled'
 
 const MainText = styled.h1`
   font-size: 50px;
@@ -14,7 +14,7 @@ const MainText = styled.h1`
   @media (max-width: 768px) {
     font-size: 25px;
   }
-`;
+`
 
 const SubText = styled(Text)`
   font-size: 25px;
@@ -27,16 +27,16 @@ const SubText = styled(Text)`
   @media (max-width: 768px) {
     font-size: 15px;
   }
-`;
+`
 
-const IntroductionText: FunctionComponent = function ({}) {
+const IntroductionText: FunctionComponent = function () {
   return (
     <div>
       <MainText>Hello, I am Ju Hyeon Do</MainText>
       <SubText>I am a Junior Frontend Developer,</SubText>
       <SubText>hoping to become Professional Developer</SubText>
     </div>
-  );
-};
+  )
+}
 
-export default IntroductionText;
+export default IntroductionText

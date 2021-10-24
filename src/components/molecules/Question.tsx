@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from 'react';
-import Icon, { IconComponent } from 'components/atoms/Icon';
-import Text, { TextComponent } from 'components/atoms/Text';
-import styled from '@emotion/styled';
-import { shortId } from 'utilities/utils';
+import React, { FunctionComponent } from 'react'
+import Icon, { IconComponent } from 'components/atoms/Icon'
+import Text, { TextComponent } from 'components/atoms/Text'
+import styled from '@emotion/styled'
+import { shortId } from 'utilities/utils'
 
-export interface QuestionProps {
-  icon: 'smileWink' | 'running' | 'layerGroup' | 'userTie';
-  title: string[];
-  content: string[];
+export type QuestionProps = {
+  icon: 'smileWink' | 'running' | 'layerGroup' | 'userTie'
+  title: string[]
+  content: string[]
 }
 
 export const QuestionComponent = styled.div`
@@ -18,7 +18,7 @@ export const QuestionComponent = styled.div`
   body.dark & {
     background: rgba(0, 0, 0, 0.3);
   }
-`;
+`
 
 const TitleBox = styled.div`
   display: flex;
@@ -46,7 +46,7 @@ const TitleBox = styled.div`
       font-size: 15px;
     }
   }
-`;
+`
 
 const Content = styled.div`
   font-size: 15px;
@@ -56,9 +56,13 @@ const Content = styled.div`
   @media (max-width: 768px) {
     font-size: 13px;
   }
-`;
+`
 
-const Question: FunctionComponent<QuestionProps> = function ({ icon, title, content }) {
+const Question: FunctionComponent<QuestionProps> = function ({
+  icon,
+  title,
+  content,
+}) {
   return (
     <QuestionComponent>
       <TitleBox>
@@ -76,7 +80,7 @@ const Question: FunctionComponent<QuestionProps> = function ({ icon, title, cont
         ))}
       </Content>
     </QuestionComponent>
-  );
-};
+  )
+}
 
-export default Question;
+export default Question

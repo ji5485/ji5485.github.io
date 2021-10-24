@@ -1,21 +1,25 @@
-import React, { FunctionComponent } from 'react';
-import Title from 'components/molecules/Title';
-import CategoryList, { CategoryListProps } from 'components/molecules/CategoryList';
-import PostList, { PostListProps } from 'components/organisms/PostList';
-import Pagination, { PaginationProps } from 'components/organisms/Pagination';
-import PageTemplate from 'components/templates/PageTemplate';
+import React, { FunctionComponent } from 'react'
+import Title from 'components/molecules/Title'
+import CategoryList, {
+  CategoryListProps,
+} from 'components/molecules/CategoryList'
+import PostList, { PostListProps } from 'components/organisms/PostList'
+import Pagination, { PaginationProps } from 'components/organisms/Pagination'
+import PageTemplate from 'components/templates/PageTemplate'
 
-export interface BlogPostListProps {
-  list: PostListProps.list;
-  context: PaginationProps | CategoryListProps;
+export type BlogPostListProps = {
+  list: PostListProps['list']
+  context: PaginationProps & CategoryListProps
 }
 
 const BlogPostList: FunctionComponent<BlogPostListProps> = function ({
   list,
   context: { totalPage, currentPage, categories, category },
 }) {
-  const slicedCategory = category ? category.substring(1, category.length - 1) : null;
-  const categoryTitle = slicedCategory ? `#${slicedCategory}` : '';
+  const slicedCategory = category
+    ? category.substring(1, category.length - 1)
+    : null
+  const categoryTitle = slicedCategory ? `#${slicedCategory}` : ''
 
   return (
     <PageTemplate>
@@ -23,10 +27,14 @@ const BlogPostList: FunctionComponent<BlogPostListProps> = function ({
       <CategoryList categories={categories} />
       <PostList list={list} />
       {totalPage > 1 && (
-        <Pagination totalPage={totalPage} currentPage={currentPage} category={slicedCategory} />
+        <Pagination
+          totalPage={totalPage}
+          currentPage={currentPage}
+          category={slicedCategory}
+        />
       )}
     </PageTemplate>
-  );
-};
+  )
+}
 
-export default BlogPostList;
+export default BlogPostList

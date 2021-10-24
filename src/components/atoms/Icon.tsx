@@ -1,6 +1,10 @@
-import React, { FunctionComponent } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import React, { FunctionComponent } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faGithub,
+  faInstagram,
+  faFacebook,
+} from '@fortawesome/free-brands-svg-icons'
 import {
   faPhoneAlt,
   faEnvelope,
@@ -15,14 +19,14 @@ import {
   faCaretLeft,
   faMoon,
   faSun,
-} from '@fortawesome/free-solid-svg-icons';
-import styled from '@emotion/styled';
+} from '@fortawesome/free-solid-svg-icons'
+import styled from '@emotion/styled'
 
 type IconStyleProps = {
-  size: number;
-};
+  size: number
+}
 
-export interface IconProps extends IconStyleProps {
+export type IconProps = {
   type:
     | 'instagram'
     | 'facebook'
@@ -39,8 +43,8 @@ export interface IconProps extends IconStyleProps {
     | 'caretRight'
     | 'caretLeft'
     | 'moon'
-    | 'sun';
-}
+    | 'sun'
+} & IconStyleProps
 
 const ICON_TYPE = {
   github: faGithub,
@@ -59,25 +63,25 @@ const ICON_TYPE = {
   caretLeft: faCaretLeft,
   moon: faMoon,
   sun: faSun,
-};
+}
 
 export const IconComponent = styled.div<IconStyleProps>`
-  font-size: ${({ size }) => size + 'px'};
-  width: ${({ size }) => size + 'px'};
+  font-size: ${({ size }) => `${size}px`};
+  width: ${({ size }) => `${size}px`};
   display: flex;
   justify-content: center;
-`;
+`
 
 const Icon: FunctionComponent<IconProps> = function ({ type, ...style }) {
   return (
     <IconComponent {...style}>
       <FontAwesomeIcon icon={ICON_TYPE[type]} />
     </IconComponent>
-  );
-};
+  )
+}
 
 Icon.defaultProps = {
   size: 30,
-};
+}
 
-export default Icon;
+export default Icon

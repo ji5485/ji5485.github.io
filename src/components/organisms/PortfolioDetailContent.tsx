@@ -1,22 +1,22 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import { LinkComponent } from 'components/atoms/Link';
-import Icon, { IconComponent } from 'components/atoms/Icon';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import { LinkComponent } from 'components/atoms/Link'
+import Icon, { IconComponent } from 'components/atoms/Icon'
 import PortfolioDetailDesc, {
   PortfolioDetailDescProps,
   PortfolioDetailDescComponent,
-} from 'components/molecules/PortfolioDetailDesc';
+} from 'components/molecules/PortfolioDetailDesc'
 import PortfolioDetailInfo, {
   PortfolioDetailInfoProps,
-} from 'components/molecules/PortfolioDetailInfo';
-import useWindowSize from 'hooks/useWindowSize';
-import { shortId } from 'utilities/utils';
-import Img, { FluidObject } from 'gatsby-image';
+} from 'components/molecules/PortfolioDetailInfo'
+import useWindowSize from 'hooks/useWindowSize'
+import { shortId } from 'utilities/utils'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 interface PortfolioDetailContentProps {
-  info: PortfolioDetailInfoProps;
-  contents: PortfolioDetailDescProps[];
-  image: FluidObject;
+  info: PortfolioDetailInfoProps
+  contents: PortfolioDetailDescProps[]
+  image: IGatsbyImageData
 }
 
 const PortfolioDetailContentComponent = styled.div`
@@ -29,18 +29,18 @@ const PortfolioDetailContentComponent = styled.div`
     height: calc(100vh - 300px);
     min-height: 600px;
   }
-`;
+`
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
   @media (max-width: 1200px) {
     margin-top: 40px;
   }
-`;
+`
 
 const StyledButton = styled(LinkComponent)`
   width: 40px;
@@ -64,14 +64,14 @@ const StyledButton = styled(LinkComponent)`
       color: #1e1f21;
     }
   }
-`;
+`
 
 const Description = styled.div`
-  margin-top: 50px;
+  margin-top: 40px;
 
   @media (min-width: 1200px) {
     ${PortfolioDetailDescComponent} + ${PortfolioDetailDescComponent} {
-      margin-top: 30px;
+      margin-top: 25px;
     }
   }
 
@@ -86,7 +86,7 @@ const Description = styled.div`
       margin-top: 30px;
     }
   }
-`;
+`
 
 const StyledLine = styled.div`
   width: 40%;
@@ -101,38 +101,35 @@ const StyledLine = styled.div`
   @media (max-width: 1200px) {
     display: none;
   }
-`;
+`
 
-const PortfolioDetailContent: FunctionComponent<PortfolioDetailContentProps> = function ({
-  info,
-  contents,
-  image,
-}) {
-  const { width } = useWindowSize();
+const PortfolioDetailContent: FunctionComponent<PortfolioDetailContentProps> =
+  function ({ info, contents, image }) {
+    const { width } = useWindowSize()
 
-  return (
-    <PortfolioDetailContentComponent>
-      <Content>
-        <StyledButton to="/portfolio/">
-          <Icon type="arrowLeft" size={30} />
-        </StyledButton>
+    return (
+      <PortfolioDetailContentComponent>
+        <Content>
+          <StyledButton to="/portfolio/">
+            <Icon type="arrowLeft" size={30} />
+          </StyledButton>
 
-        <PortfolioDetailInfo {...info} />
+          <PortfolioDetailInfo {...info} />
 
-        {width < 1200 && <Image fluid={image} alt={info.title} />}
+          {width < 1200 && <Image image={image} alt={info.title} />}
 
-        <Description>
-          {contents.map((item: PortfolioDetailDescProps) => (
-            <PortfolioDetailDesc {...item} key={shortId()} />
-          ))}
-        </Description>
+          <Description>
+            {contents.map((item: PortfolioDetailDescProps) => (
+              <PortfolioDetailDesc {...item} key={shortId()} />
+            ))}
+          </Description>
 
-        <StyledLine />
-      </Content>
+          <StyledLine />
+        </Content>
 
-      {width >= 1200 && <Image fluid={image} alt={info.title} />}
-    </PortfolioDetailContentComponent>
-  );
-};
+        {width >= 1200 && <Image image={image} alt={info.title} />}
+      </PortfolioDetailContentComponent>
+    )
+  }
 
-export default PortfolioDetailContent;
+export default PortfolioDetailContent

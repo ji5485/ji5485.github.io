@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
 
-interface MarkdownProps {
-  html: string;
+type MarkdownProps = {
+  html: string
 }
 
 const MarkdownComponent = styled.div`
@@ -116,10 +116,10 @@ const MarkdownComponent = styled.div`
       font-size: 17px;
     }
   }
-`;
+`
 
 const Markdown: FunctionComponent<MarkdownProps> = function ({ html }) {
-  return <MarkdownComponent dangerouslySetInnerHTML={{ __html: html }} />;
-};
+  return <MarkdownComponent dangerouslySetInnerHTML={{ __html: html }} />
+}
 
-export default Markdown;
+export default Markdown

@@ -95,17 +95,23 @@ module.exports = {
         plugins: gatsbyRemarkPlugins,
       },
     },
-    'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-plugin-sharp',
+      resolve: `gatsby-plugin-sharp`,
       options: {
-        defaultQuality: 80,
-      },
+        formats: ['auto', 'webp'],
+        quality: 100,
+        placeholder: 'blurred',
+        transformOptions: {
+          fit: 'COVER',
+        },
+      }
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: [`/blog/*`],
+        excludes: [`/blog/*`],
       },
     },
     {

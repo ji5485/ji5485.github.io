@@ -1,25 +1,25 @@
-import React, { FunctionComponent } from 'react';
-import PageTemplate from 'components/templates/PageTemplate';
-import PostItemHead from 'components/organisms/PostItemHead';
-import PostItemBody from 'components/organisms/PostItemBody';
-import PostItemFoot, { OtherItemInfo } from 'components/organisms/PostItemFoot';
-import { FluidObject } from 'gatsby-image';
+import React, { FunctionComponent } from 'react'
+import PageTemplate from 'components/templates/PageTemplate'
+import PostItemHead from 'components/organisms/PostItemHead'
+import PostItemBody from 'components/organisms/PostItemBody'
+import PostItemFoot, { OtherItemInfo } from 'components/organisms/PostItemFoot'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 interface BlogPostItemProps {
   postInfo: {
-    title: string;
-    date: string;
-    categories: string[];
+    title: string
+    date: string
+    categories: string[]
     thumbnail: {
       childImageSharp: {
-        fluid: FluidObject;
-      };
-    };
-  };
-  html: string;
-  prevItem: OtherItemInfo | null;
-  nextItem: OtherItemInfo | null;
-  toc: string;
+        gatsbyImageData: IGatsbyImageData
+      }
+    }
+  }
+  html: string
+  prevItem: OtherItemInfo | null
+  nextItem: OtherItemInfo | null
+  toc: string
 }
 
 const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
@@ -28,7 +28,7 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
     date,
     categories,
     thumbnail: {
-      childImageSharp: { fluid },
+      childImageSharp: { gatsbyImageData },
     },
   },
   html,
@@ -38,11 +38,16 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = function ({
 }) {
   return (
     <PageTemplate>
-      <PostItemHead title={title} date={date} categories={categories} thumbnail={fluid} />
+      <PostItemHead
+        title={title}
+        date={date}
+        categories={categories}
+        thumbnail={gatsbyImageData}
+      />
       <PostItemBody html={html} toc={toc} />
       <PostItemFoot prevItem={prevItem} nextItem={nextItem} />
     </PageTemplate>
-  );
-};
+  )
+}
 
-export default BlogPostItem;
+export default BlogPostItem

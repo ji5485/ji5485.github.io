@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 import Text from 'components/atoms/Text';
 import { LinkComponent } from 'components/atoms/Link';
 import Icon, { IconComponent } from 'components/atoms/Icon';
-import Img, { FluidObject } from 'gatsby-image';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 export type PortfolioItemType = {
   title: string;
   content: string;
   image: {
-    fluid: FluidObject;
+    gatsbyImageData: IGatsbyImageData;
   };
 };
 
@@ -53,7 +53,7 @@ const ImageBox = styled(LinkComponent)`
   }
 `;
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -92,7 +92,7 @@ const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({
   index,
   title,
   content,
-  image,
+  image: { gatsbyImageData },
 }) {
   const portfolioIndex: string = (index < 10 ? '0' : '') + index;
 
@@ -102,7 +102,7 @@ const PortfolioItem: FunctionComponent<PortfolioItemProps> = function ({
 
       <ImageBox to={`/portfolio/${type}/${index}`}>
         <Icon type="search" size={30} />
-        <Image fluid={image.fluid} alt="Portfolio Item Image" />
+        <Image image={gatsbyImageData} alt="Portfolio Item Image" />
       </ImageBox>
 
       <Title>{title}</Title>

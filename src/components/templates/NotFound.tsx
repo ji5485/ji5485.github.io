@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Text, { TextComponent } from 'components/atoms/Text';
-import { LinkComponent } from 'components/atoms/Link';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Text, { TextComponent } from 'components/atoms/Text'
+import { LinkComponent } from 'components/atoms/Link'
 
 const NotFoundComponent = styled.div`
   min-height: 100vh;
@@ -9,11 +9,11 @@ const NotFoundComponent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
+`
 
 const NotFoundTextBox = styled.div`
   display: flex;
-`;
+`
 
 const NotFoundText = styled(Text)<{ reverse?: boolean }>`
   font-size: 250px;
@@ -40,7 +40,7 @@ const NotFoundText = styled(Text)<{ reverse?: boolean }>`
   @media (max-width: 768px) {
     font-size: 120px;
   }
-`;
+`
 
 const SubTextBox = styled(Text)`
   font-size: 25px;
@@ -53,7 +53,7 @@ const SubTextBox = styled(Text)`
   ${TextComponent} {
     text-align: center;
   }
-`;
+`
 
 const LinkToMain = styled(LinkComponent)`
   margin-top: 50px;
@@ -75,9 +75,9 @@ const LinkToMain = styled(LinkComponent)`
       color: #1e1f21;
     }
   }
-`;
+`
 
-const NotFound: FunctionComponent = function ({}) {
+const NotFound: FunctionComponent = function () {
   return (
     <NotFoundComponent>
       <NotFoundTextBox>
@@ -94,7 +94,7 @@ const NotFound: FunctionComponent = function ({}) {
 
       <LinkToMain to="/">Back To Main</LinkToMain>
     </NotFoundComponent>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound

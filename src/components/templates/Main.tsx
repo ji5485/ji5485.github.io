@@ -4,7 +4,7 @@ import SideMenu, { SideMenuComponent } from 'components/molecules/SideMenu';
 import IconList, { IconListProps } from 'components/molecules/IconList';
 import Introduction from 'components/organisms/Introduction';
 import Header, { HeaderComponent } from 'components/organisms/Header';
-import { FixedObject } from 'gatsby-image';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 const INTRODUCTION_ICON_LIST: IconListProps['list'] = [
   { href: 'https://github.com/ji5485', type: 'github' },
@@ -13,7 +13,7 @@ const INTRODUCTION_ICON_LIST: IconListProps['list'] = [
 ];
 
 interface MainProps {
-  image: FixedObject;
+  image: IGatsbyImageData;
 }
 
 const MainComponent = styled.div`

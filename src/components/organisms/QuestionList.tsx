@@ -1,14 +1,17 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Question, { QuestionComponent, QuestionProps } from 'components/molecules/Question';
-import QUESTION_LIST from 'static/QuestionList.json';
-import { shortId } from 'utilities/utils';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Question, {
+  QuestionComponent,
+  QuestionProps,
+} from 'components/molecules/Question'
+import QUESTION_LIST from 'static/QuestionList.json'
+import { shortId } from 'utilities/utils'
 
 type QuestionType = {
-  icon: QuestionProps['icon'];
-  title: string[];
-  content: string[];
-};
+  icon: QuestionProps['icon']
+  title: string[]
+  content: string[]
+}
 
 export const QuestionListComponent = styled.div`
   display: grid;
@@ -24,16 +27,16 @@ export const QuestionListComponent = styled.div`
       margin-top: 20px;
     }
   }
-`;
+`
 
 const QuestionList: FunctionComponent = function () {
   return (
     <QuestionListComponent>
       {QUESTION_LIST.map((props: QuestionType) => {
-        return <Question {...props} key={shortId()} />;
+        return <Question {...props} key={shortId()} />
       })}
     </QuestionListComponent>
-  );
-};
+  )
+}
 
-export default QuestionList;
+export default QuestionList

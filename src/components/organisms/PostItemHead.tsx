@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Text, { TextComponent } from 'components/atoms/Text';
-import Img, { FluidObject } from 'gatsby-image';
-import { dateFormat, shortId } from 'utilities/utils';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Text, { TextComponent } from 'components/atoms/Text'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { dateFormat, shortId } from 'utilities/utils'
 
 interface PostItemHeadProps {
-  title: string;
-  date: string;
-  categories: string[];
-  thumbnail: FluidObject;
+  title: string
+  date: string
+  categories: string[]
+  thumbnail: IGatsbyImageData
 }
 
 const Title = styled(Text)`
@@ -19,7 +19,7 @@ const Title = styled(Text)`
   @media (max-width: 768px) {
     font-size: 25px;
   }
-`;
+`
 
 const PostInfo = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const PostInfo = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
-`;
+`
 
 const Categories = styled.div`
   display: flex;
@@ -48,7 +48,7 @@ const Categories = styled.div`
       font-size: 12px;
     }
   }
-`;
+`
 
 const Date = styled.div`
   font-size: 15px;
@@ -60,7 +60,7 @@ const Date = styled.div`
     padding: 0;
     font-size: 12px;
   }
-`;
+`
 
 const PostItemHead: FunctionComponent<PostItemHeadProps> = function ({
   title,
@@ -70,7 +70,7 @@ const PostItemHead: FunctionComponent<PostItemHeadProps> = function ({
 }) {
   return (
     <div>
-      <Img fluid={thumbnail} alt="Thumbnail Image" />
+      <GatsbyImage image={thumbnail} alt="Thumbnail Image" />
       <Title>{title}</Title>
       <PostInfo>
         <Categories>
@@ -81,7 +81,7 @@ const PostItemHead: FunctionComponent<PostItemHeadProps> = function ({
         <Date>{dateFormat(date)}</Date>
       </PostInfo>
     </div>
-  );
-};
+  )
+}
 
-export default PostItemHead;
+export default PostItemHead

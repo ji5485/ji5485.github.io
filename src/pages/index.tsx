@@ -1,22 +1,25 @@
-import React, { FunctionComponent } from 'react';
-import { graphql } from 'gatsby';
-import Layout from 'components/templates/Layout';
-import Main from 'components/templates/Main';
-import { FixedObject } from 'gatsby-image';
+import React, { FunctionComponent } from 'react'
+import { graphql } from 'gatsby'
+import Layout from 'components/templates/Layout'
+import Main from 'components/templates/Main'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
-interface IndexPageProps {
+type IndexPageProps = {
   data: {
     site: {
       siteMetadata: {
-        title: string;
-        description: string;
-        siteUrl: string;
-      };
-    };
-    imageSharp: {
-      fixed: FixedObject;
-    };
-  };
+        title: string
+        description: string
+        siteUrl: string
+      }
+    }
+    file: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData
+      }
+      publicURL: string
+    }
+  }
 }
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
@@ -24,17 +27,25 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    imageSharp: { fixed },
+    file: {
+      childImageSharp: { gatsbyImageData },
+      publicURL,
+    },
   },
 }) {
   return (
-    <Layout title={title} description={description} image={fixed.src} url={siteUrl}>
-      <Main image={fixed} />
+    <Layout
+      title={title}
+      description={description}
+      image={publicURL}
+      url={siteUrl}
+    >
+      <Main image={gatsbyImageData} />
     </Layout>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage
 
 export const metadataQuery = graphql`
   {
@@ -45,10 +56,11 @@ export const metadataQuery = graphql`
         siteUrl
       }
     }
-    imageSharp(fixed: { originalName: { eq: "main_image.jpeg" } }) {
-      fixed(width: 200, height: 200, quality: 80) {
-        ...GatsbyImageSharpFixed_withWebp
+    file(name: { eq: "main_image" }) {
+      childImageSharp {
+        gatsbyImageData(width: 200, height: 200)
       }
+      publicURL
     }
   }
-`;
+`

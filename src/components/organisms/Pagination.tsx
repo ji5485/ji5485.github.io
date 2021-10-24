@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Icon, { IconComponent } from 'components/atoms/Icon';
-import { LinkComponent } from 'components/atoms/Link';
-import PaginationButton from 'components/molecules/PaginationButton';
-import { shortId } from 'utilities/utils';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Icon, { IconComponent } from 'components/atoms/Icon'
+import { LinkComponent } from 'components/atoms/Link'
+import PaginationButton from 'components/molecules/PaginationButton'
+import { shortId } from 'utilities/utils'
 
-export interface PaginationProps {
-  totalPage: number;
-  currentPage: number;
-  category: string;
+export type PaginationProps = {
+  totalPage: number
+  currentPage: number
+  category: string | null
 }
 
 const PaginationComponent = styled.div`
@@ -16,7 +16,7 @@ const PaginationComponent = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 80px;
-`;
+`
 
 const PageMoveIcon = styled(LinkComponent)<{ active: number }>`
   cursor: pointer;
@@ -27,20 +27,22 @@ const PageMoveIcon = styled(LinkComponent)<{ active: number }>`
     color: ${({ active }) => (active ? 'initial' : 'var(--color)')};
     opacity: 0.3;
   }
-`;
+`
 
 const Pagination: FunctionComponent<PaginationProps> = function ({
   totalPage,
   currentPage,
   category,
 }) {
-  const currentPosition = Math.floor((currentPage - 1) / 5) + 1;
-  const prev = currentPosition === 1 ? null : (currentPosition - 1) * 5;
+  const currentPosition = Math.floor((currentPage - 1) / 5) + 1
+  const prev = currentPosition === 1 ? null : (currentPosition - 1) * 5
   const next =
-    currentPosition === Math.floor((totalPage - 1) / 5) + 1 ? null : currentPosition * 5 + 1;
+    currentPosition === Math.floor((totalPage - 1) / 5) + 1
+      ? null
+      : currentPosition * 5 + 1
 
   const returnPageLink = (page: number | null): string =>
-    `/blog${category ? `/${category}` : ''}/${page}/`;
+    page !== null ? `/blog${category ? `/${category}` : ''}/${page}/` : '/'
 
   return (
     <PaginationComponent>
@@ -49,19 +51,23 @@ const Pagination: FunctionComponent<PaginationProps> = function ({
       </PageMoveIcon>
 
       {[1, 2, 3, 4, 5].map((index: number) => {
-        const page = (currentPosition - 1) * 5 + index;
+        const page = (currentPosition - 1) * 5 + index
         return (
           page <= totalPage && (
-            <PaginationButton to={returnPageLink(page)} page={page} key={shortId()} />
+            <PaginationButton
+              to={returnPageLink(page)}
+              page={page}
+              key={shortId()}
+            />
           )
-        );
+        )
       })}
 
       <PageMoveIcon to={returnPageLink(next)} active={next ? 1 : 0}>
         <Icon type="caretRight" size={17} />
       </PageMoveIcon>
     </PaginationComponent>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

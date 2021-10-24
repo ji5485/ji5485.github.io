@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Link, { LinkComponent } from 'components/atoms/Link';
-import { shortId, splitOnUpper } from 'utilities/utils';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Link, { LinkComponent } from 'components/atoms/Link'
+import { shortId, splitOnUpper } from 'utilities/utils'
 
-export interface CategoryListProps {
+export type CategoryListProps = {
   categories: {
-    [key: string]: number;
-  };
+    [key: string]: number
+  }
 }
 
 const CategoryListComponent = styled.div`
@@ -28,23 +28,25 @@ const CategoryListComponent = styled.div`
   @media (max-width: 768px) {
     margin-bottom: 40px;
   }
-`;
+`
 
-const CategoryList: FunctionComponent<CategoryListProps> = function ({ categories }) {
+const CategoryList: FunctionComponent<CategoryListProps> = function ({
+  categories,
+}) {
   return (
     <CategoryListComponent>
       {Object.keys(categories).map((category: string) => {
-        const url = `/blog/${splitOnUpper(category)}/1`;
-        const count: number = categories[category];
+        const url = `/blog/${splitOnUpper(category)}/1`
+        const count: number = categories[category]
 
         return (
           <Link to={url} key={shortId()}>
             #{category}({count})
           </Link>
-        );
+        )
       })}
     </CategoryListComponent>
-  );
-};
+  )
+}
 
-export default CategoryList;
+export default CategoryList

@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import Title from 'components/molecules/Title';
-import QuestionList from 'components/organisms/QuestionList';
-import Profile from 'components/organisms/Profile';
-import CareerList from 'components/organisms/CareerList';
-import PageTemplate from 'components/templates/PageTemplate';
+import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Title from 'components/molecules/Title'
+import QuestionList from 'components/organisms/QuestionList'
+import Profile from 'components/organisms/Profile'
+import CareerList from 'components/organisms/CareerList'
+import PageTemplate from 'components/templates/PageTemplate'
 
 const StyleLine = styled.div`
   width: 1px;
@@ -15,9 +15,9 @@ const StyleLine = styled.div`
   body.dark & {
     background: #ffffff;
   }
-`;
+`
 
-const About: FunctionComponent = function ({}) {
+const About: FunctionComponent = function () {
   return (
     <PageTemplate>
       <Title title="About." subTitle="Introduce Myself" align="left" />
@@ -27,7 +27,7 @@ const About: FunctionComponent = function ({}) {
       <Profile />
       <CareerList />
     </PageTemplate>
-  );
-};
+  )
+}
 
-export default About;
+export default About

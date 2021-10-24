@@ -1,21 +1,21 @@
-import React, { FunctionComponent } from 'react';
-import { PortfolioListProps } from 'components/organisms/PortfolioList';
-import Layout from 'components/templates/Layout';
-import Portfolio from 'components/templates/Portfolio';
-import { graphql } from 'gatsby';
+import React, { FunctionComponent } from 'react'
+import { PortfolioListProps } from 'components/organisms/PortfolioList'
+import Layout from 'components/templates/Layout'
+import Portfolio from 'components/templates/Portfolio'
+import { graphql } from 'gatsby'
 
-interface PortfolioPageProps {
+type PortfolioPageProps = {
   data: {
     project: {
-      edges: PortfolioListProps['list'];
-    };
+      edges: PortfolioListProps['list']
+    }
     activity: {
-      edges: PortfolioListProps['list'];
-    };
-    imageSharp: {
-      fixed: { src: string };
-    };
-  };
+      edges: PortfolioListProps['list']
+    }
+    file: {
+      publicURL: string
+    }
+  }
 }
 
 const PORTFOLIO_PAGE_METADATA = {
@@ -23,34 +23,34 @@ const PORTFOLIO_PAGE_METADATA = {
   description:
     '개발자가 되고 싶다고 생각한 이후로 만든 프로젝트에 대한 설명과 그동안 여러 대회에 참석하면서 생각한 느낀 점과 결과를 담았습니다.',
   url: 'https://ji5485.github.io/portfolio/',
-};
+}
 
 const PortfolioPage: FunctionComponent<PortfolioPageProps> = function ({
   data: {
     project,
     activity,
-    imageSharp: {
-      fixed: { src },
-    },
+    file: { publicURL },
   },
 }) {
   return (
-    <Layout {...PORTFOLIO_PAGE_METADATA} image={src}>
+    <Layout {...PORTFOLIO_PAGE_METADATA} image={publicURL}>
       <Portfolio project={project.edges} activity={activity.edges} />
     </Layout>
-  );
-};
+  )
+}
 
-export default PortfolioPage;
+export default PortfolioPage
 
 export const getPortfolioMetadata = graphql`
   fragment PortfolioData on PortfolioMetadata {
     title
     content
     image {
-      fluid(maxWidth: 720, maxHeight: 200, fit: OUTSIDE, quality: 80) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
+      gatsbyImageData(
+        width: 720
+        height: 200
+        transformOptions: { fit: OUTSIDE }
+      )
     }
   }
 
@@ -70,10 +70,8 @@ export const getPortfolioMetadata = graphql`
       }
     }
 
-    imageSharp(fixed: { originalName: { eq: "main_image.jpeg" } }) {
-      fixed {
-        src
-      }
+    file(name: { eq: "main_image" }) {
+      publicURL
     }
   }
-`;
+`
