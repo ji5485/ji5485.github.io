@@ -98,12 +98,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
-        formats: ['auto', 'webp'],
-        quality: 100,
-        placeholder: 'blurred',
-        transformOptions: {
-          fit: 'COVER',
-        },
+        defaults: {
+          formats: ['auto', 'webp'],
+          quality: 100,
+          placeholder: 'blurred',
+        }
       }
     },
     `gatsby-transformer-sharp`,

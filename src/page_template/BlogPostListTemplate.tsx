@@ -61,9 +61,11 @@ export const blogCategoryQuery = graphql`
       categories
       thumbnail {
         childImageSharp {
-          fluid(maxWidth: 180, maxHeight: 130, fit: INSIDE, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(
+            width: 180
+            height: 130
+            transformOptions: { fit: INSIDE }
+          )
         }
       }
     }

@@ -28,5 +28,5 @@ const AwaitLoadStorageComponent = function () {
 };
 
 export const onRenderBody = ({ setPreBodyComponents }) => {
-  setPreBodyComponents([<AwaitLoadStorageComponent />]);
+  setPreBodyComponents([<AwaitLoadStorageComponent key="blog-mode-component" />]);
 };
