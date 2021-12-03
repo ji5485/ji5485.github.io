@@ -3726,6 +3726,7 @@ __metadata:
     identity-obj-proxy: ^3.0.0
     lint-staged: ^11.2.4
     lodash: ^4.17.21
+    pify: ^5.0.0
     prettier: ^2.4.1
     prismjs: ^1.25.0
     react: ^17.0.2
@@ -19202,6 +19203,13 @@ fsevents@~2.3.2:
   version: 4.0.1
   resolution: "pify@npm:4.0.1"
   checksum: 9c4e34278cb09987685fa5ef81499c82546c033713518f6441778fbec623fc708777fe8ac633097c72d88470d5963094076c7305cafc7ad340aae27cfacd856b
+  languageName: node
+  linkType: hard
+
+"pify@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "pify@npm:5.0.0"
+  checksum: 443e3e198ad6bfa8c0c533764cf75c9d5bc976387a163792fb553ffe6ce923887cf14eebf5aea9b7caa8eab930da8c33612990ae85bd8c2bc18bedb9eae94ecb
   languageName: node
   linkType: hard
 

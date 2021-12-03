@@ -114,6 +114,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["identity-obj-proxy", "npm:3.0.0"],
             ["lint-staged", "npm:11.2.4"],
             ["lodash", "npm:4.17.21"],
+            ["pify", "npm:5.0.0"],
             ["prettier", "npm:2.4.1"],
             ["prismjs", "npm:1.25.0"],
             ["react", "npm:17.0.2"],
@@ -7691,6 +7692,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["identity-obj-proxy", "npm:3.0.0"],
             ["lint-staged", "npm:11.2.4"],
             ["lodash", "npm:4.17.21"],
+            ["pify", "npm:5.0.0"],
             ["prettier", "npm:2.4.1"],
             ["prismjs", "npm:1.25.0"],
             ["react", "npm:17.0.2"],
@@ -27318,6 +27320,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/pify-npm-4.0.1-062756097b-9c4e34278c.zip/node_modules/pify/",
           "packageDependencies": [
             ["pify", "npm:4.0.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:5.0.0", {
+          "packageLocation": "./.yarn/cache/pify-npm-5.0.0-f5abe8ab8d-443e3e198a.zip/node_modules/pify/",
+          "packageDependencies": [
+            ["pify", "npm:5.0.0"]
           ],
           "linkType": "HARD",
         }]
