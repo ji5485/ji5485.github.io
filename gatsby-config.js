@@ -2,7 +2,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
 const gatsbyRemarkPlugins = [
   {
@@ -53,7 +53,7 @@ const gatsbyRemarkPlugins = [
       rel: 'nofollow',
     },
   },
-];
+]
 
 module.exports = {
   siteMetadata: {
@@ -102,17 +102,12 @@ module.exports = {
           formats: ['auto', 'webp'],
           quality: 100,
           placeholder: 'blurred',
-        }
-      }
+        },
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
-    {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        excludes: [`/blog/*`],
-      },
-    },
+    `gatsby-plugin-advanced-sitemap`,
     {
       resolve: `gatsby-plugin-offline`,
       options: {
@@ -134,4 +129,4 @@ module.exports = {
       },
     },
   ],
-};
+}
