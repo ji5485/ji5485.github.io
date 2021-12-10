@@ -118,7 +118,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://ji5485.github.io',
-        sitemap: 'https://ji5485.github.io/sitemap.xml',
+        sitemap: 'https://ji5485.github.io/sitemap-pages.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
