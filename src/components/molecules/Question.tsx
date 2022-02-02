@@ -49,12 +49,16 @@ const TitleBox = styled.div`
 `
 
 const Content = styled.div`
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.6;
+  ${TextComponent} {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
 
   @media (max-width: 768px) {
-    font-size: 13px;
+    ${TextComponent} {
+      font-size: 12px;
+    }
   }
 `
 

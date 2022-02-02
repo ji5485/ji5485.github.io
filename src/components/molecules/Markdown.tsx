@@ -79,6 +79,20 @@ const MarkdownComponent = styled.div`
     text-decoration: underline;
   }
 
+  aside {
+    margin: 20px 0;
+    padding: 20px 15px;
+    border-radius: 7px;
+    background: #f1f3f5;
+    font-weight: 700;
+    line-height: 1.5;
+
+    body.dark & {
+      background: #343a40;
+      color: #ffffff;
+    }
+  }
+
   pre[class*='language-'] {
     margin: 30px 0;
     padding: 15px;
