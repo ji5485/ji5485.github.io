@@ -15,6 +15,7 @@ export type IconListProps = {
 
 export const IconListComponent = styled.div`
   display: flex;
+  color: var(--color);
 
   a + a {
     margin-left: 20px;

@@ -11,6 +11,7 @@ export type LinkProps = {
 export const LinkComponent = styled(GatsbyLink)`
   cursor: pointer;
   display: block;
+  color: var(--color);
 
   &.active {
     font-weight: 700;
