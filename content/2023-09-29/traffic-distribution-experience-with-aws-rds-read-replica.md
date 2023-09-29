@@ -12,7 +12,11 @@ thumbnail: './traffic-distribution-experience-with-aws-rds-read-replica.png'
 
 하지만 7월 말, 천천히 늘어가던 유저 수가 우리 서비스의 좋은 소식과 함께 갑자기 크게 증가하기 시작했는데 서버와 데이터베이스 1개로만 잘 운영하던 서비스가 엄청나게 느려지기 시작했던 것이었습니다.
 
+<br />
+
 ![./traffic-distribution-experience-with-aws-rds-read-replica-1.png](./traffic-distribution-experience-with-aws-rds-read-replica-1.png)
+
+<br />
 
 그 당시 토요일 밤 하필 저는 양양에 놀러 간 상황이었는데, 그때에는 다들 무섭게 쌓여가는 유저 문의를 처리하는데 바빠 당장 인프라 문제에 대응할 수 있는 개발 인력이 없었습니다.
 
@@ -22,9 +26,15 @@ thumbnail: './traffic-distribution-experience-with-aws-rds-read-replica.png'
 
 또한 거래가 발생하게 되면 일일 미션을 달성하게 되어 포인트를 받는 기능이 있는데, 이 또한 계속해서 밀려 제때 포인트를 받지 못해 장애가 발생한 날에만 포인트를 받지 못하는 경우도 생길 수 있었습니다.
 
+<br />
+
 ![./traffic-distribution-experience-with-aws-rds-read-replica-2.png](./traffic-distribution-experience-with-aws-rds-read-replica-2.png)
 
+<br />
+
 ![./traffic-distribution-experience-with-aws-rds-read-replica-3.png](./traffic-distribution-experience-with-aws-rds-read-replica-3.png)
+
+<br />
 
 그래서 그 당시 EC2 인스턴스의 CPU와 메모리 사용률이 크게 증가하고, 데이터베이스 CPU 사용률이 거의 100퍼센트에 도달했었습니다.
 
@@ -92,13 +102,21 @@ thumbnail: './traffic-distribution-experience-with-aws-rds-read-replica.png'
 
 먼저, AWS RDS 콘솔 페이지에서 읽기 전용 복제본 생성을 희망하는 인스턴스를 선택하고 작업 메뉴의 읽기 전용 복제본 메뉴를 선택합니다.
 
+<br />
+
 ![./traffic-distribution-experience-with-aws-rds-read-replica-4.png](./traffic-distribution-experience-with-aws-rds-read-replica-4.png)
+
+<br />
 
 해당 메뉴를 선택하면 읽기 전용 복제본 생성 페이지로 이동하게 됩니다.
 
 저는 포스팅을 위해 제 환경에서 생성 페이지에 접속했을 때 나타나는 기본 설정을 그대로 캡쳐했지만, 필요에 따라 옵션을 다르게 설정할 수도 있습니다.
 
+<br />
+
 ![./traffic-distribution-experience-with-aws-rds-read-replica-5.png](./traffic-distribution-experience-with-aws-rds-read-replica-5.png)
+
+<br />
 
 그런데 여기서 확인할 수 있는 큰 특징이 2가지 더 보입니다.
 
@@ -108,7 +126,11 @@ thumbnail: './traffic-distribution-experience-with-aws-rds-read-replica.png'
 
 이렇게 읽기 전용 복제본을 생성하게 되면 아래와 같이 마스터 노드 아래 복제본이 표시됩니다.
 
+<br />
+
 ![./traffic-distribution-experience-with-aws-rds-read-replica-6.png](./traffic-distribution-experience-with-aws-rds-read-replica-6.png)
+
+<br />
 
 이제 이렇게 생성한 복제본의 엔드포인트를 Sequelize의 replication 옵션에 추가하고 배포해야 합니다.
 

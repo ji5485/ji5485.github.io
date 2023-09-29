@@ -72,6 +72,7 @@ const MarkdownComponent = styled.div`
 
   p {
     padding: 3px 0;
+    word-break: break-word;
   }
 
   a {
