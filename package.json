@@ -14,7 +14,6 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@reach/router": "^1.3.4",
     "core-js": "^3.18.3",
-    "date-fns": "^2.29.3",
     "dotenv": "^10.0.0",
     "emotion": "^11.0.0",
     "emotion-server": "^11.0.0",
@@ -166,5 +165,5 @@
       "html"
     ]
   },
-  "packageManager": "yarn@3.6.3"
+  "packageManager": "yarn@3.0.2"
 }

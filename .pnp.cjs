@@ -62,7 +62,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-plugin-emotion", "npm:11.0.0"],\
             ["babel-preset-react-app", "npm:10.0.0"],\
             ["core-js", "npm:3.18.3"],\
-            ["date-fns", "npm:2.29.3"],\
             ["dotenv", "npm:10.0.0"],\
             ["emotion", "npm:11.0.0"],\
             ["emotion-server", "npm:11.0.0"],\
@@ -7859,7 +7858,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-plugin-emotion", "npm:11.0.0"],\
             ["babel-preset-react-app", "npm:10.0.0"],\
             ["core-js", "npm:3.18.3"],\
-            ["date-fns", "npm:2.29.3"],\
             ["dotenv", "npm:10.0.0"],\
             ["emotion", "npm:11.0.0"],\
             ["emotion-server", "npm:11.0.0"],\
@@ -16572,13 +16570,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/date-fns-npm-2.25.0-fe211b387d-8896dc1dde.zip/node_modules/date-fns/",\
           "packageDependencies": [\
             ["date-fns", "npm:2.25.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:2.29.3", {\
-          "packageLocation": "./.yarn/cache/date-fns-npm-2.29.3-fef7e3c72c-e01cf5b62a.zip/node_modules/date-fns/",\
-          "packageDependencies": [\
-            ["date-fns", "npm:2.29.3"]\
           ],\
           "linkType": "HARD"\
         }]\
