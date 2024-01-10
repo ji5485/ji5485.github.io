@@ -1,0 +1,201 @@
+{
+  "project": [
+    {
+      "title": "EasyWord",
+      "content": "자신의 스타일대로 직접 자판의 크기, 위치 등을 자유롭게 조절할 수 있는 키보드 애플리케이션",
+      "image": "easyword_thumbnail.png",
+      "extraInfo": {
+        "subTitle": "Customize Keyboard Yourself, 커스텀 키보드 앱",
+        "period": "2017.05. ~ 2017.07.",
+        "description": "고등학교 2학년, 애플리케이션 개발 대회 SK Planet STA+C과 창업 경진 대회 Rohoboth LaunchCup에서 대상을 수상받은 프로젝트입니다. 키보드를 직접 커스터마이징 할 수 있어 키보드 레이아웃, 자판 구성, 테마, 단축키 등 사용자의 편의에 맞게 다양한 설정이 가능한 키보드 애플리케이션입니다.",
+        "review": "이 프로젝트는 개발 담당이 아닌 팀장 겸 기획 및 디자인을 맡아 출전하게 되었습니다. 2개의 대회를 준비하면서 저는 실질적인 개발 실력 향상이 아닌, 어떻게 기획자와 디자이너의 관점에서 개발자와 소통할 수 있는지 깨닫게 되었습니다. 처음으로 팀 단위로 준비한 프로젝트로 어떻게 팀을 이끌며 협업을 진행하는지에 대해 알게 되어 개발만이 아닌 다양한 경험을 얻을 수 있었던 프로젝트였습니다.",
+        "extraImage": [
+          "easyword_main_design.png",
+          "easyword_keyboard_height.png",
+          "easyword_keyboard_font_size.png",
+          "easyword_keyboard_theme.png"
+        ]
+      }
+    },
+    {
+      "title": "KakaoBook",
+      "content": "고등학교 교내 웹 애플리케이션 개발 대회에 제출한 Open API를 통해 원하는 정보를 스크랩하는 서비스",
+      "image": "kakaobook_thumbnail.png",
+      "extraInfo": {
+        "subTitle": "고등학교 2학년때 개발한 첫 웹 애플리케이션",
+        "period": "2017.08. ~ 2017.10.",
+        "description": "고등학교 2학년, 교내 웹 애플리케이션 개발 대회에서 대상을 수상받은 프로젝트입니다. Java Servlet과 Open API를 활용하여 웹 애플리케이션을 개발하는 대회였는데, 저는 Naver와 Kakao의 Open API를 활용하여 정보를 스크랩하여 모바일에서 확인이 가능하며, SNS에 공유할 수 있는 애플리케이션을 개발하였습니다.",
+        "review": "이 프로젝트를 진행하면서 Java 웹 애플리케이션의 기본적인 구조와 구성 요소를 알게 되었고, 소프트웨어 디자인 패턴까지 이해하게 되어 여러모로 기억에 남는 프로젝트입니다. 단순히 어떻게 웹 애플리케이션을 개발한다라는 개념만 알아가는 것이 아닌, 현재 소프트웨어 시장 동향이나 여러 소프트웨어 개발 지식을 알 수 있었기 때문에 저에게 있어서 애착이 가는 아주 귀중한 프로젝트입니다.",
+        "extraImage": [
+          "kakaobook_main_page.png",
+          "kakakbook_app_connect_page.png",
+          "kakaobook_user_info_page.png",
+          "kakaobook_search_page.png",
+          "kakaobook_scrap_list_page.png",
+          "kakaobook_scrap_share_page.png"
+        ]
+      }
+    },
+    {
+      "title": "Factus",
+      "content": "익명으로 간단하게 원하는 변호사를 통해 공익 신고를 할 수 있는 웹 애플리케이션",
+      "image": "factus_thumbnail.png",
+      "extraInfo": {
+        "subTitle": "스타트업에서 처음으로 진행한 팀 프로젝트",
+        "period": "2019.06. ~ 2019.07.",
+        "description": "웹 프론트엔드 개발자로서 스타트업에 들어간 후 처음으로 진행했던 저의 첫 팀 단위 프로젝트입니다. 저 포함 총 3명이 개발에 참여했으며, 공익신고를 위한 변호사 매칭 플랫폼을 제작했습니다. 사용자는 공익 신고를 위해 정보 기입 후 변호사를 선택하여 공익 신고 절차를 밟을 수 있습니다.",
+        "review": "전체적인 프론트엔드 부분을 담당했으며, 필요시 백엔드 코드도 같이 작성하게 되었습니다. 팀 단위 프로젝트이기 때문에 무엇보다도 협업을 위한 코드 작성에 대해 많은 것을 알게 되었습니다. 다른 사람이 보고 쉽게 이해하기 위한 코드 작성하기, 주석을 통한 코드 설명하기 등 이해하기 쉬운 코드를 작성하기 위해 많은 노력을 했었던 프로젝트였습니다.",
+        "extraImage": [
+          "factus_main_page.png",
+          "factus_introduction.png",
+          "factus_sign_up.png",
+          "factus_login_page.png",
+          "factus_helpline.png",
+          "factus_select_lawyer.png"
+        ]
+      }
+    },
+    {
+      "title": "WeInteract",
+      "content": "특허, 논문 등과 같은 다양한 지식 재산 및 생각을 공유할 수 있는 디지털 네트워킹 플랫폼",
+      "image": "weinteract_thumbnail.png",
+      "extraInfo": {
+        "subTitle": "스타트업에서 진행한 것 중 가장 많은 공을 들인 프로젝트",
+        "period": "2019.11. ~ 2020.02.",
+        "description": "스타트업 내 백엔드 개발자와 함께한 프로젝트로, 다양한 지식 재산을 올리거나 스크랩하고, 사용자들끼리 다양한 생각을 공유할 수 있는 네트워킹 플랫폼입니다. 사용자는 유저 피드 및 채팅을 통해 지식을 공유할 수 있고, 여러 특허나 논문 등의 정보를 확인할 수 있습니다.",
+        "review": "이 규모의 웹 애플리케이션을 만들어 본 적은 처음이어서 많이 고생했던 프로젝트입니다. 완전히 역할이 분리된 상태에서 자신이 어떤 작업을 하는지, 어떤 기능이 필요한지에 대한 정보를 공유하며 체계적으로 진행했던 팀 프로젝트였습니다. 또한 이를 통해 개발 실력도 많이 늘어 그만큼 애착이 가는 작업물입니다.",
+        "extraImage": [
+          "weinteract_sign_up.png",
+          "weinteract_main_page.png",
+          "weinteract_profile.png",
+          "weinteract_setting_patent.png",
+          "weinteract_patent_list.png",
+          "weinteract_paper_detail.png"
+        ]
+      }
+    },
+    {
+      "title": "Train Map Visualizer",
+      "content": "사용자가 원하는대로 직접 노선도를 그리고, 시뮬레이션 해볼 수 있는 웹 프로젝트",
+      "image": "train_map_visualizer_thumbnail.png",
+      "extraInfo": {
+        "subTitle": "내가 과연 어디까지 개발할 수 있을까를 알려준 프로젝트",
+        "period": "2021.04. ~ 2021.10.",
+        "description": "군복무 중에 시작한 프로젝트로, 사용자가 원하는대로 역과 선로를 추가해 노선도를 만들 수 있으며 그린 노선도를 바탕으로 시뮬레이션할 수 있습니다. 실제 구글이나 네이버 맵에서 제공하는 길찾기 기능처럼 그린 노선도를 바탕으로 최소 경로를 찾을 수 있는 기능을 제공합니다.",
+        "review": "프로젝트의 핵심인 Recoil 라이브러리를 사용해 사용자가 노선도를 직접 그리고, 시뮬레이션 할 수 있을 만큼의 데이터를 관리하기 위해 어떻게 해야 더 쉽고, 효율적으로 관리할 수 있을지 수없이 고민했습니다. 또, 그동안 알고리즘 문제로만 접한 BFS, 다익스트라 등의 알고리즘 및 자료구조를 실제로 이 프로젝트에 적용해보며 어떻게 이런 개념들이 실전에서 활용될 수 있는지 알 수 있었던 프로젝트였습니다.",
+        "extraImage": [
+          "train_map_visualizer_add_platform.png",
+          "train_map_visualizer_draw_line.png",
+          "train_map_visualizer_select_platform.png",
+          "train_map_visualizer_select_line.png",
+          "train_map_visualizer_manage_line.png",
+          "train_map_visualizer_find_path.png"
+        ]
+      }
+    }
+  ],
+  "activity": [
+    {
+      "title": "Univ. of Seoul LikeLion Tutor",
+      "content": "프론트엔드 강의자로 활동했었던 2019년 서울시립대학교 멋쟁이사자처럼 동아리",
+      "image": "likelion_tutor_thumbnail.jpg",
+      "extraInfo": {
+        "subTitle": "서울시립대학교 멋쟁이사자처럼 강의자",
+        "period": "2019.08. ~ 2019.11.",
+        "description": "대학교 입학 후, 서울시립대 멋쟁이사자처럼 동아리에서 웹 프론트엔드, 그 중에서 React 라이브러리 기초 및 활용법을 주제로 강의를 진행했습니다. 또, 다른 대학교 멋쟁이사자처럼 동아리와 연합하여 열리는 여러 행사에서 스태프로 활동했습니다.",
+        "review": "제 신입생 대학 생활를 이렇게 의미 있게 보낼 수 있었나 싶었던 일 중 하나입니다. 프로그래밍에 대한 한 마음으로 뭉친 사람들의 다양한 이야기를 듣고, 생각을 공유할 수 있었던 자리였습니다. 또한, 강의자로 활동을 하며 스스로 부족한 점과 프로그래밍에 대한 나의 생각를 돌아볼 수 있었던 귀중한 경험이었습니다.",
+        "extraImage": [
+          "likelion_tutor_hackathon.jpg",
+          "likelion_tutor_staff.jpg",
+          "likelion_tutor_lecture.png"
+        ]
+      }
+    },
+    {
+      "title": "LikeLion Hackathon",
+      "content": "팀 프로젝트를 이렇게나 많은 인원으로는 처음 준비해본 멋쟁이사자처럼 전 대학 연합 해커톤",
+      "image": "likelion_hackathon_thumbnail.jpg",
+      "extraInfo": {
+        "subTitle": "여러 주니어 개발자들의 해커톤 도전기",
+        "period": "2019.08.10. ~ 2019.08.11.",
+        "description": "총 8명이서 한 팀을 이뤄 해커톤을 나갔는데, 그 때 구독형 콘텐츠 수신 서비스인 매일메일을 개발했습니다. 매일메일은 브런치나 미디엄과 같은 온라인 출판 서비스와 비슷하게 자신이 작가가 되어 여러 글을 작성할 수 있고, 사용자들은 특정 작가를 구독하여 일정 주기로 작성된 글을 받아볼 수 있는 서비스입니다.",
+        "review": "당시 저는 강의자로도 활동하고 있었던지라 전체적인 업무 분담 및 총괄을 담당했었습니다. 처음 8명이라는 많은 인원으로 어떻게 프로젝트를 진행해야 할 지 막막했던 걱정과는 다르게 너무나 좋은 분위기 속에서 재미있게 해커톤을 준비했던 것 같습니다.",
+        "extraImage": [
+          "likelion_hackathon_proposal.png",
+          "likelion_hackathon_wireframe.png",
+          "likelion_hackathon_intend.png",
+          "likelion_hackathon_presentation.jpg",
+          "likelion_hackathon_stage.jpg",
+          "likelion_hackathon_souvenior.jpg"
+        ]
+      }
+    },
+    {
+      "title": "Launching Online Lecture in Goorm EDU",
+      "content": "주니어 개발자의 가장 핫한 FE 라이브러리🔥, React 가지고 놀아보기 온라인 강의 in Goorm EDU",
+      "image": "goorm_online_lecturer_thumbnail.jpg",
+      "extraInfo": {
+        "subTitle": "주니어 개발자의 온라인 강의 도전기",
+        "period": "2019.11. ~ 2020.02.",
+        "description": "멋쟁이사자처럼에서 진행한 React 라이브러리 기초 강의를 다듬어 가장 핫한 FE 라이브러리🔥, React 가지고 놀아보기라는 이름으로 Goorm EDU에 온라인 강의를 출시했습니다. React의 기본적인 내용들을 포함하여 Redux, 서버 연동 등 다양한 내용을 담았습니다.",
+        "review": "단순히 동아리에서만 활용하기에는 너무 아까운 자료라고 생각해서 이렇게 온라인 강의로 출시했습니다. 내용을 다듬으며 어떻게 쉬우면서 구체적으로 설명할 수 있을지, 보기에 깔끔하게 코드를 작성할 수 있을지 등을 고민하여 배운 점이 너무나도 많았습니다. 정말 강의자가 훨씬 더 많이 배워간다는 것을 깨닫게 해준 좋은 경험이었습니다.",
+        "extraImage": [
+          "goorm_online_lecturer_screenshot_1.png",
+          "goorm_online_lecturer_screenshot_2.png",
+          "goorm_online_lecturer_company.jpg"
+        ]
+      }
+    },
+    {
+      "title": "Konkuk Univ. Medical Hackathon",
+      "content": "개발 외적으로는 부족한 면이 참 많다고 생각했던 건국대학교 메디컬 해커톤",
+      "image": "konkuk_hackathon_thumbnail.jpg",
+      "extraInfo": {
+        "subTitle": "능력있는 개발자, 디자이너와 함께한 해커톤",
+        "period": "2019.11.22. ~ 2019.11.23.",
+        "description": "자신의 증상을 통해 병원의 예상 진료 가격과 항목을 알려주는 서비스로, 건국대학교 메디컬 해커톤에서 대상을 수상한 프로젝트입니다. 사용자는 현재 나타나는 증상 작성 후, 희망 병원 및 의료진을 선택하여 예약이 가능하며 진료를 받기 전에 진료 비용이 얼마나 청구될지 알 수 있습니다.",
+        "review": "저의 부족한 점에 대해 명확하게 알 수 있었던 해커톤이었습니다. 서비스 구현보다는 아이디어에 초점을 맞춰 진행한 해커톤이었기에, 무엇보다도 기획력이 중요했었습니다. 그러나 저는 서비스 기획에 대한 경험이 턱없이 부족했었기에 미숙한 모습을 많이 보였지만, 아이디어 도출 및 기획 프로세스, 비즈니스 모델 등 다양한 것들을 알게 해준 경험이었습니다.",
+        "extraImage": [
+          "konkuk_hackathon_proposal.png",
+          "konkuk_hackathon_database.png",
+          "konkuk_hackathon_ui.png",
+          "konkuk_hackathon_presentation.png"
+        ]
+      }
+    },
+    {
+      "title": "Frontend Developer in Knar",
+      "content": "런칭 초기의 교내 스타트업에서 신입생 주니어 프론트엔드 개발자로 살아남기",
+      "image": "frontend_developer_in_knar_thumbnail.jpg",
+      "extraInfo": {
+        "subTitle": "다시는 할 수 없을 만큼 특별했던 경험",
+        "period": "2019.05. ~ 2020.02.",
+        "description": "서울시립대학교 입학 후, 학교 선배의 추천으로 교내 스타트업인 크날개발의 일원으로 합류하게 되었습니다. 프론트엔드 개발자로서 같은 스타트업의 여러 개발자들과 협업하며 수주받은 프로젝트를 진행하였습니다.",
+        "review": "전에는 단순 개발 실력만 중요시하던 주니어 개발자였지만, 크날개발에서 활동을 하고 난 후로 개발 실력뿐만이 아닌 기획력, 진행 상황 분석, 협업을 위한 소통 등에 대한 중요성을 깨닫게 되었습니다. 크날개발에서 보낸 다양한 경험을 통해 주니어라는 수준을 넘어 보다 더 높은 단계에 더 가까워질 수 있었다고 생각합니다.",
+        "extraImage": [
+          "frontend_developer_in_knar_1.jpg",
+          "frontend_developer_in_knar_2.jpg",
+          "frontend_developer_in_knar_3.jpg",
+          "frontend_developer_in_knar_4.jpg",
+          "frontend_developer_in_knar_5.jpg"
+        ]
+      }
+    },
+    {
+      "title": "Second Lecture in Inflearn & Goorm EDU",
+      "content": "군 복무 기간 3개월을 갈아넣어 출시한 새로운 온라인 Gatsby 블로그 개발 강의",
+      "image": "second_lecture_in_inflearn_and_goorm_thumbnail.png",
+      "extraInfo": {
+        "subTitle": "열정과 끈기로 이뤄낸 새로운 강의",
+        "period": "2021.01. ~ 2021.04.",
+        "description": "이전에 Gatsby를 통해 블로그를 개발했던 경험을 활용하여 Inflearn과 Goorm EDU에 Gatsby 블로그 개발 온라인 강의를 출시했습니다. 단순히 블로그 개발만 하는 것을 넘어 검색 엔진 최적화, 웹 접근성 조치, 블로그 배포 등 프론트엔드 개발자에게 있어 꼭 알아야 할 다양한 개념을 담았습니다.",
+        "review": "군복무 기간동안 기술 블로그 개발을 끝내고, 강의를 제작하고 싶다는 생각이 들어 시작하게 되었습니다. 하루 1시간 30분 동안의 연등 시간을 활용하여 근 3달간 강의 준비에 매달렸고, 그렇게 Gatsby로 기술 블로그 개발하기라는 강의가 출시되었습니다. 강의자가 얻을 수 있는 경험은 물론 열정과 꾸준함이 주는 힘을 깨닫게 해준 특별한 경험이었습니다.",
+        "extraImage": [
+          "second_lecture_in_inflearn_and_goorm_1.png",
+          "second_lecture_in_inflearn_and_goorm_2.png",
+          "second_lecture_in_inflearn_and_goorm_3.png"
+        ]
+      }
+    }
+  ]
+}
